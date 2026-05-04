@@ -110,12 +110,36 @@ Output: `Preprocessing_text/cleaned/` (train + test JSONL per language).
 
 ---
 
-## Step 4: Translation — PENDING
+## Step 4: Translation — COMPLETE
 
-Translate Greek, Spanish, Chinese → English using GPT-4:
-```
-python translation_all_language.py --source_language=gr ...
-```
+Translated Greek, Spanish, Chinese → English using **GPT-4o** via `Translation/translation_all_language.py`.  
+Output: `Translation/translated/` (6 files — train + test per language).
+
+**Script changes from original:**
+- Switched model from `gpt-4` → `gpt-4o` (equivalent quality, ~10× cheaper)
+- API key loaded from `OPENAI_API_KEY` environment variable instead of hardcoded
+- Added `ThreadPoolExecutor` for parallel requests (3 workers per run)
+- Added exponential backoff retry on `RateLimitError` (up to 8 attempts, 2^n second waits)
+- Initial run with 10 workers × 6 parallel processes hit 30K TPM limit; reduced to 3 workers sequential per file
+
+**Results (2026-05-04):**
+
+| File | Records | Missing translations |
+|---|---|---|
+| train_greek_translated.jsonl | 211 | 0 |
+| test_greek_translated.jsonl | 53 | 0 |
+| train_spanish_translated.jsonl | 303 | 0 |
+| test_spanish_translated.jsonl | 76 | 0 |
+| train_chinese_translated.jsonl | 304 | 0 |
+| test_chinese_translated.jsonl | 76 | 0 |
+| **Total** | **1,023** | **0** |
+
+**Quality notes:**
+- Greek picture description and narrative tasks translate cleanly
+- Spanish PerLA task (Don Quixote passage) translated with appropriate literary register; AD variant with vocabulary errors correctly preserved
+- Chinese interviewer/patient speech interleaving preserved in output
+- One Greek AD record contains nonsense syllables (`Πα πα κα...`) from a verbal fluency task — translated literally (correct behaviour; classifier sees English equivalent of incoherent speech)
+- `translated` field added to each record alongside original `Text_interviewer_participant`
 
 ---
 
