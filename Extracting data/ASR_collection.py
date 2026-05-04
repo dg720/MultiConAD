@@ -90,17 +90,26 @@ class ASRCollection(Collection):
             Text_interviewer=raw_datapoint["text_interviewer"]
         )
 
-path_to_ASR_files = "data/ASR_data/ASR_data.jsonl"
+# One entry per transcription JSON produced by ASR_audio_dataset.py.
+# Run once per dataset — set path_to_ASR_files to the relevant .json then execute.
+# --- Transcription JSONs (from ../transcriptions/) ---
+# path_to_ASR_files = "../transcriptions/taukadial_train_transcriptions.json"
+# path_to_ASR_files = "../transcriptions/taukadial_test_transcriptions.json"
+# path_to_ASR_files = "../transcriptions/adress_m_gr_transcriptions.json"
+# path_to_ASR_files = "../transcriptions/ds3_transcriptions.json"
+# path_to_ASR_files = "../transcriptions/ds5_transcriptions.json"
+# path_to_ASR_files = "../transcriptions/ds7_transcriptions.json"
 
+path_to_ASR_files = "../transcriptions/taukadial_train_transcriptions.json"
 
 
 if __name__ == '__main__':
     collection = ASRCollection(path_to_ASR_files)
-    # Making the file name for the output file
-    last_words = path_to_ASR_files.split('/')[-3:]
-    output_file_name = f"{last_words[0]}_{last_words[1]}_{last_words[2]}_output.jsonl"
-    
-    # Writing the normalized data to the output file
+    # Derive output name from the transcription filename, e.g. taukadial_train_output.jsonl
+    stem = os.path.splitext(os.path.basename(path_to_ASR_files))[0]  # e.g. taukadial_train_transcriptions
+    output_file_name = stem.replace("_transcriptions", "_output") + ".jsonl"
+
+    os.makedirs("jsonl_files", exist_ok=True)
     output_file_path = os.path.join("jsonl_files", output_file_name)
     with open(output_file_path, "w", encoding="utf-8") as outfile:
         for raw_datapoint in collection:
@@ -108,3 +117,4 @@ if __name__ == '__main__':
             normalized_dict = asdict(normalized_datapoint)
             json.dump(normalized_dict, outfile, ensure_ascii=False)
             outfile.write("\n")
+    print(f"Saved {output_file_path}")

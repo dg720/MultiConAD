@@ -10,16 +10,18 @@ class CHACollection(Collection):
     def __iter__(self) -> Iterator[RawDataPoint]:
         """
         Iterate through all .cha files in the specified path and yield raw data points.
+        Recurses into subdirectories (needed for datasets like Pitt with task subfolders).
         """
-        for filename in os.listdir(self.path):
-            if filename.endswith(".cha"):
-                file_path = os.path.join(self.path, filename)
-                if self.language == "english" or self.language == "chinese":
-                    yield from self.parse_cha_file(file_path, self._parse_line_english_chinese)
-                elif self.language == "spanish":
-                    yield from self.parse_cha_file(file_path, self._parse_line_spanish)
-                else:
-                    raise ValueError(f"Unsupported language: {self.language}")
+        for root, dirs, files in os.walk(self.path):
+            for filename in files:
+                if filename.endswith(".cha"):
+                    file_path = os.path.join(root, filename)
+                    if self.language == "english" or self.language == "chinese":
+                        yield from self.parse_cha_file(file_path, self._parse_line_english_chinese)
+                    elif self.language == "spanish":
+                        yield from self.parse_cha_file(file_path, self._parse_line_spanish)
+                    else:
+                        raise ValueError(f"Unsupported language: {self.language}")
 
     def parse_cha_file(self, file_path: str, parse_line_func: Callable[[dict, str], None]) -> Iterator[RawDataPoint]:
         """
@@ -228,15 +230,31 @@ class CHACollection(Collection):
 
 
 
-path_to_cha_files =  "path_to_cha_files" # path to the folder containing .cha files
+# --- English datasets (language="english") ---
+# path_to_cha_files = "../data/English/ADReSS_IS2020_train"
+# path_to_cha_files = "../data/English/ADReSS_IS2020_test"
+# path_to_cha_files = "../data/English/Pitt"       # nested Control/Dementia/task subdirs
+# path_to_cha_files = "../data/English/Lu"
+# path_to_cha_files = "../data/English/Baycrest"
+# path_to_cha_files = "../data/English/Delaware"
+# path_to_cha_files = "../data/English/Kempler"
+# path_to_cha_files = "../data/English/VAS"
+# path_to_cha_files = "../data/English/WLS"
 
+# --- Chinese datasets (language="chinese") ---
+# path_to_cha_files = "../data/Chinese/Lu"         # MISSING — not yet available
 
+# --- Spanish datasets (language="spanish") ---
+# path_to_cha_files = "../data/Spanish/Ivanova"
+# path_to_cha_files = "../data/Spanish/PerLA"
+
+path_to_cha_files = "../data/English/ADReSS_IS2020_train"  # set active dataset here
 
 
 if __name__ == '__main__':
-    collection = CHACollection(path_to_cha_files,language="chinese")
-    #collection = CHACollection(path_to_cha_files,language="spanish")
-    #collection = CHACollection(path_to_cha_files,language="english")
+    collection = CHACollection(path_to_cha_files, language="english")
+    #collection = CHACollection(path_to_cha_files, language="spanish")
+    #collection = CHACollection(path_to_cha_files, language="chinese")
     # Making the file name for the output file
     last_words= path_to_cha_files.split('/')[-3:]
     output_file_name= f"{last_words[0]}_{last_words[1]}_{last_words[2]}_output.jsonl"

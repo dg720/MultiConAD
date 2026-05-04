@@ -1,0 +1,153 @@
+@UTF8
+@PID:	11312/a-00059420-1
+@Begin
+@Languages:	eng
+@Participants:	PAR Participant
+@ID:	eng|VAS|PAR|||||Participant|||
+@Media:	081, audio
+*PAR:	Alexa what is the weather outside ? 320_3481
+%xvas:	currently , in chapel hill it's 86 degrees Fahrenheit with mostly cloudy skies . today , you can expect intermittent clouds , with a high of 88 degrees and a low of 70 degrees .
+%mor:	propn|Alexa pron|what-Int-S1 aux|be-Fin-Ind-Pres-S3 det|the-Def-Art noun|weather adv|outside ?
+%gra:	1|0|ROOT 2|1|OBJ 3|5|COP 4|5|DET 5|1|PARATAXIS 6|2|ADVMOD 7|1|PUNCT
+*PAR:	Alexa what is today's date ? 4421_7002
+%xvas:	today is Friday , August 6 .
+%mor:	propn|Alexa pron|what-Int-S1 aux|be-Fin-Ind-Pres-S3 noun|today~part|s noun|date ?
+%gra:	1|0|ROOT 2|1|OBJ 3|6|COP 4|6|NMOD-POSS 5|4|CASE 6|1|PARATAXIS 7|1|PUNCT
+*PAR:	Alexa what time is it ? 7563_9310
+%xvas:	the time is two four p_m .
+%mor:	propn|Alexa det|what-Def-Int noun|time-Acc aux|be-Fin-Ind-Pres-S3 pron|it-Prs-Nom-S3 ?
+%gra:	1|0|ROOT 2|3|DET 3|1|OBJ 4|1|COP 5|1|PARATAXIS 6|1|PUNCT
+*PAR:	Alexa when is Thanksgiving ? 9663_11524
+%xvas:	Thanksgiving day will be on Thursday , November 25 , 2021 .
+%mor:	propn|Alexa adv|when aux|be-Fin-Ind-Pres-S3 propn|Thanksgiving-Ger ?
+%gra:	1|0|ROOT 2|4|ADVMOD 3|4|COP 4|1|ADVCL 5|1|PUNCT
+*PAR:	Alexa how do you bake chocolate chip cookies ? 12585_16007
+%mor:	propn|Alexa adv|how aux|do-Fin-Ind-Pres-S2 pron|you-Prs-Nom-S2 verb|bake-Inf-S noun|chocolate noun|chip noun|cookie-Plur-Acc ?
+%gra:	1|5|VOCATIVE 2|5|ADVMOD 3|5|AUX 4|5|NSUBJ 5|0|ROOT 6|7|COMPOUND 7|8|COMPOUND 8|5|OBJ 9|5|PUNCT
+*PAR:	Alexa what is two times four ? 16868_20531
+%xvas:	2 times 4 is 8 .
+%mor:	propn|Alexa pron|what-Int-S1 aux|be-Fin-Ind-Pres-S3 num|two noun|time-Plur num|four ?
+%gra:	1|0|ROOT 2|1|APPOS 3|6|COP 4|5|NUMMOD 5|6|OBL-UNMARKED 6|1|PARATAXIS 7|1|PUNCT
+*PAR:	Alexa how many tablespoons in a cup ? 21272_24574
+%xvas:	1 cup is 16 tablespoons .
+%mor:	propn|Alexa adv|how adj|many-S1 noun|tablespoon-Plur-Acc adp|in det|a-Ind-Art noun|cup ?
+%gra:	1|0|ROOT 2|3|ADVMOD 3|4|AMOD 4|1|OBJ 5|7|CASE 6|7|DET 7|4|NMOD 8|1|PUNCT
+*PAR:	Alexa how do you spell symptom ? 25375_27798
+%xvas:	symptom is spelled: s y m p t o m .
+%mor:	propn|Alexa adv|how aux|do-Fin-Ind-Pres-S2 pron|you-Prs-Nom-S2 verb|spell-Inf-S noun|symptom-Acc ?
+%gra:	1|5|VOCATIVE 2|5|ADVMOD 3|5|AUX 4|5|NSUBJ 5|0|ROOT 6|5|OBJ 7|5|PUNCT
+*PAR:	Alexa play classical music . 28880_31062
+%xvas:	here's a station you might like: ultimate classical , free on Amazon music .
+%mor:	propn|Alexa verb|play-Fin-S adj|classical-S1 noun|music-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|4|AMOD 4|2|OBJ 5|2|PUNCT
+*PAR:	Alexa volume eight . 31844_35228
+%mor:	propn|Alexa noun|volume num|eight .
+%gra:	1|0|ROOT 2|1|LIST 3|1|DEP 4|1|PUNCT
+*PAR:	Alexa stop . 36009_37110
+%mor:	propn|Alexa verb|stop-Fin-Ind-Pres-S3 .
+%gra:	1|2|COMPOUND 2|0|ROOT 3|2|PUNCT
+*PAR:	Alexa play jazz . 37812_39313
+%xvas:	the station: ultimate jazz , free on Amazon music .
+%mor:	propn|Alexa verb|play-Fin-S noun|jazz-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|OBJ 4|2|PUNCT
+*PAR:	Alexa volume six . 40135_41895
+%mor:	propn|Alexa noun|volume num|six .
+%gra:	1|2|COMPOUND 2|0|ROOT 3|2|NUMMOD 4|2|PUNCT
+*PAR:	Alexa stop . 42656_43816
+%mor:	propn|Alexa verb|stop-Fin-Ind-Pres-S3 .
+%gra:	1|2|COMPOUND 2|0|ROOT 3|2|PUNCT
+*PAR:	Alexa mine . 44536_45676
+%mor:	propn|Alexa pron|my-Prs-S1 .
+%gra:	1|0|ROOT 2|1|FLAT 3|1|PUNCT
+*PAR:	Alexa remind me to start the laundry tomorrow at two p_m . 46837_53339
+%xvas:	okay , I will remind you tomorrow at two p_m .
+%mor:	propn|Alexa verb|remind-Fin-Ind-Pres-S3 pron|I-Prs-Acc-S1 part|to verb|start-Inf-S det|the-Def-Art noun|laundry-Acc noun|tomorrow adp|at num|two noun|pm .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|IOBJ 4|5|MARK 5|2|XCOMP 6|7|DET 7|5|OBJ 8|5|OBL-UNMARKED 9|11|CASE 10|11|NUMMOD 11|5|OBL 12|2|PUNCT
+*PAR:	Alexa remind me to feed the dog at seven p_m everyday . 54220_58567
+%xvas:	okay , I will remind you everyday at seven p_m .
+%mor:	propn|Alexa verb|remind-Fin-Ind-Pres-S3 pron|I-Prs-Acc-S1 part|to verb|feed-Inf-S det|the-Def-Art noun|dog-Acc adp|at num|seven noun|pm noun|everyday .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|IOBJ 4|5|MARK 5|2|XCOMP 6|7|DET 7|5|OBJ 8|11|CASE 9|11|NUMMOD 10|11|COMPOUND 11|5|OBL 12|2|PUNCT
+*PAR:	Alexa tell me remind tell me my reminders . 59450_63917
+%xvas:	here are your upcoming reminders .
+%mor:	propn|Alexa verb|tell-Fin-S pron|I-Prs-Acc-S1 verb|remind-Inf-S verb|tell-Inf-S pron|I-Prs-Acc-S1 pron|my-Prs-Gen-S1 noun|reminder-Plur-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|IOBJ 4|2|XCOMP 5|4|XCOMP 6|5|IOBJ 7|8|NMOD-POSS 8|5|OBJ 9|2|PUNCT
+*PAR:	Alexa remember . 65060_66121
+%xvas:	okay , what should I note ?
+%mor:	propn|Alexa verb|remember-Fin-Ind-Pres-S3 .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|PUNCT
+*PAR:	remember my daughter's birthday is June first . 69727_74394
+%xvas:	you want me to note my daughter's birthday is June first , right ?
+%mor:	verb|remember-Fin-Imp-S pron|my-Prs-Gen-S1 noun|daughter~part|s noun|birthday aux|be-Fin-Ind-Pres-S3 propn|June adj|first-S1 .
+%gra:	1|0|ROOT 2|3|NMOD-POSS 3|5|NMOD-POSS 4|3|CASE 5|7|NSUBJ 6|7|COP 7|1|CCOMP 8|7|AMOD 9|1|PUNCT
+*PAR:	right . 76658_77158
+%xvas:	you already have a note for my daughter's birthday is June first .
+%mor:	adj|right-S1 .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR:	Alexa set . 78100_80475
+%xvas:	sorry , I don't know that .
+%mor:	propn|Alexa verb|set-Fin-Ind-Past-S-irr .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|PUNCT
+*PAR:	Alexa set timer in five seconds . 80804_84449
+%xvas:	5 seconds , starting now .
+%mor:	propn|Alexa verb|set-Fin-Ind-Past-S-irr noun|timer-Acc adp|in num|five noun|second-Plur .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|OBJ 4|6|CASE 5|6|NUMMOD 6|2|OBL 7|2|PUNCT
+*PAR:	Alexa stop . 85631_86712
+%mor:	propn|Alexa verb|stop-Fin-Ind-Pres-S3 .
+%gra:	1|2|COMPOUND 2|0|ROOT 3|2|PUNCT
+*PAR:	Alexa set my alarm for seven a_m tomorrow . 87354_90618
+%xvas:	alarm set for seven a_m tomorrow .
+%mor:	propn|Alexa verb|set-Fin-Ind-Past-S3-irr pron|my-Prs-Gen-S1 noun|alarm-Acc adp|for num|seven noun|am noun|tomorrow .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|4|NMOD-POSS 4|2|OBJ 5|7|CASE 6|7|NUMMOD 7|2|OBL 8|2|OBL-UNMARKED 9|2|PUNCT
+*PAR:	Alexa what is in my shopping list ? 91420_95445
+%xvas:	there is nothing on your shopping list . try saying Alexa , add eggs to my shopping list .
+%mor:	propn|Alexa pron|what-Int-S1 aux|be-Fin-Ind-Pres-S3 adp|in pron|my-Prs-Gen-S1 noun|shopping-Ger noun|list ?
+%gra:	1|0|ROOT 2|7|NSUBJ 3|7|COP 4|7|CASE 5|7|NMOD-POSS 6|7|COMPOUND 7|1|ACL-RELCL 8|1|PUNCT
+*PAR:	Alexa add oranges and grapes . 96087_99571
+%xvas:	I have added oranges and grapes to your shopping list .
+%mor:	propn|Alexa verb|add-Fin-Ind-Pres-S3 noun|orange-Plur-Acc cconj|and noun|grape-Plur .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|OBJ 4|5|CC 5|3|CONJ 6|2|PUNCT
+*PAR:	Alexa what what is in my shopping list ? 101174_105038
+%xvas:	you have 2 items on your shopping list .
+%mor:	propn|Alexa pron|what-Int-S1 pron|what-Int-S1 aux|be-Fin-Ind-Pres-S3 adp|in pron|my-Prs-Gen-S1 noun|shopping-Ger noun|list ?
+%gra:	1|0|ROOT 2|1|OBJ 3|2|NSUBJ 4|8|COP 5|8|CASE 6|8|NMOD-POSS 7|8|COMPOUND 8|2|ACL-RELCL 9|1|PUNCT
+*PAR:	Alexa call area six o@l three six six o@l two two oh three . 105680_112302
+%xvas:	did you mean ? ?
+%mor:	propn|Alexa verb|call-Fin-Ind-Pres-S3 noun|area-Acc num|six l|o-Plur num|three num|six num|six l|o-Plur num|two num|two intj|oh num|three .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|OBJ 4|5|NUMMOD 5|2|OBL-UNMARKED 6|5|NUMMOD 7|9|NUMMOD 8|9|NUMMOD 9|2|OBL-UNMARKED 10|11|COMPOUND 11|9|NUMMOD 12|13|DISCOURSE 13|9|APPOS 14|2|PUNCT
+*PAR:	Alexa find my phone . 112823_114723
+%xvas:	I am going to call the phone now so listen out ! if it doesn't ring , it's because I can't connect or it's on silent .
+%mor:	propn|Alexa verb|find-Fin-Ind-Pres-S3 pron|my-Prs-Gen-S1 noun|phone-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|4|NMOD-POSS 4|2|OBJ 5|2|PUNCT
+*PAR:	Alexa open kitchen . 115384_116944
+%xvas:	kitchen doesn't support that .
+%mor:	propn|Alexa adj|open-S1 noun|kitchen .
+%gra:	1|3|COMPOUND 2|3|AMOD 3|0|ROOT 4|3|PUNCT
+*PAR:	Alexa open the kitchen camera . 118145_121047
+%xvas:	okay .
+%mor:	propn|Alexa verb|open-Fin-Ind-Pres-S3 det|the-Def-Art noun|kitchen noun|camera-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|5|DET 4|5|COMPOUND 5|2|OBJ 6|2|PUNCT
+*PAR:	Alexa hide the kitchen camera . 121849_125572
+%mor:	propn|Alexa verb|hide-Fin-Ind-Pres-S3 det|the-Def-Art noun|kitchen noun|camera-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|5|DET 4|5|COMPOUND 5|2|OBJ 6|2|PUNCT
+*PAR:	Alexa play white collar . 126233_128355
+%xvas:	getting white collar from prime video .
+%mor:	propn|Alexa verb|play-Fin-S adj|white-S1 noun|collar-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|4|AMOD 4|2|OBJ 5|2|PUNCT
+*PAR:	okay Alexa pause . 129377_130738
+%mor:	intj|okay propn|Alexa noun|pause .
+%gra:	1|2|DISCOURSE 2|0|ROOT 3|2|FLAT 4|2|PUNCT
+*PAR:	Alexa pause . 132300_134542
+%mor:	propn|Alexa noun|pause .
+%gra:	1|2|COMPOUND 2|0|ROOT 3|2|PUNCT
+*PAR:	Alexa call six oh three . 135443_140950
+%xvas:	I only heard a three-digit number , what's the full ten digit number , including area code ?
+%mor:	propn|Alexa verb|call-Fin-Ind-Pres-S3 num|six intj|oh num|three .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|OBJ 4|5|DISCOURSE 5|2|PARATAXIS 6|2|PUNCT
+*PAR:	Alexa xxx . 143032_143532
+%mor:	propn|Alexa .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR:	where are my hair ? 143910_144933
+%xvas:	the hair is a constitutional part of the skin , the epidermis , and the pilosebaceous unit .
+%mor:	adv|where aux|be-Fin-Ind-Pres-P3 pron|my-Prs-Gen-S1 noun|hair ?
+%gra:	1|0|ROOT 2|1|COP 3|4|NMOD-POSS 4|1|NSUBJ 5|1|PUNCT
+@End

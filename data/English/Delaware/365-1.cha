@@ -1,0 +1,493 @@
+@UTF8
+@PID:	11312/a-00100755-0
+@Begin
+@Languages:	eng
+@Participants:	INV Investigator, PAR Participant
+@ID:	eng|Delaware|INV|||||Investigator|||
+@ID:	eng|Delaware|PAR|77;00.|female|Control||Participant|||
+@Comment:	[ba3 align | fa=whisper-fa-large-v2 ; lang=eng | 2026-04-29T13:46:55-04:00]
+@Media:	365-1, audio
+@Comment:	Batchalign 0.7.22-post.12 , ASR Engine rev.
+@G:	Cookie
+*INV:	okay . 3235_5258
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 3255_5417 .
+%xalign:	monotonicity:end_clamped end_truncated_by=159ms original_end=5417 clamped_to=5258 cause=utr_token_range_overlap
+*INV:	here is a picture . 5258_6939
+%mor:	adv|here aux|be-Fin-Ind-Pres-S3 det|a-Ind-Art noun|picture .
+%gra:	1|0|ROOT 2|1|COP 3|4|DET 4|1|NSUBJ 5|1|PUNCT
+%wor:	here 5457_5798 is 5798_6218 a 6218_6338 picture 6338_6939 .
+*INV:	please tell me everything you see going on in this picture . 7319_11184
+%mor:	intj|please verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 pron|everything-Tot-S1 pron|you-Prs-Nom-S2 verb|see-Fin-Ind-Pres-S2 verb|go-Ger-S adp|on adp|in det|this-Def-Dem-Sing noun|picture .
+%gra:	1|2|DISCOURSE 2|0|ROOT 3|2|IOBJ 4|2|OBJ 5|6|NSUBJ 6|4|ACL-RELCL 7|6|XCOMP 8|7|COMPOUND-PRT 9|11|CASE 10|11|DET 11|7|OBL 12|2|PUNCT
+%wor:	please 7319_7800 tell 7800_8020 me 8020_8301 everything 8301_8941 you 8941_9122 see 9122_9322 going 9322_9782 on 9782_10183 in 10183_10323 this 10323_10643 picture 10643_11184 .
+*PAR:	the water is running over in the sink . 12886_15174
+%mor:	det|the-Def-Art noun|water aux|be-Fin-Ind-Pres-S3 verb|run-Part-Pres-S adp|over adp|in det|the-Def-Art noun|sink .
+%gra:	1|2|DET 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|4|COMPOUND-PRT 6|8|CASE 7|8|DET 8|4|OBL 9|4|PUNCT
+%wor:	the 12886_13066 water 13066_13427 is 13427_13587 running 13587_14048 over 14048_14388 in 14388_14488 the 14488_14668 sink 14668_15049 .
+*PAR:	the lady's washing the dishes . 15489_17117
+%mor:	det|the-Def-Art noun|lady~part|s verb|wash-Ger-S det|the-Def-Art noun|dish-Plur-Acc .
+%gra:	1|2|DET 2|4|NSUBJ 3|2|CASE 4|0|ROOT 5|6|DET 6|4|OBJ 7|4|PUNCT
+%wor:	the 15489_15690 lady's 15690_16170 washing 16170_16531 the 16531_16631 dishes 16631_17091 .
+*PAR:	&-um the little boy is reaching a cookie in the jar and about to fall . 18068_21292
+%mor:	det|the-Def-Art adj|little-S1 noun|boy aux|be-Fin-Ind-Pres-S3 verb|reach-Part-Pres-S det|a-Ind-Art noun|cookie-Acc adp|in det|the-Def-Art noun|jar cconj|and adj|about-S1 part|to verb|fall-Inf-S .
+%gra:	1|3|DET 2|3|AMOD 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|7|DET 7|5|OBJ 8|10|CASE 9|10|DET 10|5|OBL 11|12|CC 12|5|CONJ 13|14|MARK 14|12|XCOMP 15|5|PUNCT
+%wor:	um 18068_18248 the 18248_18389 little 18389_18589 boy 18589_18929 is 18929_19069 reaching 19069_19410 a 19410_19530 cookie 19530_19870 in 19870_19930 the 19930_20071 jar 20071_20351 and 20351_20451 about 20451_20711 to 20711_20852 fall 20852_21292 .
+%xalign:	fa:narrow_bullet_rescued word_count=15 original_end=21345 expanded_end=21927 next_start=22127 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	the little girl is reaching for the cookie . 22113_24310
+%mor:	det|the-Def-Art adj|little-S1 noun|girl aux|be-Fin-Ind-Pres-S3 verb|reach-Part-Pres-S adp|for det|the-Def-Art noun|cookie .
+%gra:	1|3|DET 2|3|AMOD 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|8|CASE 7|8|DET 8|5|OBL 9|5|PUNCT
+%wor:	the 22113_22273 little 22273_22574 girl 22574_22914 is 22914_23094 reaching 23094_23435 for 23435_23615 the 23615_23795 cookie 23795_24136 .
+*PAR:	the curtain is open . 25093_26394
+%mor:	det|the-Def-Art noun|curtain aux|be-Fin-Ind-Pres-S3 adj|open-S1 .
+%gra:	1|2|DET 2|4|NSUBJ 3|4|COP 4|0|ROOT 5|4|PUNCT
+%wor:	the 25097_25277 curtain 25277_25678 is 25678_25918 open 25918_26258 .
+*PAR:	&-um place [//] plates are on the countertop . 27140_30483
+%mor:	noun|plate-Plur aux|be-Fin-Ind-Pres-P3 adp|on det|the-Def-Art noun|countertop .
+%gra:	1|5|NSUBJ 2|5|COP 3|5|CASE 4|5|DET 5|0|ROOT 6|5|PUNCT
+%wor:	um 27680_28141 place 28141_28641 plates 28641_29122 are 29122_29202 on 29202_29402 the 29402_29883 countertop 29883_30483 .
+*PAR:	&-um curtains at the window . 30640_36700
+%mor:	noun|curtain-Plur adp|at det|the-Def-Art noun|window .
+%gra:	1|0|ROOT 2|4|CASE 3|4|DET 4|1|NMOD 5|1|PUNCT
+%wor:	um 30840_33102 curtains 35525_35945 at 35945_36065 the 36065_36185 window 36185_36586 .
+*PAR:	and you can look and see outside the window . 36726_38808
+%mor:	cconj|and pron|you-Prs-Nom-S2 aux|can-Fin-S verb|look-Inf-S cconj|and verb|see-Inf-S adp|outside det|the-Def-Art noun|window .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|6|CC 6|4|CONJ 7|9|CASE 8|9|DET 9|6|OBL 10|4|PUNCT
+%wor:	and 36726_36926 you 36926_37026 can 37026_37226 look 37226_37406 and 37406_37567 see 37567_37767 outside 37767_38307 the 38307_38447 window 38447_38808 .
+%xalign:	fa:narrow_bullet_rescued word_count=9 original_end=38944 expanded_end=39891 next_start=40365 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	and she has a washcloth , drying the dishes . 40329_43231
+%mor:	cconj|and pron|she-Prs-Nom-S3 verb|have-Fin-Ind-Pres-S3 det|a-Ind-Art noun|washcloth-Acc cm|cm verb|drying-Part-Pres-S det|the-Def-Art noun|dish-Plur-Acc .
+%gra:	1|3|CC 2|3|NSUBJ 3|0|ROOT 4|5|DET 5|3|OBJ 6|7|PUNCT 7|3|ADVCL 8|9|DET 9|7|OBJ 10|3|PUNCT
+%wor:	and 40329_40490 she 40490_40630 has 40630_40850 a 40850_41190 washcloth 41190_42211 , drying 42211_42592 the 42592_42732 dishes 42732_43172 .
+*PAR:	and cup and plates are located on the countertop . 45397_48241
+%mor:	cconj|and noun|cup cconj|and noun|plate-Plur aux|be-Fin-Ind-Pres-P3 verb|locate-Part-Past-S adp|on det|the-Def-Art noun|countertop .
+%gra:	1|6|CC 2|6|NSUBJ-PASS 3|4|CC 4|2|CONJ 5|6|AUX-PASS 6|0|ROOT 7|9|CASE 8|9|DET 9|6|OBL 10|6|PUNCT
+%wor:	and 45417_45557 cup 45557_45897 and 45897_46037 plates 46037_46458 are 46458_46578 located 46578_47199 on 47199_47379 the 47379_47560 countertop 47560_48241 .
+*PAR:	and the lady has on shoes . 63465_64888
+%mor:	cconj|and det|the-Def-Art noun|lady verb|have-Fin-Ind-Pres-S3 adp|on noun|shoe-Plur .
+%gra:	1|4|CC 2|3|DET 3|4|NSUBJ 4|0|ROOT 5|6|CASE 6|4|OBL 7|4|PUNCT
+%wor:	and 63505_63585 the 63585_63705 lady 63705_63966 has 63966_64227 on 64227_64447 shoes 64447_64848 .
+%xalign:	monotonicity:end_clamped end_truncated_by=60ms original_end=64948 clamped_to=64888 cause=utr_token_range_overlap
+*PAR:	the little boy has on shoes and socks . 64888_67716
+%mor:	det|the-Def-Art adj|little-S1 noun|boy verb|have-Fin-Ind-Pres-S3 adp|on noun|shoe-Plur cconj|and noun|sock-Plur .
+%gra:	1|3|DET 2|3|AMOD 3|4|NSUBJ 4|0|ROOT 5|6|CASE 6|4|OBL 7|8|CC 8|6|CONJ 9|4|PUNCT
+%wor:	the 64888_65009 little 65009_65229 boy 65229_65510 has 65510_65831 on 65831_66713 shoes 66713_67134 and 67134_67295 socks 67295_67676 .
+%xalign:	monotonicity:end_clamped end_truncated_by=81ms original_end=67797 clamped_to=67716 cause=utr_token_range_overlap
+*PAR:	and the little girl got on shoes and socks . 67716_69681
+%mor:	cconj|and det|the-Def-Art adj|little-S1 noun|girl verb|get-Fin-Ind-Past-S3-irr adp|on noun|shoe-Plur cconj|and noun|sock-Plur .
+%gra:	1|5|CC 2|4|DET 3|4|AMOD 4|5|NSUBJ 5|0|ROOT 6|7|CASE 7|5|OBL 8|9|CC 9|7|CONJ 10|5|PUNCT
+%wor:	and 67716_67816 the 67816_67977 little 67977_68157 girl 68157_68418 got 68418_68638 on 68638_68799 shoes 68799_69080 and 69080_69240 socks 69240_69681 .
+%xalign:	fa:narrow_bullet_rescued word_count=9 original_end=69724 expanded_end=70869 next_start=80965 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*INV:	is that it ? 80965_81745
+%mor:	aux|be-Fin-Ind-Pres-S3 pron|that-Dem pron|it-Prs-Nom-S3 ?
+%gra:	1|3|COP 2|3|NSUBJ 3|0|ROOT 4|3|PUNCT
+%wor:	is 80985_81025 that 81025_81245 it 81245_81405 ?
+*PAR:	yes . [+ exc] 82846_83348
+%mor:	intj|yes .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	yes 82846_83186 .
+*INV:	okay . 83767_84269
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 83767_84047 .
+@G:	Cat
+*INV:	here is another picture that tells a story . 85508_88356
+%mor:	adv|here aux|be-Fin-Ind-Pres-S3 det|another-Def-Ind noun|picture pron|that-Rel verb|tell-Fin-Ind-Pres-S3 det|a-Ind-Art noun|story-Acc .
+%gra:	1|0|ROOT 2|1|COP 3|4|DET 4|1|NSUBJ 5|6|NSUBJ 6|4|ACL-RELCL 7|8|DET 8|6|OBJ 9|1|PUNCT
+%wor:	here 85508_85868 is 85868_86048 another 86048_86629 picture 86629_87129 that 87129_87370 tells 87370_87730 a 87730_87850 story 87850_88310 .
+*INV:	look at everything that's happening . 89071_90792
+%mor:	verb|look-Fin-Imp-S adp|at pron|everything-Tot-S1 pron|that-Rel~aux|be-Fin-Ind-Pres-S3 verb|happen-Part-Pres-S .
+%gra:	1|0|ROOT 2|3|CASE 3|1|OBL 4|6|NSUBJ 5|6|AUX 6|3|ACL-RELCL 7|1|PUNCT
+%wor:	look 89071_89271 at 89271_89511 everything 89511_90012 that's 90012_90272 happening 90272_90792 .
+*INV:	and then tell me a story about what you see . 90952_93094
+%mor:	cconj|and adv|then verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 det|a-Ind-Art noun|story-Acc adp|about pron|what-Rel-S1 pron|you-Prs-Nom-S2 verb|see-Fin-Ind-Pres-S2 .
+%gra:	1|3|CC 2|3|ADVMOD 3|0|ROOT 4|3|IOBJ 5|6|DET 6|3|OBJ 7|8|CASE 8|6|NMOD 9|10|NSUBJ 10|8|ACL-RELCL 11|3|PUNCT
+%wor:	and 90952_91052 then 91052_91253 tell 91253_91493 me 91493_91633 a 91633_91733 story 91733_92093 about 92093_92373 what 92373_92614 you 92614_92874 see 92874_93094 .
+%xalign:	fa:narrow_bullet_rescued word_count=10 original_end=93364 expanded_end=93595 next_start=93795 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*INV:	tell me the story with a beginning a middle and an end . 93795_97379
+%mor:	verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 det|the-Def-Art noun|story-Acc adp|with det|a-Ind-Art verb|begin-Ger-S det|a-Ind-Art noun|middle-Acc cconj|and det|a-Ind-Art noun|end .
+%gra:	1|0|ROOT 2|1|IOBJ 3|4|DET 4|1|OBJ 5|7|MARK 6|7|DET 7|4|ACL 8|9|DET 9|7|OBJ 10|12|CC 11|12|DET 12|9|CONJ 13|1|PUNCT
+%wor:	tell 93815_94055 me 94055_94195 the 94195_94376 story 94376_94916 with 94916_95117 a 95117_95177 beginning 95177_95938 a 95938_96038 middle 96038_96519 and 96519_96639 an 96639_96880 end 96880_97221 .
+*PAR:	okay . [+ exc] 98822_99404
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 98823_99404 .
+*PAR:	the story is about the [/] the little girl's cat got stuck in the tree . 99644_107074
+%mor:	det|the-Def-Art noun|story aux|be-Fin-Ind-Pres-S3 adp|about det|the-Def-Art adj|little-S1 noun|girl~part|s noun|cat aux|get-Fin-Ind-Past-S3-irr adj|stuck-S1 adp|in det|the-Def-Art noun|tree .
+%gra:	1|2|DET 2|11|NSUBJ-OUTER 3|11|COP 4|9|CASE 5|7|DET 6|7|AMOD 7|9|NMOD-POSS 8|7|CASE 9|11|NSUBJ 10|11|COP 11|0|ROOT 12|14|CASE 13|14|DET 14|11|OBL 15|11|PUNCT
+%wor:	the 99645_99865 story 99865_100707 is 100707_100967 about 100967_101488 the 102991_103932 the 103932_104113 little 104113_104373 girl's 104373_104734 cat 104734_105215 got 105215_105475 stuck 105475_106256 in 106256_106477 the 106477_106617 tree 106617_106938 .
+*PAR:	the father decided to go get the cat . 107925_112748
+%mor:	det|the-Def-Art noun|father verb|decide-Fin-Ind-Past-S3 part|to verb|go-Inf-S verb|get-Inf-S det|the-Def-Art noun|cat-Acc .
+%gra:	1|2|DET 2|3|NSUBJ 3|0|ROOT 4|5|MARK 5|3|XCOMP 6|5|XCOMP 7|8|DET 8|6|OBJ 9|3|PUNCT
+%wor:	the 107925_108165 father 108165_108765 decided 110086_110686 to 110686_110906 go 110906_111867 get 111867_112087 the 112087_112247 cat 112247_112647 .
+*PAR:	but he got stuck . 113348_114489
+%mor:	cconj|but pron|he-Prs-Nom-S3 aux|get-Fin-Ind-Past-S3-irr adj|stuck-S1 .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|COP 4|0|ROOT 5|4|PUNCT
+%wor:	but 113348_113528 he 113528_113708 got 113708_113988 stuck 113988_114468 .
+*PAR:	they called the firemen . 114989_116069
+%mor:	pron|they-Prs-Nom-P3 verb|call-Fin-Ind-Past-P3 det|the-Def-Art noun|firemen-Plur-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|4|DET 4|2|OBJ 5|2|PUNCT
+%wor:	they 114989_115149 called 115149_115409 the 115409_115549 firemen 115549_116069 .
+*PAR:	and the firemens [: firemen] [* m:++s:i] is going to try to rescue the man and the cat . 116129_122254
+%mor:	cconj|and det|the-Def-Art noun|firemen-Plur aux|be-Fin-Ind-Pres-S3 verb|go-Part-Pres-S part|to verb|try-Inf-S part|to verb|rescue-Inf-S det|the-Def-Art noun|man-Acc cconj|and det|the-Def-Art noun|cat .
+%gra:	1|5|CC 2|3|DET 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|7|MARK 7|5|XCOMP 8|9|MARK 9|7|XCOMP 10|11|DET 11|9|OBJ 12|14|CC 13|14|DET 14|11|CONJ 15|5|PUNCT
+%wor:	and 116129_116209 the 116209_116309 firemens 116309_117370 is 117370_117590 going 117590_117930 to 117930_118050 try 118050_118330 to 118330_118531 rescue 118531_119131 the 120292_120512 man 120512_121312 and 121312_121592 the 121592_121752 cat 121752_122133 .
+*PAR:	and the story's about they're trying to rescue the cat and the man . 127577_132259
+%mor:	cconj|and det|the-Def-Art noun|story~aux|be-Fin-Ind-Pres-S3 sconj|about pron|they-Prs-Nom-P3~aux|be-Fin-Ind-Pres-P3 verb|try-Part-Pres-S part|to verb|rescue-Inf-S det|the-Def-Art noun|cat-Acc cconj|and det|the-Def-Art noun|man .
+%gra:	1|8|CC 2|3|DET 3|8|NSUBJ-OUTER 4|8|COP 5|8|MARK 6|8|NSUBJ 7|8|AUX 8|0|ROOT 9|10|MARK 10|8|XCOMP 11|12|DET 12|10|OBJ 13|15|CC 14|15|DET 15|12|CONJ 16|8|PUNCT
+%wor:	and 129097_129498 the 129498_129618 story's 129618_130078 about 130078_130418 they're 130418_130558 trying 130558_130818 to 130818_130898 rescue 130898_131259 the 131259_131379 cat 131379_131639 and 131639_131719 the 131719_131839 man 131839_132199 .
+%xalign:	monotonicity:end_clamped end_truncated_by=81ms original_end=132340 clamped_to=132259 cause=utr_token_range_overlap
+*PAR:	and [/] and anything else I need to +..? [+ exc] 132259_138384
+%mor:	cconj|and pron|anything-Ind-S1 adj|else-S1 pron|I-Prs-Nom-S1 verb|need-Fin-Ind-Pres-S1 part|to +..?
+%gra:	1|2|CC 2|0|ROOT 3|2|AMOD 4|5|NSUBJ 5|2|ACL-RELCL 6|5|XCOMP 7|2|PUNCT
+%wor:	and 132259_132579 and 132579_132739 anything 136842_137362 else 137362_137582 I 137582_137622 need 137622_137902 to 137902_138002 +..?
+*INV:	okay . 144785_145285
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 144825_145045 .
+@G:	Rockwell
+*INV:	here is another picture that tells a story . 148487_152030
+%mor:	adv|here aux|be-Fin-Ind-Pres-S3 det|another-Def-Ind noun|picture pron|that-Rel verb|tell-Fin-Ind-Pres-S3 det|a-Ind-Art noun|story-Acc .
+%gra:	1|0|ROOT 2|1|COP 3|4|DET 4|1|NSUBJ 5|6|NSUBJ 6|4|ACL-RELCL 7|8|DET 8|6|OBJ 9|1|PUNCT
+%wor:	here 148490_148850 is 148850_149011 another 149011_149591 picture 149591_150873 that 150873_151094 tells 151094_151434 a 151434_151554 story 151554_152015 .
+*INV:	this picture is two pictures together in one &*PAR:mhm . 152570_155632
+%mor:	det|this-Def-Dem-Sing noun|picture aux|be-Fin-Ind-Pres-S3 num|two noun|picture-Plur adv|together adp|in num|one .
+%gra:	1|2|DET 2|5|NSUBJ 3|5|COP 4|5|NUMMOD 5|0|ROOT 6|5|ADVMOD 7|8|CASE 8|5|NMOD 9|5|PUNCT
+%wor:	this 152576_152856 picture 152856_153357 is 153357_153577 two 153577_153878 pictures 153878_154398 together 154398_154839 in 154839_155139 one 155139_155440 .
+*INV:	look at everything that's happening . 156261_157934
+%mor:	verb|look-Fin-Imp-S adp|at pron|everything-Tot-S1 pron|that-Rel~aux|be-Fin-Ind-Pres-S3 verb|happen-Part-Pres-S .
+%gra:	1|0|ROOT 2|3|CASE 3|1|OBL 4|6|NSUBJ 5|6|AUX 6|3|ACL-RELCL 7|1|PUNCT
+%wor:	look 156261_156441 at 156441_156662 everything 156662_157182 that's 157182_157443 happening 157443_157923 .
+*INV:	and then tell me a story about what you see . 158075_160479
+%mor:	cconj|and adv|then verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 det|a-Ind-Art noun|story-Acc adp|about pron|what-Rel-S1 pron|you-Prs-Nom-S2 verb|see-Fin-Ind-Pres-S2 .
+%gra:	1|3|CC 2|3|ADVMOD 3|0|ROOT 4|3|IOBJ 5|6|DET 6|3|OBJ 7|8|CASE 8|6|NMOD 9|10|NSUBJ 10|8|ACL-RELCL 11|3|PUNCT
+%wor:	and 158095_158175 then 158175_158375 tell 158375_158636 me 158636_158776 a 158776_158896 story 158896_159257 about 159257_159557 what 159557_159758 you 159758_159978 see 159978_160199 .
+*INV:	tell me the story with a beginning a middle and an end . 160599_164188
+%mor:	verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 det|the-Def-Art noun|story-Acc adp|with det|a-Ind-Art verb|begin-Ger-S det|a-Ind-Art noun|middle-Acc cconj|and det|a-Ind-Art noun|end .
+%gra:	1|0|ROOT 2|1|IOBJ 3|4|DET 4|1|OBJ 5|7|MARK 6|7|DET 7|4|ACL 8|9|DET 9|7|OBJ 10|12|CC 11|12|DET 12|9|CONJ 13|1|PUNCT
+%wor:	tell 160599_160840 me 160840_160980 the 160980_161181 story 161181_161722 with 161722_161922 a 161922_161982 beginning 161982_162724 a 162724_162864 middle 162864_163325 and 163325_163445 an 163445_163685 end 163685_164026 .
+*PAR:	okay . [+ exc] 166070_166591
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 166070_166591 .
+*PAR:	the beginning is look like +... 169055_174969
+%mor:	det|the-Def-Art noun|beginning-Ger aux|be-Fin-Ind-Pres-S3 verb|look-Inf-S adp|like +...
+%gra:	1|2|DET 2|4|NSUBJ 3|4|COP 4|0|ROOT 5|4|ADVMOD 6|4|PUNCT
+%wor:	the 169055_169215 beginning 169215_170037 is 172724_173165 look 173165_174368 like 174368_174969 +...
+*PAR:	okay they +... [+ exc] 183765_189456
+%mor:	intj|okay pron|they-Prs-Nom-P3 +...
+%gra:	1|2|DISCOURSE 2|0|ROOT 3|2|PUNCT
+%wor:	okay 183785_188995 they 188995_189456 +...
+*PAR:	okay . [+ exc] 189516_190023
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 189516_189877 .
+*PAR:	it looks like <they're all> [//] they're traveling to visit someone or take someone back home . 191015_200254
+%mor:	pron|it-Prs-Nom-S3 verb|look-Fin-Ind-Pres-S3 sconj|like pron|they-Prs-Nom-P3~aux|be-Fin-Ind-Pres-P3 verb|travel-Part-Pres-S part|to verb|visit-Inf-S pron|someone-Ind-S1 cconj|or verb|take-Inf-S pron|someone-Ind-S1 adv|back adv|home .
+%gra:	1|2|EXPL 2|0|ROOT 3|6|MARK 4|6|NSUBJ 5|6|AUX 6|2|ADVCL 7|8|MARK 8|6|ADVCL 9|8|OBJ 10|11|CC 11|8|CONJ 12|11|OBJ 13|14|ADVMOD 14|11|ADVMOD 15|2|PUNCT
+%wor:	it 191055_191175 looks 191175_191515 like 191515_191736 they're 191736_192297 all 192297_192537 they're 192537_192798 traveling 192798_194381 to 194381_194501 visit 196805_197968 someone 197968_198529 or 198529_198669 take 198669_198989 someone 198989_199450 back 199450_199791 home 199791_200172 .
+*PAR:	and then on the way they , the little boy and the little girl , are [/] are anxious to get to where they're going . 202055_207478
+%mor:	cconj|and adv|then adp|on det|the-Def-Art noun|way pron|they-Prs-Nom-P3 cm|cm det|the-Def-Art adj|little-S1 noun|boy cconj|and det|the-Def-Art adj|little-S1 noun|girl cm|cm aux|be-Fin-Ind-Pres-P3 adj|anxious-S1 part|to verb|get-Inf-S adp|to adv|where pron|they-Prs-Nom-P3~aux|be-Fin-Ind-Pres-P3 verb|go-Part-Pres-S .
+%gra:	1|17|CC 2|17|ADVMOD 3|5|CASE 4|5|DET 5|17|OBL 6|17|NSUBJ 7|10|PUNCT 8|10|DET 9|10|AMOD 10|6|APPOS 11|14|CC 12|14|DET 13|14|AMOD 14|10|CONJ 15|6|PUNCT 16|17|COP 17|0|ROOT 18|19|MARK 19|17|XCOMP 20|21|CASE 21|19|OBL 22|24|NSUBJ 23|24|AUX 24|21|ADVCL-RELCL 25|17|PUNCT
+%wor:	and 202115_202315 then 202315_202675 on 202675_202815 the 202815_202955 way 202955_203315 they 203315_203675 , the 203675_203856 little 203856_204076 boy 204076_204256 and 204256_204316 the 204316_204436 little 204436_204616 girl 204616_204976 , are 204976_205657 are 205657_205957 anxious 205957_206337 to 206337_206497 get 206497_206677 to 206677_206777 where 206777_206957 they're 206957_207157 going 207157_207458 .
+%xalign:	monotonicity:end_clamped end_truncated_by=180ms original_end=207658 clamped_to=207478 cause=utr_token_range_overlap
+*PAR:	so , they're looking out the window . 207478_208598
+%mor:	adv|so cm|cm pron|they-Prs-Nom-P3~aux|be-Fin-Ind-Pres-P3 verb|look-Part-Pres-S adp|out det|the-Def-Art noun|window-Acc .
+%gra:	1|5|DISCOURSE 2|1|PUNCT 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|5|COMPOUND-PRT 7|8|DET 8|5|OBJ 9|5|PUNCT
+%wor:	so 207478_207598 , they're 207598_207758 looking 207758_208038 out 208038_208138 the 208138_208258 window 208258_208598 .
+%xalign:	fa:narrow_bullet_rescued word_count=6 original_end=208759 expanded_end=209579 next_start=209920 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	and the bottom picture is <they are> [/] they're probably on their way back . 209919_213141
+%mor:	cconj|and det|the-Def-Art adj|bottom-S1 noun|picture aux|be-Fin-Ind-Pres-S3 pron|they-Prs-Nom-P3~aux|be-Fin-Ind-Pres-P3 adv|probably adp|on pron|their-Prs-Gen-P3 noun|way adv|back .
+%gra:	1|11|CC 2|4|DET 3|4|AMOD 4|11|NSUBJ-OUTER 5|11|COP 6|11|NSUBJ 7|11|COP 8|11|ADVMOD 9|11|CASE 10|11|NMOD-POSS 11|0|ROOT 12|11|ADVMOD 13|11|PUNCT
+%wor:	and 209919_210079 the 210079_210219 bottom 210219_210519 picture 210519_210880 is 210880_211000 they 211000_211280 are 211280_211520 they're 211520_211760 probably 211760_212180 on 212180_212300 their 212300_212481 way 212481_212721 back 212721_213061 .
+%xalign:	monotonicity:end_clamped end_truncated_by=81ms original_end=213222 clamped_to=213141 cause=utr_token_range_overlap
+*PAR:	and they're more relaxed than at the first . 213141_216004
+%mor:	cconj|and pron|they-Prs-Nom-P3~aux|be-Fin-Ind-Pres-P3 adv|more adj|relaxed-S1 sconj|than adp|at det|the-Def-Art adj|first-S1 .
+%gra:	1|5|CC 2|5|NSUBJ 3|5|COP 4|5|ADVMOD 5|0|ROOT 6|9|MARK 7|9|CASE 8|9|DET 9|5|ADVCL 10|5|PUNCT
+%wor:	and 213141_213661 they're 213661_213881 more 213881_214142 relaxed 214142_214682 than 214682_215182 at 215182_215342 the 215342_215502 first 215502_215903 .
+*PAR:	so , it's a anticipation in the beginning . 219355_222160
+%mor:	adv|so cm|cm pron|it-Prs-Nom-S3~aux|be-Fin-Ind-Pres-S3 det|a-Ind-Art noun|anticipation adp|in det|the-Def-Art noun|beginning-Ger .
+%gra:	1|6|DISCOURSE 2|1|PUNCT 3|6|NSUBJ 4|6|COP 5|6|DET 6|0|ROOT 7|9|CASE 8|9|DET 9|6|NMOD 10|6|PUNCT
+%wor:	so 219395_219535 , it's 219535_219855 a 219855_220537 anticipation 220537_221438 in 221438_221559 the 221559_221659 beginning 221659_222140 .
+*PAR:	and then once they've going and gotten where they wanna go then their coming back , it's not as rush rush . 222180_228214
+%mor:	cconj|and adv|then sconj|once pron|they-Prs-Nom-P3~aux|have-Fin-Ind-Pres-P3 verb|go-Part-Pres-S cconj|and verb|get-Part-Past-S-irr adv|where pron|they-Prs-Nom-P3 verb|want-Fin-Ind-Pres-P3~part|to verb|go-Inf-S adv|then pron|their-Prs-Gen-P3 verb|come-Part-Pres-S adv|back cm|cm pron|it-Prs-Nom-S3~aux|be-Fin-Ind-Pres-S3 part|not adp|as noun|rush noun|rush .
+%gra:	1|24|CC 2|24|ADVMOD 3|6|MARK 4|6|NSUBJ 5|6|AUX 6|24|ADVCL 7|8|CC 8|6|CONJ 9|6|ADVMOD 10|11|NSUBJ 11|9|ADVCL-RELCL 12|13|MARK 13|11|XCOMP 14|16|ADVMOD 15|16|NSUBJ 16|6|CONJ 17|16|ADVMOD 18|6|PUNCT 19|24|NSUBJ 20|24|COP 21|24|ADVMOD 22|24|CASE 23|24|COMPOUND 24|0|ROOT 25|24|PUNCT
+%wor:	and 222180_222320 then 222320_223282 once 223282_223422 they've 223422_223702 going 223702_223983 and 223983_224143 gotten 224143_224424 where 224424_224584 they 224584_224704 wanna 224704_225005 go 225005_225325 then 225325_225486 their 225486_225646 coming 225646_225947 back 225947_226267 , it's 226267_226448 not 226448_226708 as 226708_227389 rush 227389_227730 rush 227730_228050 .
+@G:	Cinderella_Intro
+*INV:	I'm going to ask you to tell a story . 236395_238277
+%mor:	pron|I-Prs-Nom-S1~aux|be-Fin-Ind-Pres-S1 verb|go-Part-Pres-S part|to verb|ask-Inf-S pron|you-Prs-Acc-S2 part|to verb|tell-Inf-S det|a-Ind-Art noun|story-Acc .
+%gra:	1|3|NSUBJ 2|3|AUX 3|0|ROOT 4|5|MARK 5|3|XCOMP 6|5|IOBJ 7|8|MARK 8|5|XCOMP 9|10|DET 10|8|OBJ 11|3|PUNCT
+%wor:	I'm 236415_236515 going 236515_236815 to 236815_236955 ask 236955_237195 you 237195_237295 to 237295_237415 tell 237415_237675 a 237675_237775 story 237775_238236 .
+*INV:	have you ever heard of the story of Cinderella ? 238416_240858
+%mor:	aux|have-Fin-Ind-Pres-S2 pron|you-Prs-Nom-S2 adv|ever verb|hear-Part-Past-S-irr adp|of det|the-Def-Art noun|story adp|of propn|Cinderella ?
+%gra:	1|4|AUX 2|4|NSUBJ 3|4|ADVMOD 4|0|ROOT 5|7|CASE 6|7|DET 7|4|OBL 8|9|CASE 9|7|NMOD 10|4|PUNCT
+%wor:	have 238416_238596 you 238596_238796 ever 238796_239116 heard 239116_239497 of 239497_239597 the 239597_239737 story 239737_240137 of 240137_240277 Cinderella 240277_240858 ?
+*PAR:	yes , such a long time ago . 242239_244587
+%mor:	intj|yes cm|cm det|such-Def-Ind det|a-Ind-Art adj|long-S1 noun|time adv|ago .
+%gra:	1|6|DISCOURSE 2|1|PUNCT 3|6|DET-PREDET 4|6|DET 5|6|AMOD 6|7|OBL-UNMARKED 7|0|ROOT 8|7|PUNCT
+%wor:	yes 242239_243159 , such 243159_243440 a 243440_243520 long 243520_243820 time 243820_244080 ago 244080_244240 .
+*INV:	do you remember much about it ? 244861_246611
+%mor:	aux|do-Fin-Ind-Pres-S2 pron|you-Prs-Nom-S2 verb|remember-Inf-S adj|much-S1 adp|about pron|it-Prs-Acc-S3 ?
+%gra:	1|3|AUX 2|3|NSUBJ 3|0|ROOT 4|3|OBJ 5|6|CASE 6|4|OBL 7|3|PUNCT
+%wor:	do 244861_244941 you 244941_245061 remember 245061_245441 much 245441_245681 about 245681_246101 it 246101_246262 ?
+*PAR:	okay , Cinderella +... 247422_248583
+%mor:	intj|okay cm|cm propn|Cinderella +...
+%gra:	1|3|DISCOURSE 2|1|PUNCT 3|0|ROOT 4|3|PUNCT
+%wor:	okay 247422_247803 , Cinderella 247803_248583 +...
+*INV:	so these pictures might remind you of how it goes . 249535_252979
+%mor:	adv|so det|this-Def-Dem-Plur noun|picture-Plur aux|might-Fin-S verb|remind-Inf-S pron|you-Prs-Acc-S2 adp|of adv|how pron|it-Prs-Nom-S3 verb|go-Fin-Ind-Pres-S3 .
+%gra:	1|5|ADVMOD 2|3|DET 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|5|IOBJ 7|8|CASE 8|5|OBL 9|10|NSUBJ 10|8|ADVCL-RELCL 11|5|PUNCT
+%wor:	so 249555_249715 these 249715_250035 pictures 250035_250936 might 250936_251277 remind 251277_251797 you 251797_251898 of 251898_252038 how 252038_252298 it 252298_252478 goes 252478_252959 .
+*INV:	take a look at the pictures . 253780_255763
+%mor:	verb|take-Fin-Imp-S det|a-Ind-Art noun|look-Acc adp|at det|the-Def-Art noun|picture-Plur .
+%gra:	1|0|ROOT 2|3|DET 3|1|OBJ 4|6|CASE 5|6|DET 6|3|NMOD 7|1|PUNCT
+%wor:	take 253780_254081 a 254081_254221 look 254221_254741 at 254741_254902 the 254902_255042 pictures 255042_255763 .
+*INV:	and then I'll put the book away and ask you to tell me the story in your own words . 256043_260930
+%mor:	cconj|and adv|then pron|I-Prs-Nom-S1~aux|will-Fin-S verb|put-Inf-S det|the-Def-Art noun|book-Acc adv|away cconj|and verb|ask-Inf-S pron|you-Prs-Acc-S2 part|to verb|tell-Inf-S pron|I-Prs-Acc-S1 det|the-Def-Art noun|story-Acc adp|in pron|your-Prs-Gen-S2 adj|own-S1 noun|word-Plur .
+%gra:	1|5|CC 2|5|ADVMOD 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|7|DET 7|5|OBJ 8|5|ADVMOD 9|10|CC 10|5|CONJ 11|10|IOBJ 12|13|MARK 13|10|XCOMP 14|13|IOBJ 15|16|DET 16|13|OBJ 17|20|CASE 18|20|NMOD-POSS 19|20|AMOD 20|16|NMOD 21|5|PUNCT
+%wor:	and 256043_256263 then 256263_256504 I'll 256504_256684 put 256684_256924 the 256924_257064 book 257064_257305 away 257305_257946 and 257946_258186 ask 258186_258446 you 258446_258566 to 258566_258707 tell 258707_258947 me 258947_259087 the 259087_259247 story 259247_259708 in 259708_259828 your 259828_260129 own 260129_260409 words 260409_260930 .
+*PAR:	okay [/] okay . 261213_262374
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 261771_261871 okay 261871_262111 .
+@G:	Cinderella
+*INV:	now tell me as much of the story of Cinderella as you can . 327305_330667
+%mor:	adv|now verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 adv|as adj|much-S1 adp|of det|the-Def-Art noun|story adp|of propn|Cinderella sconj|as pron|you-Prs-Nom-S2 aux|can-Fin-S .
+%gra:	1|2|ADVMOD 2|0|ROOT 3|2|IOBJ 4|5|ADVMOD 5|2|OBJ 6|8|CASE 7|8|DET 8|5|OBL 9|10|CASE 10|8|NMOD 11|13|MARK 12|13|NSUBJ 13|5|ADVCL 14|2|PUNCT
+%wor:	now 327325_327445 tell 327445_327685 me 327685_327805 as 327805_327985 much 327985_328245 of 328245_328325 the 328325_328505 story 328505_328886 of 328886_329046 Cinderella 329046_329826 as 329826_330006 you 330006_330166 can 330166_330627 .
+*INV:	you can use any details you know about the story as well as the pictures you just looked at . 331188_336431
+%mor:	pron|you-Prs-Nom-S2 aux|can-Fin-S verb|use-Inf-S det|any-Def-Ind noun|detail-Plur-Acc pron|you-Prs-Nom-S2 verb|know-Fin-Ind-Pres-S2 adp|about det|the-Def-Art noun|story adv|as adv|well adp|as det|the-Def-Art noun|picture-Plur pron|you-Prs-Nom-S2 adv|just verb|look-Fin-Ind-Past-S2 adp|at .
+%gra:	1|3|NSUBJ 2|3|AUX 3|0|ROOT 4|5|DET 5|3|OBJ 6|7|NSUBJ 7|5|ACL-RELCL 8|10|CASE 9|10|DET 10|7|OBL 11|15|CC 12|11|FIXED 13|11|FIXED 14|15|DET 15|5|CONJ 16|18|NSUBJ 17|18|ADVMOD 18|15|ACL-RELCL 19|18|OBL 20|3|PUNCT
+%wor:	you 331207_331307 can 331307_331527 use 331527_331828 any 331828_332128 details 332128_332688 you 332688_332808 know 332808_333048 about 333048_333329 the 333329_333489 story 333489_334029 as 334029_334189 well 334189_334409 as 334409_334549 the 334549_334690 pictures 334690_335150 you 335150_335290 just 335290_335590 looked 335590_335930 at 335930_336091 .
+*PAR:	okay . [+ exc] 337071_337433
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 337071_337371 .
+%xalign:	monotonicity:end_clamped end_truncated_by=199ms original_end=337632 clamped_to=337433 cause=utr_token_range_overlap
+*PAR:	Cinderella is about &-uh a young lady . 337433_339974
+%mor:	propn|Cinderella aux|be-Fin-Ind-Pres-S3 adv|about det|a-Ind-Art adj|young-S1 noun|lady .
+%gra:	1|6|NSUBJ 2|6|COP 3|6|ADVMOD 4|6|DET 5|6|AMOD 6|0|ROOT 7|6|PUNCT
+%wor:	Cinderella 337552_338212 is 338212_338392 about 338392_338732 uh 338792_338993 a 338993_339173 young 339173_339473 lady 339473_339733 .
+*PAR:	I think her [/] &-um her [/] her dad married this evil woman . 340935_347742
+%mor:	pron|I-Prs-Nom-S1 verb|think-Fin-Ind-Pres-S1 pron|her-Prs-Gen-S3 noun|dad verb|marry-Fin-Ind-Past-S3 det|this-Def-Dem-Sing adj|evil-S1 noun|woman-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|4|NMOD-POSS 4|5|NSUBJ 5|2|CCOMP 6|8|DET 7|8|AMOD 8|5|OBJ 9|2|PUNCT
+%wor:	I 340975_341015 think 341015_341255 her 341255_341375 um 341976_343237 her 343237_343577 her 343577_343898 dad 343898_344398 married 344398_344759 this 344759_345519 evil 345519_345860 woman 347321_347682 .
+%xalign:	monotonicity:end_clamped end_truncated_by=60ms original_end=347802 clamped_to=347742 cause=utr_token_range_overlap
+*PAR:	and the woman had three daughters . 347742_349385
+%mor:	cconj|and det|the-Def-Art noun|woman verb|have-Fin-Ind-Past-S3-irr num|three noun|daughter-Plur-Acc .
+%gra:	1|4|CC 2|3|DET 3|4|NSUBJ 4|0|ROOT 5|6|NUMMOD 6|4|OBJ 7|4|PUNCT
+%wor:	and 347742_347842 the 347842_347922 woman 347922_348202 had 348202_348643 three 348643_348923 daughters 348923_349323 .
+%xalign:	monotonicity:end_clamped end_truncated_by=39ms original_end=349424 clamped_to=349385 cause=utr_token_range_overlap
+*PAR:	<and the daughters> [///] she made Cinderella do a lot of the &+m menial work around the house while the daughters didn't [/] didn't do anything . 349385_357853
+%mor:	pron|she-Prs-Nom-S3 verb|make-Fin-Ind-Past-S3-irr propn|Cinderella-Acc verb|do-Inf-S det|a-Ind-Art noun|lot-Acc adp|of det|the-Def-Art adj|menial-S1 noun|work adp|around det|the-Def-Art noun|house sconj|while det|the-Def-Art noun|daughter-Plur aux|do-Fin-Ind-Past-P3-irr~part|not verb|do-Inf-S pron|anything-Ind-S1 .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|2|OBJ 4|2|XCOMP 5|6|DET 6|4|OBJ 7|10|CASE 8|10|DET 9|10|AMOD 10|6|NMOD 11|13|CASE 12|13|DET 13|10|NMOD 14|19|MARK 15|16|DET 16|19|NSUBJ 17|19|AUX 18|19|ADVMOD 19|4|ADVCL 20|19|OBJ 21|2|PUNCT
+%wor:	and 349445_349505 the 349505_349685 daughters 349685_350586 she 350586_350726 made 350726_350946 Cinderella 350946_351887 do 351887_352047 a 352047_352127 lot 352127_352328 of 352328_352428 the 352428_352508 menial 353689_354149 work 354149_354410 around 354410_354670 the 354670_354770 house 354770_355090 while 355090_355250 the 355250_355391 daughters 355391_355791 didn't 355791_356752 didn't 356752_357052 do 357052_357233 anything 357233_357853 .
+*PAR:	and there was a call to invite all the young ladies to come to a party . 358645_365669
+%mor:	cconj|and pron|there-Int-S1 verb|be-Fin-Ind-Past-S3-irr det|a-Ind-Art noun|call part|to verb|invite-Inf-S det|all-Def-Tot det|the-Def-Art adj|young-S1 noun|lady-Plur-Acc part|to verb|come-Inf-S adp|to det|a-Ind-Art noun|party .
+%gra:	1|3|CC 2|3|EXPL 3|0|ROOT 4|5|DET 5|3|NSUBJ 6|7|MARK 7|5|ACL 8|11|DET-PREDET 9|11|DET 10|11|AMOD 11|7|OBJ 12|13|MARK 13|7|XCOMP 14|16|CASE 15|16|DET 16|13|OBL 17|3|PUNCT
+%wor:	and 358705_358925 there 358925_359225 was 359225_359505 a 359505_359905 call 359905_360486 to 361706_361847 invite 362927_363468 all 363468_363708 the 363708_363828 young 363828_364068 ladies 364068_364468 to 364468_364608 come 364608_364888 to 364888_365049 a 365049_365169 party 365169_365589 .
+*PAR:	and &+m Cinderella was not allowed to go to that party . 366770_371113
+%mor:	cconj|and propn|Cinderella aux|be-Fin-Ind-Past-S3-irr part|not verb|allow-Part-Past-S part|to verb|go-Inf-S adp|to det|that-Def-Dem-Sing noun|party .
+%gra:	1|5|CC 2|5|NSUBJ-PASS 3|5|AUX-PASS 4|5|ADVMOD 5|0|ROOT 6|7|MARK 7|5|XCOMP 8|10|CASE 9|10|DET 10|7|OBL 11|5|PUNCT
+%wor:	and 366790_367470 Cinderella 368811_369331 was 369331_369491 not 369491_369652 allowed 369652_369992 to 369992_370112 go 370112_370292 to 370292_370452 that 370452_370652 party 370652_370972 .
+%xalign:	monotonicity:end_clamped end_truncated_by=40ms original_end=371153 clamped_to=371113 cause=utr_token_range_overlap
+*PAR:	but Cinderella was friendly with all the animals and different stuff . 371113_373914
+%mor:	cconj|but propn|Cinderella aux|be-Fin-Ind-Past-S3-irr adj|friendly-S1 adp|with det|all-Def-Tot det|the-Def-Art noun|animal-Plur cconj|and adj|different-S1 noun|stuff .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|COP 4|0|ROOT 5|8|CASE 6|8|DET-PREDET 7|8|DET 8|4|OBL 9|11|CC 10|11|AMOD 11|8|CONJ 12|4|PUNCT
+%wor:	but 371133_371274 Cinderella 371274_371737 was 371737_371938 friendly 371938_372240 with 372240_372442 all 372442_372583 the 372583_372744 animals 372744_373126 and 373126_373247 different 373247_373529 stuff 373529_373811 .
+*PAR:	so , when the [/] the mother left her home to &-uh do all the work , then the [//] a fairy godmother came . 374475_387004
+%mor:	adv|so cm|cm adv|when det|the-Def-Art noun|mother verb|leave-Fin-Ind-Past-S3-irr pron|her-Prs-Gen-S3 noun|home-Acc part|to verb|do-Inf-S det|all-Def-Tot det|the-Def-Art noun|work-Acc cm|cm adv|then det|a-Ind-Art noun|fairy noun|godmother verb|come-Fin-Ind-Past-S3-irr .
+%gra:	1|19|ADVMOD 2|1|PUNCT 3|6|ADVMOD 4|5|DET 5|6|NSUBJ 6|19|ADVCL 7|8|NMOD-POSS 8|6|OBJ 9|10|MARK 10|6|ADVCL 11|13|DET-PREDET 12|13|DET 13|10|OBJ 14|6|PUNCT 15|19|ADVMOD 16|18|DET 17|18|COMPOUND 18|19|NSUBJ 19|0|ROOT 20|19|PUNCT
+%wor:	so 374495_374575 , when 375695_375996 the 375996_376816 the 376816_377697 mother 377697_378137 left 378137_378417 her 378417_378617 home 378617_378998 to 380379_380499 uh 380679_382060 do 382060_382280 all 382280_382520 the 382520_382660 work 382660_383601 , then 383601_383941 the 383941_384061 a 385342_385502 fairy 385502_385862 godmother 385862_386503 came 386503_386943 .
+*PAR:	and her fairy godmother &-um provided her with a dress . 387685_393583
+%mor:	cconj|and pron|her-Prs-Gen-S3 noun|fairy noun|godmother verb|provide-Fin-Ind-Past-S3 pron|her-Prs-Acc-S3 adp|with det|a-Ind-Art noun|dress .
+%gra:	1|5|CC 2|4|NMOD-POSS 3|4|COMPOUND 4|5|NSUBJ 5|0|ROOT 6|5|OBJ 7|9|CASE 8|9|DET 9|5|OBL 10|5|PUNCT
+%wor:	and 387765_388648 her 388648_389350 fairy 389350_389691 godmother 389691_390293 um 391055_392018 provided 392018_392520 her 392520_392680 with 392680_392901 a 392901_393042 dress 393042_393583 .
+*PAR:	and [/] and they provided a carriage out of the animals that she liked to take her to the [/] &-um the party . 393745_403584
+%mor:	cconj|and pron|they-Prs-Nom-P3 verb|provide-Fin-Ind-Past-P3 det|a-Ind-Art noun|carriage-Acc adp|out adp|of det|the-Def-Art noun|animal-Plur pron|that-Rel pron|she-Prs-Nom-S3 verb|like-Fin-Ind-Past-S3 part|to verb|take-Inf-S pron|her-Prs-Acc-S3 adp|to det|the-Def-Art noun|party .
+%gra:	1|3|CC 2|3|NSUBJ 3|0|ROOT 4|5|DET 5|3|OBJ 6|9|CASE 7|9|CASE 8|9|DET 9|3|OBL 10|14|OBJ 11|12|NSUBJ 12|9|ACL-RELCL 13|14|MARK 14|12|XCOMP 15|14|OBJ 16|18|CASE 17|18|DET 18|14|OBL 19|3|PUNCT
+%wor:	and 393805_394526 and 394526_394706 they 394706_394826 provided 394826_395688 a 395688_395828 carriage 395828_396970 out 396970_397131 of 397131_397351 the 397351_397612 animals 397612_397972 that 397972_398173 she 398173_398373 liked 398373_399154 to 399154_399355 take 399355_399595 her 399595_399756 to 399756_400677 the 400677_400777 um 401158_401298 the 402961_403082 party 403082_403482 .
+*PAR:	and Cinderella [//] the only thing that Cinderella had to do is to be home +... 404585_409571
+%mor:	cconj|and det|the-Def-Art adj|only-S1 noun|thing-Ger pron|that-Rel propn|Cinderella verb|have-Fin-Ind-Past-S3-irr part|to verb|do-Inf-S aux|be-Fin-Ind-Pres-S3 part|to aux|be-Inf-S noun|home +...
+%gra:	1|13|CC 2|4|DET 3|4|AMOD 4|13|NSUBJ-OUTER 5|9|OBJ 6|7|NSUBJ 7|4|ACL-RELCL 8|9|MARK 9|7|XCOMP 10|13|COP 11|13|MARK 12|13|COP 13|0|ROOT 14|13|PUNCT
+%wor:	and 404645_405405 Cinderella 405405_406146 the 406146_406306 only 406306_406586 thing 406586_407386 that 407386_407606 Cinderella 407606_408127 had 408127_408287 to 408287_408407 do 408407_408567 is 408567_408667 to 408667_408807 be 408807_409067 home 409067_409448 +...
+*PAR:	when the clock striked twelve , she had to leave to be back home . 410268_413170
+%mor:	adv|when det|the-Def-Art noun|clock verb|strike-Fin-Ind-Past-S3 num|twelve cm|cm pron|she-Prs-Nom-S3 verb|have-Fin-Ind-Past-S3-irr part|to verb|leave-Inf-S part|to aux|be-Inf-S adv|back adv|home .
+%gra:	1|4|ADVMOD 2|3|DET 3|4|NSUBJ 4|8|ADVCL 5|4|OBJ 6|4|PUNCT 7|8|NSUBJ 8|0|ROOT 9|10|MARK 10|8|XCOMP 11|14|MARK 12|14|COP 13|14|ADVMOD 14|10|XCOMP 15|8|PUNCT
+%wor:	when 410268_410388 the 410388_410508 clock 410508_410749 striked 410749_411149 twelve 411149_411549 , she 411549_411709 had 411709_411849 to 411849_411989 leave 411989_412230 to 412230_412330 be 412330_412510 back 412510_412810 home 412810_413170 .
+%xalign:	fa:narrow_bullet_rescued word_count=13 original_end=413317 expanded_end=414240 next_start=414440 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	and when she got to the party , she danced with the prince . 414431_417884
+%mor:	cconj|and adv|when pron|she-Prs-Nom-S3 verb|get-Fin-Ind-Past-S3-irr adp|to det|the-Def-Art noun|party cm|cm pron|she-Prs-Nom-S3 verb|dance-Fin-Ind-Past-S3 adp|with det|the-Def-Art noun|prince .
+%gra:	1|10|CC 2|4|ADVMOD 3|4|NSUBJ 4|10|ADVCL 5|7|CASE 6|7|DET 7|4|OBL 8|4|PUNCT 9|10|NSUBJ 10|0|ROOT 11|13|CASE 12|13|DET 13|10|OBL 14|10|PUNCT
+%wor:	and 414431_415292 when 415292_415472 she 415472_415612 got 415612_415852 to 415852_415972 the 415972_416072 party 416072_416532 , she 416532_416733 danced 416733_417073 with 417073_417193 the 417193_417373 prince 417373_417873 .
+*PAR:	and the [//] &-um when twelve o'clock came , she started running down the hallway . 418505_424652
+%mor:	cconj|and adv|when num|twelve noun|oclock verb|come-Fin-Ind-Past-S3-irr cm|cm pron|she-Prs-Nom-S3 verb|start-Fin-Ind-Past-S3 verb|run-Ger-S adp|down det|the-Def-Art noun|hallway .
+%gra:	1|8|CC 2|5|ADVMOD 3|4|NUMMOD 4|5|NSUBJ 5|8|ADVCL 6|5|PUNCT 7|8|NSUBJ 8|0|ROOT 9|8|XCOMP 10|12|CASE 11|12|DET 12|9|OBL 13|8|PUNCT
+%wor:	and 418525_418605 the 418605_418685 um 419406_419586 when 419586_419846 twelve 421008_421228 o'clock 421228_421548 came 421548_421889 , she 421889_422069 started 422069_422730 running 422730_423711 down 423711_424071 the 424071_424191 hallway 424191_424632 .
+%xalign:	monotonicity:end_clamped end_truncated_by=40ms original_end=424692 clamped_to=424652 cause=utr_token_range_overlap
+*PAR:	and she left one of the slippers . 424652_426074
+%mor:	cconj|and pron|she-Prs-Nom-S3 verb|leave-Fin-Ind-Past-S3-irr num|one adp|of det|the-Def-Art noun|slipper-Plur .
+%gra:	1|3|CC 2|3|NSUBJ 3|0|ROOT 4|3|OBJ 5|7|CASE 6|7|DET 7|4|NMOD 8|3|PUNCT
+%wor:	and 424652_424752 she 424752_424952 left 424952_425233 one 425233_425353 of 425353_425413 the 425413_425593 slippers 425593_426074 .
+%xalign:	fa:narrow_bullet_rescued word_count=7 original_end=426094 expanded_end=426595 next_start=426795 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	and after that the prince went looking for all the ladies in the village that belonged to the slippers . 426795_434233
+%mor:	cconj|and sconj|after sconj|that det|the-Def-Art noun|prince verb|go-Fin-Ind-Past-S3-irr verb|look-Ger-S adp|for det|all-Def-Tot det|the-Def-Art noun|lady-Plur adp|in det|the-Def-Art noun|village pron|that-Rel verb|belong-Fin-Ind-Past-S3 adp|to det|the-Def-Art noun|slipper-Plur .
+%gra:	1|6|CC 2|6|MARK 3|2|FIXED 4|5|DET 5|6|NSUBJ 6|0|ROOT 7|6|XCOMP 8|11|CASE 9|11|DET-PREDET 10|11|DET 11|7|OBL 12|14|CASE 13|14|DET 14|11|NMOD 15|16|NSUBJ 16|14|ACL-RELCL 17|19|CASE 18|19|DET 19|16|OBL 20|6|PUNCT
+%wor:	and 426815_426955 after 426955_427276 that 427276_427576 the 427576_427737 prince 427737_428118 went 428118_428459 looking 428459_428839 for 428839_429120 all 429120_429321 the 429321_429461 ladies 429461_429842 in 429842_429922 the 429922_430042 village 430042_431065 that 431065_431927 belonged 431927_432588 to 432588_433571 the 433571_433731 slippers 433731_434192 .
+*PAR:	and the prince came to the house and tried all the slippers on the three [/] three daughters , other daughters , the lady's daughter . 435155_446369
+%mor:	cconj|and det|the-Def-Art noun|prince verb|come-Fin-Ind-Past-S3-irr adp|to det|the-Def-Art noun|house cconj|and verb|try-Fin-Ind-Past-S3 det|all-Def-Tot det|the-Def-Art noun|slipper-Plur-Acc adp|on det|the-Def-Art num|three noun|daughter-Plur cm|cm adj|other-S1 noun|daughter-Plur cm|cm det|the-Def-Art noun|lady~part|s noun|daughter .
+%gra:	1|4|CC 2|3|DET 3|4|NSUBJ 4|0|ROOT 5|7|CASE 6|7|DET 7|4|OBL 8|9|CC 9|4|CONJ 10|12|DET-PREDET 11|12|DET 12|9|OBJ 13|16|CASE 14|16|DET 15|16|NUMMOD 16|9|OBL 17|19|PUNCT 18|19|AMOD 19|16|APPOS 20|24|PUNCT 21|22|DET 22|24|NMOD-POSS 23|22|CASE 24|19|APPOS 25|4|PUNCT
+%wor:	and 435215_435976 the 435976_436056 prince 438258_438619 came 438619_438999 to 438999_439220 the 439220_439400 house 439400_440341 and 440341_440461 tried 440461_440982 all 440982_441322 the 441322_441643 slippers 441643_442063 on 442063_442204 the 442204_442384 three 442384_443205 three 443205_443786 daughters 443786_444867 , other 444867_445127 daughters 445127_445488 , the 445488_445628 lady's 445628_445948 daughter 445948_446249 .
+%xalign:	monotonicity:end_clamped end_truncated_by=80ms original_end=446449 clamped_to=446369 cause=utr_token_range_overlap
+*PAR:	and none of them fit . 446369_447210
+%mor:	cconj|and pron|none-Neg-S1 adp|of pron|they-Prs-Acc-P3 verb|fit-Fin-Ind-Pres-P3 .
+%gra:	1|5|CC 2|5|NSUBJ 3|4|CASE 4|2|NMOD 5|0|ROOT 6|5|PUNCT
+%wor:	and 446369_446529 none 446529_446629 of 446629_446709 them 446709_446970 fit 446970_447210 .
+%xalign:	fa:narrow_bullet_rescued word_count=5 original_end=447471 expanded_end=447491 next_start=447691 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	then &+th there was one other . 447691_450314
+%mor:	adv|then pron|there-Int-S1 verb|be-Fin-Ind-Past-S3-irr num|one adj|other-S1 .
+%gra:	1|3|ADVMOD 2|3|EXPL 3|0|ROOT 4|5|NUMMOD 5|3|NSUBJ 6|3|PUNCT
+%wor:	then 447711_447931 there 449233_449433 was 449433_449734 one 449734_449954 other 449954_450214 .
+*PAR:	there was Cinderella there . 450495_451846
+%mor:	pron|there-Int-S1 verb|be-Fin-Ind-Past-S3-irr propn|Cinderella adv|there .
+%gra:	1|2|EXPL 2|0|ROOT 3|2|NSUBJ 4|2|ADVMOD 5|2|PUNCT
+%wor:	there 450495_450615 was 450615_450775 Cinderella 450775_451336 there 451336_451657 .
+*PAR:	and then they asked that Cinderella tried on the slipper . 452286_456190
+%mor:	cconj|and adv|then pron|they-Prs-Nom-P3 verb|ask-Fin-Ind-Past-P3 sconj|that propn|Cinderella verb|try-Fin-Ind-Past-S3 adp|on det|the-Def-Art noun|slipper .
+%gra:	1|4|CC 2|4|ADVMOD 3|4|NSUBJ 4|0|ROOT 5|7|MARK 6|7|NSUBJ 7|4|CCOMP 8|10|CASE 9|10|DET 10|7|OBL 11|4|PUNCT
+%wor:	and 452298_452518 then 452518_452799 they 452799_453900 asked 453900_454301 that 454301_454521 Cinderella 454521_455062 tried 455062_455463 on 455463_455563 the 455563_455683 slipper 455683_456024 .
+*PAR:	and it fit her . 456551_457611
+%mor:	cconj|and pron|it-Prs-Nom-S3 verb|fit-Fin-Ind-Past-S3-irr pron|her-Prs-Acc-S3 .
+%gra:	1|3|CC 2|3|NSUBJ 3|0|ROOT 4|3|OBJ 5|3|PUNCT
+%wor:	and 456564_456685 it 456685_456845 fit 456845_457125 her 457125_457286 .
+*PAR:	so , Cinderella and the prince lived happily every after . 457746_460814
+%mor:	adv|so cm|cm propn|Cinderella cconj|and det|the-Def-Art noun|prince verb|live-Fin-Ind-Past-S3 adv|happily det|every-Def-Tot adv|after .
+%gra:	1|7|ADVMOD 2|1|PUNCT 3|7|NSUBJ 4|6|CC 5|6|DET 6|3|CONJ 7|0|ROOT 8|7|ADVMOD 9|10|DET 10|7|ADVMOD 11|7|PUNCT
+%wor:	so 457746_458027 , Cinderella 458027_458708 and 458708_458828 the 458828_458948 prince 458948_459349 lived 459349_459589 happily 459589_460050 every 460050_460350 after 460350_460671 .
+@G:	Sandwich
+*INV:	let's move on to something a little different . 467685_469767
+%mor:	verb|let-Fin-Imp-S~pron|we-Prs-Acc-P1 verb|move-Inf-S adp|on adp|to pron|something-Ind-S1 det|a-Ind-Art adj|little-S1 adj|different-S1 .
+%gra:	1|0|ROOT 2|1|OBJ 3|1|XCOMP 4|3|COMPOUND-PRT 5|6|CASE 6|3|OBL 7|8|DET 8|9|OBL-UNMARKED 9|6|AMOD 10|1|PUNCT
+%wor:	let's 467705_467945 move 467945_468145 on 468145_468285 to 468285_468386 something 468386_468766 a 468766_468886 little 468886_469267 different 469267_469687 .
+*INV:	tell me how you would make a peanut butter and jelly sandwich . 469868_473293
+%mor:	verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 adv|how pron|you-Prs-Nom-S2 aux|would-Fin-S verb|make-Inf-S det|a-Ind-Art noun|peanut noun|butter-Acc cconj|and noun|jelly noun|sandwich .
+%gra:	1|0|ROOT 2|1|IOBJ 3|1|OBJ 4|6|NSUBJ 5|6|AUX 6|3|ADVCL-RELCL 7|9|DET 8|9|COMPOUND 9|6|OBJ 10|12|CC 11|12|COMPOUND 12|9|CONJ 13|1|PUNCT
+%wor:	tell 469868_470128 me 470128_470328 how 470328_470589 you 470589_470709 would 470709_470869 make 470869_471210 a 471210_471350 peanut 471350_471690 butter 471690_472111 and 472111_472271 jelly 472271_472712 sandwich 472712_473293 .
+*PAR:	well , if I was going to make a peanut butter and jelly sandwich , <I would toast my> [//] I would toast the bread . 475255_480062
+%mor:	intj|well cm|cm sconj|if pron|I-Prs-Nom-S1 aux|be-Fin-Ind-Past-S1-irr verb|go-Part-Pres-S part|to verb|make-Inf-S det|a-Ind-Art noun|peanut noun|butter-Acc cconj|and noun|jelly noun|sandwich cm|cm pron|I-Prs-Nom-S1 aux|would-Fin-S verb|toast-Inf-S det|the-Def-Art noun|bread-Acc .
+%gra:	1|18|DISCOURSE 2|1|PUNCT 3|6|MARK 4|6|NSUBJ 5|6|AUX 6|18|ADVCL 7|8|MARK 8|6|XCOMP 9|11|DET 10|11|COMPOUND 11|8|OBJ 12|14|CC 13|14|COMPOUND 14|11|CONJ 15|6|PUNCT 16|18|NSUBJ 17|18|AUX 18|0|ROOT 19|20|DET 20|18|OBJ 21|18|PUNCT
+%wor:	well 475255_475536 , if 475536_475796 I 475796_475836 was 475836_475977 going 475977_476197 to 476197_476297 make 476297_476497 a 476497_476577 peanut 476577_476898 butter 476898_477118 and 477118_477238 jelly 477238_477559 sandwich 477559_477979 , I 477979_478060 would 478060_478240 toast 478240_478600 my 478600_478961 I 478961_479041 would 479041_479221 toast 479221_479522 the 479522_479622 bread 479622_480062 .
+%xalign:	fa:narrow_bullet_rescued word_count=22 original_end=480124 expanded_end=481365 next_start=481565 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	and then I would &-um put the peanut butter on one side of the bread , then add the jelly on top of the peanut butter . 481565_492444
+%mor:	cconj|and adv|then pron|I-Prs-Nom-S1 aux|would-Fin-S verb|put-Inf-S det|the-Def-Art noun|peanut noun|butter-Acc adp|on num|one noun|side adp|of det|the-Def-Art noun|bread cm|cm adv|then verb|add-Inf-S det|the-Def-Art noun|jelly-Acc adp|on noun|top adp|of det|the-Def-Art noun|peanut noun|butter .
+%gra:	1|5|CC 2|5|ADVMOD 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|8|DET 7|8|COMPOUND 8|5|OBJ 9|11|CASE 10|11|NUMMOD 11|5|OBL 12|14|CASE 13|14|DET 14|11|NMOD 15|17|PUNCT 16|17|ADVMOD 17|5|PARATAXIS 18|19|DET 19|17|OBJ 20|21|CASE 21|17|OBL 22|25|CASE 23|25|DET 24|25|COMPOUND 25|21|NMOD 26|5|PUNCT
+%wor:	and 481605_481725 then 481725_482106 I 482106_482166 would 482166_482386 um 482567_482968 put 484551_484731 the 484731_484872 peanut 484872_485553 butter 485553_486094 on 486094_486275 one 487758_487938 side 487938_488219 of 488219_488299 the 488299_488399 bread 488399_489582 , then 489582_489862 add 489862_490063 the 490063_490223 jelly 490223_491165 on 491165_491326 top 491326_491566 of 491566_491626 the 491626_491747 peanut 491747_492107 butter 492107_492368 .
+*PAR:	then I would &-um put the top toast on the peanut butter and jelly . 492895_498940
+%mor:	adv|then pron|I-Prs-Nom-S1 aux|would-Fin-S verb|put-Inf-S det|the-Def-Art adj|top-S1 noun|toast-Acc adp|on det|the-Def-Art noun|peanut noun|butter cconj|and noun|jelly .
+%gra:	1|4|ADVMOD 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|7|DET 6|7|AMOD 7|4|OBJ 8|11|CASE 9|11|DET 10|11|COMPOUND 11|4|OBL 12|13|CC 13|11|CONJ 14|4|PUNCT
+%wor:	then 493035_493375 I 493375_493435 would 493435_493616 um 494477_495098 put 495098_495338 the 495338_495539 top 495539_495939 toast 495939_497221 on 497221_497502 the 497502_497702 peanut 497702_498023 butter 498023_498263 and 498263_498443 jelly 498443_498724 .
+*PAR:	and then I would cut it in half and eat my sandwich . 499285_503552
+%mor:	cconj|and adv|then pron|I-Prs-Nom-S1 aux|would-Fin-S verb|cut-Inf-S pron|it-Prs-Acc-S3 adp|in noun|half cconj|and verb|eat-Inf-S pron|my-Prs-Gen-S1 noun|sandwich-Acc .
+%gra:	1|5|CC 2|5|ADVMOD 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|5|OBJ 7|8|CASE 8|5|OBL 9|10|CC 10|5|CONJ 11|12|NMOD-POSS 12|10|OBJ 13|5|PUNCT
+%wor:	and 499285_499385 then 499385_499685 I 499685_499726 would 499726_499926 cut 499926_500206 it 500206_500387 in 500387_500547 half 500547_500927 and 500927_501528 eat 501528_501729 my 501729_501969 sandwich 503071_503552 .
+@G:	Sandwich_Favorite
+*INV:	tell me how you'd make your favorite kind of sandwich . 505805_508469
+%mor:	verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 adv|how pron|you-Prs-Nom-S2~aux|would-Fin-S verb|make-Inf-S pron|your-Prs-Gen-S2 adj|favorite-S1 noun|kind-Acc adp|of noun|sandwich .
+%gra:	1|0|ROOT 2|1|IOBJ 3|1|OBJ 4|6|NSUBJ 5|6|AUX 6|3|ADVCL-RELCL 7|9|NMOD-POSS 8|9|AMOD 9|6|OBJ 10|11|CASE 11|9|NMOD 12|1|PUNCT
+%wor:	tell 505825_506045 me 506045_506185 how 506185_506385 you'd 506385_506566 make 506566_506766 your 506766_506966 favorite 506966_507447 kind 507447_507788 of 507788_507908 sandwich 507908_508469 .
+*PAR:	my favorite kind of sandwich ? 509791_511494
+%mor:	pron|my-Prs-Gen-S1 adj|favorite-S1 noun|kind adp|of noun|sandwich ?
+%gra:	1|3|NMOD-POSS 2|3|AMOD 3|0|ROOT 4|5|CASE 5|3|NMOD 6|3|PUNCT
+%wor:	my 509791_510092 favorite 510092_510572 kind 510572_510873 of 510873_510993 sandwich 510993_511494 ?
+*PAR:	hm <I like> [/] I like tuna sandwiches . 513918_517263
+%mor:	intj|hm pron|I-Prs-Nom-S1 verb|like-Fin-Ind-Pres-S1 noun|tuna noun|sandwich-Plur-Acc .
+%gra:	1|3|DISCOURSE 2|3|NSUBJ 3|0|ROOT 4|5|COMPOUND 5|3|OBJ 6|3|PUNCT
+%wor:	hm 513918_513958 I 515561_515661 like 515661_515961 I 515961_516041 like 516041_516322 tuna 516322_516642 sandwiches 516642_517263 .
+%xalign:	fa:narrow_bullet_rescued word_count=7 original_end=516824 expanded_end=517805 next_start=518005 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	if I was gonna make a tuna sandwich , I would first get an egg , boil my egg and make sure that the eggs are boiled good . 518005_526110
+%mor:	sconj|if pron|I-Prs-Nom-S1 aux|be-Fin-Ind-Past-S1-irr verb|go-Part-Pres-S~part|to verb|make-Inf-S det|a-Ind-Art noun|tuna noun|sandwich-Acc cm|cm pron|I-Prs-Nom-S1 aux|would-Fin-S adv|first verb|get-Inf-S det|a-Ind-Art noun|egg-Acc cm|cm verb|boil-Inf-S pron|my-Prs-Gen-S1 noun|egg-Acc cconj|and verb|make-Inf-S adj|sure-S1 sconj|that det|the-Def-Art noun|egg-Plur aux|be-Fin-Ind-Pres-P3 verb|boil-Part-Past-S adj|good-S1 .
+%gra:	1|4|MARK 2|4|NSUBJ 3|4|AUX 4|14|ADVCL 5|6|MARK 6|4|XCOMP 7|9|DET 8|9|COMPOUND 9|6|OBJ 10|4|PUNCT 11|14|NSUBJ 12|14|AUX 13|14|ADVMOD 14|0|ROOT 15|16|DET 16|14|OBJ 17|18|PUNCT 18|14|CONJ 19|20|NMOD-POSS 20|18|OBJ 21|22|CC 22|14|CONJ 23|22|XCOMP 24|28|MARK 25|26|DET 26|28|NSUBJ-PASS 27|28|AUX-PASS 28|23|CCOMP 29|28|XCOMP 30|14|PUNCT
+%wor:	if 518045_518205 I 518205_518245 was 518245_518345 gonna 518345_518545 make 518545_518725 a 518725_518825 tuna 518825_519125 sandwich 519125_519525 , I 519525_519565 would 519565_519726 first 519726_520046 get 520046_520986 an 520986_521287 egg 521287_521667 , boil 521667_521987 my 521987_522247 egg 522247_522527 and 523928_524108 make 524108_524348 sure 524348_524609 that 524609_524749 the 524749_524909 eggs 524909_525109 are 525109_525209 boiled 525209_525609 good 525609_525909 .
+*PAR:	I would get my &-um tuna , a can of tuna . 527190_532154
+%mor:	pron|I-Prs-Nom-S1 aux|would-Fin-S verb|get-Inf-S pron|my-Prs-Gen-S1 noun|tuna-Acc cm|cm det|a-Ind-Art noun|can adp|of noun|tuna .
+%gra:	1|3|NSUBJ 2|3|AUX 3|0|ROOT 4|5|NMOD-POSS 5|3|OBJ 6|8|PUNCT 7|8|DET 8|5|APPOS 9|10|CASE 10|8|NMOD 11|3|PUNCT
+%wor:	I 527190_527250 would 527250_527430 get 527430_527711 my 527711_527951 um 528291_528831 tuna 528831_529191 , a 531093_531313 can 531313_531553 of 531553_531653 tuna 531653_531973 .
+*PAR:	I would make sure I drain all the excess [/] excess &-um water or fat <off the> [/] off the tuna . 532755_539264
+%mor:	pron|I-Prs-Nom-S1 aux|would-Fin-S verb|make-Inf-S adj|sure-S1 pron|I-Prs-Nom-S1 verb|drain-Fin-Ind-Pres-S1 det|all-Def-Tot det|the-Def-Art adj|excess-S1 noun|water-Acc cconj|or noun|fat adp|off det|the-Def-Art noun|tuna .
+%gra:	1|3|NSUBJ 2|3|AUX 3|0|ROOT 4|3|XCOMP 5|6|NSUBJ 6|4|CCOMP 7|10|DET-PREDET 8|10|DET 9|10|AMOD 10|6|OBJ 11|12|CC 12|10|CONJ 13|15|CASE 14|15|DET 15|6|OBL 16|3|PUNCT
+%wor:	I 532795_532835 would 532835_532935 make 532935_533095 sure 533095_533316 I 533316_533436 drain 533436_533878 all 533878_534038 the 534038_534198 excess 534198_535241 excess 535241_535602 um 536164_536665 water 536665_537006 or 537006_537167 fat 537167_537668 off 537668_537889 the 537889_538510 off 538510_538610 the 538610_538791 tuna 538791_539052 .
+*PAR:	and in the tuna I would mix up my &-uh &-um tuna , mayonnaise , black pepper , &-um onions &-um and mix all that up with other spices , stuff that I may have . 540165_555174
+%mor:	cconj|and adp|in det|the-Def-Art noun|tuna pron|I-Prs-Nom-S1 aux|would-Fin-S verb|mix-Inf-S adp|up pron|my-Prs-Gen-S1 noun|tuna-Acc cm|cm noun|mayonnaise cm|cm adj|black-S1 noun|pepper cm|cm noun|onion-Plur cconj|and verb|mix-Inf-S det|all-Def-Tot pron|that-Dem adp|up adp|with adj|other-S1 noun|spice-Plur cm|cm noun|stuff pron|that-Rel pron|I-Prs-Nom-S1 aux|may-Fin-S verb|have-Inf-S .
+%gra:	1|7|CC 2|4|CASE 3|4|DET 4|7|OBL 5|7|NSUBJ 6|7|AUX 7|0|ROOT 8|7|COMPOUND-PRT 9|10|NMOD-POSS 10|7|OBJ 11|12|PUNCT 12|10|CONJ 13|15|PUNCT 14|15|AMOD 15|10|CONJ 16|17|PUNCT 17|10|CONJ 18|19|CC 19|7|CONJ 20|21|DET-PREDET 21|19|OBJ 22|19|COMPOUND-PRT 23|25|CASE 24|25|AMOD 25|19|OBL 26|27|PUNCT 27|25|APPOS 28|31|OBJ 29|31|NSUBJ 30|31|AUX 31|27|ACL-RELCL 32|7|PUNCT
+%wor:	and 540185_540325 in 540325_540445 the 540445_540625 tuna 540625_541825 I 541825_541865 would 541865_542126 mix 542126_542486 up 542486_542646 my 542646_543026 uh 543086_543326 um 543326_543707 tuna 544867_545628 , mayonnaise 545628_546388 , black 546388_546648 pepper 546648_546989 , um 547849_548149 onions 548149_548830 um 549810_550290 and 551531_551651 mix 551651_551991 all 551991_552112 that 552112_552332 up 552332_552512 with 552512_552772 other 552772_553372 spices 553372_554013 , stuff 554013_554273 that 554273_554493 I 554493_554533 may 554533_554693 have 554693_555033 .
+*PAR:	and I would toast the bread of course . 555855_559173
+%mor:	cconj|and pron|I-Prs-Nom-S1 aux|would-Fin-S verb|toast-Inf-S det|the-Def-Art noun|bread-Acc adp|of noun|course .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|6|DET 6|4|OBJ 7|8|CASE 8|6|NMOD 9|4|PUNCT
+%wor:	and 555895_556358 I 556358_556398 would 556398_556559 toast 557908_558210 the 558210_558310 bread 558310_558572 of 558572_558673 course 558673_559075 .
+*PAR:	and then after I mix all of my &-um ingredient up , I would put my [/] &+s my mixture that I mix up for the tuna on the sandwich , and &-uh may add a slice of cheese . 559945_575554
+%mor:	cconj|and adv|then sconj|after pron|I-Prs-Nom-S1 verb|mix-Fin-Ind-Pres-S1 det|all-Def-Tot adp|of pron|my-Prs-Gen-S1 noun|ingredient adp|up cm|cm pron|I-Prs-Nom-S1 aux|would-Fin-S verb|put-Inf-S pron|my-Prs-Gen-S1 noun|mixture-Acc pron|that-Rel pron|I-Prs-Nom-S1 verb|mix-Fin-Ind-Pres-S1 adp|up adp|for det|the-Def-Art noun|tuna adp|on det|the-Def-Art noun|sandwich cm|cm cconj|and aux|may-Fin-S verb|add-Inf-S det|a-Ind-Art noun|slice-Acc adp|of noun|cheese .
+%gra:	1|14|CC 2|14|ADVMOD 3|5|MARK 4|5|NSUBJ 5|14|ADVCL 6|5|OBJ 7|9|CASE 8|9|NMOD-POSS 9|6|NMOD 10|5|COMPOUND-PRT 11|5|PUNCT 12|14|NSUBJ 13|14|AUX 14|0|ROOT 15|16|NMOD-POSS 16|14|OBJ 17|19|OBJ 18|19|NSUBJ 19|16|ACL-RELCL 20|19|COMPOUND-PRT 21|23|CASE 22|23|DET 23|19|OBL 24|26|CASE 25|26|DET 26|19|OBL 27|30|PUNCT 28|30|CC 29|30|AUX 30|14|CONJ 31|32|DET 32|30|OBJ 33|34|CASE 34|32|NMOD 35|14|PUNCT
+%wor:	and 559965_560065 then 560065_560305 after 560305_560785 I 560785_561245 mix 561245_561625 all 561625_561786 of 561786_561846 my 561846_562186 um 563126_564107 ingredient 564107_564727 up 564727_564887 , I 566188_566228 would 566228_566468 put 566468_566968 my 566968_567329 my 569230_570070 mixture 570070_570550 that 570550_570791 I 570791_570871 mix 570871_571131 up 571131_571231 for 571231_571331 the 571331_571491 tuna 571491_572412 on 572412_572592 the 572592_572772 sandwich 572772_573372 , and 573372_573532 uh 573832_573872 may 573872_574133 add 574133_574353 a 574353_574453 slice 574453_574893 of 574893_575053 cheese 575053_575553 .
+*PAR:	and then I would put the top bread down <on the> [/] on the mixture with the other bread , and cut it in half and eat it . 576195_583425
+%mor:	cconj|and adv|then pron|I-Prs-Nom-S1 aux|would-Fin-S verb|put-Inf-S det|the-Def-Art adj|top-S1 noun|bread-Acc adp|down adp|on det|the-Def-Art noun|mixture adp|with det|the-Def-Art adj|other-S1 noun|bread cm|cm cconj|and verb|cut-Inf-S pron|it-Prs-Acc-S3 adp|in noun|half cconj|and verb|eat-Inf-S pron|it-Prs-Acc-S3 .
+%gra:	1|5|CC 2|5|ADVMOD 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|8|DET 7|8|AMOD 8|5|OBJ 9|5|COMPOUND-PRT 10|12|CASE 11|12|DET 12|5|OBL 13|16|CASE 14|16|DET 15|16|AMOD 16|12|NMOD 17|19|PUNCT 18|19|CC 19|5|CONJ 20|19|OBJ 21|22|CASE 22|19|OBL 23|24|CC 24|19|CONJ 25|24|OBJ 26|5|PUNCT
+%wor:	and 576235_576315 then 576315_576615 I 576615_576655 would 576655_576815 put 576815_577176 the 577176_577396 top 577396_577777 bread 577777_578157 down 578157_578478 on 578478_578658 the 578658_578738 on 580020_580140 the 580140_580280 mixture 580280_580641 with 580641_580761 the 580761_580881 other 580881_581061 bread 581061_581422 , and 581422_581722 cut 581722_581942 it 581942_582083 in 582083_582203 half 582203_582543 and 582543_582683 eat 582683_582924 it 582924_583004 .
+@G:	Tea
+*INV:	tell me how to make a cup of tea . 585688_587810
+%mor:	verb|tell-Fin-Imp-S pron|I-Prs-Acc-S1 adv|how part|to verb|make-Inf-S det|a-Ind-Art noun|cup-Acc adp|of noun|tea .
+%gra:	1|0|ROOT 2|1|IOBJ 3|1|OBJ 4|5|MARK 5|3|ACL 6|7|DET 7|5|OBJ 8|9|CASE 9|7|NMOD 10|1|PUNCT
+%wor:	tell 585688_585948 me 585948_586128 how 586128_586549 to 586549_586689 make 586689_587049 a 587049_587130 cup 587130_587370 of 587370_587550 tea 587550_587810 .
+%xalign:	monotonicity:end_clamped end_truncated_by=261ms original_end=588071 clamped_to=587810 cause=utr_token_range_overlap
+*PAR:	okay . 587810_588752
+%mor:	intj|okay .
+%gra:	1|0|ROOT 2|1|PUNCT
+%wor:	okay 587810_587891 .
+*PAR:	to make a cup of tea I would first &-um +... 589875_594037
+%mor:	part|to verb|make-Inf-S det|a-Ind-Art noun|cup-Acc adp|of noun|tea pron|I-Prs-Nom-S1 aux|would-Fin-S adv|first +...
+%gra:	1|2|MARK 2|8|ADVCL 3|4|DET 4|2|OBJ 5|6|CASE 6|4|NMOD 7|8|NSUBJ 8|0|ROOT 9|8|ADVMOD 10|8|PUNCT
+%wor:	to 589895_590015 make 590015_590235 a 590235_590335 cup 590335_590616 of 590616_590736 tea 590736_590976 I 592038_592098 would 592098_592358 first 592358_592759 um 593079_593440 +...
+*PAR:	I have a [/] &+t a teapot that [/] that makes noise . 594481_597225
+%mor:	pron|I-Prs-Nom-S1 verb|have-Fin-Ind-Pres-S1 det|a-Ind-Art noun|teapot-Acc pron|that-Rel verb|make-Fin-Ind-Pres-S3 noun|noise-Acc .
+%gra:	1|2|NSUBJ 2|0|ROOT 3|4|DET 4|2|OBJ 5|6|NSUBJ 6|4|ACL-RELCL 7|6|OBJ 8|2|PUNCT
+%wor:	I 594481_594521 have 594521_594601 a 594601_594922 a 594922_595102 teapot 595102_595663 that 595663_596244 that 596244_596464 makes 596464_596724 noise 596724_597225 .
+*PAR:	so , <I would> [/] <I would> [/] I would &-um put my pot on the stove . 597841_602864
+%mor:	adv|so cm|cm pron|I-Prs-Nom-S1 aux|would-Fin-S verb|put-Inf-S pron|my-Prs-Gen-S1 noun|pot-Acc adp|on det|the-Def-Art noun|stove .
+%gra:	1|5|DISCOURSE 2|1|PUNCT 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|7|NMOD-POSS 7|5|OBJ 8|10|CASE 9|10|DET 10|5|OBL 11|5|PUNCT
+%wor:	so 597846_598186 , I 598186_598266 would 598266_599068 I 599068_599128 would 599128_600029 I 600029_600089 would 600089_600289 um 600550_601251 put 601251_601491 my 601491_601691 pot 601691_602092 on 602092_602252 the 602252_602372 stove 602372_602813 .
+*PAR:	and when it start whistling , I'd know that the water was hot . 603525_605968
+%mor:	cconj|and adv|when pron|it-Prs-Nom-S3 verb|start-Fin-Ind-Pres-S3 verb|whistle-Ger-S cm|cm pron|I-Prs-Nom-S1~aux|would-Fin-S verb|know-Inf-S sconj|that det|the-Def-Art noun|water aux|be-Fin-Ind-Past-S3-irr adj|hot-S1 .
+%gra:	1|9|CC 2|4|ADVMOD 3|4|NSUBJ 4|9|ADVCL 5|4|XCOMP 6|4|PUNCT 7|9|NSUBJ 8|9|AUX 9|0|ROOT 10|14|MARK 11|12|DET 12|14|NSUBJ 13|14|COP 14|9|CCOMP 15|9|PUNCT
+%wor:	and 603525_603625 when 603625_603745 it 603745_603825 start 603825_604146 whistling 604146_604526 , I'd 604526_604686 know 604686_604867 that 604867_605027 the 605027_605187 water 605187_605448 was 605448_605628 hot 605628_605968 .
+%xalign:	fa:narrow_bullet_rescued word_count=12 original_end=606128 expanded_end=606390 next_start=606590 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	I'd get my cup . 606589_607731
+%mor:	pron|I-Prs-Nom-S1~aux|would-Fin-S verb|get-Inf-S pron|my-Prs-Gen-S1 noun|cup-Acc .
+%gra:	1|3|NSUBJ 2|3|AUX 3|0|ROOT 4|5|NMOD-POSS 5|3|OBJ 6|3|PUNCT
+%wor:	I'd 606589_606750 get 606750_606950 my 606950_607230 cup 607230_607491 .
+*PAR:	and I would add one bag of tea it to the cup . 608072_612919
+%mor:	cconj|and pron|I-Prs-Nom-S1 aux|would-Fin-S verb|add-Inf-S num|one noun|bag-Acc adp|of noun|tea pron|it-Prs-Acc-S3 adp|to det|the-Def-Art noun|cup .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|6|NUMMOD 6|4|OBJ 7|8|CASE 8|6|NMOD 9|6|NMOD 10|12|CASE 11|12|DET 12|4|OBL 13|4|PUNCT
+%wor:	and 608072_608172 I 608172_608212 would 608212_608512 add 608512_609374 one 609374_609914 bag 609914_610275 of 610275_610455 tea 610455_610676 it 611978_612118 to 612118_612278 the 612278_612418 cup 612418_612679 .
+*PAR:	and then I would add my hot water to it . 613620_615563
+%mor:	cconj|and adv|then pron|I-Prs-Nom-S1 aux|would-Fin-S verb|add-Inf-S pron|my-Prs-Gen-S1 adj|hot-S1 noun|water-Acc adp|to pron|it-Prs-Acc-S3 .
+%gra:	1|5|CC 2|5|ADVMOD 3|5|NSUBJ 4|5|AUX 5|0|ROOT 6|8|NMOD-POSS 7|8|AMOD 8|5|OBJ 9|10|CASE 10|5|OBL 11|5|PUNCT
+%wor:	and 613620_613760 then 613760_613981 I 613981_614061 would 614061_614221 add 614221_614401 my 614401_614602 hot 614602_614842 water 614842_615183 to 615183_615463 it 615463_615563 .
+%xalign:	fa:narrow_bullet_rescued word_count=10 original_end=615964 expanded_end=616305 next_start=616505 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	and I'll let that sit and steam for a while . 616525_618686
+%mor:	cconj|and pron|I-Prs-Nom-S1~aux|will-Fin-S verb|let-Inf-S pron|that-Dem verb|sit-Inf-S cconj|and verb|steam-Inf-S adp|for det|a-Ind-Art noun|while .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|4|OBJ 6|4|XCOMP 7|8|CC 8|6|CONJ 9|11|CASE 10|11|DET 11|6|OBL 12|4|PUNCT
+%wor:	and 616525_616705 I'll 616705_616825 let 616825_616925 that 616925_617265 sit 617265_617505 and 617505_617625 steam 617625_618065 for 618065_618206 a 618206_618266 while 618266_618686 .
+%xalign:	fa:narrow_bullet_rescued word_count=10 original_end=618767 expanded_end=619589 next_start=619789 trigger=tight_per_word_budget cause=transcribe_bullet_too_narrow_for_word_count
+*PAR:	and then after that I [/] &+m I may add &-um some honey to give it sweetness . 619789_626491
+%mor:	cconj|and adv|then adp|after sconj|that pron|I-Prs-Nom-S1 aux|may-Fin-S verb|add-Inf-S det|some-Def-Ind noun|honey-Acc part|to verb|give-Inf-S pron|it-Prs-Acc-S3 noun|sweetness-Acc .
+%gra:	1|7|CC 2|7|ADVMOD 3|4|CASE 4|7|OBL 5|7|NSUBJ 6|7|AUX 7|0|ROOT 8|9|DET 9|7|OBJ 10|11|MARK 11|7|ADVCL 12|11|IOBJ 13|11|OBJ 14|7|PUNCT
+%wor:	and 619807_620147 then 620147_620447 after 620447_620727 that 620727_621347 I 621347_621408 I 621408_621468 may 621468_621768 add 621768_622348 um 622728_622888 some 624169_624389 honey 624389_625470 to 625470_625630 give 625630_625830 it 625830_625950 sweetness 625950_626491 .
+*PAR:	or I may add some cream to it . 627211_630724
+%mor:	cconj|or pron|I-Prs-Nom-S1 aux|may-Fin-S verb|add-Inf-S det|some-Def-Ind noun|cream-Acc adp|to pron|it-Prs-Acc-S3 .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|6|DET 6|4|OBJ 7|8|CASE 8|4|OBL 9|4|PUNCT
+%wor:	or 627211_627511 I 627511_627571 may 627571_627892 add 627892_628872 some 628872_629773 cream 629773_630153 to 630153_630413 it 630413_630533 .
+*PAR:	or I may add sugar , depending on whether I want sugar , honey , or whatever . 631505_638023
+%mor:	cconj|or pron|I-Prs-Nom-S1 aux|may-Fin-S verb|add-Inf-S noun|sugar-Acc cm|cm verb|depend-Part-Pres-S sconj|on sconj|whether pron|I-Prs-Nom-S1 verb|want-Fin-Ind-Pres-S1 noun|sugar-Acc cm|cm noun|honey cm|cm cconj|or pron|whatever-Int-S1 .
+%gra:	1|4|CC 2|4|NSUBJ 3|4|AUX 4|0|ROOT 5|4|OBJ 6|11|PUNCT 7|11|MARK 8|7|FIXED 9|11|MARK 10|11|NSUBJ 11|4|ADVCL 12|11|OBJ 13|14|PUNCT 14|12|CONJ 15|17|PUNCT 16|17|CC 17|12|CONJ 18|4|PUNCT
+%wor:	or 631545_631685 I 631685_631805 may 631805_632066 add 632066_632386 sugar 632386_632707 , depending 632707_633168 on 633168_634311 whether 634311_634611 I 634611_634652 want 634652_634932 sugar 634932_635834 , honey 635834_636155 , or 637418_637558 whatever 637558_637979 .
+@End

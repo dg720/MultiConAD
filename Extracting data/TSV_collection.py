@@ -108,15 +108,19 @@ class TSVCollection(Collection):
 
 
 
-path_to_cha_files =  "path_to_tsv_files" # Path to the directory containing the .tsv files
+# --- Chinese TSV datasets ---
+# path_to_tsv_files = "../data/Chinese/iFlytek"    # Predictive Challenge 2019 (9 files)
+# MISSING: NCMMSC2021 AD Competition dataset — not yet available
+
+path_to_tsv_files = "../data/Chinese/iFlytek"      # set active dataset here
 
 
 if __name__ == '__main__':
-    
-    collection = TSVCollection(path_to_cha_files,language="")
+
+    collection = TSVCollection(path_to_tsv_files, language="")
     
     # Making the file name for the output file
-    last_words= path_to_cha_files.split('/')[-3:]
+    last_words= path_to_tsv_files.split('/')[-3:]
     output_file_name= f"{last_words[0]}_{last_words[1]}_{last_words[2]}_output.jsonl"
     
     # Writing the normalized data to the output file

@@ -1,0 +1,14 @@
+# Raw audio/video — too large for git
+raw_datasets/
+
+# Processed outputs — committed separately via transcriptions/
+__pycache__/
+*.pyc
+*.pyo
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
