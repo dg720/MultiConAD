@@ -9,6 +9,7 @@ import os
 import sys
 import json
 from dataclasses import asdict
+import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -121,12 +122,62 @@ def _load_taukadial_labels() -> dict:
     return labels
 
 
+def _load_wls_labels() -> dict:
+    """
+    file_id_int -> {Diagnosis, Age, Gender, Education} for WLS records.
+    Priority 1: 2020 research consensus diagnosis (HC/MCI/Dementia).
+    Priority 2: 2011 category fluency threshold (HC or Dementia).
+    Threshold: age<60->16, 60-79->14, >79->12 words (paper Section 3.1.4).
+    Join key: idtlkbnk % 100000 == int(File_ID).
+    """
+    xlsx = os.path.join(RAW, "English", "WLS", "WLS-data.xlsx")
+    dx_map = {1.0: "HC", 2.0: "MCI", 3.0: "Dementia"}
+    labels = {}
+
+    xl_2020 = pd.read_excel(xlsx, sheet_name="Data - 2020")
+    xl_2020["file_id"] = xl_2020["idtlkbnk"].astype(int) % 100000
+    xl_2011 = pd.read_excel(xlsx, sheet_name="Data - 2004, 2011")
+    xl_2011["file_id"] = xl_2011["idtlkbnk"].astype(int) % 100000
+
+    # 2011 fluency fallback
+    fluency_col = "category fluency, scored words named, 2011"
+    age_col = "age 2011"
+    for _, row in xl_2011.iterrows():
+        fid = int(row["file_id"])
+        score = row.get(fluency_col)
+        age = row.get(age_col)
+        if pd.isna(score) or score <= 0 or pd.isna(age) or age <= 0:
+            continue
+        threshold = 16 if age < 60 else (14 if age <= 79 else 12)
+        dx = "HC" if score >= threshold else "Dementia"
+        labels[fid] = {"Diagnosis": dx, "Age": str(int(age)), "Gender": "", "Education": ""}
+
+    # 2020 research diagnosis takes priority
+    for _, row in xl_2020.iterrows():
+        dx_code = row.get("Research diagnosis via consensus")
+        if pd.isna(dx_code) or dx_code not in dx_map:
+            continue
+        fid = int(row["file_id"])
+        age = row.get("age 2020", "Unknown")
+        sex = row.get("sex", "")
+        gender = "M" if sex == 1 else ("F" if sex == 2 else "")
+        labels[fid] = {
+            "Diagnosis": dx_map[dx_code],
+            "Age": str(int(age)) if not pd.isna(age) else "Unknown",
+            "Gender": gender,
+            "Education": "",
+        }
+
+    return labels
+
+
 _DS7_LABELS       = _load_demcare_labels("long")
 _DS5_LABELS       = _load_demcare_labels("short")
 _DS3_PILOT        = _load_demcare_pilot_labels()
 _GREEK_META       = _load_greek_labels()   # MMSE/age/edu metadata for DS5 patients
 _ADRESS_M_GR      = _load_adress_m_gr_labels()
 _TAUKADIAL_LABELS = _load_taukadial_labels()
+_WLS_LABELS       = _load_wls_labels()
 
 
 def _attach_labels_to_jsonl(path: str, attach_fn) -> int:
@@ -217,6 +268,26 @@ def _attach_taukadial_labels(record: dict) -> bool:
     return False
 
 
+def _attach_wls_labels(record: dict) -> bool:
+    """
+    Join WLS labels on File_ID integer.
+    Priority: 2020 research consensus > 2011 category fluency threshold.
+    """
+    try:
+        fid = int(record.get("File_ID", ""))
+    except (ValueError, TypeError):
+        return False
+    meta = _WLS_LABELS.get(fid)
+    if meta:
+        record["Diagnosis"] = meta["Diagnosis"]
+        if meta.get("Age"):
+            record["Age"] = meta["Age"]
+        if meta.get("Gender"):
+            record["Gender"] = meta["Gender"]
+        return True
+    return False
+
+
 # ── Collection runners ────────────────────────────────────────────────────────
 
 def run_cha(path: str, language: str, output_name: str) -> str:
@@ -271,7 +342,11 @@ if __name__ == "__main__":
     for ds in ("Lu", "Baycrest", "Delaware", "Kempler", "VAS", "WLS"):
         path = os.path.join(DATA, "English", ds)
         name = f"English_{ds}_output.jsonl"
-        produced.append(run_cha(path, "english", name))
+        out = run_cha(path, "english", name)
+        if ds == "WLS":
+            n_labeled = _attach_labels_to_jsonl(out, _attach_wls_labels)
+            print(f"    → {n_labeled} WLS records labeled (2020 consensus + 2011 fluency threshold)")
+        produced.append(out)
 
     # ── Spanish CHA datasets ──────────────────────────────────────────────────
     print("\n[Spanish CHA]")

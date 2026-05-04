@@ -83,7 +83,7 @@ classifiers = {
     'Decision Tree':      (DecisionTreeClassifier(random_state=42),      {'max_depth': [10, 20, 30]}),
     'Random Forest':      (RandomForestClassifier(random_state=42),       {'n_estimators': [50, 100, 200]}),
     'Naive Bayes':        (MultinomialNB(),                               {'alpha': [0.5, 1.0, 1.5]}),
-    'SVM':                (SVC(random_state=42),                          {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}),
+    'SVM':                (SVC(random_state=42, class_weight='balanced'),  {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}),
     'Logistic Regression':(LogisticRegression(random_state=42, max_iter=1000), {'C': [0.1, 1, 10]}),
 }
 
