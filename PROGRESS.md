@@ -96,8 +96,17 @@ Output: `Preprocessing_text/cleaned/` (train + test JSONL per language).
 
 **Greek dataset note:** 264 records survive cleaning (99 → 220 → 264 across three label additions). Remaining losses:
 - DS7 Patient85 (1): absent from all Dem@Care folders — dropped
-- DS3 (101): unlabelled day-recording dirs (`audiorec_day*`) — dropped
+- DS3 (101): unlabelled day-recording dirs (`audiorecday*`) — dropped (see investigation below)
 - Short/hallucination transcripts removed by `min_length=60` filter
+
+**DS3 unlabelled day-recordings — investigation (2026-05-04):**
+
+101 DS3 records come from `audiorecday2_a/b/c`, `audiorecday3_a/b`, `audiorecday4` directories. These contain subdirs named `patient N` (patient 40–44, etc.) but carry no diagnosis. Investigated via:
+
+- [demcare.eu/datasets](https://demcare.eu/datasets/) — confirms DS3 is "audio files from microphone"; no per-session labels published; data access requires a formal email request to info@demcare.eu.
+- Karakostas et al., *The Dem@Care Experiments and Datasets: a Technical Report*, arXiv:1701.01142 — states the pilot recruited **89 participants "in various levels of severity of the cognitive/behavioral disturbances"**, explicitly a mixed cohort of healthy, MCI, mild dementia, and some full AD cases.
+
+**Conclusion:** The `audiorecday*` participants cannot be safely assumed to belong to any single diagnosis group. The "patient N" subdirectory label is a generic participant identifier, not a diagnostic indicator. No external groundtruth file covering these sessions is publicly available. Dropping all 101 records is the correct approach; recovering labels would require contacting info@demcare.eu for the pilot participant metadata.
 
 ---
 
