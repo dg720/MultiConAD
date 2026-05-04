@@ -124,6 +124,15 @@ class CHACollection(Collection):
         Language-specific line parser for Spanish.
         """
         info["File_ID"] = os.path.splitext(os.path.basename(file_path))[0]# PerLA
+        # Ivanova: diagnosis/gender/age encoded in filename e.g. AD-M-57-163.cha
+        stem = os.path.splitext(os.path.basename(file_path))[0]
+        parts_fn = stem.split("-")
+        if len(parts_fn) >= 3 and parts_fn[0] in ("AD", "MCI", "HC"):
+            info["Diagnosis"] = parts_fn[0]
+            info["gender"]    = parts_fn[1]
+            info["Dataset"]   = "Ivanova"
+            if parts_fn[2].isdigit():
+                info["age"]   = int(parts_fn[2])
         if line.startswith("@PID:"):
             info["PID"] = line.split(":")[1].strip()
         elif line.startswith("@Transcriber:"):

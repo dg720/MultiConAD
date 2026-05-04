@@ -6,8 +6,26 @@ import csv
 import json
 from dataclasses import asdict
 
+IFLY_LABELS_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "raw_datasets", "Mandarin", "Alzheimer-s-disease-datasets-master",
+    "Alzheimer-s-disease-datasets-master", ".github", "workflows",
+    "2_final_list_train.csv"
+)
 
-     
+def _load_ifly_labels(labels_path: str) -> dict:
+    """Load iFlytek label CSV into a dict keyed by uuid (filename stem)."""
+    labels = {}
+    if not os.path.exists(labels_path):
+        return labels
+    with open(labels_path, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            labels[row["uuid"]] = row
+    return labels
+
+_IFLY_LABELS = _load_ifly_labels(IFLY_LABELS_PATH)
+
 
 class TSVCollection(Collection):
     def __iter__(self) -> Iterator[RawDataPoint]:
@@ -51,7 +69,13 @@ class TSVCollection(Collection):
             "text_interviewer_participant": [],
         }
         with open(file_path, 'r', encoding='utf-8') as file:
-            info["PID"] = file_path.split("/")[-1].split(".")[0]
+            stem = os.path.splitext(os.path.basename(file_path))[0]
+            info["PID"] = stem
+            meta = _IFLY_LABELS.get(stem, {})
+            info["Diagnosis"]  = meta.get("label", "Unknown")   # AD / MCI / CTRL (Unknown = test set, will be dropped)
+            info["age"]        = meta.get("age", "Unknown")
+            info["gender"]     = meta.get("sex", "Unknown")
+            info["Education"]  = meta.get("education", "Unknown")
             reader = csv.DictReader(file, delimiter='\t')
             for line in reader:
                 speaker = line.get("speaker", "").strip()  # Get speaker column
