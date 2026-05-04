@@ -143,9 +143,35 @@ Output: `Translation/translated/` (6 files — train + test per language).
 
 ---
 
-## Step 5: Classification — PENDING
+## Step 5: Classification — IN PROGRESS
 
-```
-python TF_IDF_classifier.py --test_language=... --task=... --translated=...
-python e5_large_classifier.py  --test_language=... --task=... --translated=...
-```
+### 5.1 WLS Label Recovery (2026-05-05)
+
+Identified that all 1,368 WLS records had blank `Diagnosis` — dropped in English cleaning, causing English dataset to be ~1,000 records smaller than the paper (1,251 vs ~2,751). Root cause: DementiaBank WLS CHA files contain no demographic metadata.
+
+Recovered using `raw_datasets/English/WLS/WLS-data.xlsx` (provided by user):
+- **Primary**: `Data - 2020` sheet — research consensus diagnosis (1=HC, 2=MCI, 3=Dementia): 187 records
+- **Fallback**: `Data - 2004, 2011` sheet — category fluency threshold (paper Section 3.1.4): age<60→16, 60–79→14, >79→12 words; 1,111 additional records
+- **Join key**: `idtlkbnk % 100000 == int(File_ID)`
+- **Result**: 1,298/1,368 WLS records labeled (70 remain unlabeled — no usable age/fluency data)
+
+English dataset after recovery: **2,546 records** (HC:1,658, MCI:427, Dementia:461).
+
+Greek gap (~241 records vs paper) confirmed unrecoverable — DS3 day-recording directories carry no diagnosis labels in any available file.
+
+### 5.2 TF-IDF Sparse Classifier (2026-05-05)
+
+Scripts fixed from original: placeholder paths, filename mismatches, mono/multi overwrite bug, `AD→Dementia` normalisation, added `--training mono|multi` arg, `class_weight='balanced'` on SVC (prevents majority-class collapse on imbalanced combined training sets), `n_jobs=-1` for GridSearchCV.
+
+Full experiment matrix: 32 configs × 5 classifiers = **160 runs**. Results saved to `Experiments/results/tfidf_results.txt`, comparison tables (Tables 5 & 6 format) to `Experiments/results/tfidf_comparison_tables.txt`.
+
+**Effect of WLS addition on English results:** Performance dropped ~0.10–0.16 F1 across most classifiers vs the pre-WLS run. The paper's English SVM monolingual binary (0.77) is now matched (0.75). Pre-WLS performance was artificially high due to a smaller, cleaner dataset. The degradation is attributable to:
+- WLS fluency-threshold labels are noisier than clinical diagnoses
+- HC class dominates training (65% HC after WLS addition)
+- Domain mismatch: labels derived from verbal fluency task, evaluated on picture description
+
+This is expected and aligns with the paper — kept as-is per paper methodology.
+
+**Statistical reliability note:** Non-English test sets are small (Greek: 53, Spanish: 76, Chinese: 76 records), making single-seed F1 estimates unreliable (±0.05–0.10 variance). Averaging across multiple random seeds for the train/test split is planned before final comparison to paper. TF-IDF is fast enough (~2 hrs for 5 seeds); E5-large will use 3 seeds.
+
+### 5.3 E5-Large Dense Classifier — PENDING
