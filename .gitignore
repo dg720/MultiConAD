@@ -1,6 +1,9 @@
 # Raw audio/video — too large for git
 raw_datasets/
 
+# E5-large embedding cache (~90 MB .npy files)
+Experiments/embedding_cache/
+
 # Processed outputs — committed separately via transcriptions/
 __pycache__/
 *.pyc

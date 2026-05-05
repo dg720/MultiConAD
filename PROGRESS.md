@@ -174,4 +174,45 @@ This is expected and aligns with the paper — kept as-is per paper methodology.
 
 **Statistical reliability note:** Non-English test sets are small (Greek: 53, Spanish: 76, Chinese: 76 records), making single-seed F1 estimates unreliable (±0.05–0.10 variance). Averaging across multiple random seeds for the train/test split is planned before final comparison to paper. TF-IDF is fast enough (~2 hrs for 5 seeds); E5-large will use 3 seeds.
 
-### 5.3 E5-Large Dense Classifier — PENDING
+### 5.3 E5-Large Dense Classifier — COMPLETE (2026-05-05)
+
+Full 32-config matrix run: 4 test languages × 2 tasks × 2 translated settings × 2 training modes × 4 classifiers = 128 evaluations. Results in `Experiments/results/e5_results.txt`, comparison tables updated in `Experiments/results/tfidf_comparison_tables.txt`.
+
+**GPU memory issue encountered and fixed:** Each subprocess loaded E5-large (~2.2 GB VRAM) and PyTorch/CUDA did not release VRAM when the subprocess exited. After 5 configs, GPU (GTX 1660 Super, 6 GB) was 94% full (5780/6144 MB), causing config 6 to fall back to CPU and stall for 1.5+ hours. Fixed by:
+- Making the model a module-level singleton (loaded once per subprocess, not once per `get_embeddings` call)
+- Adding explicit `del _model; gc.collect(); torch.cuda.empty_cache()` at script exit
+
+After fix, each config completed in ~3–5 min; full run in ~2.5 hours.
+
+**Embedding caching:** 48 unique `.npy` cache files written to `Experiments/embedding_cache/`. Subsequent runs (e.g., multi-seed) will skip all encoding and go straight to GridSearchCV.
+
+**Best macro F1 — E5-large (Dense), single seed:**
+
+| Task       | Language | Mono   | Multi  | Multi+Trans |
+|------------|----------|--------|--------|-------------|
+| Binary     | EN       | 0.74   | 0.73   | 0.73        |
+|            | GR       | 0.78   | 0.54   | 0.58        |
+|            | ZH       | 0.89   | 0.74   | 0.76        |
+|            | ES       | 0.73   | 0.67   | 0.67        |
+| Multiclass | EN       | 0.63   | 0.62   | 0.61        |
+|            | GR       | 0.60   | 0.61   | 0.53        |
+|            | ZH       | 0.60   | 0.62   | 0.52        |
+|            | ES       | 0.53   | 0.42   | 0.45        |
+
+**Key observations:**
+
+1. **E5 vs TF-IDF (binary):** E5-large substantially outperforms TF-IDF on Chinese monolingual (0.89 vs 0.71 SVM) and is comparable on English (0.74 vs 0.75). Greek monolingual is similar (0.78 vs 0.75). Spanish monolingual is similar (0.73 vs 0.77).
+
+2. **Combined multilingual hurts E5 (binary):** TF-IDF benefits from combined training in some configs (Greek translated: 0.77 RF), but E5-large degrades significantly — Greek multi drops to 0.54, vs mono 0.78. Likely cause: the English-dominated training set (74% HC/Dementia English) pulls embeddings toward English disease-language patterns that do not transfer to Greek AD speech.
+
+3. **Translation mostly unhelpful for E5:** E5-large is natively multilingual and encodes Greek/Chinese/Spanish directly; translating to English before encoding loses language-specific cues. In most configs, translated ≤ original for E5.
+
+4. **Logistic Regression collapses under combined training:** In all multi-lingual binary configs, LR selected C=0.1 and predicted exclusively HC (macro F1 ~0.44). This is a regularisation/class-imbalance interaction: the combined training set is 74% HC, and heavy L2 shrinkage forces LR to the majority class. SVM with `class_weight='balanced'` is more robust here.
+
+5. **Multiclass:** E5-large matches or exceeds TF-IDF across the board. Chinese mono E5 (0.60) vs TF-IDF (0.37) is the largest gain. The combined training helps Greek multiclass for E5 (multi LR: 0.61 vs mono SVM: 0.60) but not Spanish.
+
+6. **Statistical note:** Non-English test sets are small (GR: 53, ZH: 76, ES: 76); single-seed estimates carry ±0.05–0.10 variance. Multi-seed averaging planned.
+
+**Classifier rankings (consistent across languages/tasks):**
+- Binary: LR > SVM > RF > DT (mono), SVM > RF > DT > LR (multi)
+- Multiclass: LR ≈ SVM > RF > DT (mono+multi)
