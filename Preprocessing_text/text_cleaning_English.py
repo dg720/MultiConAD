@@ -12,22 +12,29 @@ JSONL_DIR  = os.path.join(SCRIPT_DIR, "..", "Extracting data", "jsonl_files")
 OUT_DIR    = os.path.join(SCRIPT_DIR, "cleaned")
 os.makedirs(OUT_DIR, exist_ok=True)
 
-input_files = [
+# Non-WLS sources — eligible for train/test split
+non_wls_files = [
     os.path.join(JSONL_DIR, "English_Pitt_Control_cookie_output.jsonl"),
     os.path.join(JSONL_DIR, "English_Pitt_Dementia_cookie_output.jsonl"),
     os.path.join(JSONL_DIR, "English_Lu_output.jsonl"),
     os.path.join(JSONL_DIR, "English_Baycrest_output.jsonl"),
     os.path.join(JSONL_DIR, "English_VAS_output.jsonl"),
     os.path.join(JSONL_DIR, "English_Kempler_output.jsonl"),
-    os.path.join(JSONL_DIR, "English_WLS_output.jsonl"),
     os.path.join(JSONL_DIR, "English_Delaware_output.jsonl"),
     os.path.join(JSONL_DIR, "ASR_taukadial_train_output.jsonl"),
     os.path.join(JSONL_DIR, "ASR_taukadial_test_output.jsonl"),
 ]
-output_filename = "combined_jsonl_English.jsonl"
-combiner = JSONLCombiner(input_files, OUT_DIR, output_filename)
+# WLS is training-only per paper Section 3.1.4
+wls_files = [os.path.join(JSONL_DIR, "English_WLS_output.jsonl")]
+
+combiner = JSONLCombiner(non_wls_files + wls_files, OUT_DIR, "combined_jsonl_English.jsonl")
 combiner.combine()
-English_df = pd.read_json(os.path.join(OUT_DIR, output_filename), lines=True)
+
+non_wls_df = pd.concat(
+    [pd.read_json(f, lines=True) for f in non_wls_files if os.path.exists(f)],
+    ignore_index=True
+)
+wls_df = pd.read_json(wls_files[0], lines=True)
 
 
 def remove_zh_language_rows(df):
@@ -85,24 +92,27 @@ def preprocess_text(text):
     return text
 
 
-English_df = remove_zh_language_rows(English_df)
-English_df = clean_diagnosis(English_df)
-English_df["Text_interviewer_participant"] = English_df["Text_interviewer_participant"].apply(preprocess_text)
-English_df["Text_length"] = English_df["Text_interviewer_participant"].apply(len)
+def process(df):
+    df = remove_zh_language_rows(df)
+    df = clean_diagnosis(df)
+    df["Text_interviewer_participant"] = df["Text_interviewer_participant"].apply(preprocess_text)
+    df["Text_length"] = df["Text_interviewer_participant"].apply(len)
+    return df[df["Text_length"] > 60].reset_index(drop=True)
 
 
-def remove_short_transcripts(df, min_length=60):
-    return df[df["Text_length"] > min_length]
+non_wls_df = process(non_wls_df)
+wls_df = process(wls_df)
 
-
-English_df = remove_short_transcripts(English_df)
-train_en, test_en = train_test_split(
-    English_df, test_size=0.2, stratify=English_df["Diagnosis"], random_state=42
+# 80/20 split on non-WLS only; all WLS goes to training
+train_base, test_en = train_test_split(
+    non_wls_df, test_size=0.2, stratify=non_wls_df["Diagnosis"], random_state=42
 )
+train_en = pd.concat([train_base, wls_df], ignore_index=True)
 
 train_en.to_json(os.path.join(OUT_DIR, "train_english.jsonl"), orient="records", lines=True, force_ascii=False)
 test_en.to_json(os.path.join(OUT_DIR,  "test_english.jsonl"),  orient="records", lines=True, force_ascii=False)
 
-print(f"English: {len(English_df)} records after cleaning")
-print(English_df["Diagnosis"].value_counts().to_string())
-print(f"Train: {len(train_en)}  Test: {len(test_en)}")
+print(f"Non-WLS: {len(non_wls_df)} records  WLS: {len(wls_df)} records")
+print(f"Train: {len(train_en)} (non-WLS {len(train_base)} + WLS {len(wls_df)})  Test: {len(test_en)}")
+print("Train diagnosis dist:", dict(train_en["Diagnosis"].value_counts()))
+print("Test  diagnosis dist:", dict(test_en["Diagnosis"].value_counts()))
