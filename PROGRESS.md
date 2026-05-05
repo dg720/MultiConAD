@@ -174,6 +174,38 @@ This is expected and aligns with the paper — kept as-is per paper methodology.
 
 **Statistical reliability note:** Non-English test sets are small (Greek: 53, Spanish: 76, Chinese: 76 records), making single-seed F1 estimates unreliable (±0.05–0.10 variance). Averaging across multiple random seeds for the train/test split is planned before final comparison to paper. TF-IDF is fast enough (~2 hrs for 5 seeds); E5-large will use 3 seeds.
 
+### 5.4 WLS Train-Only Fix & Full Rerun — COMPLETE (2026-05-05)
+
+**Root cause identified:** `text_cleaning_English.py` applied an 80/20 split to the full English dataset including WLS, putting ~260 noisy fluency-labeled records in the test set. The paper (Section 3.1.4) states WLS is used exclusively for training.
+
+**Fix:** Split non-WLS sources (Pitt, Lu, Baycrest, Delaware, Kempler, VAS, TAUKADIAL) 80/20; append all WLS records to training only.
+
+**Dataset after fix:**
+- Train: 2,295 (1,000 non-WLS + 1,295 WLS) vs paper's 2,201
+- Test: 251 (clean clinical labels only) vs paper's 210
+
+Both TF-IDF and E5-large re-run with new splits. 12 stale embedding cache files (English + multi training) deleted and re-encoded.
+
+**Updated best macro F1 after fix:**
+
+| Task       | Language | Sparse Mono | Dense Mono | Paper Sparse | Paper Dense |
+|------------|----------|-------------|------------|--------------|-------------|
+| Binary     | EN       | 0.82 ↑      | 0.82 ↑     | 0.77         | 0.81        |
+|            | GR       | 0.75        | 0.78       | 0.78         | 0.78        |
+|            | ZH       | 0.71        | 0.89       | 0.70         | 0.83        |
+|            | ES       | 0.77        | 0.73       | 0.78         | 0.80        |
+| Multiclass | EN       | 0.66 ↑      | 0.63       | 0.65         | 0.65        |
+|            | GR       | 0.53        | 0.60       | 0.67         | 0.73        |
+|            | ZH       | 0.37        | 0.60       | 0.40         | 0.58        |
+|            | ES       | 0.51        | 0.53       | 0.61         | 0.61        |
+
+**Impact of fix on English:** Binary mono improved from 0.74→0.82 (Dense) and 0.75→0.82 (Sparse), now meeting or exceeding paper values. Multiclass improved from 0.63→0.66 (Sparse). The previous under-performance was entirely due to WLS-labeled records polluting the test set with noisier labels.
+
+**Remaining gaps vs paper:**
+- Spanish: Sparse mono 0.77 vs 0.78 (≈); Dense mono 0.73 vs 0.80 (−0.07). Likely due to smaller Spanish training set and possible PerLA differences.
+- Greek multiclass: 0.60 vs 0.73 (−0.13). Directly attributable to missing 241 Greek records (DS3 day-recordings + author-provided data).
+- Combined/translated settings: paper benefits more from adding languages, consistent with their larger, better-balanced combined training sets (more Greek, Chinese NCMMSC2021).
+
 ### 5.3 E5-Large Dense Classifier — COMPLETE (2026-05-05)
 
 Full 32-config matrix run: 4 test languages × 2 tasks × 2 translated settings × 2 training modes × 4 classifiers = 128 evaluations. Results in `Experiments/results/e5_results.txt`, comparison tables updated in `Experiments/results/tfidf_comparison_tables.txt`.

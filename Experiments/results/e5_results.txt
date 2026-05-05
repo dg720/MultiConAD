@@ -1,59 +1,60 @@
-E5-large Experiment Results — 2026-05-05 13:03
+E5-large Experiment Results — 2026-05-05 14:09
 ============================================================
 
 Device: cuda
 
 ============================================================
 E5-large | training=mono | test=en | task=binary | translated=no
-Train size: 1695 | Test size: 424
-Label dist (train): {'HC': np.int64(1326), 'Dementia': np.int64(369)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92)}
+Train size: 1939 | Test size: 180
+Label dist (train): {'HC': np.int64(1534), 'Dementia': np.int64(405)}
+Label dist (test):  {'HC': np.int64(124), 'Dementia': np.int64(56)}
 ============================================================
-  Loading cached embeddings: train_mono_en_binary_orig
-  Loading cached embeddings: test_en_binary_orig
+  Encoding 1939 texts: train_mono_en_binary_orig
+  Loading E5-large model...
+  Encoding 180 texts: test_en_binary_orig
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.48      0.42      0.45        92
-          HC       0.85      0.87      0.86       332
+    Dementia       0.65      0.43      0.52        56
+          HC       0.78      0.90      0.83       124
 
-    accuracy                           0.78       424
-   macro avg       0.66      0.65      0.66       424
-weighted avg       0.77      0.78      0.77       424
+    accuracy                           0.75       180
+   macro avg       0.71      0.66      0.67       180
+weighted avg       0.74      0.75      0.73       180
 
 
---- Random Forest (best params: {'n_estimators': 200}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.86      0.33      0.47        92
-          HC       0.84      0.98      0.91       332
+    Dementia       0.81      0.39      0.53        56
+          HC       0.78      0.96      0.86       124
 
-    accuracy                           0.84       424
-   macro avg       0.85      0.66      0.69       424
-weighted avg       0.84      0.84      0.81       424
+    accuracy                           0.78       180
+   macro avg       0.80      0.68      0.69       180
+weighted avg       0.79      0.78      0.76       180
 
 
 --- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.48      0.65      0.55        92
-          HC       0.89      0.80      0.84       332
+    Dementia       0.69      0.88      0.77        56
+          HC       0.94      0.82      0.88       124
 
-    accuracy                           0.77       424
-   macro avg       0.68      0.73      0.70       424
-weighted avg       0.80      0.77      0.78       424
+    accuracy                           0.84       180
+   macro avg       0.81      0.85      0.82       180
+weighted avg       0.86      0.84      0.84       180
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.87      0.42      0.57        92
-          HC       0.86      0.98      0.92       332
+    Dementia       0.88      0.62      0.73        56
+          HC       0.85      0.96      0.90       124
 
-    accuracy                           0.86       424
-   macro avg       0.86      0.70      0.74       424
-weighted avg       0.86      0.86      0.84       424
+    accuracy                           0.86       180
+   macro avg       0.86      0.79      0.82       180
+weighted avg       0.86      0.86      0.85       180
 
 
 Device: cuda
@@ -225,55 +226,56 @@ Device: cuda
 
 ============================================================
 E5-large | training=mono | test=en | task=binary | translated=yes
-Train size: 1695 | Test size: 424
-Label dist (train): {'HC': np.int64(1326), 'Dementia': np.int64(369)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92)}
+Train size: 1939 | Test size: 180
+Label dist (train): {'HC': np.int64(1534), 'Dementia': np.int64(405)}
+Label dist (test):  {'HC': np.int64(124), 'Dementia': np.int64(56)}
 ============================================================
-  Loading cached embeddings: train_mono_en_binary_trans
-  Loading cached embeddings: test_en_binary_trans
+  Encoding 1939 texts: train_mono_en_binary_trans
+  Loading E5-large model...
+  Encoding 180 texts: test_en_binary_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.48      0.42      0.45        92
-          HC       0.85      0.87      0.86       332
+    Dementia       0.65      0.43      0.52        56
+          HC       0.78      0.90      0.83       124
 
-    accuracy                           0.78       424
-   macro avg       0.66      0.65      0.66       424
-weighted avg       0.77      0.78      0.77       424
+    accuracy                           0.75       180
+   macro avg       0.71      0.66      0.67       180
+weighted avg       0.74      0.75      0.73       180
 
 
---- Random Forest (best params: {'n_estimators': 200}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.86      0.33      0.47        92
-          HC       0.84      0.98      0.91       332
+    Dementia       0.81      0.39      0.53        56
+          HC       0.78      0.96      0.86       124
 
-    accuracy                           0.84       424
-   macro avg       0.85      0.66      0.69       424
-weighted avg       0.84      0.84      0.81       424
+    accuracy                           0.78       180
+   macro avg       0.80      0.68      0.69       180
+weighted avg       0.79      0.78      0.76       180
 
 
 --- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.48      0.65      0.55        92
-          HC       0.89      0.80      0.84       332
+    Dementia       0.69      0.88      0.77        56
+          HC       0.94      0.82      0.88       124
 
-    accuracy                           0.77       424
-   macro avg       0.68      0.73      0.70       424
-weighted avg       0.80      0.77      0.78       424
+    accuracy                           0.84       180
+   macro avg       0.81      0.85      0.82       180
+weighted avg       0.86      0.84      0.84       180
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.87      0.42      0.57        92
-          HC       0.86      0.98      0.92       332
+    Dementia       0.88      0.62      0.73        56
+          HC       0.85      0.96      0.90       124
 
-    accuracy                           0.86       424
-   macro avg       0.86      0.70      0.74       424
-weighted avg       0.86      0.86      0.84       424
+    accuracy                           0.86       180
+   macro avg       0.86      0.79      0.82       180
+weighted avg       0.86      0.86      0.85       180
 
 
 Device: cuda
@@ -285,8 +287,7 @@ Label dist (train): {'Dementia': np.int64(106), 'HC': np.int64(66)}
 Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17)}
 ============================================================
   Loading cached embeddings: train_mono_gr_binary_trans
-  Encoding 43 texts: test_gr_binary_trans
-  Loading E5-large model...
+  Loading cached embeddings: test_gr_binary_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -340,9 +341,8 @@ Train size: 161 | Test size: 40
 Label dist (train): {'HC': np.int64(124), 'Dementia': np.int64(37)}
 Label dist (test):  {'HC': np.int64(31), 'Dementia': np.int64(9)}
 ============================================================
-  Encoding 161 texts: train_mono_cha_binary_trans
-  Loading E5-large model...
-  Encoding 40 texts: test_cha_binary_trans
+  Loading cached embeddings: train_mono_cha_binary_trans
+  Loading cached embeddings: test_cha_binary_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -396,9 +396,8 @@ Train size: 233 | Test size: 59
 Label dist (train): {'HC': np.int64(156), 'Dementia': np.int64(77)}
 Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20)}
 ============================================================
-  Encoding 233 texts: train_mono_spa_binary_trans
-  Loading E5-large model...
-  Encoding 59 texts: test_spa_binary_trans
+  Loading cached embeddings: train_mono_spa_binary_trans
+  Loading cached embeddings: test_spa_binary_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -448,60 +447,60 @@ Device: cuda
 
 ============================================================
 E5-large | training=mono | test=en | task=multiclass | translated=no
-Train size: 2036 | Test size: 510
-Label dist (train): {'HC': np.int64(1326), 'Dementia': np.int64(369), 'MCI': np.int64(341)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92), 'MCI': np.int64(86)}
+Train size: 2295 | Test size: 251
+Label dist (train): {'HC': np.int64(1534), 'Dementia': np.int64(405), 'MCI': np.int64(356)}
+Label dist (test):  {'HC': np.int64(124), 'MCI': np.int64(71), 'Dementia': np.int64(56)}
 ============================================================
-  Encoding 2036 texts: train_mono_en_multiclass_orig
+  Encoding 2295 texts: train_mono_en_multiclass_orig
   Loading E5-large model...
-  Encoding 510 texts: test_en_multiclass_orig
+  Encoding 251 texts: test_en_multiclass_orig
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.46      0.35      0.40        92
-          HC       0.71      0.78      0.74       332
-         MCI       0.36      0.30      0.33        86
+    Dementia       0.53      0.46      0.50        56
+          HC       0.57      0.65      0.61       124
+         MCI       0.49      0.41      0.45        71
 
-    accuracy                           0.62       510
-   macro avg       0.51      0.48      0.49       510
-weighted avg       0.60      0.62      0.61       510
+    accuracy                           0.54       251
+   macro avg       0.53      0.51      0.52       251
+weighted avg       0.54      0.54      0.54       251
 
 
---- Random Forest (best params: {'n_estimators': 200}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.82      0.30      0.44        92
-          HC       0.72      0.95      0.82       332
-         MCI       0.67      0.30      0.42        86
+    Dementia       0.77      0.36      0.49        56
+          HC       0.56      0.88      0.68       124
+         MCI       0.67      0.28      0.40        71
 
-    accuracy                           0.72       510
-   macro avg       0.74      0.52      0.56       510
-weighted avg       0.73      0.72      0.68       510
+    accuracy                           0.59       251
+   macro avg       0.66      0.51      0.52       251
+weighted avg       0.64      0.59      0.56       251
 
 
---- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
+--- SVM (best params: {'C': 0.1, 'kernel': 'linear'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.46      0.67      0.54        92
-          HC       0.82      0.63      0.71       332
-         MCI       0.47      0.65      0.55        86
+    Dementia       0.46      0.93      0.62        56
+          HC       0.59      0.16      0.25       124
+         MCI       0.47      0.69      0.56        71
 
-    accuracy                           0.64       510
-   macro avg       0.58      0.65      0.60       510
-weighted avg       0.69      0.64      0.65       510
+    accuracy                           0.48       251
+   macro avg       0.51      0.59      0.48       251
+weighted avg       0.53      0.48      0.42       251
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.79      0.46      0.58        92
-          HC       0.75      0.93      0.83       332
-         MCI       0.70      0.37      0.48        86
+    Dementia       0.84      0.64      0.73        56
+          HC       0.62      0.85      0.72       124
+         MCI       0.67      0.34      0.45        71
 
-    accuracy                           0.75       510
-   macro avg       0.75      0.59      0.63       510
-weighted avg       0.75      0.75      0.73       510
+    accuracy                           0.66       251
+   macro avg       0.71      0.61      0.63       251
+weighted avg       0.68      0.66      0.64       251
 
 
 Device: cuda
@@ -512,9 +511,8 @@ Train size: 211 | Test size: 53
 Label dist (train): {'Dementia': np.int64(106), 'HC': np.int64(66), 'MCI': np.int64(39)}
 Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17), 'MCI': np.int64(10)}
 ============================================================
-  Encoding 211 texts: train_mono_gr_multiclass_orig
-  Loading E5-large model...
-  Encoding 53 texts: test_gr_multiclass_orig
+  Loading cached embeddings: train_mono_gr_multiclass_orig
+  Loading cached embeddings: test_gr_multiclass_orig
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -572,9 +570,8 @@ Train size: 304 | Test size: 76
 Label dist (train): {'MCI': np.int64(143), 'HC': np.int64(124), 'Dementia': np.int64(37)}
 Label dist (test):  {'MCI': np.int64(36), 'HC': np.int64(31), 'Dementia': np.int64(9)}
 ============================================================
-  Encoding 304 texts: train_mono_cha_multiclass_orig
-  Loading E5-large model...
-  Encoding 76 texts: test_cha_multiclass_orig
+  Loading cached embeddings: train_mono_cha_multiclass_orig
+  Loading cached embeddings: test_cha_multiclass_orig
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -632,9 +629,8 @@ Train size: 303 | Test size: 76
 Label dist (train): {'HC': np.int64(156), 'Dementia': np.int64(77), 'MCI': np.int64(70)}
 Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20), 'MCI': np.int64(17)}
 ============================================================
-  Encoding 303 texts: train_mono_spa_multiclass_orig
-  Loading E5-large model...
-  Encoding 76 texts: test_spa_multiclass_orig
+  Loading cached embeddings: train_mono_spa_multiclass_orig
+  Loading cached embeddings: test_spa_multiclass_orig
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -688,60 +684,60 @@ Device: cuda
 
 ============================================================
 E5-large | training=mono | test=en | task=multiclass | translated=yes
-Train size: 2036 | Test size: 510
-Label dist (train): {'HC': np.int64(1326), 'Dementia': np.int64(369), 'MCI': np.int64(341)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92), 'MCI': np.int64(86)}
+Train size: 2295 | Test size: 251
+Label dist (train): {'HC': np.int64(1534), 'Dementia': np.int64(405), 'MCI': np.int64(356)}
+Label dist (test):  {'HC': np.int64(124), 'MCI': np.int64(71), 'Dementia': np.int64(56)}
 ============================================================
-  Encoding 2036 texts: train_mono_en_multiclass_trans
+  Encoding 2295 texts: train_mono_en_multiclass_trans
   Loading E5-large model...
-  Encoding 510 texts: test_en_multiclass_trans
+  Encoding 251 texts: test_en_multiclass_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.46      0.35      0.40        92
-          HC       0.71      0.78      0.74       332
-         MCI       0.36      0.30      0.33        86
+    Dementia       0.53      0.46      0.50        56
+          HC       0.57      0.65      0.61       124
+         MCI       0.49      0.41      0.45        71
 
-    accuracy                           0.62       510
-   macro avg       0.51      0.48      0.49       510
-weighted avg       0.60      0.62      0.61       510
+    accuracy                           0.54       251
+   macro avg       0.53      0.51      0.52       251
+weighted avg       0.54      0.54      0.54       251
 
 
---- Random Forest (best params: {'n_estimators': 200}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.82      0.30      0.44        92
-          HC       0.72      0.95      0.82       332
-         MCI       0.67      0.30      0.42        86
+    Dementia       0.77      0.36      0.49        56
+          HC       0.56      0.88      0.68       124
+         MCI       0.67      0.28      0.40        71
 
-    accuracy                           0.72       510
-   macro avg       0.74      0.52      0.56       510
-weighted avg       0.73      0.72      0.68       510
+    accuracy                           0.59       251
+   macro avg       0.66      0.51      0.52       251
+weighted avg       0.64      0.59      0.56       251
 
 
---- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
+--- SVM (best params: {'C': 0.1, 'kernel': 'linear'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.46      0.67      0.54        92
-          HC       0.82      0.63      0.71       332
-         MCI       0.47      0.65      0.55        86
+    Dementia       0.46      0.93      0.62        56
+          HC       0.59      0.16      0.25       124
+         MCI       0.47      0.69      0.56        71
 
-    accuracy                           0.64       510
-   macro avg       0.58      0.65      0.60       510
-weighted avg       0.69      0.64      0.65       510
+    accuracy                           0.48       251
+   macro avg       0.51      0.59      0.48       251
+weighted avg       0.53      0.48      0.42       251
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.79      0.46      0.58        92
-          HC       0.75      0.93      0.83       332
-         MCI       0.70      0.37      0.48        86
+    Dementia       0.84      0.64      0.73        56
+          HC       0.62      0.85      0.72       124
+         MCI       0.67      0.34      0.45        71
 
-    accuracy                           0.75       510
-   macro avg       0.75      0.59      0.63       510
-weighted avg       0.75      0.75      0.73       510
+    accuracy                           0.66       251
+   macro avg       0.71      0.61      0.63       251
+weighted avg       0.68      0.66      0.64       251
 
 
 Device: cuda
@@ -752,9 +748,8 @@ Train size: 211 | Test size: 53
 Label dist (train): {'Dementia': np.int64(106), 'HC': np.int64(66), 'MCI': np.int64(39)}
 Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17), 'MCI': np.int64(10)}
 ============================================================
-  Encoding 211 texts: train_mono_gr_multiclass_trans
-  Loading E5-large model...
-  Encoding 53 texts: test_gr_multiclass_trans
+  Loading cached embeddings: train_mono_gr_multiclass_trans
+  Loading cached embeddings: test_gr_multiclass_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -812,9 +807,8 @@ Train size: 304 | Test size: 76
 Label dist (train): {'MCI': np.int64(143), 'HC': np.int64(124), 'Dementia': np.int64(37)}
 Label dist (test):  {'MCI': np.int64(36), 'HC': np.int64(31), 'Dementia': np.int64(9)}
 ============================================================
-  Encoding 304 texts: train_mono_cha_multiclass_trans
-  Loading E5-large model...
-  Encoding 76 texts: test_cha_multiclass_trans
+  Loading cached embeddings: train_mono_cha_multiclass_trans
+  Loading cached embeddings: test_cha_multiclass_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -872,9 +866,8 @@ Train size: 303 | Test size: 76
 Label dist (train): {'HC': np.int64(156), 'Dementia': np.int64(77), 'MCI': np.int64(70)}
 Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20), 'MCI': np.int64(17)}
 ============================================================
-  Encoding 303 texts: train_mono_spa_multiclass_trans
-  Loading E5-large model...
-  Encoding 76 texts: test_spa_multiclass_trans
+  Loading cached embeddings: train_mono_spa_multiclass_trans
+  Loading cached embeddings: test_spa_multiclass_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
@@ -928,64 +921,64 @@ Device: cuda
 
 ============================================================
 E5-large | training=multi | test=en | task=binary | translated=no
-Train size: 2261 | Test size: 424
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92)}
+Train size: 2505 | Test size: 180
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
+Label dist (test):  {'HC': np.int64(124), 'Dementia': np.int64(56)}
 ============================================================
-  Encoding 2261 texts: train_multi_binary_orig
+  Encoding 2505 texts: train_multi_binary_orig
   Loading E5-large model...
   Loading cached embeddings: test_en_binary_orig
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.45      0.34      0.39        92
-          HC       0.83      0.89      0.86       332
+    Dementia       0.66      0.52      0.58        56
+          HC       0.80      0.88      0.84       124
 
-    accuracy                           0.77       424
-   macro avg       0.64      0.61      0.62       424
-weighted avg       0.75      0.77      0.75       424
+    accuracy                           0.77       180
+   macro avg       0.73      0.70      0.71       180
+weighted avg       0.76      0.77      0.76       180
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.76      0.27      0.40        92
-          HC       0.83      0.98      0.90       332
+    Dementia       0.78      0.32      0.46        56
+          HC       0.76      0.96      0.85       124
 
-    accuracy                           0.82       424
-   macro avg       0.79      0.62      0.65       424
-weighted avg       0.81      0.82      0.79       424
+    accuracy                           0.76       180
+   macro avg       0.77      0.64      0.65       180
+weighted avg       0.77      0.76      0.73       180
 
 
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
+--- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.58      0.57      0.57        92
-          HC       0.88      0.89      0.88       332
+    Dementia       0.73      0.84      0.78        56
+          HC       0.92      0.86      0.89       124
 
-    accuracy                           0.82       424
-   macro avg       0.73      0.73      0.73       424
-weighted avg       0.82      0.82      0.82       424
+    accuracy                           0.86       180
+   macro avg       0.83      0.85      0.84       180
+weighted avg       0.86      0.86      0.86       180
 
 
 --- Logistic Regression (best params: {'C': 0.1}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.00      0.00      0.00        92
-          HC       0.78      1.00      0.88       332
+    Dementia       0.00      0.00      0.00        56
+          HC       0.69      1.00      0.82       124
 
-    accuracy                           0.78       424
-   macro avg       0.39      0.50      0.44       424
-weighted avg       0.61      0.78      0.69       424
+    accuracy                           0.69       180
+   macro avg       0.34      0.50      0.41       180
+weighted avg       0.47      0.69      0.56       180
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=gr | task=binary | translated=no
-Train size: 2261 | Test size: 43
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
+Train size: 2505 | Test size: 43
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
 Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17)}
 ============================================================
   Loading cached embeddings: train_multi_binary_orig
@@ -994,34 +987,34 @@ Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17)}
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.53      0.62      0.57        26
-          HC       0.23      0.18      0.20        17
+    Dementia       0.79      0.88      0.84        26
+          HC       0.79      0.65      0.71        17
 
-    accuracy                           0.44        43
-   macro avg       0.38      0.40      0.39        43
-weighted avg       0.41      0.44      0.42        43
+    accuracy                           0.79        43
+   macro avg       0.79      0.77      0.77        43
+weighted avg       0.79      0.79      0.79        43
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.65      1.00      0.79        26
-          HC       1.00      0.18      0.30        17
+    Dementia       0.67      1.00      0.80        26
+          HC       1.00      0.24      0.38        17
 
-    accuracy                           0.67        43
-   macro avg       0.82      0.59      0.54        43
-weighted avg       0.79      0.67      0.59        43
+    accuracy                           0.70        43
+   macro avg       0.83      0.62      0.59        43
+weighted avg       0.80      0.70      0.63        43
 
 
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
+--- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.60      1.00      0.75        26
-          HC       0.00      0.00      0.00        17
+    Dementia       0.69      0.92      0.79        26
+          HC       0.75      0.35      0.48        17
 
-    accuracy                           0.60        43
-   macro avg       0.30      0.50      0.38        43
-weighted avg       0.37      0.60      0.46        43
+    accuracy                           0.70        43
+   macro avg       0.72      0.64      0.63        43
+weighted avg       0.71      0.70      0.67        43
 
 
 --- Logistic Regression (best params: {'C': 0.1}) ---
@@ -1039,8 +1032,8 @@ Device: cuda
 
 ============================================================
 E5-large | training=multi | test=cha | task=binary | translated=no
-Train size: 2261 | Test size: 40
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
+Train size: 2505 | Test size: 40
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
 Label dist (test):  {'HC': np.int64(31), 'Dementia': np.int64(9)}
 ============================================================
   Loading cached embeddings: train_multi_binary_orig
@@ -1049,34 +1042,34 @@ Label dist (test):  {'HC': np.int64(31), 'Dementia': np.int64(9)}
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.55      0.67      0.60         9
-          HC       0.90      0.84      0.87        31
+    Dementia       0.56      0.56      0.56         9
+          HC       0.87      0.87      0.87        31
 
     accuracy                           0.80        40
-   macro avg       0.72      0.75      0.73        40
-weighted avg       0.82      0.80      0.81        40
+   macro avg       0.71      0.71      0.71        40
+weighted avg       0.80      0.80      0.80        40
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.80      0.44      0.57         9
-          HC       0.86      0.97      0.91        31
+    Dementia       0.86      0.67      0.75         9
+          HC       0.91      0.97      0.94        31
+
+    accuracy                           0.90        40
+   macro avg       0.88      0.82      0.84        40
+weighted avg       0.90      0.90      0.90        40
+
+
+--- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
+              precision    recall  f1-score   support
+
+    Dementia       0.62      0.89      0.73         9
+          HC       0.96      0.84      0.90        31
 
     accuracy                           0.85        40
-   macro avg       0.83      0.71      0.74        40
-weighted avg       0.84      0.85      0.83        40
-
-
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
-              precision    recall  f1-score   support
-
-    Dementia       0.43      1.00      0.60         9
-          HC       1.00      0.61      0.76        31
-
-    accuracy                           0.70        40
-   macro avg       0.71      0.81      0.68        40
-weighted avg       0.87      0.70      0.72        40
+   macro avg       0.79      0.86      0.81        40
+weighted avg       0.88      0.85      0.86        40
 
 
 --- Logistic Regression (best params: {'C': 0.1}) ---
@@ -1094,8 +1087,8 @@ Device: cuda
 
 ============================================================
 E5-large | training=multi | test=spa | task=binary | translated=no
-Train size: 2261 | Test size: 59
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
+Train size: 2505 | Test size: 59
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
 Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20)}
 ============================================================
   Loading cached embeddings: train_multi_binary_orig
@@ -1104,34 +1097,34 @@ Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20)}
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.46      0.55      0.50        20
-          HC       0.74      0.67      0.70        39
+    Dementia       0.50      0.30      0.38        20
+          HC       0.70      0.85      0.77        39
 
-    accuracy                           0.63        59
-   macro avg       0.60      0.61      0.60        59
-weighted avg       0.65      0.63      0.63        59
+    accuracy                           0.66        59
+   macro avg       0.60      0.57      0.57        59
+weighted avg       0.63      0.66      0.63        59
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.73      0.40      0.52        20
-          HC       0.75      0.92      0.83        39
+    Dementia       1.00      0.35      0.52        20
+          HC       0.75      1.00      0.86        39
 
-    accuracy                           0.75        59
-   macro avg       0.74      0.66      0.67        59
-weighted avg       0.74      0.75      0.72        59
+    accuracy                           0.78        59
+   macro avg       0.88      0.68      0.69        59
+weighted avg       0.83      0.78      0.74        59
 
 
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
+--- SVM (best params: {'C': 10, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.48      0.70      0.57        20
-          HC       0.80      0.62      0.70        39
+    Dementia       0.59      0.65      0.62        20
+          HC       0.81      0.77      0.79        39
 
-    accuracy                           0.64        59
-   macro avg       0.64      0.66      0.63        59
-weighted avg       0.69      0.64      0.65        59
+    accuracy                           0.73        59
+   macro avg       0.70      0.71      0.70        59
+weighted avg       0.74      0.73      0.73        59
 
 
 --- Logistic Regression (best params: {'C': 0.1}) ---
@@ -1149,64 +1142,64 @@ Device: cuda
 
 ============================================================
 E5-large | training=multi | test=en | task=binary | translated=yes
-Train size: 2261 | Test size: 424
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92)}
+Train size: 2505 | Test size: 180
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
+Label dist (test):  {'HC': np.int64(124), 'Dementia': np.int64(56)}
 ============================================================
-  Encoding 2261 texts: train_multi_binary_trans
+  Encoding 2505 texts: train_multi_binary_trans
   Loading E5-large model...
   Loading cached embeddings: test_en_binary_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.48      0.35      0.41        92
-          HC       0.83      0.90      0.86       332
+    Dementia       0.53      0.43      0.48        56
+          HC       0.76      0.83      0.80       124
 
-    accuracy                           0.78       424
-   macro avg       0.66      0.62      0.63       424
-weighted avg       0.76      0.78      0.76       424
+    accuracy                           0.71       180
+   macro avg       0.65      0.63      0.64       180
+weighted avg       0.69      0.71      0.70       180
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.79      0.21      0.33        92
-          HC       0.82      0.98      0.89       332
+    Dementia       0.83      0.36      0.50        56
+          HC       0.77      0.97      0.86       124
 
-    accuracy                           0.82       424
-   macro avg       0.80      0.60      0.61       424
-weighted avg       0.81      0.82      0.77       424
+    accuracy                           0.78       180
+   macro avg       0.80      0.66      0.68       180
+weighted avg       0.79      0.78      0.75       180
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.58      0.58      0.58        92
-          HC       0.88      0.88      0.88       332
+    Dementia       0.59      0.84      0.70        56
+          HC       0.91      0.74      0.82       124
 
-    accuracy                           0.82       424
-   macro avg       0.73      0.73      0.73       424
-weighted avg       0.82      0.82      0.82       424
+    accuracy                           0.77       180
+   macro avg       0.75      0.79      0.76       180
+weighted avg       0.81      0.77      0.78       180
 
 
 --- Logistic Regression (best params: {'C': 0.1}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.00      0.00      0.00        92
-          HC       0.78      1.00      0.88       332
+    Dementia       0.00      0.00      0.00        56
+          HC       0.69      1.00      0.82       124
 
-    accuracy                           0.78       424
-   macro avg       0.39      0.50      0.44       424
-weighted avg       0.61      0.78      0.69       424
+    accuracy                           0.69       180
+   macro avg       0.34      0.50      0.41       180
+weighted avg       0.47      0.69      0.56       180
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=gr | task=binary | translated=yes
-Train size: 2261 | Test size: 43
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
+Train size: 2505 | Test size: 43
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
 Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17)}
 ============================================================
   Loading cached embeddings: train_multi_binary_trans
@@ -1215,23 +1208,23 @@ Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17)}
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.62      0.38      0.48        26
-          HC       0.41      0.65      0.50        17
+    Dementia       0.71      0.58      0.64        26
+          HC       0.50      0.65      0.56        17
 
-    accuracy                           0.49        43
-   macro avg       0.52      0.52      0.49        43
-weighted avg       0.54      0.49      0.49        43
+    accuracy                           0.60        43
+   macro avg       0.61      0.61      0.60        43
+weighted avg       0.63      0.60      0.61        43
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.66      0.81      0.72        26
-          HC       0.55      0.35      0.43        17
+    Dementia       0.75      0.81      0.78        26
+          HC       0.67      0.59      0.62        17
 
-    accuracy                           0.63        43
-   macro avg       0.60      0.58      0.58        43
-weighted avg       0.61      0.63      0.61        43
+    accuracy                           0.72        43
+   macro avg       0.71      0.70      0.70        43
+weighted avg       0.72      0.72      0.72        43
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
@@ -1260,8 +1253,8 @@ Device: cuda
 
 ============================================================
 E5-large | training=multi | test=cha | task=binary | translated=yes
-Train size: 2261 | Test size: 40
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
+Train size: 2505 | Test size: 40
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
 Label dist (test):  {'HC': np.int64(31), 'Dementia': np.int64(9)}
 ============================================================
   Loading cached embeddings: train_multi_binary_trans
@@ -1270,34 +1263,34 @@ Label dist (test):  {'HC': np.int64(31), 'Dementia': np.int64(9)}
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.36      0.56      0.43         9
-          HC       0.85      0.71      0.77        31
+    Dementia       0.45      0.56      0.50         9
+          HC       0.86      0.81      0.83        31
 
-    accuracy                           0.68        40
-   macro avg       0.60      0.63      0.60        40
-weighted avg       0.74      0.68      0.70        40
+    accuracy                           0.75        40
+   macro avg       0.66      0.68      0.67        40
+weighted avg       0.77      0.75      0.76        40
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.60      0.67      0.63         9
-          HC       0.90      0.87      0.89        31
+    Dementia       0.71      0.56      0.62         9
+          HC       0.88      0.94      0.91        31
 
-    accuracy                           0.82        40
-   macro avg       0.75      0.77      0.76        40
-weighted avg       0.83      0.82      0.83        40
+    accuracy                           0.85        40
+   macro avg       0.80      0.75      0.77        40
+weighted avg       0.84      0.85      0.84        40
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.45      1.00      0.62         9
-          HC       1.00      0.65      0.78        31
+    Dementia       0.50      1.00      0.67         9
+          HC       1.00      0.71      0.83        31
 
-    accuracy                           0.72        40
-   macro avg       0.72      0.82      0.70        40
-weighted avg       0.88      0.72      0.75        40
+    accuracy                           0.78        40
+   macro avg       0.75      0.85      0.75        40
+weighted avg       0.89      0.78      0.79        40
 
 
 --- Logistic Regression (best params: {'C': 0.1}) ---
@@ -1315,8 +1308,8 @@ Device: cuda
 
 ============================================================
 E5-large | training=multi | test=spa | task=binary | translated=yes
-Train size: 2261 | Test size: 59
-Label dist (train): {'HC': np.int64(1672), 'Dementia': np.int64(589)}
+Train size: 2505 | Test size: 59
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625)}
 Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20)}
 ============================================================
   Loading cached embeddings: train_multi_binary_trans
@@ -1325,34 +1318,34 @@ Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20)}
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.50      0.40      0.44        20
-          HC       0.72      0.79      0.76        39
+    Dementia       0.50      0.30      0.38        20
+          HC       0.70      0.85      0.77        39
 
     accuracy                           0.66        59
-   macro avg       0.61      0.60      0.60        59
-weighted avg       0.65      0.66      0.65        59
+   macro avg       0.60      0.57      0.57        59
+weighted avg       0.63      0.66      0.63        59
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.88      0.35      0.50        20
-          HC       0.75      0.97      0.84        39
+    Dementia       0.67      0.30      0.41        20
+          HC       0.72      0.92      0.81        39
 
-    accuracy                           0.76        59
-   macro avg       0.81      0.66      0.67        59
-weighted avg       0.79      0.76      0.73        59
+    accuracy                           0.71        59
+   macro avg       0.69      0.61      0.61        59
+weighted avg       0.70      0.71      0.68        59
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.33      0.95      0.49        20
+    Dementia       0.34      1.00      0.51        20
           HC       0.00      0.00      0.00        39
 
-    accuracy                           0.32        59
-   macro avg       0.16      0.47      0.24        59
-weighted avg       0.11      0.32      0.17        59
+    accuracy                           0.34        59
+   macro avg       0.17      0.50      0.25        59
+weighted avg       0.11      0.34      0.17        59
 
 
 --- Logistic Regression (best params: {'C': 0.1}) ---
@@ -1370,68 +1363,68 @@ Device: cuda
 
 ============================================================
 E5-large | training=multi | test=en | task=multiclass | translated=no
-Train size: 2854 | Test size: 510
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92), 'MCI': np.int64(86)}
+Train size: 3113 | Test size: 251
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
+Label dist (test):  {'HC': np.int64(124), 'MCI': np.int64(71), 'Dementia': np.int64(56)}
 ============================================================
-  Encoding 2854 texts: train_multi_multiclass_orig
+  Encoding 3113 texts: train_multi_multiclass_orig
   Loading E5-large model...
   Loading cached embeddings: test_en_multiclass_orig
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.41      0.35      0.38        92
-          HC       0.70      0.76      0.73       332
-         MCI       0.37      0.31      0.34        86
+    Dementia       0.42      0.32      0.36        56
+          HC       0.57      0.75      0.65       124
+         MCI       0.58      0.37      0.45        71
 
-    accuracy                           0.61       510
-   macro avg       0.49      0.47      0.48       510
-weighted avg       0.60      0.61      0.60       510
+    accuracy                           0.55       251
+   macro avg       0.52      0.48      0.49       251
+weighted avg       0.54      0.55      0.53       251
 
 
---- Random Forest (best params: {'n_estimators': 100}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.77      0.29      0.43        92
-          HC       0.70      0.94      0.80       332
-         MCI       0.59      0.20      0.30        86
+    Dementia       0.78      0.32      0.46        56
+          HC       0.57      0.94      0.71       124
+         MCI       0.78      0.25      0.38        71
 
-    accuracy                           0.70       510
-   macro avg       0.69      0.48      0.51       510
-weighted avg       0.69      0.70      0.65       510
+    accuracy                           0.61       251
+   macro avg       0.71      0.50      0.51       251
+weighted avg       0.68      0.61      0.56       251
 
 
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
+--- SVM (best params: {'C': 0.1, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.54      0.58      0.56        92
-          HC       0.77      0.69      0.73       332
-         MCI       0.44      0.58      0.50        86
+    Dementia       0.60      0.46      0.53        56
+          HC       0.52      0.45      0.48       124
+         MCI       0.46      0.65      0.53        71
 
-    accuracy                           0.65       510
-   macro avg       0.58      0.62      0.59       510
-weighted avg       0.67      0.65      0.66       510
+    accuracy                           0.51       251
+   macro avg       0.53      0.52      0.51       251
+weighted avg       0.52      0.51      0.51       251
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.74      0.46      0.56        92
-          HC       0.75      0.92      0.83       332
-         MCI       0.65      0.37      0.47        86
+    Dementia       0.84      0.68      0.75        56
+          HC       0.62      0.86      0.72       124
+         MCI       0.71      0.34      0.46        71
 
-    accuracy                           0.74       510
-   macro avg       0.71      0.58      0.62       510
-weighted avg       0.73      0.74      0.72       510
+    accuracy                           0.67       251
+   macro avg       0.72      0.63      0.64       251
+weighted avg       0.70      0.67      0.65       251
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=gr | task=multiclass | translated=no
-Train size: 2854 | Test size: 53
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
+Train size: 3113 | Test size: 53
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
 Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17), 'MCI': np.int64(10)}
 ============================================================
   Loading cached embeddings: train_multi_multiclass_orig
@@ -1440,57 +1433,57 @@ Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17), 'MCI': np.int
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.74      0.65      0.69        26
-          HC       0.56      0.59      0.57        17
-         MCI       0.42      0.50      0.45        10
+    Dementia       0.56      0.54      0.55        26
+          HC       0.43      0.35      0.39        17
+         MCI       0.21      0.30      0.25        10
 
-    accuracy                           0.60        53
-   macro avg       0.57      0.58      0.57        53
-weighted avg       0.62      0.60      0.61        53
+    accuracy                           0.43        53
+   macro avg       0.40      0.40      0.40        53
+weighted avg       0.45      0.43      0.44        53
 
 
---- Random Forest (best params: {'n_estimators': 100}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.60      0.92      0.73        26
-          HC       0.83      0.29      0.43        17
-         MCI       0.43      0.30      0.35        10
+    Dementia       0.56      0.92      0.70        26
+          HC       0.50      0.24      0.32        17
+         MCI       0.50      0.10      0.17        10
 
-    accuracy                           0.60        53
-   macro avg       0.62      0.51      0.50        53
-weighted avg       0.64      0.60      0.56        53
+    accuracy                           0.55        53
+   macro avg       0.52      0.42      0.39        53
+weighted avg       0.53      0.55      0.48        53
 
 
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
+--- SVM (best params: {'C': 0.1, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.55      0.92      0.69        26
+    Dementia       0.49      1.00      0.66        26
           HC       0.00      0.00      0.00        17
-         MCI       0.44      0.40      0.42        10
+         MCI       0.00      0.00      0.00        10
 
-    accuracy                           0.53        53
-   macro avg       0.33      0.44      0.37        53
-weighted avg       0.35      0.53      0.42        53
+    accuracy                           0.49        53
+   macro avg       0.16      0.33      0.22        53
+weighted avg       0.24      0.49      0.32        53
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.59      0.85      0.70        26
-          HC       0.70      0.41      0.52        17
-         MCI       0.83      0.50      0.62        10
+    Dementia       0.61      0.85      0.71        26
+          HC       0.58      0.41      0.48        17
+         MCI       0.80      0.40      0.53        10
 
-    accuracy                           0.64        53
-   macro avg       0.71      0.59      0.61        53
-weighted avg       0.67      0.64      0.63        53
+    accuracy                           0.62        53
+   macro avg       0.66      0.55      0.58        53
+weighted avg       0.64      0.62      0.60        53
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=cha | task=multiclass | translated=no
-Train size: 2854 | Test size: 76
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
+Train size: 3113 | Test size: 76
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
 Label dist (test):  {'MCI': np.int64(36), 'HC': np.int64(31), 'Dementia': np.int64(9)}
 ============================================================
   Loading cached embeddings: train_multi_multiclass_orig
@@ -1499,28 +1492,28 @@ Label dist (test):  {'MCI': np.int64(36), 'HC': np.int64(31), 'Dementia': np.int
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.42      0.56      0.48         9
-          HC       0.33      0.29      0.31        31
-         MCI       0.46      0.47      0.47        36
+    Dementia       0.38      0.56      0.45         9
+          HC       0.50      0.45      0.47        31
+         MCI       0.60      0.58      0.59        36
 
-    accuracy                           0.41        76
-   macro avg       0.40      0.44      0.42        76
-weighted avg       0.40      0.41      0.40        76
+    accuracy                           0.53        76
+   macro avg       0.49      0.53      0.51        76
+weighted avg       0.53      0.53      0.53        76
 
 
---- Random Forest (best params: {'n_estimators': 100}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.75      0.33      0.46         9
-          HC       0.57      0.68      0.62        31
-         MCI       0.57      0.56      0.56        36
+    Dementia       0.00      0.00      0.00         9
+          HC       0.50      0.61      0.55        31
+         MCI       0.47      0.50      0.49        36
 
-    accuracy                           0.58        76
-   macro avg       0.63      0.52      0.55        76
-weighted avg       0.59      0.58      0.57        76
+    accuracy                           0.49        76
+   macro avg       0.32      0.37      0.35        76
+weighted avg       0.43      0.49      0.46        76
 
 
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
+--- SVM (best params: {'C': 0.1, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
     Dementia       0.00      0.00      0.00         9
@@ -1535,21 +1528,21 @@ weighted avg       0.22      0.47      0.30        76
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       1.00      0.33      0.50         9
-          HC       0.71      0.65      0.68        31
-         MCI       0.62      0.78      0.69        36
+    Dementia       1.00      0.22      0.36         9
+          HC       0.68      0.55      0.61        31
+         MCI       0.57      0.78      0.66        36
 
-    accuracy                           0.67        76
-   macro avg       0.78      0.59      0.62        76
-weighted avg       0.70      0.67      0.66        76
+    accuracy                           0.62        76
+   macro avg       0.75      0.52      0.54        76
+weighted avg       0.67      0.62      0.60        76
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=spa | task=multiclass | translated=no
-Train size: 2854 | Test size: 76
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
+Train size: 3113 | Test size: 76
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
 Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20), 'MCI': np.int64(17)}
 ============================================================
   Loading cached embeddings: train_multi_multiclass_orig
@@ -1558,117 +1551,117 @@ Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20), 'MCI': np.int
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.42      0.40      0.41        20
-          HC       0.54      0.49      0.51        39
-         MCI       0.27      0.35      0.31        17
+    Dementia       0.64      0.35      0.45        20
+          HC       0.59      0.74      0.66        39
+         MCI       0.25      0.24      0.24        17
 
-    accuracy                           0.43        76
-   macro avg       0.41      0.41      0.41        76
-weighted avg       0.45      0.43      0.44        76
+    accuracy                           0.53        76
+   macro avg       0.49      0.44      0.45        76
+weighted avg       0.53      0.53      0.51        76
 
 
---- Random Forest (best params: {'n_estimators': 100}) ---
+--- Random Forest (best params: {'n_estimators': 200}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.70      0.35      0.47        20
+    Dementia       0.78      0.35      0.48        20
           HC       0.55      0.92      0.69        39
          MCI       0.00      0.00      0.00        17
 
     accuracy                           0.57        76
-   macro avg       0.42      0.42      0.38        76
-weighted avg       0.46      0.57      0.47        76
+   macro avg       0.44      0.42      0.39        76
+weighted avg       0.49      0.57      0.48        76
 
 
---- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
+--- SVM (best params: {'C': 0.1, 'kernel': 'rbf'}) ---
               precision    recall  f1-score   support
 
-    Dementia       1.00      0.30      0.46        20
+    Dementia       1.00      0.05      0.10        20
           HC       0.00      0.00      0.00        39
-         MCI       0.24      1.00      0.39        17
+         MCI       0.23      1.00      0.37        17
 
-    accuracy                           0.30        76
-   macro avg       0.41      0.43      0.28        76
-weighted avg       0.32      0.30      0.21        76
+    accuracy                           0.24        76
+   macro avg       0.41      0.35      0.15        76
+weighted avg       0.31      0.24      0.11        76
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
     Dementia       0.64      0.35      0.45        20
-          HC       0.58      0.92      0.71        39
-         MCI       0.33      0.06      0.10        17
+          HC       0.57      0.90      0.70        39
+         MCI       0.25      0.06      0.10        17
 
-    accuracy                           0.58        76
-   macro avg       0.52      0.44      0.42        76
-weighted avg       0.54      0.58      0.51        76
+    accuracy                           0.57        76
+   macro avg       0.49      0.44      0.42        76
+weighted avg       0.52      0.57      0.50        76
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=en | task=multiclass | translated=yes
-Train size: 2854 | Test size: 510
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
-Label dist (test):  {'HC': np.int64(332), 'Dementia': np.int64(92), 'MCI': np.int64(86)}
+Train size: 3113 | Test size: 251
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
+Label dist (test):  {'HC': np.int64(124), 'MCI': np.int64(71), 'Dementia': np.int64(56)}
 ============================================================
-  Encoding 2854 texts: train_multi_multiclass_trans
+  Encoding 3113 texts: train_multi_multiclass_trans
   Loading E5-large model...
   Loading cached embeddings: test_en_multiclass_trans
 
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.44      0.37      0.40        92
-          HC       0.70      0.77      0.73       332
-         MCI       0.36      0.29      0.32        86
+    Dementia       0.59      0.54      0.56        56
+          HC       0.62      0.74      0.67       124
+         MCI       0.57      0.41      0.48        71
 
-    accuracy                           0.62       510
-   macro avg       0.50      0.48      0.49       510
-weighted avg       0.60      0.62      0.60       510
+    accuracy                           0.60       251
+   macro avg       0.59      0.56      0.57       251
+weighted avg       0.60      0.60      0.59       251
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.59      0.22      0.32        92
-          HC       0.70      0.92      0.79       332
-         MCI       0.60      0.29      0.39        86
+    Dementia       0.76      0.39      0.52        56
+          HC       0.57      0.89      0.69       124
+         MCI       0.66      0.27      0.38        71
 
-    accuracy                           0.68       510
-   macro avg       0.63      0.47      0.50       510
-weighted avg       0.66      0.68      0.64       510
+    accuracy                           0.60       251
+   macro avg       0.66      0.52      0.53       251
+weighted avg       0.64      0.60      0.57       251
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.53      0.59      0.56        92
-          HC       0.77      0.69      0.73       332
-         MCI       0.43      0.56      0.48        86
+    Dementia       0.55      0.82      0.66        56
+          HC       0.60      0.28      0.38       124
+         MCI       0.47      0.72      0.57        71
 
-    accuracy                           0.65       510
-   macro avg       0.58      0.61      0.59       510
-weighted avg       0.67      0.65      0.66       510
+    accuracy                           0.53       251
+   macro avg       0.54      0.61      0.54       251
+weighted avg       0.55      0.53      0.50       251
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.76      0.46      0.57        92
-          HC       0.75      0.92      0.83       332
-         MCI       0.64      0.33      0.43        86
+    Dementia       0.82      0.66      0.73        56
+          HC       0.61      0.85      0.71       124
+         MCI       0.64      0.30      0.40        71
 
-    accuracy                           0.74       510
-   macro avg       0.72      0.57      0.61       510
-weighted avg       0.73      0.74      0.71       510
+    accuracy                           0.65       251
+   macro avg       0.69      0.60      0.62       251
+weighted avg       0.67      0.65      0.63       251
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=gr | task=multiclass | translated=yes
-Train size: 2854 | Test size: 53
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
+Train size: 3113 | Test size: 53
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
 Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17), 'MCI': np.int64(10)}
 ============================================================
   Loading cached embeddings: train_multi_multiclass_trans
@@ -1677,25 +1670,25 @@ Label dist (test):  {'Dementia': np.int64(26), 'HC': np.int64(17), 'MCI': np.int
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.59      0.50      0.54        26
-          HC       0.25      0.18      0.21        17
-         MCI       0.37      0.70      0.48        10
+    Dementia       0.57      0.46      0.51        26
+          HC       0.37      0.41      0.39        17
+         MCI       0.38      0.50      0.43        10
 
-    accuracy                           0.43        53
-   macro avg       0.40      0.46      0.41        53
-weighted avg       0.44      0.43      0.42        53
+    accuracy                           0.45        53
+   macro avg       0.44      0.46      0.44        53
+weighted avg       0.47      0.45      0.46        53
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.58      0.69      0.63        26
-          HC       0.40      0.24      0.30        17
-         MCI       0.33      0.40      0.36        10
+    Dementia       0.61      0.73      0.67        26
+          HC       0.50      0.35      0.41        17
+         MCI       0.50      0.50      0.50        10
 
-    accuracy                           0.49        53
-   macro avg       0.44      0.44      0.43        53
-weighted avg       0.48      0.49      0.47        53
+    accuracy                           0.57        53
+   macro avg       0.54      0.53      0.53        53
+weighted avg       0.56      0.57      0.55        53
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
@@ -1713,21 +1706,21 @@ weighted avg       0.70      0.55      0.47        53
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.58      0.73      0.64        26
-          HC       0.67      0.35      0.46        17
+    Dementia       0.61      0.73      0.67        26
+          HC       0.55      0.35      0.43        17
          MCI       0.45      0.50      0.48        10
 
     accuracy                           0.57        53
-   macro avg       0.57      0.53      0.53        53
-weighted avg       0.58      0.57      0.55        53
+   macro avg       0.54      0.53      0.52        53
+weighted avg       0.56      0.57      0.55        53
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=cha | task=multiclass | translated=yes
-Train size: 2854 | Test size: 76
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
+Train size: 3113 | Test size: 76
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
 Label dist (test):  {'MCI': np.int64(36), 'HC': np.int64(31), 'Dementia': np.int64(9)}
 ============================================================
   Loading cached embeddings: train_multi_multiclass_trans
@@ -1736,25 +1729,25 @@ Label dist (test):  {'MCI': np.int64(36), 'HC': np.int64(31), 'Dementia': np.int
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.08      0.11      0.09         9
-          HC       0.40      0.45      0.42        31
-         MCI       0.46      0.36      0.41        36
+    Dementia       0.30      0.33      0.32         9
+          HC       0.37      0.42      0.39        31
+         MCI       0.42      0.36      0.39        36
 
-    accuracy                           0.37        76
-   macro avg       0.31      0.31      0.31        76
-weighted avg       0.39      0.37      0.38        76
+    accuracy                           0.38        76
+   macro avg       0.36      0.37      0.37        76
+weighted avg       0.39      0.38      0.38        76
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.67      0.22      0.33         9
-          HC       0.45      0.61      0.52        31
-         MCI       0.39      0.33      0.36        36
+    Dementia       0.00      0.00      0.00         9
+          HC       0.53      0.74      0.62        31
+         MCI       0.55      0.47      0.51        36
 
-    accuracy                           0.43        76
-   macro avg       0.50      0.39      0.40        76
-weighted avg       0.45      0.43      0.42        76
+    accuracy                           0.53        76
+   macro avg       0.36      0.40      0.38        76
+weighted avg       0.48      0.53      0.49        76
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
@@ -1762,31 +1755,31 @@ weighted avg       0.45      0.43      0.42        76
 
     Dementia       0.00      0.00      0.00         9
           HC       1.00      0.03      0.06        31
-         MCI       0.49      1.00      0.66        36
+         MCI       0.49      0.97      0.65        36
 
-    accuracy                           0.49        76
-   macro avg       0.50      0.34      0.24        76
-weighted avg       0.64      0.49      0.34        76
+    accuracy                           0.47        76
+   macro avg       0.50      0.33      0.24        76
+weighted avg       0.64      0.47      0.33        76
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.50      0.22      0.31         9
-          HC       0.62      0.68      0.65        31
-         MCI       0.58      0.61      0.59        36
+    Dementia       0.33      0.11      0.17         9
+          HC       0.59      0.65      0.62        31
+         MCI       0.54      0.58      0.56        36
 
-    accuracy                           0.59        76
-   macro avg       0.57      0.50      0.52        76
-weighted avg       0.59      0.59      0.58        76
+    accuracy                           0.55        76
+   macro avg       0.49      0.45      0.45        76
+weighted avg       0.53      0.55      0.54        76
 
 
 Device: cuda
 
 ============================================================
 E5-large | training=multi | test=spa | task=multiclass | translated=yes
-Train size: 2854 | Test size: 76
-Label dist (train): {'HC': np.int64(1672), 'MCI': np.int64(593), 'Dementia': np.int64(589)}
+Train size: 3113 | Test size: 76
+Label dist (train): {'HC': np.int64(1880), 'Dementia': np.int64(625), 'MCI': np.int64(608)}
 Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20), 'MCI': np.int64(17)}
 ============================================================
   Loading cached embeddings: train_multi_multiclass_trans
@@ -1795,48 +1788,48 @@ Label dist (test):  {'HC': np.int64(39), 'Dementia': np.int64(20), 'MCI': np.int
 --- Decision Tree (best params: {'max_depth': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.42      0.40      0.41        20
-          HC       0.67      0.72      0.69        39
-         MCI       0.27      0.24      0.25        17
+    Dementia       0.46      0.30      0.36        20
+          HC       0.62      0.79      0.70        39
+         MCI       0.15      0.12      0.13        17
 
-    accuracy                           0.53        76
-   macro avg       0.45      0.45      0.45        76
-weighted avg       0.51      0.53      0.52        76
+    accuracy                           0.51        76
+   macro avg       0.41      0.40      0.40        76
+weighted avg       0.47      0.51      0.48        76
 
 
---- Random Forest (best params: {'n_estimators': 50}) ---
+--- Random Forest (best params: {'n_estimators': 100}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.58      0.35      0.44        20
-          HC       0.54      0.74      0.62        39
-         MCI       0.20      0.12      0.15        17
+    Dementia       0.55      0.30      0.39        20
+          HC       0.58      0.90      0.71        39
+         MCI       0.20      0.06      0.09        17
 
-    accuracy                           0.50        76
-   macro avg       0.44      0.40      0.40        76
-weighted avg       0.47      0.50      0.47        76
+    accuracy                           0.55        76
+   macro avg       0.44      0.42      0.40        76
+weighted avg       0.49      0.55      0.49        76
 
 
 --- SVM (best params: {'C': 1, 'kernel': 'linear'}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.88      0.35      0.50        20
+    Dementia       1.00      0.30      0.46        20
           HC       0.00      0.00      0.00        39
-         MCI       0.25      1.00      0.40        17
+         MCI       0.24      1.00      0.39        17
 
-    accuracy                           0.32        76
-   macro avg       0.38      0.45      0.30        76
-weighted avg       0.29      0.32      0.22        76
+    accuracy                           0.30        76
+   macro avg       0.41      0.43      0.28        76
+weighted avg       0.32      0.30      0.21        76
 
 
 --- Logistic Regression (best params: {'C': 10}) ---
               precision    recall  f1-score   support
 
-    Dementia       0.88      0.35      0.50        20
-          HC       0.56      0.97      0.71        39
+    Dementia       1.00      0.35      0.52        20
+          HC       0.57      1.00      0.72        39
          MCI       0.00      0.00      0.00        17
 
-    accuracy                           0.59        76
-   macro avg       0.48      0.44      0.40        76
-weighted avg       0.52      0.59      0.50        76
+    accuracy                           0.61        76
+   macro avg       0.52      0.45      0.41        76
+weighted avg       0.55      0.61      0.51        76
 
 
