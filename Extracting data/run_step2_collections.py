@@ -125,49 +125,131 @@ def _load_taukadial_labels() -> dict:
 def _load_wls_labels() -> dict:
     """
     file_id_int -> {Diagnosis, Age, Gender, Education} for WLS records.
-    Priority 1: 2020 research consensus diagnosis (HC/MCI/Dementia).
-    Priority 2: 2011 category fluency threshold (HC or Dementia).
+    Default path reproduces the paper's effective WLS weak-label rule:
+    participants meeting the 2011 category fluency threshold are HC;
+    all remaining spreadsheet rows are treated as Dementia-side cases.
     Threshold: age<60->16, 60-79->14, >79->12 words (paper Section 3.1.4).
     Join key: idtlkbnk % 100000 == int(File_ID).
     """
     xlsx = os.path.join(RAW, "English", "WLS", "WLS-data.xlsx")
-    dx_map = {1.0: "HC", 2.0: "MCI", 3.0: "Dementia"}
     labels = {}
-
-    xl_2020 = pd.read_excel(xlsx, sheet_name="Data - 2020")
-    xl_2020["file_id"] = xl_2020["idtlkbnk"].astype(int) % 100000
     xl_2011 = pd.read_excel(xlsx, sheet_name="Data - 2004, 2011")
     xl_2011["file_id"] = xl_2011["idtlkbnk"].astype(int) % 100000
 
-    # 2011 fluency fallback
+    # Paper-style weak labels: non-HC rows remain on the impaired side even
+    # when the 2011 category-fluency value is missing/refused.
     fluency_col = "category fluency, scored words named, 2011"
     age_col = "age 2011"
     for _, row in xl_2011.iterrows():
         fid = int(row["file_id"])
         score = row.get(fluency_col)
         age = row.get(age_col)
-        if pd.isna(score) or score <= 0 or pd.isna(age) or age <= 0:
-            continue
-        threshold = 16 if age < 60 else (14 if age <= 79 else 12)
-        dx = "HC" if score >= threshold else "Dementia"
-        labels[fid] = {"Diagnosis": dx, "Age": str(int(age)), "Gender": "", "Education": ""}
-
-    # 2020 research diagnosis takes priority
-    for _, row in xl_2020.iterrows():
-        dx_code = row.get("Research diagnosis via consensus")
-        if pd.isna(dx_code) or dx_code not in dx_map:
-            continue
-        fid = int(row["file_id"])
-        age = row.get("age 2020", "Unknown")
-        sex = row.get("sex", "")
-        gender = "M" if sex == 1 else ("F" if sex == 2 else "")
+        diagnosis = "Dementia"
+        if not (pd.isna(score) or score <= 0 or pd.isna(age) or age <= 0):
+            threshold = 16 if age < 60 else (14 if age <= 79 else 12)
+            if score >= threshold:
+                diagnosis = "HC"
         labels[fid] = {
-            "Diagnosis": dx_map[dx_code],
-            "Age": str(int(age)) if not pd.isna(age) else "Unknown",
-            "Gender": gender,
+            "Diagnosis": diagnosis,
+            "Age": str(int(age)) if not pd.isna(age) and age > 0 else "Unknown",
+            "Gender": "",
             "Education": "",
         }
 
+    return labels
+
+
+def _load_vas_labels() -> dict:
+    """
+    file_id_int -> {Diagnosis, Age, Gender, Education, Moca} for VAS records.
+    Source: data/English/VAS/demo.xlsx (preferred) or 0demo.xlsx.
+    """
+    base = os.path.join(DATA, "English", "VAS")
+    labels = {}
+    df = None
+    for fname in ("demo.xlsx", "0demo.xlsx"):
+        path = os.path.join(base, fname)
+        if os.path.exists(path):
+            df = pd.read_excel(path)
+            break
+    if df is None:
+        return labels
+
+    for _, row in df.iterrows():
+        vas_id = row.get("VAS ID")
+        dx = row.get("H/MCI/D")
+        if pd.isna(vas_id) or pd.isna(dx):
+            continue
+        try:
+            fid = int(float(vas_id))
+        except (ValueError, TypeError):
+            continue
+
+        dx = str(dx).strip()
+        if dx not in {"H", "MCI", "D"}:
+            continue
+
+        age = row.get("age", "Unknown")
+        gender = row.get("gender", "")
+        education = row.get("Highest Education", "")
+        moca = row.get("moca", row.get("MOCA", "Unknown"))
+
+        labels[fid] = {
+            "Diagnosis": dx,
+            "Age": str(int(age)) if not pd.isna(age) else "Unknown",
+            "Gender": str(gender).strip() if not pd.isna(gender) else "",
+            "Education": str(education).strip() if not pd.isna(education) else "",
+            "Moca": str(int(moca)) if not pd.isna(moca) and str(moca).strip() != "" else "Unknown",
+        }
+
+    return labels
+
+
+def _load_kempler_labels() -> dict:
+    """
+    Kempler file stem -> metadata.
+    All Kempler cases are AD patients per corpus note provided by user.
+    d6cookie is the Cookie Theft variant of participant d6.
+    """
+    base = {
+        "d1": {"Age": "74", "Education": "11 yrs", "MMSE": "Unknown", "Gender": "M"},
+        "d4": {"Age": "82", "Education": "BA", "MMSE": "15", "Gender": "F"},
+        "d5": {"Age": "Unknown", "Education": "Unknown", "MMSE": "6", "Gender": "M"},
+        "d6": {"Age": "87", "Education": "Unknown", "MMSE": "15", "Gender": "F"},
+        "d9": {"Age": "65", "Education": "11 yrs", "MMSE": "14", "Gender": "M"},
+        "d10": {"Age": "82", "Education": "8th grade", "MMSE": "17", "Gender": "M"},
+    }
+    labels = {}
+    for stem, meta in base.items():
+        labels[stem] = {"Diagnosis": "AD", **meta}
+    labels["d6cookie"] = {"Diagnosis": "AD", **base["d6"]}
+    return labels
+
+
+def _load_ncmmsc_labels() -> dict:
+    """
+    Stem → {Diagnosis, Gender} for NCMMSC2021_AD long-audio dataset.
+    Labels are encoded in filenames: {DX}_{Gender}_{PID}_{Session}.wav
+    Covers both train/{AD,HC,MCI}/ and test_have_label/ (test_none_label skipped).
+    """
+    labels = {}
+    base = os.path.join(RAW, "NCMMSC2021_AD", "AD_dataset_long")
+    sources = [
+        os.path.join(base, "train", "AD"),
+        os.path.join(base, "train", "HC"),
+        os.path.join(base, "train", "MCI"),
+        os.path.join(base, "test_have_label"),
+    ]
+    for folder in sources:
+        if not os.path.isdir(folder):
+            continue
+        for fname in os.listdir(folder):
+            if not fname.lower().endswith(".wav"):
+                continue
+            stem = os.path.splitext(fname)[0]
+            parts = stem.split("_")
+            if len(parts) >= 2 and parts[0] in ("AD", "HC", "MCI"):
+                labels[stem] = {"Diagnosis": parts[0], "Gender": parts[1]}
     return labels
 
 
@@ -178,6 +260,9 @@ _GREEK_META       = _load_greek_labels()   # MMSE/age/edu metadata for DS5 patie
 _ADRESS_M_GR      = _load_adress_m_gr_labels()
 _TAUKADIAL_LABELS = _load_taukadial_labels()
 _WLS_LABELS       = _load_wls_labels()
+_VAS_LABELS       = _load_vas_labels()
+_KEMPLER_LABELS   = _load_kempler_labels()
+_NCMMSC_LABELS    = _load_ncmmsc_labels()
 
 
 def _attach_labels_to_jsonl(path: str, attach_fn) -> int:
@@ -288,6 +373,53 @@ def _attach_wls_labels(record: dict) -> bool:
     return False
 
 
+def _attach_vas_labels(record: dict) -> bool:
+    """Join VAS labels on integer File_ID from demo.xlsx / 0demo.xlsx."""
+    try:
+        fid = int(record.get("File_ID", ""))
+    except (ValueError, TypeError):
+        return False
+    meta = _VAS_LABELS.get(fid)
+    if meta:
+        record["Diagnosis"] = meta["Diagnosis"]
+        record["Age"] = meta["Age"]
+        record["Gender"] = meta["Gender"]
+        record["Education"] = meta["Education"]
+        record["Moca"] = meta["Moca"]
+        return True
+    return False
+
+
+def _attach_ncmmsc_labels(record: dict) -> bool:
+    """
+    Join NCMMSC labels on the filename stem.
+    File_ID from ASRCollection is the relative path (e.g. train/AD/AD_F_030807_001);
+    take the last path component as the stem.
+    """
+    stem = record.get("File_ID", "").replace("\\", "/").split("/")[-1]
+    meta = _NCMMSC_LABELS.get(stem)
+    if meta:
+        record["Diagnosis"] = meta["Diagnosis"]
+        record["Gender"]    = meta["Gender"]
+        record["Dataset"]   = "NCMMSC2021_AD"
+        return True
+    return False
+
+
+def _attach_kempler_labels(record: dict) -> bool:
+    """Attach Kempler labels and available demographics from corpus note."""
+    stem = str(record.get("File_ID", "")).strip().lower()
+    meta = _KEMPLER_LABELS.get(stem)
+    if meta:
+        record["Diagnosis"] = meta["Diagnosis"]
+        record["Age"] = meta["Age"]
+        record["Gender"] = meta["Gender"]
+        record["Education"] = meta["Education"]
+        record["MMSE"] = meta["MMSE"]
+        return True
+    return False
+
+
 # ── Collection runners ────────────────────────────────────────────────────────
 
 def run_cha(path: str, language: str, output_name: str) -> str:
@@ -343,6 +475,12 @@ if __name__ == "__main__":
         path = os.path.join(DATA, "English", ds)
         name = f"English_{ds}_output.jsonl"
         out = run_cha(path, "english", name)
+        if ds == "Kempler":
+            n_labeled = _attach_labels_to_jsonl(out, _attach_kempler_labels)
+            print(f"    → {n_labeled} Kempler records labeled from corpus note")
+        if ds == "VAS":
+            n_labeled = _attach_labels_to_jsonl(out, _attach_vas_labels)
+            print(f"    → {n_labeled} VAS records labeled from demo.xlsx")
         if ds == "WLS":
             n_labeled = _attach_labels_to_jsonl(out, _attach_wls_labels)
             print(f"    → {n_labeled} WLS records labeled (2020 consensus + 2011 fluency threshold)")
@@ -358,6 +496,17 @@ if __name__ == "__main__":
     # ── Chinese TSV dataset ───────────────────────────────────────────────────
     print("\n[Chinese TSV]")
     produced.append(run_tsv(os.path.join(DATA, "Chinese", "iFlytek"), "Chinese_iFlytek_output.jsonl"))
+
+    # ── Chinese ASR (NCMMSC2021) ──────────────────────────────────────────────
+    print("\n[Chinese ASR]")
+    ncmmsc_src = os.path.join(TRANS, "ncmmsc_transcriptions.json")
+    if os.path.exists(ncmmsc_src):
+        out = run_asr(ncmmsc_src, "Chinese_NCMMSC_output.jsonl")
+        n_labeled = _attach_labels_to_jsonl(out, _attach_ncmmsc_labels)
+        print(f"    → {n_labeled} NCMMSC records labeled from filename")
+        produced.append(out)
+    else:
+        print("  ncmmsc_transcriptions.json not found — run ASR_audio_dataset.py --dataset ncmmsc first")
 
     # ── ASR (Greek + TAUKADIAL) ───────────────────────────────────────────────
     print("\n[ASR transcriptions]")

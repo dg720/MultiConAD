@@ -248,3 +248,21 @@ After fix, each config completed in ~3–5 min; full run in ~2.5 hours.
 **Classifier rankings (consistent across languages/tasks):**
 - Binary: LR > SVM > RF > DT (mono), SVM > RF > DT > LR (multi)
 - Multiclass: LR ≈ SVM > RF > DT (mono+multi)
+### 5.5 WLS Paper-Rule Default (2026-05-06)
+
+Revisited the WLS relabeling after comparing the paper, the WLS release notes, and the workbook tabs. The previous consensus-first hybrid (`2020 consensus > 2011 threshold`) did not reproduce the paper because it introduced WLS `MCI` labels and left 2011 missing/refused rows unlabeled.
+
+Default WLS handling now follows the paper-style loose weak-label rule:
+- use the `Data - 2004, 2011` sheet only
+- mark a row `HC` if 2011 category fluency meets the paper threshold
+- mark all remaining rows `Dementia`
+- threshold remains age<60â†’16, 60â€“79â†’14, >79â†’12 words
+
+Current local result after rerunning extraction and English cleaning:
+- `English_WLS_output.jsonl`: `1106 HC + 262 Dementia` across all `1368` local transcripts
+- benchmark-ready WLS contribution after the English text-length filter: `1104 HC + 259 Dementia`
+- English benchmark split is now `train: HC 1628 / Dementia 512 / MCI 309`, `test: HC 131 / Dementia 63 / MCI 78`
+
+Remaining paper gap:
+- the paper reports `263 AD + 1106 HC` for WLS
+- the missing one is `fid=2`, which exists in the spreadsheet but not in the local transcript folder

@@ -12,13 +12,15 @@ JSONL_DIR  = os.path.join(SCRIPT_DIR, "..", "Extracting data", "jsonl_files")
 OUT_DIR    = os.path.join(SCRIPT_DIR, "cleaned")
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# NCMMSC2021 is not publicly available — using iFlytek + TAUKADIAL only
+_ncmmsc_path = os.path.join(JSONL_DIR, "Chinese_NCMMSC_output.jsonl")
 input_files = [
     os.path.join(JSONL_DIR, "Chinese_iFlytek_output.jsonl"),
     os.path.join(JSONL_DIR, "ASR_taukadial_train_output.jsonl"),
     os.path.join(JSONL_DIR, "ASR_taukadial_test_output.jsonl"),
 ]
-output_filename = "combined_jsonl_Chinese_iFlyTek_Taukdial.jsonl"
+if os.path.exists(_ncmmsc_path):
+    input_files.append(_ncmmsc_path)
+output_filename = "combined_jsonl_Chinese_iFlyTek_Taukdial_NCMMSC.jsonl"
 combiner = JSONLCombiner(input_files, OUT_DIR, output_filename)
 combiner.combine()
 
@@ -66,6 +68,7 @@ def filter_by_length(row, stats):
 
 
 df_chinese = pd.read_json(os.path.join(OUT_DIR, output_filename), lines=True)
+print(f"Input records: {len(df_chinese)}  (datasets: {df_chinese['Dataset'].value_counts().to_dict()})")
 
 # Drop iFlytek test set (no labels) and any remaining Unknown
 df_chinese = df_chinese[df_chinese["Diagnosis"] != "Unknown"]

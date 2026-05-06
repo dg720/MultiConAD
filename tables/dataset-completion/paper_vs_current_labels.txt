@@ -1,0 +1,73 @@
+Paper vs current benchmark/source data.
+Comparison basis:
+- "Paper" is transcribed from Table 1 in the paper.
+- Table 1 counts = total source files (train + test combined, before the 80/20 split) for all datasets
+  EXCEPT NCMMSC, where only the training split was used (test labels were unavailable to paper authors;
+  see Section 3.1.4: "only the training set was used due to test set label unavailability").
+- "Current repo" reflects what is actually present in this repo's current extracted benchmark inputs.
+- Match notes in the current repo table: `✓` roughly aligned, `✗` differs materially, `(✓)` aligned with a known structural reason for the count difference.
+
+Paper table
+
+Language | Source   | Paper DM | Paper AD | Paper MCI | Paper HC
+---------|----------|----------|----------|-----------|----------
+English  | Pitt     | 0        | 255      | 42        | 243
+English  | Lu       | 6        | 16       | 2         | 27
+English  | VAS      | 30       | 0        | 35        | 36
+English  | Baycrest | 0        | 3        | 7         | 0
+English  | Kempler  | 0        | 7        | 0         | 0
+English  | WLS      | 0        | 263      | 0         | 1106
+English  | Delaware | 0        | 0        | 61        | 34
+English  | Taukdial | 0        | 0        | 95        | 74
+Spanish  | Ivanova  | 0        | 74       | 90        | 197
+Spanish  | PerLA    | 0        | 21       | 0         | 0
+Chinese  | NCMMSE   | 0        | 79       | 93        | 108
+Chinese  | iFkyTek  | 0        | 68       | 144       | 111
+Greek    | DS3      | 0        | 76       | 0         | 19
+Greek    | DS5      | 0        | 26       | 35        | 31
+Greek    | DS7      | 0        | 27       | 35        | 2
+Greek    | ADReSS-M | 0        | 22       | 0         | 24
+
+Current repo table
+
+Language | Source   | Repo DM | Repo AD | Repo MCI | Repo HC | Rough match
+---------|----------|---------|---------|----------|---------|------------
+English  | Pitt     | 0       | 255     | 42       | 243     | ✓
+English  | Lu       | 6       | 16      | 2        | 27      | ✓
+English  | VAS      | 29      | 0       | 35       | 36      | ✓
+English  | Baycrest | 0       | 3       | 7        | 0       | ✓
+English  | Kempler  | 0       | 7       | 0        | 0       | ✓
+English  | WLS      | 262     | 0       | 0        | 1106    | ✓
+English  | Delaware | 0       | 0       | 148      | 256     | (✓) - larger longitudinal dataset available
+English  | Taukdial | 0       | 0       | 153      | 93      | (✓) - effectively same, just reporting 3x picture descriptions
+Spanish  | Ivanova  | 0       | 74      | 87       | 196     | ✓
+Spanish  | PerLA    | 0       | 23      | 0        | 0       | ✗
+Chinese  | NCMMSE   | 0       | 114     | 132      | 153     | (✓) - extra test data now available, train data matches
+Chinese  | iFkyTek  | 0       | 68      | 144      | 111     | ✓
+Chinese  | Taukdial | 0       | 0       | 131      | 129     | (✓) - effectively same, just reporting 3x picture descriptions
+Greek    | DS3      | 0       | 107     | 0        | 42      | ✗
+Greek    | DS5      | 0       | 26      | 36       | 31      | ✓
+Greek    | DS7      | 0       | 27      | 29       | 2       | ✗
+Greek    | ADReSS-M | 0       | 22      | 0        | 24      | ✓
+
+Table 4-style split summary
+
+Paper version
+
+Language | Train AD | Train MCI | Train HC | Test AD | Test MCI | Test HC
+---------|----------|-----------|----------|---------|----------|--------
+Spanish  | 78       | 70        | 156      | 20      | 18       | 39
+Chinese  | 93       | 200       | 187      | 23      | 51       | 47
+Greek    | 266      | 51        | 87       | 66      | 13       | 22
+English  | 512      | 239       | 1450     | 63      | 60       | 87
+Total    | 949      | 560       | 1880     | 172     | 142      | 195
+
+Current repo version
+
+Language | Train AD | Train MCI | Train HC | Test AD | Test MCI | Test HC
+---------|----------|-----------|----------|---------|----------|--------
+Spanish  | 77       | 70        | 156      | 20      | 17       | 39
+Chinese  | 37       | 143       | 124      | 9       | 36       | 31   ← STALE: NCMMSC now integrated; update after transcription + cleaning
+Greek    | 106      | 39        | 66       | 26      | 10       | 17
+English  | 512      | 309       | 1628     | 63      | 78       | 131
+Total    | 732      | 561       | 1974     | 118     | 141      | 218  ← Chinese row stale; retotal after cleaning

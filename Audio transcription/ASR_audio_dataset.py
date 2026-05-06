@@ -7,6 +7,7 @@ Run once per dataset:
     python ASR_audio_dataset.py --dataset ds3
     python ASR_audio_dataset.py --dataset ds5
     python ASR_audio_dataset.py --dataset ds7
+    python ASR_audio_dataset.py --dataset ncmmsc
 
 Output: ../transcriptions/<dataset>_transcriptions.json
 Format:  [{"file_name": "...", "transcription": "...", "language": "..."}, ...]
@@ -86,6 +87,18 @@ CONFIGS = {
         "task_label":     "pict_descr",
         "output":         os.path.join(OUT, "ds7_transcriptions.json"),
     },
+    "ncmmsc": {
+        # Long-audio subset only.  Covers AD_dataset_long/train/{AD,HC,MCI}
+        # and AD_dataset_long/test_have_label (119 labeled recordings).
+        # test_none_label is skipped — no diagnosis labels available.
+        "path":           os.path.join(RAW, "NCMMSC2021_AD", "AD_dataset_long"),
+        "mode":           "flat",
+        "recursive":      True,
+        "language":       "zh",
+        "filter_langs":   None,
+        "skip_dirs":      {"test_none_label"},
+        "output":         os.path.join(OUT, "ncmmsc_transcriptions.json"),
+    },
 }
 
 
@@ -121,9 +134,12 @@ def transcribe_flat(model, cfg):
     kw = whisper_kwargs(cfg)
     results = []
 
+    skip_dirs = cfg.get("skip_dirs", set())
     if cfg.get("recursive"):
         wav_files = []
-        for dirpath, _, filenames in os.walk(root):
+        for dirpath, dirnames, filenames in os.walk(root):
+            # Prune in-place so os.walk never descends into excluded dirs
+            dirnames[:] = [d for d in dirnames if d not in skip_dirs]
             for fname in filenames:
                 if fname.lower().endswith(".wav"):
                     wav_files.append(os.path.join(dirpath, fname))
