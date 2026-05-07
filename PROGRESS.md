@@ -55,8 +55,10 @@ Output: `Extracting data/jsonl_files/` (17 files).
 | **Total** | | **4,237** | |
 
 **Label joining (added to `run_step2_collections.py`):**
-- DS5 (short protocol) + DS7 (long protocol): joined from `raw_datasets/Greek/Dem@Care/{short,long}/0tasks/{AD,HC,MCI}/` — diagnosis encoded directly in subdirectory. DS5: 93/93 fully labeled; DS7: 58/59 (Patient85 absent from all Dem@Care folders — 1 record dropped).
-- DS3 (pilot): `Dem@Care/pilot/control/` → HC, `Dem@Care/pilot/patients/` → AD matched on `patient N` path component; `controlday*` dirs inferred as HC by directory name. 149/250 labeled; remaining 101 from unlabelled day-recording dirs → Unknown (dropped in cleaning).
+- Greek canonical path: use the public item folders `raw_datasets/Greek/{DS3,DS5,DS7}` as the source of benchmark items, then attach labels from `raw_datasets/Greek/Dem@Care/`.
+- DS5 (short protocol): public `DS5/PatientNNN/` folders joined to `Dem@Care/short/0tasks/{AD,HC,MCI}/` on patient ID. Current public-folder count after label join: `93 = AD 26 / MCI 36 / HC 31`.
+- DS7 (long protocol): public `DS7/PatientNNN/` folders joined to `Dem@Care/long/0tasks/{AD,HC,MCI}/` on patient ID. Current public-folder count after label join: `58 = AD 27 / MCI 29 / HC 2`. Excluded public dirs are `Patient33`, `Patient52`, `Patient58` (missing `.wav`) and `Patient85` (no Dem@Care label).
+- DS3 (pilot): public `DS3/` audio files are labeled from `Dem@Care/pilot/`, where `pilot/control/` maps to HC and `pilot/patients/` maps to AD. The extractor labels `controlday*` trees as HC by directory name and `.../patient N/...` trees by matching `N` against the pilot folders. Current public-folder count after label join: `149 = AD 107 / HC 42`; remaining `101/250` files stay `Unknown` and are dropped in cleaning.
 - TAUKADIAL train: joined from `groundtruth.csv` (all 386 labeled).
 - TAUKADIAL test: joined from `testgroundtruth.csv` + `meta_test.csv` (all 120 labeled).
 - ADReSS-M test-gr: `test-gr-groundtruth.csv` — 46/46 matched (Control: 24, ProbableAD: 22), all labeled with age/gender/educ/MMSE.
@@ -94,7 +96,7 @@ Output: `Preprocessing_text/cleaned/` (train + test JSONL per language).
 | Greek | 211 | 53 | 264 | AD: 132, HC: 83, MCI: 49 |
 | **Total** | **1,818** | **459** | **2,277** | |
 
-**Greek dataset note:** 264 records survive cleaning (99 → 220 → 264 across three label additions). Remaining losses:
+**Greek dataset note:** 264 records survive cleaning (99 → 220 → 264 across three label additions). The canonical Greek benchmark path is the public `DS3/DS5/DS7` folders plus Dem@Care labels, not the Dem@Care `.cha` folders alone. Remaining losses:
 - DS7 Patient85 (1): absent from all Dem@Care folders — dropped
 - DS3 (101): unlabelled day-recording dirs (`audiorecday*`) — dropped (see investigation below)
 - Short/hallucination transcripts removed by `min_length=60` filter
@@ -107,6 +109,8 @@ Output: `Preprocessing_text/cleaned/` (train + test JSONL per language).
 - Karakostas et al., *The Dem@Care Experiments and Datasets: a Technical Report*, arXiv:1701.01142 — states the pilot recruited **89 participants "in various levels of severity of the cognitive/behavioral disturbances"**, explicitly a mixed cohort of healthy, MCI, mild dementia, and some full AD cases.
 
 **Conclusion:** The `audiorecday*` participants cannot be safely assumed to belong to any single diagnosis group. The "patient N" subdirectory label is a generic participant identifier, not a diagnostic indicator. No external groundtruth file covering these sessions is publicly available. Dropping all 101 records is the correct approach; recovering labels would require contacting info@demcare.eu for the pilot participant metadata.
+
+**DS3 file multiplicity:** yes — many DS3 items are multiple files from the same participant rather than unique participants. In the public folder layout, a typical participant appears under `patient N/test1` through `patient N/test4`, so one participant often contributes four separate audio files. Some `patientsday5` cases also contain an extra top-level recording in addition to the `test1..test4` files.
 
 ---
 
