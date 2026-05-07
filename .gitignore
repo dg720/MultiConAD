@@ -1,5 +1,9 @@
-# Raw audio/video — too large for git
-raw_datasets/
+# Replication assets now live under data/, but the large copied audio-only
+# inputs remain local by default rather than source-controlled.
+data/Greek/
+data/ADReSS-M/
+data/TAUKADIAL/
+data/NCMMSC2021_AD/
 
 # E5-large embedding cache (~90 MB .npy files)
 Experiments/embedding_cache/

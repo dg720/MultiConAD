@@ -15,7 +15,8 @@ class ASRCollection(Collection):
 
     def parse_cha_file(self, file_path: str) -> Iterator[RawDataPoint]:
         """
-        Parses a .cha file and yields a single raw data point after processing the entire file.
+        Parses a transcription dump and yields one raw data point per record.
+        Supports both the legacy JSON-array format and line-delimited JSONL.
         """
         info = {
             "age": "Unknown",
@@ -44,14 +45,34 @@ class ASRCollection(Collection):
             "text_interviewer": [],
             "text_interviewer_participant": [],
         }
-
         with open(file_path, 'r', encoding='utf-8') as file:
-             data_point = json.load(file)
-             for item in data_point:
-                 info["File_ID"] = item["file_name"]
-                 info["text_interviewer_participant"] = item["transcription"]
-                 info["Languages"] = item["language"]
-                 yield info
+             first_non_ws = ""
+             while True:
+                 ch = file.read(1)
+                 if not ch:
+                     return
+                 if not ch.isspace():
+                     first_non_ws = ch
+                     break
+
+             file.seek(0)
+             if first_non_ws == "[":
+                 data_points = json.load(file)
+                 for item in data_points:
+                     info["File_ID"] = item["file_name"]
+                     info["text_interviewer_participant"] = item["transcription"]
+                     info["Languages"] = item["language"]
+                     yield info
+             else:
+                 for line in file:
+                     line = line.strip()
+                     if not line:
+                         continue
+                     item = json.loads(line)
+                     info["File_ID"] = item["file_name"]
+                     info["text_interviewer_participant"] = item["transcription"]
+                     info["Languages"] = item["language"]
+                     yield info
 
         
 

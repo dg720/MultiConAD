@@ -9,8 +9,10 @@ Run once per dataset:
     python ASR_audio_dataset.py --dataset ds7
     python ASR_audio_dataset.py --dataset ncmmsc
 
-Output: ../transcriptions/<dataset>_transcriptions.json
-Format:  [{"file_name": "...", "transcription": "...", "language": "..."}, ...]
+Output: ../transcriptions/<dataset>_transcriptions.json[|jsonl]
+Format:
+  - legacy JSON array for buffered runs
+  - JSONL (one item per line) for streaming/checkpointed runs
 """
 
 import os
@@ -21,7 +23,7 @@ from tqdm import tqdm
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-RAW = os.path.join(PROJECT_ROOT, "raw_datasets")
+DATA_ROOT = os.path.join(PROJECT_ROOT, "data")
 OUT = os.path.join(PROJECT_ROOT, "transcriptions")
 
 SAMPLE_RATE = 16000  # Whisper internal sample rate
@@ -37,7 +39,7 @@ SAMPLE_RATE = 16000  # Whisper internal sample rate
 # ---------------------------------------------------------------------------
 CONFIGS = {
     "taukadial_train": {
-        "path":           os.path.join(RAW, "TAUKADIAL", "TAUKADIAL-24-train", "TAUKADIAL-24", "train"),
+        "path":           os.path.join(DATA_ROOT, "TAUKADIAL", "TAUKADIAL-24-train", "TAUKADIAL-24", "train"),
         "mode":           "flat",
         "recursive":      False,
         "language":       None,           # mixed EN + ZH; let Whisper detect
@@ -45,7 +47,7 @@ CONFIGS = {
         "output":         os.path.join(OUT, "taukadial_train_transcriptions.json"),
     },
     "taukadial_test": {
-        "path":           os.path.join(RAW, "TAUKADIAL", "TAUKADIAL-24-test", "TAUKADIAL-24", "test"),
+        "path":           os.path.join(DATA_ROOT, "TAUKADIAL", "TAUKADIAL-24-test", "TAUKADIAL-24", "test"),
         "mode":           "flat",
         "recursive":      False,
         "language":       None,
@@ -53,7 +55,7 @@ CONFIGS = {
         "output":         os.path.join(OUT, "taukadial_test_transcriptions.json"),
     },
     "adress_m_gr": {
-        "path":           os.path.join(RAW, "ADReSS-M", "ADReSS-M-test-gr", "test-gr"),
+        "path":           os.path.join(DATA_ROOT, "ADReSS-M", "ADReSS-M-test-gr", "test-gr"),
         "mode":           "flat",
         "recursive":      False,
         "language":       "el",           # Greek
@@ -63,7 +65,7 @@ CONFIGS = {
     "ds3": {
         # DS3 is pre-split per task: day_folder/patient_X/testN/file.wav
         # Recursive walk picks up all of them; file_name preserves the full path
-        "path":           os.path.join(RAW, "Greek", "DS3"),
+        "path":           os.path.join(DATA_ROOT, "Greek", "DS3"),
         "mode":           "flat",
         "recursive":      True,
         "language":       "el",
@@ -72,7 +74,7 @@ CONFIGS = {
     },
     "ds5": {
         # DS5: one long session .wav per patient; .tasks gives per-task timestamps
-        "path":           os.path.join(RAW, "Greek", "DS5"),
+        "path":           os.path.join(DATA_ROOT, "Greek", "DS5"),
         "mode":           "tasks",
         "language":       "el",
         "filter_langs":   None,
@@ -80,7 +82,7 @@ CONFIGS = {
         "output":         os.path.join(OUT, "ds5_transcriptions.json"),
     },
     "ds7": {
-        "path":           os.path.join(RAW, "Greek", "DS7"),
+        "path":           os.path.join(DATA_ROOT, "Greek", "DS7"),
         "mode":           "tasks",
         "language":       "el",
         "filter_langs":   None,
@@ -91,13 +93,14 @@ CONFIGS = {
         # Long-audio subset only.  Covers AD_dataset_long/train/{AD,HC,MCI}
         # and AD_dataset_long/test_have_label (119 labeled recordings).
         # test_none_label is skipped — no diagnosis labels available.
-        "path":           os.path.join(RAW, "NCMMSC2021_AD", "AD_dataset_long"),
+        "path":           os.path.join(DATA_ROOT, "NCMMSC2021_AD", "AD_dataset_long"),
         "mode":           "flat",
         "recursive":      True,
         "language":       "zh",
         "filter_langs":   None,
         "skip_dirs":      {"test_none_label"},
-        "output":         os.path.join(OUT, "ncmmsc_transcriptions.json"),
+        "output":         os.path.join(OUT, "ncmmsc_transcriptions.jsonl"),
+        "stream_output":  True,
     },
 }
 
@@ -123,6 +126,46 @@ def parse_tasks_file(tasks_path, task_label):
     return None
 
 
+def load_completed_file_ids(output_path):
+    """
+    Return the set of already-written file_ids from a JSONL checkpoint file.
+    Missing file => empty set.
+    """
+    completed = set()
+    if not os.path.exists(output_path):
+        return completed
+
+    with open(output_path, "r", encoding="utf-8") as infile:
+        for line in infile:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            file_id = row.get("file_name")
+            if file_id:
+                completed.add(file_id)
+    return completed
+
+
+def iter_flat_wav_files(cfg):
+    """Yield wav paths for a flat dataset, applying recursive walk and skip_dirs."""
+    root = cfg["path"]
+    skip_dirs = cfg.get("skip_dirs", set())
+    if cfg.get("recursive"):
+        for dirpath, dirnames, filenames in os.walk(root):
+            dirnames[:] = [d for d in dirnames if d not in skip_dirs]
+            for fname in filenames:
+                if fname.lower().endswith(".wav"):
+                    yield os.path.join(dirpath, fname)
+    else:
+        for fname in sorted(os.listdir(root)):
+            if fname.lower().endswith(".wav"):
+                yield os.path.join(root, fname)
+
+
 # ---------------------------------------------------------------------------
 # Transcription modes
 # ---------------------------------------------------------------------------
@@ -133,22 +176,7 @@ def transcribe_flat(model, cfg):
     filter_langs = cfg.get("filter_langs")
     kw = whisper_kwargs(cfg)
     results = []
-
-    skip_dirs = cfg.get("skip_dirs", set())
-    if cfg.get("recursive"):
-        wav_files = []
-        for dirpath, dirnames, filenames in os.walk(root):
-            # Prune in-place so os.walk never descends into excluded dirs
-            dirnames[:] = [d for d in dirnames if d not in skip_dirs]
-            for fname in filenames:
-                if fname.lower().endswith(".wav"):
-                    wav_files.append(os.path.join(dirpath, fname))
-    else:
-        wav_files = [
-            os.path.join(root, f)
-            for f in sorted(os.listdir(root))
-            if f.lower().endswith(".wav")
-        ]
+    wav_files = list(iter_flat_wav_files(cfg))
 
     for audio_path in tqdm(wav_files, desc=f"Transcribing ({os.path.basename(root)})"):
         try:
@@ -164,6 +192,49 @@ def transcribe_flat(model, cfg):
             print(f"  Error: {audio_path}: {e}")
 
     return results
+
+
+def transcribe_flat_streaming(model, cfg):
+    """
+    Transcribe a flat dataset and append one JSON object per line immediately.
+    This keeps progress visible on disk and avoids losing all work on interruption.
+    """
+    root = cfg["path"]
+    filter_langs = cfg.get("filter_langs")
+    kw = whisper_kwargs(cfg)
+    output_path = cfg["output"]
+    count = 0
+    skipped_existing = 0
+
+    wav_files = list(iter_flat_wav_files(cfg))
+    completed = load_completed_file_ids(output_path)
+    if completed:
+        print(f"Resuming from {output_path} ({len(completed)} items already written)")
+
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, "a", encoding="utf-8") as outfile:
+        for audio_path in tqdm(wav_files, desc=f"Transcribing ({os.path.basename(root)})"):
+            try:
+                rel = os.path.relpath(audio_path, root)
+                file_id = os.path.splitext(rel)[0].replace(os.sep, "/")
+                if file_id in completed:
+                    skipped_existing += 1
+                    continue
+                result = model.transcribe(audio_path, **kw)
+                lang = result["language"]
+                if filter_langs and lang not in filter_langs:
+                    continue
+                row = {"file_name": file_id, "transcription": result["text"], "language": lang}
+                outfile.write(json.dumps(row, ensure_ascii=False) + "\n")
+                outfile.flush()
+                completed.add(file_id)
+                count += 1
+            except Exception as e:
+                print(f"  Error: {audio_path}: {e}")
+
+    if skipped_existing:
+        print(f"Skipped {skipped_existing} already-transcribed items")
+    return count
 
 
 def transcribe_tasks(model, cfg):
@@ -243,6 +314,11 @@ def main():
 
     print("Loading Whisper large-v3...")
     model = whisper.load_model("large-v3")
+
+    if cfg.get("stream_output"):
+        count = transcribe_flat_streaming(model, cfg)
+        print(f"\nDone: {count} transcriptions saved to {cfg['output']}")
+        return
 
     if cfg["mode"] == "tasks":
         results = transcribe_tasks(model, cfg)

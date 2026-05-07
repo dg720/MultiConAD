@@ -21,16 +21,23 @@ from ASR_collection import ASRCollection
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 JSONL_DIR = os.path.join(SCRIPT_DIR, "jsonl_files")
-RAW = os.path.join(PROJECT_ROOT, "raw_datasets")
+DATA_ROOT = os.path.join(PROJECT_ROOT, "data")
 os.makedirs(JSONL_DIR, exist_ok=True)
 
-DATA = os.path.join(PROJECT_ROOT, "data")
 TRANS = os.path.join(PROJECT_ROOT, "transcriptions")
+
+
+def _first_existing_path(*paths: str) -> str | None:
+    """Return the first existing path from the candidates, else None."""
+    for path in paths:
+        if os.path.exists(path):
+            return path
+    return None
 
 
 # ── Label tables for ASR datasets ────────────────────────────────────────────
 
-DEMCARE = os.path.join(RAW, "Greek", "Dem@Care")
+DEMCARE = os.path.join(DATA_ROOT, "Greek", "Dem@Care")
 
 
 def _load_demcare_labels(protocol: str) -> dict:
@@ -68,7 +75,7 @@ def _load_demcare_pilot_labels() -> dict:
 
 def _load_adress_m_gr_labels() -> dict:
     """addressfname (str) → {dx, age, gender, educ, mmse} for ADReSS-M test-gr."""
-    path = os.path.join(RAW, "ADReSS-M", "test-gr-groundtruth.csv")
+    path = os.path.join(DATA_ROOT, "ADReSS-M", "test-gr-groundtruth.csv")
     labels = {}
     with open(path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
@@ -78,7 +85,7 @@ def _load_adress_m_gr_labels() -> dict:
 
 def _load_greek_labels() -> dict:
     """PatientCode (str) → {Dx, AGE, EDU, MMSE} — greek-groundtruth.csv (DS5 metadata)."""
-    path = os.path.join(RAW, "Greek", "greek-groundtruth.csv")
+    path = os.path.join(DATA_ROOT, "Greek", "greek-groundtruth.csv")
     labels = {}
     with open(path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
@@ -89,14 +96,14 @@ def _load_greek_labels() -> dict:
 def _load_taukadial_labels() -> dict:
     """tkdname stem (no .wav) → {dx, mmse, age, sex} for train + test."""
     labels = {}
-    train_path = os.path.join(RAW, "TAUKADIAL", "TAUKADIAL-24-train", "TAUKADIAL-24", "train", "groundtruth.csv")
+    train_path = os.path.join(DATA_ROOT, "TAUKADIAL", "TAUKADIAL-24-train", "TAUKADIAL-24", "train", "groundtruth.csv")
     with open(train_path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             stem = row["tkdname"].replace(".wav", "")
             labels[stem] = row
     # test groundtruth is semicolon-delimited
-    test_gt_path = os.path.join(RAW, "TAUKADIAL", "testgroundtruth.csv")
-    test_meta_path = os.path.join(RAW, "TAUKADIAL", "meta_test.csv")
+    test_gt_path = os.path.join(DATA_ROOT, "TAUKADIAL", "testgroundtruth.csv")
+    test_meta_path = os.path.join(DATA_ROOT, "TAUKADIAL", "meta_test.csv")
     test_gt, test_meta = {}, {}
     with open(test_gt_path, encoding="utf-8-sig") as f:
         for line in f:
@@ -131,7 +138,7 @@ def _load_wls_labels() -> dict:
     Threshold: age<60->16, 60-79->14, >79->12 words (paper Section 3.1.4).
     Join key: idtlkbnk % 100000 == int(File_ID).
     """
-    xlsx = os.path.join(RAW, "English", "WLS", "WLS-data.xlsx")
+    xlsx = os.path.join(DATA_ROOT, "English", "WLS", "WLS-data.xlsx")
     labels = {}
     xl_2011 = pd.read_excel(xlsx, sheet_name="Data - 2004, 2011")
     xl_2011["file_id"] = xl_2011["idtlkbnk"].astype(int) % 100000
@@ -164,7 +171,7 @@ def _load_vas_labels() -> dict:
     file_id_int -> {Diagnosis, Age, Gender, Education, Moca} for VAS records.
     Source: data/English/VAS/demo.xlsx (preferred) or 0demo.xlsx.
     """
-    base = os.path.join(DATA, "English", "VAS")
+    base = os.path.join(DATA_ROOT, "English", "VAS")
     labels = {}
     df = None
     for fname in ("demo.xlsx", "0demo.xlsx"):
@@ -233,7 +240,7 @@ def _load_ncmmsc_labels() -> dict:
     Covers both train/{AD,HC,MCI}/ and test_have_label/ (test_none_label skipped).
     """
     labels = {}
-    base = os.path.join(RAW, "NCMMSC2021_AD", "AD_dataset_long")
+    base = os.path.join(DATA_ROOT, "NCMMSC2021_AD", "AD_dataset_long")
     sources = [
         os.path.join(base, "train", "AD"),
         os.path.join(base, "train", "HC"),
@@ -467,12 +474,12 @@ if __name__ == "__main__":
     # ── English CHA datasets ──────────────────────────────────────────────────
     print("\n[English CHA]")
     for group in ("Control", "Dementia"):
-        path = os.path.join(DATA, "English", "Pitt", group, "cookie")
+        path = os.path.join(DATA_ROOT, "English", "Pitt", group, "cookie")
         name = f"English_Pitt_{group}_cookie_output.jsonl"
         produced.append(run_cha(path, "english", name))
 
     for ds in ("Lu", "Baycrest", "Delaware", "Kempler", "VAS", "WLS"):
-        path = os.path.join(DATA, "English", ds)
+        path = os.path.join(DATA_ROOT, "English", ds)
         name = f"English_{ds}_output.jsonl"
         out = run_cha(path, "english", name)
         if ds == "Kempler":
@@ -489,24 +496,27 @@ if __name__ == "__main__":
     # ── Spanish CHA datasets ──────────────────────────────────────────────────
     print("\n[Spanish CHA]")
     for ds in ("Ivanova", "PerLA"):
-        path = os.path.join(DATA, "Spanish", ds)
+        path = os.path.join(DATA_ROOT, "Spanish", ds)
         name = f"Spanish_{ds}_output.jsonl"
         produced.append(run_cha(path, "spanish", name))
 
     # ── Chinese TSV dataset ───────────────────────────────────────────────────
     print("\n[Chinese TSV]")
-    produced.append(run_tsv(os.path.join(DATA, "Chinese", "iFlytek"), "Chinese_iFlytek_output.jsonl"))
+    produced.append(run_tsv(os.path.join(DATA_ROOT, "Chinese", "iFlytek"), "Chinese_iFlytek_output.jsonl"))
 
     # ── Chinese ASR (NCMMSC2021) ──────────────────────────────────────────────
     print("\n[Chinese ASR]")
-    ncmmsc_src = os.path.join(TRANS, "ncmmsc_transcriptions.json")
-    if os.path.exists(ncmmsc_src):
+    ncmmsc_src = _first_existing_path(
+        os.path.join(TRANS, "ncmmsc_transcriptions.jsonl"),
+        os.path.join(TRANS, "ncmmsc_transcriptions.json"),
+    )
+    if ncmmsc_src:
         out = run_asr(ncmmsc_src, "Chinese_NCMMSC_output.jsonl")
         n_labeled = _attach_labels_to_jsonl(out, _attach_ncmmsc_labels)
         print(f"    → {n_labeled} NCMMSC records labeled from filename")
         produced.append(out)
     else:
-        print("  ncmmsc_transcriptions.json not found — run ASR_audio_dataset.py --dataset ncmmsc first")
+        print("  ncmmsc_transcriptions.jsonl not found — run ASR_audio_dataset.py --dataset ncmmsc first")
 
     # ── ASR (Greek + TAUKADIAL) ───────────────────────────────────────────────
     print("\n[ASR transcriptions]")

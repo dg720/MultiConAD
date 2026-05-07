@@ -62,18 +62,19 @@ iFkyTek
 - The source JSONL still includes additional unlabeled test rows that are not part of the paper-comparable labeled counts.
 
 DS3
-- Canonical path: use public `raw_datasets/Greek/DS3` files as items and attach labels from `raw_datasets/Greek/Dem@Care/pilot/`.
+- Canonical path: use public `data/Greek/DS3` files as items and attach labels from `data/Greek/Dem@Care/pilot/`.
 - Current public-folder count after label join is `149 = AD 107 / HC 42`; the remaining `101` DS3 files stay `Unknown`.
 - DS3 is file-level, not participant-level: many participants contribute `test1`..`test4` files, so repeated files for the same patient are expected.
-- The current extracted DS3 scope is larger than the paper row, and the public release does not expose enough labels to reconstruct the paper subset exactly.
+- The current extracted DS3 scope is larger than the paper row because the public release includes multiple labeled files/interviews for the same participant.
+- For replication, treat this as the intended file-level benchmark definition rather than a missing-data gap versus the paper.
 
 DS5
-- Canonical path: use public `raw_datasets/Greek/DS5/PatientNNN/` folders as items and attach labels from `raw_datasets/Greek/Dem@Care/short/0tasks/`.
+- Canonical path: use public `data/Greek/DS5/PatientNNN/` folders as items and attach labels from `data/Greek/Dem@Care/short/0tasks/`.
 - Current public-folder count after label join is `93 = AD 26 / MCI 36 / HC 31`.
 - DS5 is very close to the paper counts; the current repo differs by only a small MCI count delta.
 
 DS7
-- Canonical path: use public `raw_datasets/Greek/DS7/PatientNNN/` folders as items and attach labels from `raw_datasets/Greek/Dem@Care/long/0tasks/`.
+- Canonical path: use public `data/Greek/DS7/PatientNNN/` folders as items and attach labels from `data/Greek/Dem@Care/long/0tasks/`.
 - Current public-folder count after label join is `58 = AD 27 / MCI 29 / HC 2`.
 - DS7 is close on AD and HC, but lower on MCI than the paper.
 - Excluded public dirs are `Patient33`, `Patient52`, `Patient58` (missing `.wav`) and `Patient85` (no Dem@Care label), which is why the joined count is lower than the raw folder count.

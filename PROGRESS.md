@@ -55,7 +55,7 @@ Output: `Extracting data/jsonl_files/` (17 files).
 | **Total** | | **4,237** | |
 
 **Label joining (added to `run_step2_collections.py`):**
-- Greek canonical path: use the public item folders `raw_datasets/Greek/{DS3,DS5,DS7}` as the source of benchmark items, then attach labels from `raw_datasets/Greek/Dem@Care/`.
+- Greek canonical path: use the public item folders `data/Greek/{DS3,DS5,DS7}` as the source of benchmark items, then attach labels from `data/Greek/Dem@Care/`.
 - DS5 (short protocol): public `DS5/PatientNNN/` folders joined to `Dem@Care/short/0tasks/{AD,HC,MCI}/` on patient ID. Current public-folder count after label join: `93 = AD 26 / MCI 36 / HC 31`.
 - DS7 (long protocol): public `DS7/PatientNNN/` folders joined to `Dem@Care/long/0tasks/{AD,HC,MCI}/` on patient ID. Current public-folder count after label join: `58 = AD 27 / MCI 29 / HC 2`. Excluded public dirs are `Patient33`, `Patient52`, `Patient58` (missing `.wav`) and `Patient85` (no Dem@Care label).
 - DS3 (pilot): public `DS3/` audio files are labeled from `Dem@Care/pilot/`, where `pilot/control/` maps to HC and `pilot/patients/` maps to AD. The extractor labels `controlday*` trees as HC by directory name and `.../patient N/...` trees by matching `N` against the pilot folders. Current public-folder count after label join: `149 = AD 107 / HC 42`; remaining `101/250` files stay `Unknown` and are dropped in cleaning.
@@ -96,7 +96,7 @@ Output: `Preprocessing_text/cleaned/` (train + test JSONL per language).
 | Greek | 211 | 53 | 264 | AD: 132, HC: 83, MCI: 49 |
 | **Total** | **1,818** | **459** | **2,277** | |
 
-**Greek dataset note:** 264 records survive cleaning (99 → 220 → 264 across three label additions). The canonical Greek benchmark path is the public `DS3/DS5/DS7` folders plus Dem@Care labels, not the Dem@Care `.cha` folders alone. Remaining losses:
+**Greek dataset note:** 264 records survive cleaning (99 → 220 → 264 across three label additions). The canonical Greek benchmark path is the public `DS3/DS5/DS7` folders plus Dem@Care labels, not the Dem@Care `.cha` folders alone. The current Greek benchmark is file-level and therefore larger than the paper's participant-style DS3 summary. Remaining losses:
 - DS7 Patient85 (1): absent from all Dem@Care folders — dropped
 - DS3 (101): unlabelled day-recording dirs (`audiorecday*`) — dropped (see investigation below)
 - Short/hallucination transcripts removed by `min_length=60` filter
@@ -153,7 +153,7 @@ Output: `Translation/translated/` (6 files — train + test per language).
 
 Identified that all 1,368 WLS records had blank `Diagnosis` — dropped in English cleaning, causing English dataset to be ~1,000 records smaller than the paper (1,251 vs ~2,751). Root cause: DementiaBank WLS CHA files contain no demographic metadata.
 
-Recovered using `raw_datasets/English/WLS/WLS-data.xlsx` (provided by user):
+Recovered using `data/English/WLS/WLS-data.xlsx` (provided by user):
 - **Primary**: `Data - 2020` sheet — research consensus diagnosis (1=HC, 2=MCI, 3=Dementia): 187 records
 - **Fallback**: `Data - 2004, 2011` sheet — category fluency threshold (paper Section 3.1.4): age<60→16, 60–79→14, >79→12 words; 1,111 additional records
 - **Join key**: `idtlkbnk % 100000 == int(File_ID)`
@@ -161,7 +161,7 @@ Recovered using `raw_datasets/English/WLS/WLS-data.xlsx` (provided by user):
 
 English dataset after recovery: **2,546 records** (HC:1,658, MCI:427, Dementia:461).
 
-Greek gap (~241 records vs paper) confirmed unrecoverable — DS3 day-recording directories carry no diagnosis labels in any available file.
+Greek paper mismatch is primarily a counting-definition issue, not a missing-data gap: the current benchmark keeps multiple labeled DS3 files/interviews per participant, so the repo has more Greek data points than the paper's DS3 row.
 
 ### 5.2 TF-IDF Sparse Classifier (2026-05-05)
 
@@ -207,7 +207,7 @@ Both TF-IDF and E5-large re-run with new splits. 12 stale embedding cache files 
 
 **Remaining gaps vs paper:**
 - Spanish: Sparse mono 0.77 vs 0.78 (≈); Dense mono 0.73 vs 0.80 (−0.07). Likely due to smaller Spanish training set and possible PerLA differences.
-- Greek multiclass: 0.60 vs 0.73 (−0.13). Directly attributable to missing 241 Greek records (DS3 day-recordings + author-provided data).
+- Greek multiclass: 0.60 vs 0.73 (−0.13). This should not be interpreted as a missing-DS3-data issue; the current Greek benchmark already exceeds the paper's DS3 row because it keeps multiple labeled files/interviews per participant.
 - Combined/translated settings: paper benefits more from adding languages, consistent with their larger, better-balanced combined training sets (more Greek, Chinese NCMMSC2021).
 
 ### 5.3 E5-Large Dense Classifier — COMPLETE (2026-05-05)

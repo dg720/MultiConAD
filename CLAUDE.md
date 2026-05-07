@@ -11,4 +11,4 @@ Rules:
 - Treat `MultiConAD-archive/MultiConAD-main/` as read-only reference code.
 - When current code differs from the original pipeline, check the archive code and the paper before changing behavior.
 - For Chinese dataset changes in particular, verify against the original `text_cleaning_Chinese.py` in the archive and the paper's Chinese dataset description before editing.
-- When active processing depends on companion metadata stored in `raw_datasets/`, move the necessary files into the matching location under `data/` before wiring or updating the pipeline.
+- Keep all live replication inputs under `data/`. If auxiliary metadata or source assets arrive elsewhere, move or copy the necessary files into the matching location under `data/` before wiring or updating the pipeline.

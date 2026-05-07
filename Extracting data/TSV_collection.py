@@ -8,9 +8,7 @@ from dataclasses import asdict
 
 IFLY_LABELS_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "raw_datasets", "Mandarin", "Alzheimer-s-disease-datasets-master",
-    "Alzheimer-s-disease-datasets-master", ".github", "workflows",
-    "2_final_list_train.csv"
+    "data", "Chinese", "iFlytek", "2_final_list_train.csv"
 )
 
 def _load_ifly_labels(labels_path: str) -> dict:
