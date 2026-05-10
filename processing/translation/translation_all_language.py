@@ -20,7 +20,7 @@ args = parser.parse_args()
 
 def load_dotenv() -> None:
     """Load simple KEY=VALUE entries from the repo-root .env if present."""
-    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     env_path = os.path.join(project_root, ".env")
     if not os.path.exists(env_path):
         return

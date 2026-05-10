@@ -24,9 +24,9 @@ args = parser.parse_args()
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-CLEANED      = os.path.join(PROJECT_ROOT, "Preprocessing_text", "cleaned")
-TRANSLATED   = os.path.join(PROJECT_ROOT, "Translation", "translated")
-CACHE_DIR    = args.cache_dir or os.path.join(SCRIPT_DIR, "embedding_cache")
+CLEANED      = os.path.join(PROJECT_ROOT, "data", "processed", "cleaned")
+TRANSLATED   = os.path.join(PROJECT_ROOT, "data", "processed", "translated")
+CACHE_DIR    = args.cache_dir or os.path.join(PROJECT_ROOT, "tables", "experiment-results", "embedding-cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'

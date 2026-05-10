@@ -1,8 +1,8 @@
 """
 Step 2: Data Collection & Extraction
 Runs all collection scripts, attaches labels to ASR datasets, and writes
-JSONL output to jsonl_files/.
-Run from the 'Extracting data/' directory:  python run_step2_collections.py
+JSONL output to data/processed/extracted/.
+Run from the repo root: python processing/extraction/run_step2_collections.py
 """
 import csv
 import os
@@ -19,12 +19,12 @@ from TSV_collection import TSVCollection
 from ASR_collection import ASRCollection
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-JSONL_DIR = os.path.join(SCRIPT_DIR, "jsonl_files")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+JSONL_DIR = os.path.join(PROJECT_ROOT, "data", "processed", "extracted")
 DATA_ROOT = os.path.join(PROJECT_ROOT, "data")
 os.makedirs(JSONL_DIR, exist_ok=True)
 
-TRANS = os.path.join(PROJECT_ROOT, "transcriptions")
+TRANS = os.path.join(PROJECT_ROOT, "data", "processed", "transcriptions")
 
 
 def _first_existing_path(*paths: str) -> str | None:

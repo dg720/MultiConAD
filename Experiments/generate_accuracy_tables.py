@@ -16,7 +16,8 @@ import os
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-RESULTS_DIR = os.path.join(SCRIPT_DIR, "results")
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+RESULTS_DIR = os.path.join(PROJECT_ROOT, "tables", "experiment-results")
 
 ACCURACY_TEX_PATH = os.path.join(RESULTS_DIR, "accuracy_tables.txt")
 PLAIN_TXT_PATH = os.path.join(RESULTS_DIR, "tfidf_comparison_tables.txt")

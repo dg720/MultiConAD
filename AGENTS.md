@@ -12,3 +12,5 @@ Rules:
 - When current code differs from the original pipeline, check the archive code and the paper before changing behavior.
 - For Chinese dataset changes in particular, verify against the original `text_cleaning_Chinese.py` in the archive and the paper's Chinese dataset description before editing.
 - Keep all live replication inputs under `data/`. If auxiliary metadata or source assets arrive elsewhere, move or copy the necessary files into the matching location under `data/` before wiring or updating the pipeline.
+- Keep processing code under `processing/`, experiment code under `experiments/`, processed artifacts under `data/processed/`, and generated result tables/logs under `tables/experiment-results/`.
+- Prefer lowercase, hyphenated directory names for any new top-level or organizational folders.

@@ -1,5 +1,5 @@
 """
-Runs the full TF-IDF experiment matrix and logs results to results/tfidf_results.txt.
+Runs the full TF-IDF experiment matrix and logs results to tables/experiment-results/tfidf_results.txt.
 Covers: mono/multi x binary/multiclass x translated/original x all 4 test languages.
 """
 import itertools
@@ -10,7 +10,8 @@ from datetime import datetime
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-OUT_DIR = os.path.join(SCRIPT_DIR, "results")
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+OUT_DIR = os.path.join(PROJECT_ROOT, "tables", "experiment-results")
 os.makedirs(OUT_DIR, exist_ok=True)
 OUT_FILE = os.path.join(OUT_DIR, "tfidf_results.txt")
 

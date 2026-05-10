@@ -4,12 +4,13 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Extracting data"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "extraction"))
 from collection import JSONLCombiner
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-JSONL_DIR  = os.path.join(SCRIPT_DIR, "..", "Extracting data", "jsonl_files")
-OUT_DIR    = os.path.join(SCRIPT_DIR, "cleaned")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
+JSONL_DIR  = os.path.join(PROJECT_ROOT, "data", "processed", "extracted")
+OUT_DIR    = os.path.join(PROJECT_ROOT, "data", "processed", "cleaned")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # Non-WLS sources — eligible for train/test split

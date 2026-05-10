@@ -9,7 +9,8 @@ Default order:
 5. E5 benchmark rerun
 6. Accuracy table regeneration
 
-The queue is resumable via pipeline_state.json and per-job logs in logs/pipeline/.
+The queue is resumable via tables/experiment-results/pipeline-queue/pipeline-state.json
+and per-job logs in tables/experiment-results/pipeline-queue/.
 It is intentionally single-worker and fail-fast because later stages depend on
 the exact outputs of earlier stages.
 """
@@ -29,8 +30,9 @@ from typing import Iterable
 
 
 ROOT = Path(__file__).resolve().parent
-STATE_PATH = ROOT / "pipeline_state.json"
-LOG_DIR = ROOT / "logs" / "pipeline"
+PIPELINE_DIR = ROOT / "tables" / "experiment-results" / "pipeline-queue"
+STATE_PATH = PIPELINE_DIR / "pipeline-state.json"
+LOG_DIR = PIPELINE_DIR
 
 
 def now_iso() -> str:
@@ -51,88 +53,88 @@ JOBS: list[Job] = [
     Job(
         job_id="asr_ncmmsc",
         description="Transcribe NCMMSC2021_AD long-audio dataset with Whisper large-v3",
-        command=[sys.executable, "Audio transcription/ASR_audio_dataset.py", "--dataset", "ncmmsc"],
+        command=[sys.executable, "processing/transcription/ASR_audio_dataset.py", "--dataset", "ncmmsc"],
         cwd=".",
-        outputs=["transcriptions/ncmmsc_transcriptions.jsonl"],
+        outputs=["data/processed/transcriptions/ncmmsc_transcriptions.jsonl"],
     ),
     Job(
         job_id="extract_all",
         description="Run Step 2 extraction and attach labels across all datasets",
-        command=[sys.executable, "Extracting data/run_step2_collections.py"],
+        command=[sys.executable, "processing/extraction/run_step2_collections.py"],
         cwd=".",
         outputs=[
-            "Extracting data/jsonl_files/Chinese_NCMMSC_output.jsonl",
-            "Extracting data/jsonl_files/ASR_taukadial_train_output.jsonl",
-            "Extracting data/jsonl_files/English_WLS_output.jsonl",
+            "data/processed/extracted/Chinese_NCMMSC_output.jsonl",
+            "data/processed/extracted/ASR_taukadial_train_output.jsonl",
+            "data/processed/extracted/English_WLS_output.jsonl",
         ],
         depends_on=["asr_ncmmsc"],
     ),
     Job(
         job_id="clean_english",
         description="Rebuild cleaned English train/test splits",
-        command=[sys.executable, "Preprocessing_text/text_cleaning_English.py"],
+        command=[sys.executable, "processing/cleaning/text_cleaning_English.py"],
         cwd=".",
         outputs=[
-            "Preprocessing_text/cleaned/train_english.jsonl",
-            "Preprocessing_text/cleaned/test_english.jsonl",
+            "data/processed/cleaned/train_english.jsonl",
+            "data/processed/cleaned/test_english.jsonl",
         ],
         depends_on=["extract_all"],
     ),
     Job(
         job_id="clean_greek",
         description="Rebuild cleaned Greek train/test splits",
-        command=[sys.executable, "Preprocessing_text/text_cleaning_Greek.py"],
+        command=[sys.executable, "processing/cleaning/text_cleaning_Greek.py"],
         cwd=".",
         outputs=[
-            "Preprocessing_text/cleaned/train_greek.jsonl",
-            "Preprocessing_text/cleaned/test_greek.jsonl",
+            "data/processed/cleaned/train_greek.jsonl",
+            "data/processed/cleaned/test_greek.jsonl",
         ],
         depends_on=["extract_all"],
     ),
     Job(
         job_id="clean_spanish",
         description="Rebuild cleaned Spanish train/test splits",
-        command=[sys.executable, "Preprocessing_text/text_cleaning_Spanish.py"],
+        command=[sys.executable, "processing/cleaning/text_cleaning_Spanish.py"],
         cwd=".",
         outputs=[
-            "Preprocessing_text/cleaned/train_spanish.jsonl",
-            "Preprocessing_text/cleaned/test_spanish.jsonl",
+            "data/processed/cleaned/train_spanish.jsonl",
+            "data/processed/cleaned/test_spanish.jsonl",
         ],
         depends_on=["extract_all"],
     ),
     Job(
         job_id="clean_chinese",
         description="Rebuild cleaned Chinese train/test splits",
-        command=[sys.executable, "Preprocessing_text/text_cleaning_Chinese.py"],
+        command=[sys.executable, "processing/cleaning/text_cleaning_Chinese.py"],
         cwd=".",
         outputs=[
-            "Preprocessing_text/cleaned/train_chinese.jsonl",
-            "Preprocessing_text/cleaned/test_chinese.jsonl",
+            "data/processed/cleaned/train_chinese.jsonl",
+            "data/processed/cleaned/test_chinese.jsonl",
         ],
         depends_on=["extract_all"],
     ),
     Job(
         job_id="benchmark_tfidf",
         description="Rerun the full TF-IDF benchmark matrix",
-        command=[sys.executable, "Experiments/run_tfidf_experiments.py"],
+        command=[sys.executable, "experiments/run_tfidf_experiments.py"],
         cwd=".",
-        outputs=["Experiments/results/tfidf_results.txt"],
+        outputs=["tables/experiment-results/tfidf_results.txt"],
         depends_on=["clean_english", "clean_greek", "clean_spanish", "clean_chinese"],
     ),
     Job(
         job_id="benchmark_e5",
         description="Rerun the full E5-large benchmark matrix",
-        command=[sys.executable, "Experiments/run_e5_experiments.py"],
+        command=[sys.executable, "experiments/run_e5_experiments.py"],
         cwd=".",
-        outputs=["Experiments/results/e5_results.txt"],
+        outputs=["tables/experiment-results/e5_results.txt"],
         depends_on=["clean_english", "clean_greek", "clean_spanish", "clean_chinese"],
     ),
     Job(
         job_id="tables_accuracy",
         description="Regenerate accuracy comparison tables from benchmark outputs",
-        command=[sys.executable, "Experiments/generate_accuracy_tables.py"],
+        command=[sys.executable, "experiments/generate_accuracy_tables.py"],
         cwd=".",
-        outputs=["Experiments/results/accuracy_tables.txt"],
+        outputs=["tables/experiment-results/accuracy_tables.txt"],
         depends_on=["benchmark_tfidf", "benchmark_e5"],
     ),
 ]

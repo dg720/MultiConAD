@@ -32,7 +32,7 @@ if errorlevel 1 goto error
 
 echo.
 echo ============================================================
-echo  All done. Check transcriptions\ for output JSON files.
+echo  All done. Check data\processed\transcriptions\ for output JSON files.
 echo ============================================================
 goto end
 

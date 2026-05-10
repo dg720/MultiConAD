@@ -9,7 +9,7 @@ Run once per dataset:
     python ASR_audio_dataset.py --dataset ds7
     python ASR_audio_dataset.py --dataset ncmmsc
 
-Output: ../transcriptions/<dataset>_transcriptions.json[|jsonl]
+Output: ../../data/processed/transcriptions/<dataset>_transcriptions.json[|jsonl]
 Format:
   - legacy JSON array for buffered runs
   - JSONL (one item per line) for streaming/checkpointed runs
@@ -22,9 +22,9 @@ import whisper
 from tqdm import tqdm
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 DATA_ROOT = os.path.join(PROJECT_ROOT, "data")
-OUT = os.path.join(PROJECT_ROOT, "transcriptions")
+OUT = os.path.join(PROJECT_ROOT, "data", "processed", "transcriptions")
 
 SAMPLE_RATE = 16000  # Whisper internal sample rate
 

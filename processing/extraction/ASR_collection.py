@@ -6,6 +6,11 @@ import json
 from dataclasses import asdict
 
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+TRANSCRIPTIONS_DIR = os.path.join(PROJECT_ROOT, "data", "processed", "transcriptions")
+EXTRACTED_DIR = os.path.join(PROJECT_ROOT, "data", "processed", "extracted")
+
+
 class ASRCollection(Collection):
     def __init__(self, file_path: str):
         self.file_path = file_path
@@ -113,15 +118,15 @@ class ASRCollection(Collection):
 
 # One entry per transcription JSON produced by ASR_audio_dataset.py.
 # Run once per dataset — set path_to_ASR_files to the relevant .json then execute.
-# --- Transcription JSONs (from ../transcriptions/) ---
-# path_to_ASR_files = "../transcriptions/taukadial_train_transcriptions.json"
-# path_to_ASR_files = "../transcriptions/taukadial_test_transcriptions.json"
-# path_to_ASR_files = "../transcriptions/adress_m_gr_transcriptions.json"
-# path_to_ASR_files = "../transcriptions/ds3_transcriptions.json"
-# path_to_ASR_files = "../transcriptions/ds5_transcriptions.json"
-# path_to_ASR_files = "../transcriptions/ds7_transcriptions.json"
+# --- Transcription JSONs (from ../../data/processed/transcriptions/) ---
+# path_to_ASR_files = "../../data/processed/transcriptions/taukadial_train_transcriptions.json"
+# path_to_ASR_files = "../../data/processed/transcriptions/taukadial_test_transcriptions.json"
+# path_to_ASR_files = "../../data/processed/transcriptions/adress_m_gr_transcriptions.json"
+# path_to_ASR_files = "../../data/processed/transcriptions/ds3_transcriptions.json"
+# path_to_ASR_files = "../../data/processed/transcriptions/ds5_transcriptions.json"
+# path_to_ASR_files = "../../data/processed/transcriptions/ds7_transcriptions.json"
 
-path_to_ASR_files = "../transcriptions/taukadial_train_transcriptions.json"
+path_to_ASR_files = "../../data/processed/transcriptions/taukadial_train_transcriptions.json"
 
 
 if __name__ == '__main__':
@@ -130,8 +135,8 @@ if __name__ == '__main__':
     stem = os.path.splitext(os.path.basename(path_to_ASR_files))[0]  # e.g. taukadial_train_transcriptions
     output_file_name = stem.replace("_transcriptions", "_output") + ".jsonl"
 
-    os.makedirs("jsonl_files", exist_ok=True)
-    output_file_path = os.path.join("jsonl_files", output_file_name)
+    os.makedirs(EXTRACTED_DIR, exist_ok=True)
+    output_file_path = os.path.join(EXTRACTED_DIR, output_file_name)
     with open(output_file_path, "w", encoding="utf-8") as outfile:
         for raw_datapoint in collection:
             normalized_datapoint = collection.normalize_datapoint(raw_datapoint)

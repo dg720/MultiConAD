@@ -1,5 +1,5 @@
 """
-Runs the full E5-large experiment matrix and logs results to results/e5_results.txt.
+Runs the full E5-large experiment matrix and logs results to tables/experiment-results/e5_results.txt.
 Embedding caching means the model only encodes each unique (training-set, task, translated)
 combination once; subsequent test languages reuse the cached vectors.
 """
@@ -11,10 +11,12 @@ from datetime import datetime
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-OUT_DIR = os.path.join(SCRIPT_DIR, "results")
+CACHE_ROOT = None
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+OUT_DIR = os.path.join(PROJECT_ROOT, "tables", "experiment-results")
 os.makedirs(OUT_DIR, exist_ok=True)
 OUT_FILE = os.path.join(OUT_DIR, "e5_results.txt")
-CACHE_DIR = os.path.join(SCRIPT_DIR, "embedding_cache")
+CACHE_DIR = os.path.join(PROJECT_ROOT, "tables", "experiment-results", "embedding-cache")
 
 languages = ["en", "gr", "cha", "spa"]
 tasks = ["binary", "multiclass"]

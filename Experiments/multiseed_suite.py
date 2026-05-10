@@ -107,8 +107,8 @@ def attach_row_uids(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_full_corpora(project_root: Path):
-    cleaned_dir = project_root / "Preprocessing_text" / "cleaned"
-    translated_dir = project_root / "Translation" / "translated"
+    cleaned_dir = project_root / "data" / "processed" / "cleaned"
+    translated_dir = project_root / "data" / "processed" / "translated"
 
     full_clean = {}
     full_translated = {}
@@ -597,7 +597,7 @@ def default_logger_factory(log_path: Path):
 def run_queue(args) -> None:
     project_root = Path(__file__).resolve().parents[1]
     load_project_env(project_root)
-    suite_dir = project_root / "Experiments" / "results" / "multiseed_suite"
+    suite_dir = project_root / "tables" / "experiment-results" / "multiseed-suite"
     suite_dir.mkdir(parents=True, exist_ok=True)
     state_path = suite_dir / ("smoke_state.json" if args.command == "smoke" else "state.json")
     log_path = suite_dir / ("smoke.log" if args.command == "smoke" else "run.log")
@@ -654,7 +654,7 @@ def run_queue(args) -> None:
 
 def show_status(args) -> None:
     project_root = Path(__file__).resolve().parents[1]
-    suite_dir = project_root / "Experiments" / "results" / "multiseed_suite"
+    suite_dir = project_root / "tables" / "experiment-results" / "multiseed-suite"
     state_path = suite_dir / ("smoke_state.json" if args.smoke else "state.json")
     if not state_path.exists():
         safe_print(f"No state file at {state_path}")

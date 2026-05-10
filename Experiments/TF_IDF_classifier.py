@@ -21,8 +21,8 @@ args = parser.parse_args()
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-CLEANED      = os.path.join(PROJECT_ROOT, "Preprocessing_text", "cleaned")
-TRANSLATED   = os.path.join(PROJECT_ROOT, "Translation", "translated")
+CLEANED      = os.path.join(PROJECT_ROOT, "data", "processed", "cleaned")
+TRANSLATED   = os.path.join(PROJECT_ROOT, "data", "processed", "translated")
 
 def load(split, lang, translated=False):
     if translated and lang != 'en':

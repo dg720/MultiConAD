@@ -6,9 +6,10 @@ import csv
 import json
 from dataclasses import asdict
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+EXTRACTED_DIR = os.path.join(PROJECT_ROOT, "data", "processed", "extracted")
 IFLY_LABELS_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-    "data", "Chinese", "iFlytek", "2_final_list_train.csv"
+    PROJECT_ROOT, "data", "Chinese", "iFlytek", "2_final_list_train.csv"
 )
 
 def _load_ifly_labels(labels_path: str) -> dict:
@@ -131,10 +132,10 @@ class TSVCollection(Collection):
 
 
 # --- Chinese TSV datasets ---
-# path_to_tsv_files = "../data/Chinese/iFlytek"    # Predictive Challenge 2019 (9 files)
+# path_to_tsv_files = "../../data/Chinese/iFlytek"    # Predictive Challenge 2019 (9 files)
 # MISSING: NCMMSC2021 AD Competition dataset — not yet available
 
-path_to_tsv_files = "../data/Chinese/iFlytek"      # set active dataset here
+path_to_tsv_files = "../../data/Chinese/iFlytek"      # set active dataset here
 
 
 if __name__ == '__main__':
@@ -146,7 +147,8 @@ if __name__ == '__main__':
     output_file_name= f"{last_words[0]}_{last_words[1]}_{last_words[2]}_output.jsonl"
     
     # Writing the normalized data to the output file
-    output_file_path = os.path.join("jsonl_files", output_file_name)
+    os.makedirs(EXTRACTED_DIR, exist_ok=True)
+    output_file_path = os.path.join(EXTRACTED_DIR, output_file_name)
     with open(output_file_path, "w",encoding="utf-8") as outfile:
         for normalized_datapoint in collection.get_normalized_data():
             normalized_dict = asdict(normalized_datapoint)

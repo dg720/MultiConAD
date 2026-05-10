@@ -7,7 +7,7 @@ from generate_accuracy_tables import RESULT_TABLES
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-SUITE_DIR = SCRIPT_DIR / "results" / "multiseed_suite"
+SUITE_DIR = SCRIPT_DIR.parent / "tables" / "experiment-results" / "multiseed-suite"
 SUMMARY_DIR = SUITE_DIR / "summaries"
 OUTPUT_PATH = SUITE_DIR / "paper_vs_ours_3tables.txt"
 

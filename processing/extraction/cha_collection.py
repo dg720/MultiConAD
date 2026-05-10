@@ -6,6 +6,10 @@ import json
 from dataclasses import asdict
 
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+EXTRACTED_DIR = os.path.join(PROJECT_ROOT, "data", "processed", "extracted")
+
+
 class CHACollection(Collection):
     def _open_cha_file(self, file_path: str):
         """
@@ -260,24 +264,24 @@ class CHACollection(Collection):
 
 
 # --- English datasets (language="english") ---
-# path_to_cha_files = "../data/English/ADReSS_IS2020_train"
-# path_to_cha_files = "../data/English/ADReSS_IS2020_test"
-# path_to_cha_files = "../data/English/Pitt"       # nested Control/Dementia/task subdirs
-# path_to_cha_files = "../data/English/Lu"
-# path_to_cha_files = "../data/English/Baycrest"
-# path_to_cha_files = "../data/English/Delaware"
-# path_to_cha_files = "../data/English/Kempler"
-# path_to_cha_files = "../data/English/VAS"
-# path_to_cha_files = "../data/English/WLS"
+# path_to_cha_files = "../../data/English/ADReSS_IS2020_train"
+# path_to_cha_files = "../../data/English/ADReSS_IS2020_test"
+# path_to_cha_files = "../../data/English/Pitt"       # nested Control/Dementia/task subdirs
+# path_to_cha_files = "../../data/English/Lu"
+# path_to_cha_files = "../../data/English/Baycrest"
+# path_to_cha_files = "../../data/English/Delaware"
+# path_to_cha_files = "../../data/English/Kempler"
+# path_to_cha_files = "../../data/English/VAS"
+# path_to_cha_files = "../../data/English/WLS"
 
 # --- Chinese datasets (language="chinese") ---
-# path_to_cha_files = "../data/Chinese/Lu"         # MISSING — not yet available
+# path_to_cha_files = "../../data/Chinese/Lu"         # MISSING — not yet available
 
 # --- Spanish datasets (language="spanish") ---
-# path_to_cha_files = "../data/Spanish/Ivanova"
-# path_to_cha_files = "../data/Spanish/PerLA"
+# path_to_cha_files = "../../data/Spanish/Ivanova"
+# path_to_cha_files = "../../data/Spanish/PerLA"
 
-path_to_cha_files = "../data/English/ADReSS_IS2020_train"  # set active dataset here
+path_to_cha_files = "../../data/English/ADReSS_IS2020_train"  # set active dataset here
 
 
 if __name__ == '__main__':
@@ -289,7 +293,8 @@ if __name__ == '__main__':
     output_file_name= f"{last_words[0]}_{last_words[1]}_{last_words[2]}_output.jsonl"
     
     # Writing the normalized data to the output file
-    output_file_path = os.path.join("jsonl_files", output_file_name)
+    os.makedirs(EXTRACTED_DIR, exist_ok=True)
+    output_file_path = os.path.join(EXTRACTED_DIR, output_file_name)
     with open(output_file_path, "w",encoding="utf-8") as outfile:
         for normalized_datapoint in collection.get_normalized_data():
             normalized_dict = asdict(normalized_datapoint)
