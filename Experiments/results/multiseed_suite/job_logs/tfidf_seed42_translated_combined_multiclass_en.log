@@ -1,0 +1,20 @@
+[2026-05-08 22:02:29] tfidf_seed42_translated_combined_multiclass_en: method=tfidf seed=42 training=multi translated=yes task=multiclass test=en train=3573 test=272
+[2026-05-08 22:02:30] tfidf_seed42_translated_combined_multiclass_en: fitting DT
+[2026-05-08 22:02:32] tfidf_seed42_translated_combined_multiclass_en: DT accuracy=0.5515 params={'max_depth': 10}
+[2026-05-08 22:02:32] tfidf_seed42_translated_combined_multiclass_en: fitting RF
+[2026-05-08 22:02:47] tfidf_seed42_translated_combined_multiclass_en: RF accuracy=0.6029 params={'n_estimators': 50}
+[2026-05-08 22:02:47] tfidf_seed42_translated_combined_multiclass_en: fitting SVM
+[2026-05-08 22:05:45] tfidf_seed42_translated_combined_multiclass_en: SVM accuracy=0.6765 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-08 22:05:45] tfidf_seed42_translated_combined_multiclass_en: fitting LR
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: LR accuracy=0.6875 params={'C': 10}
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion DT+RF accuracy=0.5515
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion DT+SVM accuracy=0.5882
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion DT+LR accuracy=0.5993
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion RF+SVM accuracy=0.6765
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion RF+LR accuracy=0.6765
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion SVM+LR accuracy=0.6912
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion DT+RF+SVM accuracy=0.6287
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion DT+RF+LR accuracy=0.6360
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion DT+SVM+LR accuracy=0.6691
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion RF+SVM+LR accuracy=0.6875
+[2026-05-08 22:05:48] tfidf_seed42_translated_combined_multiclass_en: fusion DT+RF+SVM+LR accuracy=0.6581

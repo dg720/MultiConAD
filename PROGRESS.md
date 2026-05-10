@@ -178,6 +178,57 @@ This is expected and aligns with the paper — kept as-is per paper methodology.
 
 **Statistical reliability note:** Non-English test sets are small (Greek: 53, Spanish: 76, Chinese: 76 records), making single-seed F1 estimates unreliable (±0.05–0.10 variance). Averaging across multiple random seeds for the train/test split is planned before final comparison to paper. TF-IDF is fast enough (~2 hrs for 5 seeds); E5-large will use 3 seeds.
 
+### 5.3b SVM Weighting Check (2026-05-08)
+
+Checked whether the live `class_weight='balanced'` SVM setting should be reverted to match the archive/original experiment code exactly.
+
+Archive/original alignment:
+- Archive TF-IDF and archive E5 SVMs do **not** set `class_weight='balanced'`.
+- Hyperparameter grids otherwise match the archive/original setup:
+  - `DecisionTreeClassifier`: `max_depth [10, 20, 30]`
+  - `RandomForestClassifier`: `n_estimators [50, 100, 200]`
+  - `SVM`: `C [0.1, 1, 10]`, `kernel ['linear', 'rbf']`
+  - `LogisticRegression`: `C [0.1, 1, 10]`
+  - `GridSearchCV(cv=5, scoring='accuracy')`
+
+Implementation:
+- Added `--svm_class_weight balanced|none` to:
+  - `Experiments/TF_IDF_classifier.py`
+  - `Experiments/e5_large_classifier.py`
+- Kept default as `balanced`.
+- Ran full SVM-only ablations without balancing:
+  - `Experiments/results/tfidf_svm_unbalanced_results.txt`
+  - `Experiments/results/e5_svm_unbalanced_results.txt`
+
+Conclusion:
+- **Keep balancing on** in the live benchmark.
+- Removing balancing does not uniformly improve paper comparability.
+- It helps some monolingual / multiclass settings, but it severely hurts several multilingual and translated settings where class imbalance is strongest.
+
+Largest regressions when removing balancing:
+- `E5 | multi | binary | no | gr`: `0.72 -> 0.40` (`-0.32`)
+- `TF-IDF | multi | multiclass | yes | cha`: `0.69 -> 0.38` (`-0.31`)
+- `E5 | multi | binary | yes | gr`: `0.65 -> 0.40` (`-0.25`)
+- `TF-IDF | multi | binary | yes | cha`: `0.90 -> 0.66` (`-0.24`)
+- `TF-IDF | multi | binary | yes | gr`: `0.63 -> 0.40` (`-0.23`)
+- `TF-IDF | multi | multiclass | yes | en`: `0.71 -> 0.48` (`-0.23`)
+- `TF-IDF | multi | binary | yes | en`: `0.89 -> 0.68` (`-0.21`)
+
+Largest gains when removing balancing:
+- `TF-IDF | multi | binary | no | cha`: `0.34 -> 0.66` (`+0.32`)
+- `E5 | multi | multiclass | no | spa`: `0.30 -> 0.58` (`+0.28`)
+- `E5 | multi | multiclass | yes | spa`: `0.32 -> 0.57` (`+0.25`)
+
+Working judgement:
+- Model families and search grids remain aligned to the archive/original setup.
+- `class_weight='balanced'` on SVM is the main intentional tuning deviation kept in the live pipeline.
+- Other live differences around the experiment code are operational rather than search-space changes:
+  - explicit `mono|multi` runner support
+  - Windows-safe logging
+  - E5 cache invalidation when dataset size changes
+  - `n_jobs=-1` for faster `GridSearchCV`
+  - `LogisticRegression(max_iter=1000)` as a convergence safeguard
+
 ### 5.4 WLS Train-Only Fix & Full Rerun — COMPLETE (2026-05-05)
 
 **Root cause identified:** `text_cleaning_English.py` applied an 80/20 split to the full English dataset including WLS, putting ~260 noisy fluency-labeled records in the test set. The paper (Section 3.1.4) states WLS is used exclusively for training.

@@ -1,0 +1,199 @@
+{
+  "created_at": "2026-05-07T22:39:38+01:00",
+  "updated_at": "2026-05-08T13:49:11+01:00",
+  "jobs": {
+    "tables_accuracy": {
+      "status": "done",
+      "description": "Regenerate accuracy comparison tables from benchmark outputs",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Experiments/generate_accuracy_tables.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Experiments/results/accuracy_tables.txt"
+      ],
+      "depends_on": [
+        "benchmark_tfidf",
+        "benchmark_e5"
+      ],
+      "last_started_at": "2026-05-08T13:49:11+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\tables_accuracy.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T13:49:11+01:00",
+      "duration_sec": 0.1
+    },
+    "asr_ncmmsc": {
+      "status": "done",
+      "description": "Transcribe NCMMSC2021_AD long-audio dataset with Whisper large-v3",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Audio transcription/ASR_audio_dataset.py",
+        "--dataset",
+        "ncmmsc"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "transcriptions/ncmmsc_transcriptions.jsonl"
+      ],
+      "depends_on": [],
+      "last_started_at": "2026-05-07T22:42:33+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\asr_ncmmsc.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T07:58:11+01:00",
+      "duration_sec": 33337.8
+    },
+    "extract_all": {
+      "status": "done",
+      "description": "Run Step 2 extraction and attach labels across all datasets",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Extracting data/run_step2_collections.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Extracting data/jsonl_files/Chinese_NCMMSC_output.jsonl",
+        "Extracting data/jsonl_files/ASR_taukadial_train_output.jsonl",
+        "Extracting data/jsonl_files/English_WLS_output.jsonl"
+      ],
+      "depends_on": [
+        "asr_ncmmsc"
+      ],
+      "last_started_at": "2026-05-08T09:21:46+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\extract_all.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T09:21:55+01:00",
+      "duration_sec": 9.1
+    },
+    "clean_english": {
+      "status": "done",
+      "description": "Rebuild cleaned English train/test splits",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Preprocessing_text/text_cleaning_English.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Preprocessing_text/cleaned/train_english.jsonl",
+        "Preprocessing_text/cleaned/test_english.jsonl"
+      ],
+      "depends_on": [
+        "extract_all"
+      ],
+      "last_started_at": "2026-05-08T09:21:55+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\clean_english.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T09:22:10+01:00",
+      "duration_sec": 15.4
+    },
+    "clean_greek": {
+      "status": "done",
+      "description": "Rebuild cleaned Greek train/test splits",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Preprocessing_text/text_cleaning_Greek.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Preprocessing_text/cleaned/train_greek.jsonl",
+        "Preprocessing_text/cleaned/test_greek.jsonl"
+      ],
+      "depends_on": [
+        "extract_all"
+      ],
+      "last_started_at": "2026-05-08T09:22:10+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\clean_greek.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T09:22:12+01:00",
+      "duration_sec": 1.7
+    },
+    "clean_spanish": {
+      "status": "done",
+      "description": "Rebuild cleaned Spanish train/test splits",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Preprocessing_text/text_cleaning_Spanish.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Preprocessing_text/cleaned/train_spanish.jsonl",
+        "Preprocessing_text/cleaned/test_spanish.jsonl"
+      ],
+      "depends_on": [
+        "extract_all"
+      ],
+      "last_started_at": "2026-05-08T09:22:12+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\clean_spanish.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T09:22:14+01:00",
+      "duration_sec": 1.8
+    },
+    "clean_chinese": {
+      "status": "done",
+      "description": "Rebuild cleaned Chinese train/test splits",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Preprocessing_text/text_cleaning_Chinese.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Preprocessing_text/cleaned/train_chinese.jsonl",
+        "Preprocessing_text/cleaned/test_chinese.jsonl"
+      ],
+      "depends_on": [
+        "extract_all"
+      ],
+      "last_started_at": "2026-05-08T09:22:14+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\clean_chinese.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T09:22:16+01:00",
+      "duration_sec": 2.0
+    },
+    "benchmark_tfidf": {
+      "status": "done",
+      "description": "Rerun the full TF-IDF benchmark matrix",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Experiments/run_tfidf_experiments.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Experiments/results/tfidf_results.txt"
+      ],
+      "depends_on": [
+        "clean_english",
+        "clean_greek",
+        "clean_spanish",
+        "clean_chinese"
+      ],
+      "last_started_at": "2026-05-08T09:22:16+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\benchmark_tfidf.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T09:40:12+01:00",
+      "duration_sec": 1076.0
+    },
+    "benchmark_e5": {
+      "status": "done",
+      "description": "Rerun the full E5-large benchmark matrix",
+      "command": [
+        "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe",
+        "Experiments/run_e5_experiments.py"
+      ],
+      "cwd": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD",
+      "outputs": [
+        "Experiments/results/e5_results.txt"
+      ],
+      "depends_on": [
+        "clean_english",
+        "clean_greek",
+        "clean_spanish",
+        "clean_chinese"
+      ],
+      "last_started_at": "2026-05-08T09:40:12+01:00",
+      "log_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\logs\\pipeline\\benchmark_e5.log",
+      "returncode": 0,
+      "last_finished_at": "2026-05-08T10:43:30+01:00",
+      "duration_sec": 3798.2
+    }
+  }
+}

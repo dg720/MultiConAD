@@ -1,0 +1,22 @@
+[2026-05-08 22:55:40] e5_seed42_monolingual_multiclass_en: method=e5 seed=42 training=mono translated=no task=multiclass test=en train=2449 test=272
+[2026-05-08 22:55:40] Encoding 2449 texts for seed42_mono_multiclass_no_en_train.npy
+[2026-05-08 22:56:29] Encoding 272 texts for seed42_mono_multiclass_no_en_test.npy
+[2026-05-08 22:56:36] e5_seed42_monolingual_multiclass_en: fitting DT
+[2026-05-08 22:57:23] e5_seed42_monolingual_multiclass_en: DT accuracy=0.5551 params={'max_depth': 10}
+[2026-05-08 22:57:23] e5_seed42_monolingual_multiclass_en: fitting RF
+[2026-05-08 22:59:48] e5_seed42_monolingual_multiclass_en: RF accuracy=0.6397 params={'n_estimators': 200}
+[2026-05-08 22:59:48] e5_seed42_monolingual_multiclass_en: fitting SVM
+[2026-05-08 23:02:19] e5_seed42_monolingual_multiclass_en: SVM accuracy=0.5257 params={'C': 0.1, 'kernel': 'rbf'}
+[2026-05-08 23:02:19] e5_seed42_monolingual_multiclass_en: fitting LR
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: LR accuracy=0.6434 params={'C': 10}
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion DT+RF accuracy=0.5551
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion DT+SVM accuracy=0.5515
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion DT+LR accuracy=0.5515
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion RF+SVM accuracy=0.6029
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion RF+LR accuracy=0.6581
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion SVM+LR accuracy=0.6140
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion DT+RF+SVM accuracy=0.6103
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion DT+RF+LR accuracy=0.6213
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion DT+SVM+LR accuracy=0.6213
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion RF+SVM+LR accuracy=0.6507
+[2026-05-08 23:02:22] e5_seed42_monolingual_multiclass_en: fusion DT+RF+SVM+LR accuracy=0.6103

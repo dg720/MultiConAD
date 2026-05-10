@@ -1,263 +1,179 @@
+"""Write the accuracy and delta tables used in the paper-comparison notes.
+
+This script emits two outputs:
+1. results/accuracy_tables.txt
+   LaTeX tables for binary + multiclass accuracy and delta tables.
+2. results/tfidf_comparison_tables.txt
+   Plain-text table dump with the same values for quick inspection.
+
+The values below are the reviewed table values to keep in sync with the
+paper-comparison screenshots used in this repo.
 """
-Generate accuracy-based LaTeX tables.
 
-Strategy:
-  - Parse results files for per-classifier accuracy AND macro-f1.
-  - Existing delta LaTeX encodes (our_macro_f1 - paper_accuracy).
-  - paper_accuracy = our_macro_f1 - old_delta
-  - new_delta      = our_accuracy  - paper_accuracy
-                   = our_accuracy  - (our_macro_f1 - old_delta)
-                   = old_delta + (our_accuracy - our_macro_f1)
-"""
+from __future__ import annotations
 
-import re, textwrap
+import os
 
-# ---------------------------------------------------------------------------
-# 1.  Parse a results file → {(repr, training, lang, task, translated, clf): (accuracy, macro_f1)}
-# ---------------------------------------------------------------------------
-CLF_MAP = {          # results-file name → LaTeX column name
-    "Decision Tree":      "DT",
-    "Random Forest":      "RF",
-    "SVM":                "SVM",
-    "Logistic Regression":"LR",
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(SCRIPT_DIR, "results")
+
+ACCURACY_TEX_PATH = os.path.join(RESULTS_DIR, "accuracy_tables.txt")
+PLAIN_TXT_PATH = os.path.join(RESULTS_DIR, "tfidf_comparison_tables.txt")
+
+LANGS = ["Spanish", "Chinese", "Greek", "English"]
+REPRS = ["Sparse", "Dense"]
+CLFS = ["DT", "RF", "SVM", "LR"]
+MODES = ["mono", "multi", "trans"]
+
+
+def cell(value: float, arrow: str = "") -> tuple[float, str]:
+    return (value, arrow)
+
+
+RESULT_TABLES = {
+    "binary": {
+        "Spanish": {
+            "Sparse": {
+                "mono":  [cell(0.71), cell(0.71), cell(0.81), cell(0.76)],
+                "multi": [cell(0.76, "up"), cell(0.75, "up"), cell(0.34, "down"), cell(0.80, "up")],
+                "trans": [cell(0.71), cell(0.75, "up"), cell(0.69, "down"), cell(0.68, "down")],
+            },
+            "Dense": {
+                "mono":  [cell(0.75), cell(0.71), cell(0.78), cell(0.76)],
+                "multi": [cell(0.66, "down"), cell(0.78, "up"), cell(0.73, "down"), cell(0.66, "down")],
+                "trans": [cell(0.66, "down"), cell(0.71), cell(0.34, "down"), cell(0.66, "down")],
+            },
+        },
+        "Chinese": {
+            "Sparse": {
+                "mono":  [cell(0.78), cell(0.80), cell(0.82), cell(0.75)],
+                "multi": [cell(0.75, "down"), cell(0.78, "down"), cell(0.23, "down"), cell(0.72, "down")],
+                "trans": [cell(0.68, "down"), cell(0.88, "up"), cell(0.82), cell(0.78, "up")],
+            },
+            "Dense": {
+                "mono":  [cell(0.85), cell(0.93), cell(0.88), cell(0.93)],
+                "multi": [cell(0.80, "down"), cell(0.90, "down"), cell(0.85, "down"), cell(0.78, "down")],
+                "trans": [cell(0.75, "down"), cell(0.85, "down"), cell(0.78, "down"), cell(0.78, "down")],
+            },
+        },
+        "Greek": {
+            "Sparse": {
+                "mono":  [cell(0.77), cell(0.67), cell(0.74), cell(0.74)],
+                "multi": [cell(0.65, "down"), cell(0.58, "down"), cell(0.60, "down"), cell(0.72, "down")],
+                "trans": [cell(0.51, "down"), cell(0.74, "up"), cell(0.60, "down"), cell(0.40, "down")],
+            },
+            "Dense": {
+                "mono":  [cell(0.60), cell(0.67), cell(0.79), cell(0.70)],
+                "multi": [cell(0.79, "up"), cell(0.70, "up"), cell(0.70, "down"), cell(0.40, "down")],
+                "trans": [cell(0.60), cell(0.72, "up"), cell(0.63, "down"), cell(0.40, "down")],
+            },
+        },
+        "English": {
+            "Sparse": {
+                "mono":  [cell(0.77), cell(0.79), cell(0.86), cell(0.83)],
+                "multi": [cell(0.76, "down"), cell(0.81, "up"), cell(0.82, "down"), cell(0.86, "up")],
+                "trans": [cell(0.78, "up"), cell(0.77, "down"), cell(0.86), cell(0.69, "down")],
+            },
+            "Dense": {
+                "mono":  [cell(0.75), cell(0.78), cell(0.84), cell(0.86)],
+                "multi": [cell(0.77, "up"), cell(0.76, "down"), cell(0.86, "up"), cell(0.69, "down")],
+                "trans": [cell(0.71, "down"), cell(0.78), cell(0.77, "down"), cell(0.69, "down")],
+            },
+        },
+    },
+    "multiclass": {
+        "Spanish": {
+            "Sparse": {
+                "mono":  [cell(0.47), cell(0.55), cell(0.63), cell(0.59)],
+                "multi": [cell(0.45, "down"), cell(0.51, "down"), cell(0.58, "down"), cell(0.62, "up")],
+                "trans": [cell(0.51, "up"), cell(0.57, "up"), cell(0.43, "down"), cell(0.57, "down")],
+            },
+            "Dense": {
+                "mono":  [cell(0.49), cell(0.61), cell(0.62), cell(0.61)],
+                "multi": [cell(0.53, "up"), cell(0.57, "down"), cell(0.24, "down"), cell(0.57, "down")],
+                "trans": [cell(0.51, "up"), cell(0.55, "down"), cell(0.30, "down"), cell(0.61)],
+            },
+        },
+        "Chinese": {
+            "Sparse": {
+                "mono":  [cell(0.45), cell(0.43), cell(0.41), cell(0.41)],
+                "multi": [cell(0.47, "up"), cell(0.41, "down"), cell(0.42, "up"), cell(0.39, "down")],
+                "trans": [cell(0.54, "up"), cell(0.59, "up"), cell(0.46, "up"), cell(0.43, "up")],
+            },
+            "Dense": {
+                "mono":  [cell(0.61), cell(0.49), cell(0.49), cell(0.51)],
+                "multi": [cell(0.53, "down"), cell(0.49), cell(0.47, "down"), cell(0.62, "up")],
+                "trans": [cell(0.38, "down"), cell(0.53, "up"), cell(0.47, "down"), cell(0.55, "up")],
+            },
+        },
+        "Greek": {
+            "Sparse": {
+                "mono":  [cell(0.49), cell(0.57), cell(0.62), cell(0.60)],
+                "multi": [cell(0.43, "down"), cell(0.53, "down"), cell(0.55, "down"), cell(0.58, "down")],
+                "trans": [cell(0.40, "down"), cell(0.68, "up"), cell(0.53, "down"), cell(0.51, "down")],
+            },
+            "Dense": {
+                "mono":  [cell(0.40), cell(0.57), cell(0.66), cell(0.55)],
+                "multi": [cell(0.43, "up"), cell(0.55, "down"), cell(0.49, "down"), cell(0.62, "up")],
+                "trans": [cell(0.45, "up"), cell(0.57), cell(0.55, "down"), cell(0.57, "up")],
+            },
+        },
+        "English": {
+            "Sparse": {
+                "mono":  [cell(0.54), cell(0.63), cell(0.68), cell(0.67)],
+                "multi": [cell(0.56, "up"), cell(0.61, "down"), cell(0.67, "up"), cell(0.66, "down")],
+                "trans": [cell(0.59, "up"), cell(0.65, "up"), cell(0.67, "down"), cell(0.56, "down")],
+            },
+            "Dense": {
+                "mono":  [cell(0.54), cell(0.59), cell(0.48), cell(0.66)],
+                "multi": [cell(0.55, "up"), cell(0.61, "up"), cell(0.51, "up"), cell(0.67, "up")],
+                "trans": [cell(0.60, "up"), cell(0.60, "up"), cell(0.53, "up"), cell(0.65, "down")],
+            },
+        },
+    },
 }
 
-def parse_results(path):
-    data = {}
-    with open(path, encoding="utf-8") as f:
-        content = f.read()
-    blocks = re.split(r"={50,}", content)
-    current = None
-    for block in blocks:
-        block = block.strip()
-        if not block:
-            continue
-        m = re.search(
-            r'(TF-IDF|E5-large)\s*\|\s*training=(\w+)\s*\|\s*test=(\w+)\s*\|\s*task=(\w+)\s*\|\s*translated=(\w+)',
-            block)
-        if m:
-            current = (m.group(1), m.group(2), m.group(3), m.group(4), m.group(5))
-            continue
-        if current is None:
-            continue
-        parts = re.split(r'---\s+(.+?)\s+\(best params:', block)
-        for i in range(1, len(parts), 2):
-            clf_raw = parts[i].strip()
-            body    = parts[i+1] if i+1 < len(parts) else ""
-            if clf_raw not in CLF_MAP:
-                continue
-            acc_m  = re.search(r'\s+accuracy\s+([\d.]+)', body)
-            f1_m   = re.search(r'macro avg\s+[\d.]+\s+[\d.]+\s+([\d.]+)', body)
-            if acc_m and f1_m:
-                key = current + (CLF_MAP[clf_raw],)
-                data[key] = (float(acc_m.group(1)), float(f1_m.group(1)))
-    return data
 
-TFIDF_PATH = r"C:\Users\Dhruv\Documents\00. Coding\MultiConAD\Experiments\results\tfidf_results.txt"
-E5_PATH    = r"C:\Users\Dhruv\Documents\00. Coding\MultiConAD\Experiments\results\e5_results.txt"
-tfidf = parse_results(TFIDF_PATH)
-e5    = parse_results(E5_PATH)
-
-def get(data, repr_t, training, lang, task, translated, clf):
-    key = (repr_t, training, lang, task, translated, clf)
-    return data.get(key)          # (accuracy, macro_f1) or None
-
-# ---------------------------------------------------------------------------
-# 2.  Old deltas from the existing macro-F1 LaTeX (our_f1 - paper_acc)
-#     Structure: old_delta[task][lang][repr][training_mode][clf_abbr]
-#     training_mode: "mono"/"multi"/"trans"
-# ---------------------------------------------------------------------------
-# Positive = we beat paper; negative = we under-perform paper.
-# Copied verbatim from the provided LaTeX delta tables.
-
-old_delta = {
- "binary": {
-  "Spanish": {
-   "Sparse": {
-    "mono":  {"DT":-0.06,"RF":-0.10,"SVM":-0.01,"LR":-0.13},
-    "multi": {"DT":-0.13,"RF":-0.10,"SVM":-0.41,"LR":-0.07},
-    "trans": {"DT":-0.21,"RF":-0.14,"SVM":-0.12,"LR":-0.28},
-   },
-   "Dense": {
-    "mono":  {"DT":+0.02,"RF":-0.07,"SVM":-0.11,"LR":-0.15},
-    "multi": {"DT":-0.09,"RF":-0.09,"SVM":+0.04,"LR":-0.40},
-    "trans": {"DT":-0.02,"RF":-0.15,"SVM":-0.53,"LR":-0.36},
-   },
-  },
-  "Chinese": {
-   "Sparse": {
-    "mono":  {"DT":-0.08,"RF":-0.15,"SVM":+0.01,"LR":-0.19},
-    "multi": {"DT":-0.24,"RF":-0.25,"SVM":-0.49,"LR":-0.20},
-    "trans": {"DT":-0.12,"RF":-0.11,"SVM":-0.12,"LR":-0.40},
-   },
-   "Dense": {
-    "mono":  {"DT":+0.11,"RF":+0.19,"SVM": 0.00,"LR":+0.08},
-    "multi": {"DT":+0.05,"RF":-0.02,"SVM": 0.00,"LR":-0.37},
-    "trans": {"DT":+0.01,"RF":-0.07,"SVM":-0.05,"LR":-0.40},
-   },
-  },
-  "Greek": {
-   "Sparse": {
-    "mono":  {"DT":+0.07,"RF":-0.17,"SVM":-0.06,"LR":-0.08},
-    "multi": {"DT":-0.03,"RF":-0.24,"SVM":-0.22,"LR":-0.05},
-    "trans": {"DT":-0.07,"RF":+0.04,"SVM":-0.10,"LR":-0.23},
-   },
-   "Dense": {
-    "mono":  {"DT":-0.08,"RF":-0.15,"SVM": 0.00,"LR":-0.14},
-    "multi": {"DT":+0.13,"RF":-0.16,"SVM":-0.12,"LR":-0.45},
-    "trans": {"DT":-0.02,"RF":+0.04,"SVM":-0.26,"LR":-0.36},
-   },
-  },
-  "English": {
-   "Sparse": {
-    "mono":  {"DT":-0.02,"RF":-0.08,"SVM":+0.05,"LR":+0.03},
-    "multi": {"DT": 0.00,"RF":-0.03,"SVM":+0.22,"LR":+0.07},
-    "trans": {"DT":-0.02,"RF":-0.08,"SVM":+0.06,"LR":-0.17},
-   },
-   "Dense": {
-    "mono":  {"DT":+0.02,"RF":-0.06,"SVM":+0.01,"LR":+0.03},
-    "multi": {"DT":+0.04,"RF":-0.12,"SVM":+0.26,"LR":-0.26},
-    "trans": {"DT":-0.07,"RF":-0.05,"SVM":-0.07,"LR":-0.29},
-   },
-  },
- },
- "multiclass": {
-  "Spanish": {
-   "Sparse": {
-    "mono":  {"DT":-0.18,"RF":-0.16,"SVM":-0.10,"LR":-0.22},
-    "multi": {"DT":-0.10,"RF":-0.22,"SVM":-0.02,"LR":-0.09},
-    "trans": {"DT":-0.24,"RF":-0.15,"SVM":-0.17,"LR":-0.21},
-   },
-   "Dense": {
-    "mono":  {"DT":-0.09,"RF":-0.13,"SVM":-0.08,"LR":-0.20},
-    "multi": {"DT":-0.02,"RF":-0.22,"SVM":-0.46,"LR":-0.15},
-    "trans": {"DT":-0.20,"RF":-0.18,"SVM":-0.28,"LR":-0.10},
-   },
-  },
-  "Chinese": {
-   "Sparse": {
-    "mono":  {"DT":+0.01,"RF":-0.08,"SVM":-0.09,"LR":-0.11},
-    "multi": {"DT":-0.15,"RF":-0.13,"SVM":-0.09,"LR":-0.16},
-    "trans": {"DT":+0.04,"RF":-0.18,"SVM":-0.25,"LR":-0.31},
-   },
-   "Dense": {
-    "mono":  {"DT":+0.09,"RF":-0.18,"SVM":-0.09,"LR":-0.20},
-    "multi": {"DT":+0.08,"RF":-0.27,"SVM":-0.39,"LR":-0.06},
-    "trans": {"DT":-0.06,"RF":-0.26,"SVM":-0.36,"LR": 0.00},
-   },
-  },
-  "Greek": {
-   "Sparse": {
-    "mono":  {"DT":-0.18,"RF":-0.30,"SVM":-0.14,"LR":-0.23},
-    "multi": {"DT":-0.18,"RF":-0.26,"SVM":-0.06,"LR":-0.20},
-    "trans": {"DT":-0.38,"RF":-0.04,"SVM":-0.18,"LR":-0.17},
-   },
-   "Dense": {
-    "mono":  {"DT":-0.18,"RF":-0.23,"SVM":-0.13,"LR":-0.31},
-    "multi": {"DT":-0.14,"RF":-0.27,"SVM":-0.43,"LR":-0.09},
-    "trans": {"DT":-0.18,"RF":-0.08,"SVM":-0.15,"LR":+0.10},
-   },
-  },
-  "English": {
-   "Sparse": {
-    "mono":  {"DT":-0.07,"RF":-0.06,"SVM":+0.01,"LR":-0.02},
-    "multi": {"DT":-0.04,"RF":-0.06,"SVM":+0.24,"LR":-0.02},
-    "trans": {"DT":+0.08,"RF":-0.02,"SVM":-0.01,"LR":-0.23},
-   },
-   "Dense": {
-    "mono":  {"DT":+0.01,"RF":-0.10,"SVM":-0.17,"LR": 0.00},
-    "multi": {"DT":-0.01,"RF":-0.11,"SVM":-0.14,"LR":+0.01},
-    "trans": {"DT":+0.07,"RF":-0.04,"SVM":-0.12,"LR":+0.21},
-   },
-  },
- },
+DELTA_TABLES = {
+    "binary": {
+        "Spanish": {
+            "Sparse": {"mono": [-0.02, -0.02, +0.03, -0.02], "multi": [-0.04, -0.01, -0.32,  0.00], "trans": [-0.04, -0.05, -0.06, -0.05]},
+            "Dense":  {"mono": [+0.04,  0.00, -0.02, -0.04], "multi": [ 0.00,  0.00, +0.07, -0.14], "trans": [+0.07, -0.05, -0.44, -0.10]},
+        },
+        "Chinese": {
+            "Sparse": {"mono": [+0.11, +0.11, +0.12, +0.05], "multi": [+0.08, -0.09, -0.44, -0.03], "trans": [-0.02, +0.02, -0.07, -0.06]},
+            "Dense":  {"mono": [+0.16, +0.23, +0.05, +0.13], "multi": [+0.14, +0.04, +0.04, -0.03], "trans": [+0.09, +0.01, -0.02, -0.06]},
+        },
+        "Greek": {
+            "Sparse": {"mono": [+0.09, -0.11, -0.03, -0.04], "multi": [-0.03, -0.18,  0.00, -0.01], "trans": [-0.07, +0.07, -0.09, -0.11]},
+            "Dense":  {"mono": [-0.08, -0.08, +0.01, -0.07], "multi": [+0.15, -0.05, -0.05, -0.33], "trans": [-0.02, +0.06, -0.07, -0.24]},
+        },
+        "English": {
+            "Sparse": {"mono": [+0.04, -0.02, +0.09, +0.08], "multi": [+0.09, +0.07, +0.24, -0.11], "trans": [+0.05, +0.03, +0.10, +0.08]},
+            "Dense":  {"mono": [+0.10, +0.03, +0.03, +0.07], "multi": [+0.10, -0.01, +0.28, +0.02], "trans": [ 0.00, +0.05, -0.06, -0.01]},
+        },
+    },
+    "multiclass": {
+        "Spanish": {
+            "Sparse": {"mono": [-0.14, -0.05, +0.02, -0.02], "multi": [-0.06, -0.11, +0.07, +0.04], "trans": [+0.04, -0.01, -0.13, +0.01]},
+            "Dense":  {"mono": [-0.03,  0.00, +0.01,  0.00], "multi": [+0.06, -0.04, -0.37,  0.00], "trans": [-0.09, -0.03, -0.26, +0.10]},
+        },
+        "Chinese": {
+            "Sparse": {"mono": [+0.09, +0.08, +0.01, +0.02], "multi": [+0.05, +0.02, +0.03, -0.01], "trans": [+0.09,  0.00, -0.22, -0.19]},
+            "Dense":  {"mono": [+0.10, -0.09, -0.10, -0.05], "multi": [+0.10, -0.13, -0.13, +0.02], "trans": [-0.05, -0.11, -0.13, +0.10]},
+        },
+        "Greek": {
+            "Sparse": {"mono": [-0.10, -0.17, -0.05, -0.11], "multi": [-0.14, -0.18, +0.02, -0.08], "trans": [-0.24, +0.03, -0.16, -0.09]},
+            "Dense":  {"mono": [-0.14, -0.09, -0.07, -0.18], "multi": [-0.11, -0.11, -0.16, -0.05], "trans": [-0.17, -0.04, -0.05, +0.15]},
+        },
+        "English": {
+            "Sparse": {"mono": [-0.05, -0.01, +0.03, +0.02], "multi": [-0.03, +0.03, +0.26,  0.00], "trans": [+0.09, +0.04,  0.00, -0.08]},
+            "Dense":  {"mono": [+0.03, -0.03, -0.17, +0.03], "multi": [+0.05, -0.01, -0.14, +0.04], "trans": [+0.10, +0.03, -0.13, +0.24]},
+        },
+    },
 }
 
-# ---------------------------------------------------------------------------
-# 3.  Helpers
-# ---------------------------------------------------------------------------
-
-LANG_MAP = {"Spanish":"spa","Chinese":"cha","Greek":"gr","English":"en"}
-REPR_MAP  = {"Sparse":("TF-IDF","mono_translated=no"),
-             "Dense": ("E5-large","mono_translated=no")}  # placeholder; overridden below
-
-CLF_ORDER = ["DT","RF","SVM","LR"]
-TRAINING_MODES = [("mono","no"),("multi","no"),("multi","yes")]  # (training, translated)
-MODE_LABELS    = ["mono","multi","trans"]
-
-def lookup_acc(task, lang_name, repr_label, training, translated, clf):
-    lang  = LANG_MAP[lang_name]
-    rtype = "TF-IDF" if repr_label == "Sparse" else "E5-large"
-    data  = tfidf if repr_label == "Sparse" else e5
-    v = get(data, rtype, training, lang, task, translated, clf)
-    return v  # (accuracy, macro_f1) or None
-
-def arrow(val, mono_val):
-    if val is None or mono_val is None:
-        return ""
-    diff = round(val - mono_val, 4)
-    if diff > 0.001:  return r"$^{\uparrow}$"
-    if diff < -0.001: return r"$^{\downarrow}$"
-    return ""
-
-def fmt_cell(val, bold=False, arr=""):
-    s = f"{val:.2f}"
-    if bold:
-        s = r"\textbf{" + s + "}"
-    return s + arr
-
-def delta_cmd(d):
-    d = round(d, 2)
-    if d > 0.005:
-        return r"\dpos{%.2f}" % d
-    if d < -0.005:
-        return r"\dneg{%.2f}" % abs(d)
-    return r"\dzero"
-
-# ---------------------------------------------------------------------------
-# 4.  Build row data: accuracy values + new deltas
-# ---------------------------------------------------------------------------
-
-def build_block(task, lang_name, repr_label):
-    """Return list of 12 (accuracy, new_delta) pairs in LaTeX column order.
-       Columns: Mono×4 | Multi×4 | Trans×4
-    """
-    cells = []
-    mono_accs = {}
-    # collect mono accuracy for arrow reference
-    for clf in CLF_ORDER:
-        v = lookup_acc(task, lang_name, repr_label, "mono", "no", clf)
-        mono_accs[clf] = v[0] if v else None
-
-    for (training, translated), mode_label in zip(TRAINING_MODES, MODE_LABELS):
-        accs = {}
-        for clf in CLF_ORDER:
-            v = lookup_acc(task, lang_name, repr_label, training, translated, clf)
-            accs[clf] = v[0] if v else None
-
-        best_acc = max((a for a in accs.values() if a is not None), default=None)
-
-        for clf in CLF_ORDER:
-            acc = accs.get(clf)
-            old_d = old_delta[task][lang_name][repr_label][mode_label][clf]
-            if acc is not None:
-                # new_delta = old_delta + (accuracy - macro_f1)
-                v = lookup_acc(task, lang_name, repr_label, training, translated, clf)
-                macro_f1 = v[1] if v else None
-                if macro_f1 is not None:
-                    new_d = round(old_d + (acc - macro_f1), 2)
-                else:
-                    new_d = old_d
-                bold = (best_acc is not None and abs(acc - best_acc) < 0.001)
-                arr  = arrow(acc, mono_accs[clf]) if mode_label != "mono" else ""
-                cells.append((acc, new_d, bold, arr))
-            else:
-                cells.append((None, old_d, False, ""))
-    return cells
-
-# ---------------------------------------------------------------------------
-# 5.  LaTeX templates
-# ---------------------------------------------------------------------------
 
 PREAMBLE = r"""\usepackage{booktabs}
 \usepackage{multirow}
@@ -266,137 +182,247 @@ PREAMBLE = r"""\usepackage{booktabs}
 \newcommand{\dzero}{{\color{gray}$\pm$0.00}}
 """
 
-TABLE_HEADER = r"""\begin{table}[htbp]
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3.2pt}
-\renewcommand{\arraystretch}{1.25}
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{ll cccc cccc cccc}
-\toprule
-& &
-\multicolumn{4}{c}{\textbf{Monolingual}} &
-\multicolumn{4}{c}{\textbf{Combined-Multilingual}} &
-\multicolumn{4}{c}{\textbf{Combined-Translated}} \\
-\cmidrule(lr){3-6}\cmidrule(lr){7-10}\cmidrule(lr){11-14}
-\textbf{Language} & \textbf{Repr.} &
-DT & RF & SVM & LR &
-DT & RF & SVM & LR &
-DT & RF & SVM & LR \\
-\midrule"""
 
-TABLE_FOOTER_RESULT = r"""\bottomrule
-\end{tabular}
-}
-\caption{%s}
-\label{%s}
-\end{table}"""
+def arrow_tex(arrow: str) -> str:
+    if arrow == "up":
+        return r"$^{\uparrow}$"
+    if arrow == "down":
+        return r"$^{\downarrow}$"
+    return ""
 
-TABLE_FOOTER_DELTA = r"""\bottomrule
-\end{tabular}
-}
-\caption{%s}
-\label{%s}
-\end{table}"""
 
-LANGS = ["Spanish","Chinese","Greek","English"]
-REPRS = ["Sparse","Dense"]
+def arrow_txt(arrow: str) -> str:
+    return "^" if arrow == "up" else ("v" if arrow == "down" else "")
 
-def make_result_table(task):
-    lines = [TABLE_HEADER]
+
+def delta_tex(value: float) -> str:
+    if round(value, 2) > 0.005:
+        return r"\dpos{%.2f}" % round(value, 2)
+    if round(value, 2) < -0.005:
+        return r"\dneg{%.2f}" % abs(round(value, 2))
+    return r"\dzero"
+
+
+def format_result_cells_tex(cells: list[tuple[float, str]]) -> list[str]:
+    max_val = max(value for value, _ in cells)
+    parts = []
+    for value, arrow in cells:
+        rendered = f"{value:.2f}"
+        if abs(value - max_val) < 1e-9:
+            rendered = r"\textbf{" + rendered + "}"
+        rendered += arrow_tex(arrow)
+        parts.append(rendered)
+    return parts
+
+
+def format_result_cells_txt(cells: list[tuple[float, str]]) -> list[str]:
+    max_val = max(value for value, _ in cells)
+    parts = []
+    for value, arrow in cells:
+        rendered = f"{value:.2f}"
+        if abs(value - max_val) < 1e-9:
+            rendered = f"*{rendered}*"
+        rendered += arrow_txt(arrow)
+        parts.append(rendered)
+    return parts
+
+
+def make_latex_result_table(task: str, caption: str, label: str) -> str:
+    lines = [
+        r"\begin{table}[htbp]",
+        r"\centering",
+        r"\scriptsize",
+        r"\setlength{\tabcolsep}{3.2pt}",
+        r"\renewcommand{\arraystretch}{1.25}",
+        r"\resizebox{\linewidth}{!}{%",
+        r"\begin{tabular}{ll cccc cccc cccc}",
+        r"\toprule",
+        r"& &",
+        r"\multicolumn{4}{c}{\textbf{Monolingual}} &",
+        r"\multicolumn{4}{c}{\textbf{Combined-Multilingual}} &",
+        r"\multicolumn{4}{c}{\textbf{Combined-Translated}} \\",
+        r"\cmidrule(lr){3-6}\cmidrule(lr){7-10}\cmidrule(lr){11-14}",
+        r"\textbf{Language} & \textbf{Repr.} &",
+        r"DT & RF & SVM & LR &",
+        r"DT & RF & SVM & LR &",
+        r"DT & RF & SVM & LR \\",
+        r"\midrule",
+    ]
     for lang in LANGS:
-        for ri, repr_label in enumerate(REPRS):
-            cells = build_block(task, lang, repr_label)
-            # cells: 12 entries (mono×4, multi×4, trans×4)
-            row_parts = []
-            for i, (acc, _, bold, arr) in enumerate(cells):
-                if acc is None:
-                    row_parts.append("---")
-                else:
-                    row_parts.append(fmt_cell(acc, bold, arr))
-
-            lang_col = r"\multirow{2}{*}{" + lang + "}" if ri == 0 else ""
-            repr_col = repr_label
-
-            # split into mono / multi / trans groups
-            mono  = " & ".join(row_parts[0:4])
-            multi = " & ".join(row_parts[4:8])
-            trans = " & ".join(row_parts[8:12])
-
+        for idx, repr_label in enumerate(REPRS):
+            lang_col = r"\multirow{2}{*}{" + lang + "}" if idx == 0 else ""
+            mono = " & ".join(format_result_cells_tex(RESULT_TABLES[task][lang][repr_label]["mono"]))
+            multi = " & ".join(format_result_cells_tex(RESULT_TABLES[task][lang][repr_label]["multi"]))
+            trans = " & ".join(format_result_cells_tex(RESULT_TABLES[task][lang][repr_label]["trans"]))
             sep = r"\\[3pt]" if repr_label == "Dense" and lang != LANGS[-1] else r"\\"
             lines.append(
-                f"{lang_col}\n& {repr_col}\n"
-                f"  & {mono}\n"
-                f"  & {multi}\n"
-                f"  & {trans} {sep}"
-            )
-        lines.append("")  # blank line between language groups
-
-    task_label = "binary AD vs.\\ HC" if task == "binary" else "multiclass AD vs.\\ MCI vs.\\ HC"
-    caption = (f"Replication of Table~5 ({task_label}), accuracy. "
-               r"Bold marks the best classifier within each block; "
-               r"arrows compare against Monolingual.")
-    label = f"tab:multiconad_{task}_acc"
-
-    lines.append(TABLE_FOOTER_RESULT % (caption, label))
-    return "\n".join(lines)
-
-
-def make_delta_table(task):
-    lines = [TABLE_HEADER]
-    for lang in LANGS:
-        for ri, repr_label in enumerate(REPRS):
-            cells = build_block(task, lang, repr_label)
-            row_parts = []
-            for acc, new_d, _, _ in cells:
-                row_parts.append(delta_cmd(new_d))
-
-            lang_col = r"\multirow{2}{*}{" + lang + "}" if ri == 0 else ""
-            repr_col = repr_label
-
-            mono  = " & ".join(row_parts[0:4])
-            multi = " & ".join(row_parts[4:8])
-            trans = " & ".join(row_parts[8:12])
-
-            sep = r"\\[3pt]" if repr_label == "Dense" and lang != LANGS[-1] else r"\\"
-            lines.append(
-                f"{lang_col}\n& {repr_col}\n"
+                f"{lang_col}\n& {repr_label}\n"
                 f"  & {mono}\n"
                 f"  & {multi}\n"
                 f"  & {trans} {sep}"
             )
         lines.append("")
-
-    task_label = "binary AD vs.\\ HC" if task == "binary" else "multiclass AD vs.\\ MCI vs.\\ HC"
-    caption = (f"Delta vs.\\ Shakeri et al.~\\cite{{shakeri2025}} for {task_label}, accuracy. "
-               r"Values are this replication minus the paper; "
-               r"green~=~improvement, red~=~underperformance.")
-    label = f"tab:multiconad_{task}_acc_delta"
-
-    lines.append(TABLE_FOOTER_DELTA % (caption, label))
+    lines.extend(
+        [
+            r"\bottomrule",
+            r"\end{tabular}",
+            r"}",
+            rf"\caption{{{caption}}}",
+            rf"\label{{{label}}}",
+            r"\end{table}",
+        ]
+    )
     return "\n".join(lines)
 
 
-# ---------------------------------------------------------------------------
-# 6.  Write output
-# ---------------------------------------------------------------------------
-OUT_PATH = r"C:\Users\Dhruv\Documents\00. Coding\MultiConAD\Experiments\results\accuracy_tables.txt"
+def make_latex_delta_table(task: str, caption: str, label: str) -> str:
+    lines = [
+        r"\begin{table}[htbp]",
+        r"\centering",
+        r"\scriptsize",
+        r"\setlength{\tabcolsep}{3.2pt}",
+        r"\renewcommand{\arraystretch}{1.25}",
+        r"\resizebox{\linewidth}{!}{%",
+        r"\begin{tabular}{ll cccc cccc cccc}",
+        r"\toprule",
+        r"& &",
+        r"\multicolumn{4}{c}{\textbf{Monolingual}} &",
+        r"\multicolumn{4}{c}{\textbf{Combined-Multilingual}} &",
+        r"\multicolumn{4}{c}{\textbf{Combined-Translated}} \\",
+        r"\cmidrule(lr){3-6}\cmidrule(lr){7-10}\cmidrule(lr){11-14}",
+        r"\textbf{Language} & \textbf{Repr.} &",
+        r"DT & RF & SVM & LR &",
+        r"DT & RF & SVM & LR &",
+        r"DT & RF & SVM & LR \\",
+        r"\midrule",
+    ]
+    for lang in LANGS:
+        for idx, repr_label in enumerate(REPRS):
+            lang_col = r"\multirow{2}{*}{" + lang + "}" if idx == 0 else ""
+            mono = " & ".join(delta_tex(v) for v in DELTA_TABLES[task][lang][repr_label]["mono"])
+            multi = " & ".join(delta_tex(v) for v in DELTA_TABLES[task][lang][repr_label]["multi"])
+            trans = " & ".join(delta_tex(v) for v in DELTA_TABLES[task][lang][repr_label]["trans"])
+            sep = r"\\[3pt]" if repr_label == "Dense" and lang != LANGS[-1] else r"\\"
+            lines.append(
+                f"{lang_col}\n& {repr_label}\n"
+                f"  & {mono}\n"
+                f"  & {multi}\n"
+                f"  & {trans} {sep}"
+            )
+        lines.append("")
+    lines.extend(
+        [
+            r"\bottomrule",
+            r"\end{tabular}",
+            r"}",
+            rf"\caption{{{caption}}}",
+            rf"\label{{{label}}}",
+            r"\end{table}",
+        ]
+    )
+    return "\n".join(lines)
 
-with open(OUT_PATH, "w", encoding="utf-8") as f:
-    f.write("% ============================================================\n")
-    f.write("% Preamble commands (add to your document once)\n")
-    f.write("% ============================================================\n")
-    f.write(PREAMBLE + "\n\n")
 
-    for task in ["binary", "multiclass"]:
-        f.write(f"% ============================================================\n")
-        f.write(f"% {task.upper()} RESULT TABLE\n")
-        f.write(f"% ============================================================\n")
-        f.write(make_result_table(task) + "\n\n")
+def row_txt(parts: list[str], widths: list[int]) -> str:
+    return " ".join(part.ljust(width) for part, width in zip(parts, widths))
 
-        f.write(f"% ============================================================\n")
-        f.write(f"% {task.upper()} DELTA TABLE\n")
-        f.write(f"% ============================================================\n")
-        f.write(make_delta_table(task) + "\n\n")
 
-print(f"Written to {OUT_PATH}")
+def write_plain_text() -> None:
+    widths = [10, 8, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+    with open(PLAIN_TXT_PATH, "w", encoding="utf-8") as f:
+        for task, table_no, title in [
+            ("binary", "Table 6", "Binary MultiConAD accuracy replication, arrows compare against monolingual training."),
+            ("multiclass", "Table 8", "Multiclass MultiConAD accuracy replication, arrows compare against monolingual training."),
+        ]:
+            f.write(f"{table_no}: {title}\n")
+            f.write("=" * 118 + "\n")
+            f.write(row_txt(["Language", "Repr.", "DT", "RF", "SVM", "LR", "DT", "RF", "SVM", "LR", "DT", "RF", "SVM", "LR"], widths) + "\n")
+            f.write(row_txt(["", "", "Monolingual", "", "", "", "Combined-Multilingual", "", "", "", "Combined-Translated", "", "", ""], widths) + "\n")
+            f.write("-" * 118 + "\n")
+            for lang in LANGS:
+                for idx, repr_label in enumerate(REPRS):
+                    prefix = [lang if idx == 0 else "", repr_label]
+                    parts = (
+                        format_result_cells_txt(RESULT_TABLES[task][lang][repr_label]["mono"])
+                        + format_result_cells_txt(RESULT_TABLES[task][lang][repr_label]["multi"])
+                        + format_result_cells_txt(RESULT_TABLES[task][lang][repr_label]["trans"])
+                    )
+                    f.write(row_txt(prefix + parts, widths) + "\n")
+                f.write("\n")
+            f.write("\n")
+
+            delta_title = "Binary accuracy deltas against Shakeri et al. green improves, red underperforms." if task == "binary" else "Multiclass accuracy deltas against Shakeri et al. green improves, red underperforms."
+            delta_no = "Table 7" if task == "binary" else "Table 9"
+            f.write(f"{delta_no}: {delta_title}\n")
+            f.write("=" * 118 + "\n")
+            f.write(row_txt(["Language", "Repr.", "DT", "RF", "SVM", "LR", "DT", "RF", "SVM", "LR", "DT", "RF", "SVM", "LR"], widths) + "\n")
+            f.write(row_txt(["", "", "Monolingual", "", "", "", "Combined-Multilingual", "", "", "", "Combined-Translated", "", "", ""], widths) + "\n")
+            f.write("-" * 118 + "\n")
+            for lang in LANGS:
+                for idx, repr_label in enumerate(REPRS):
+                    prefix = [lang if idx == 0 else "", repr_label]
+                    vals = DELTA_TABLES[task][lang][repr_label]["mono"] + DELTA_TABLES[task][lang][repr_label]["multi"] + DELTA_TABLES[task][lang][repr_label]["trans"]
+                    parts = [f"{v:+.2f}" if abs(v) > 0.0001 else "0.00" for v in vals]
+                    f.write(row_txt(prefix + parts, widths) + "\n")
+                f.write("\n")
+            f.write("\n\n")
+
+
+def main() -> None:
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+    with open(ACCURACY_TEX_PATH, "w", encoding="utf-8") as f:
+        f.write("% ============================================================\n")
+        f.write("% Preamble commands (add to your document once)\n")
+        f.write("% ============================================================\n")
+        f.write(PREAMBLE + "\n\n")
+        f.write("% ============================================================\n")
+        f.write("% TABLE 6\n")
+        f.write("% ============================================================\n")
+        f.write(
+            make_latex_result_table(
+                "binary",
+                "Table 6: Binary MultiConAD accuracy replication, arrows compare against monolingual training.",
+                "tab:multiconad_binary_acc",
+            )
+            + "\n\n"
+        )
+        f.write("% ============================================================\n")
+        f.write("% TABLE 7\n")
+        f.write("% ============================================================\n")
+        f.write(
+            make_latex_delta_table(
+                "binary",
+                "Table 7: Binary accuracy deltas against Shakeri et al. green improves, red underperforms.",
+                "tab:multiconad_binary_acc_delta",
+            )
+            + "\n\n"
+        )
+        f.write("% ============================================================\n")
+        f.write("% TABLE 8\n")
+        f.write("% ============================================================\n")
+        f.write(
+            make_latex_result_table(
+                "multiclass",
+                "Table 8: Multiclass MultiConAD accuracy replication, arrows compare against monolingual training.",
+                "tab:multiconad_multiclass_acc",
+            )
+            + "\n\n"
+        )
+        f.write("% ============================================================\n")
+        f.write("% TABLE 9\n")
+        f.write("% ============================================================\n")
+        f.write(
+            make_latex_delta_table(
+                "multiclass",
+                "Table 9: Multiclass accuracy deltas against Shakeri et al. green improves, red underperforms.",
+                "tab:multiconad_multiclass_acc_delta",
+            )
+            + "\n"
+        )
+    write_plain_text()
+    print(f"Written to {ACCURACY_TEX_PATH}")
+    print(f"Written to {PLAIN_TXT_PATH}")
+
+
+if __name__ == "__main__":
+    main()

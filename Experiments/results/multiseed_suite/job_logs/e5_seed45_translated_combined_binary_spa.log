@@ -1,0 +1,22 @@
+[2026-05-09 17:38:31] e5_seed45_translated_combined_binary_spa: method=e5 seed=45 training=multi translated=yes task=binary test=spa train=2896 test=59
+[2026-05-09 17:38:31] Encoding 2896 texts for seed45_multi_binary_yes_spa_train.npy
+[2026-05-09 17:39:19] Encoding 59 texts for seed45_multi_binary_yes_spa_test.npy
+[2026-05-09 17:39:20] e5_seed45_translated_combined_binary_spa: fitting DT
+[2026-05-09 17:40:09] e5_seed45_translated_combined_binary_spa: DT accuracy=0.6949 params={'max_depth': 10}
+[2026-05-09 17:40:09] e5_seed45_translated_combined_binary_spa: fitting RF
+[2026-05-09 17:42:21] e5_seed45_translated_combined_binary_spa: RF accuracy=0.8136 params={'n_estimators': 50}
+[2026-05-09 17:42:21] e5_seed45_translated_combined_binary_spa: fitting SVM
+[2026-05-09 17:45:35] e5_seed45_translated_combined_binary_spa: SVM accuracy=0.7458 params={'C': 10, 'kernel': 'linear'}
+[2026-05-09 17:45:35] e5_seed45_translated_combined_binary_spa: fitting LR
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: LR accuracy=0.6610 params={'C': 0.1}
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion DT+RF accuracy=0.6949
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion DT+SVM accuracy=0.6949
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion DT+LR accuracy=0.6949
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion RF+SVM accuracy=0.8305
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion RF+LR accuracy=0.7458
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion SVM+LR accuracy=0.7288
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion DT+RF+SVM accuracy=0.7458
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion DT+RF+LR accuracy=0.7797
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion DT+SVM+LR accuracy=0.6949
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion RF+SVM+LR accuracy=0.8305
+[2026-05-09 17:45:36] e5_seed45_translated_combined_binary_spa: fusion DT+RF+SVM+LR accuracy=0.6949

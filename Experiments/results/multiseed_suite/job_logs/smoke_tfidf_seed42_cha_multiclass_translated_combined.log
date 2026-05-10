@@ -1,0 +1,20 @@
+[2026-05-08 21:15:17] smoke_tfidf_seed42_cha_multiclass_translated_combined: method=tfidf seed=42 training=multi translated=yes task=multiclass test=cha train=3573 test=153
+[2026-05-08 21:15:17] smoke_tfidf_seed42_cha_multiclass_translated_combined: fitting DT
+[2026-05-08 21:15:31] smoke_tfidf_seed42_cha_multiclass_translated_combined: DT accuracy=0.5229 params={'max_depth': 10}
+[2026-05-08 21:15:31] smoke_tfidf_seed42_cha_multiclass_translated_combined: fitting RF
+[2026-05-08 21:15:45] smoke_tfidf_seed42_cha_multiclass_translated_combined: RF accuracy=0.5556 params={'n_estimators': 50}
+[2026-05-08 21:15:45] smoke_tfidf_seed42_cha_multiclass_translated_combined: fitting SVM
+[2026-05-08 21:18:30] smoke_tfidf_seed42_cha_multiclass_translated_combined: SVM accuracy=0.6275 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-08 21:18:30] smoke_tfidf_seed42_cha_multiclass_translated_combined: fitting LR
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: LR accuracy=0.6144 params={'C': 10}
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion DT+RF accuracy=0.5425
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion DT+SVM accuracy=0.5882
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion DT+LR accuracy=0.5882
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion RF+SVM accuracy=0.6340
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion RF+LR accuracy=0.6275
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion SVM+LR accuracy=0.6471
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion DT+RF+SVM accuracy=0.6013
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion DT+RF+LR accuracy=0.6013
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion DT+SVM+LR accuracy=0.6340
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion RF+SVM+LR accuracy=0.6144
+[2026-05-08 21:18:33] smoke_tfidf_seed42_cha_multiclass_translated_combined: fusion DT+RF+SVM+LR accuracy=0.6471

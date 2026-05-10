@@ -1,0 +1,20 @@
+[2026-05-09 07:14:16] tfidf_seed44_monolingual_binary_en: method=tfidf seed=44 training=mono translated=no task=binary test=en train=2140 test=194
+[2026-05-09 07:14:17] tfidf_seed44_monolingual_binary_en: fitting DT
+[2026-05-09 07:14:22] tfidf_seed44_monolingual_binary_en: DT accuracy=0.8093 params={'max_depth': 10}
+[2026-05-09 07:14:22] tfidf_seed44_monolingual_binary_en: fitting RF
+[2026-05-09 07:14:45] tfidf_seed44_monolingual_binary_en: RF accuracy=0.8351 params={'n_estimators': 200}
+[2026-05-09 07:14:45] tfidf_seed44_monolingual_binary_en: fitting SVM
+[2026-05-09 07:18:36] tfidf_seed44_monolingual_binary_en: SVM accuracy=0.8711 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-09 07:18:36] tfidf_seed44_monolingual_binary_en: fitting LR
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: LR accuracy=0.8299 params={'C': 1}
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion DT+RF accuracy=0.8247
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion DT+SVM accuracy=0.8247
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion DT+LR accuracy=0.8093
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion RF+SVM accuracy=0.8660
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion RF+LR accuracy=0.8454
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion SVM+LR accuracy=0.8660
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion DT+RF+SVM accuracy=0.8711
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion DT+RF+LR accuracy=0.8351
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion DT+SVM+LR accuracy=0.8608
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion RF+SVM+LR accuracy=0.8557
+[2026-05-09 07:18:37] tfidf_seed44_monolingual_binary_en: fusion DT+RF+SVM+LR accuracy=0.8608

@@ -1,0 +1,20 @@
+[2026-05-09 18:50:03] tfidf_seed46_multilingual_combined_binary_en: method=tfidf seed=46 training=multi translated=no task=binary test=en train=2896 test=194
+[2026-05-09 18:50:03] tfidf_seed46_multilingual_combined_binary_en: fitting DT
+[2026-05-09 18:50:11] tfidf_seed46_multilingual_combined_binary_en: DT accuracy=0.7371 params={'max_depth': 10}
+[2026-05-09 18:50:11] tfidf_seed46_multilingual_combined_binary_en: fitting RF
+[2026-05-09 18:50:57] tfidf_seed46_multilingual_combined_binary_en: RF accuracy=0.8196 params={'n_estimators': 50}
+[2026-05-09 18:50:57] tfidf_seed46_multilingual_combined_binary_en: fitting SVM
+[2026-05-09 18:55:53] tfidf_seed46_multilingual_combined_binary_en: SVM accuracy=0.7990 params={'C': 0.1, 'kernel': 'linear'}
+[2026-05-09 18:55:53] tfidf_seed46_multilingual_combined_binary_en: fitting LR
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: LR accuracy=0.8763 params={'C': 10}
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion DT+RF accuracy=0.7474
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion DT+SVM accuracy=0.7474
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion DT+LR accuracy=0.7629
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion RF+SVM accuracy=0.8196
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion RF+LR accuracy=0.8402
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion SVM+LR accuracy=0.8608
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion DT+RF+SVM accuracy=0.8299
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion DT+RF+LR accuracy=0.8454
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion DT+SVM+LR accuracy=0.8454
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion RF+SVM+LR accuracy=0.8711
+[2026-05-09 18:55:55] tfidf_seed46_multilingual_combined_binary_en: fusion DT+RF+SVM+LR accuracy=0.8402

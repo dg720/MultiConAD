@@ -1,0 +1,20 @@
+[2026-05-08 21:57:34] tfidf_seed42_translated_combined_binary_gr: method=tfidf seed=42 training=multi translated=yes task=binary test=gr train=2896 test=43
+[2026-05-08 21:57:34] tfidf_seed42_translated_combined_binary_gr: fitting DT
+[2026-05-08 21:57:37] tfidf_seed42_translated_combined_binary_gr: DT accuracy=0.6279 params={'max_depth': 10}
+[2026-05-08 21:57:37] tfidf_seed42_translated_combined_binary_gr: fitting RF
+[2026-05-08 21:57:49] tfidf_seed42_translated_combined_binary_gr: RF accuracy=0.6047 params={'n_estimators': 200}
+[2026-05-08 21:57:49] tfidf_seed42_translated_combined_binary_gr: fitting SVM
+[2026-05-08 21:59:11] tfidf_seed42_translated_combined_binary_gr: SVM accuracy=0.5349 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-08 21:59:11] tfidf_seed42_translated_combined_binary_gr: fitting LR
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: LR accuracy=0.4419 params={'C': 0.1}
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion DT+RF accuracy=0.6279
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion DT+SVM accuracy=0.6047
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion DT+LR accuracy=0.6279
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion RF+SVM accuracy=0.5116
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion RF+LR accuracy=0.4884
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion SVM+LR accuracy=0.5581
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion DT+RF+SVM accuracy=0.5814
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion DT+RF+LR accuracy=0.5581
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion DT+SVM+LR accuracy=0.5349
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion RF+SVM+LR accuracy=0.5116
+[2026-05-08 21:59:12] tfidf_seed42_translated_combined_binary_gr: fusion DT+RF+SVM+LR accuracy=0.6047

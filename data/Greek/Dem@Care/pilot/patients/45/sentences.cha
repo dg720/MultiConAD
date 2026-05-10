@@ -1,0 +1,76 @@
+@UTF8
+@PID:	11312/a-00092051-0
+@Begin
+@Languages:	ell
+@Participants:	PAR0 Participant, PAR1 Participant
+@ID:	ell|Dem@Care|PAR0|||||Participant|||
+@ID:	ell|Dem@Care|PAR1|||||Participant|||
+@Media:	sentences, audio
+@Comment:	Batchalign 0.7.17-post.13 , ASR Engine rev. Unchecked output of ASR model.
+*PAR0:	Ένα καλοκαίρι και τα . 6830_8310
+%mor:	det|ένας-Neut-Ind-Art-Sing noun|καλοκαίρι-Neut-Nom cconj|και det|ο-Neut-Def-Art-Plur .
+%gra:	1|2|DET 2|0|ROOT 3|4|CC 4|2|DET 5|2|PUNCT
+*PAR1:	Τέσσερα αδέλφια του Αντώνη . 9620_13680
+%mor:	num|τέσσερις noun|αδέρφι-Neut-Plur-Nom det|ο-Masc-Def-Art-Sing propn|αντώνη-Masc-Gen .
+%gra:	1|2|NUMMOD 2|0|ROOT 3|4|DET 4|2|NMOD 5|2|PUNCT
+*PAR0:	Φιλοξενούνται . 16340_18280
+%mor:	verb|φιλοξενώ-Fin-Imp-Ind-Pres-P3 .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR1:	Για τις διακοπές στον Πειραιά , στο . 18280_20500
+%mor:	adp|για det|ο-Fem-Def-Art-Plur noun|διακοπή-Fem-Plur-Acc adp|στον propn|Πειραιά-Masc-Acc cm|cm adp|στο .
+%gra:	1|3|CASE 2|3|DET 3|0|ROOT 4|5|CASE 5|3|NMOD 6|3|PUNCT 7|3|CASE 8|3|PUNCT
+*PAR0:	Σπίτι των θείων . 20500_21280
+%mor:	noun|σπίτι-Neut-Nom det|ο-Neut-Def-Art-Plur noun|θέιος-Neut-Plur-Gen .
+%gra:	1|0|ROOT 2|3|DET 3|1|NMOD 4|1|PUNCT
+*PAR1:	Του . 21280_22160
+%mor:	pron|εγώ-Prs-Gen-S3 .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR1:	Οι . 23060_23660
+%mor:	det|ο-Masc-Def-Art-Plur .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR0:	Γονείς του Αντώνη ζουν στην Αίγυπτο . 23660_25700
+%mor:	noun|γονέας-Masc-Plur-Nom det|ο-Masc-Def-Art-Sing propn|αντώνη-Masc-Gen verb|ζω-Fin-Imp-Ind-Pres-P3 adp|στην propn|Αίγυπτος-Fem-Acc .
+%gra:	1|4|NSUBJ 2|3|DET 3|1|NMOD 4|0|ROOT 5|6|CASE 6|4|OBL 7|4|PUNCT
+*PAR1:	Και . 28350_28700
+%mor:	cconj|και .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR0:	Εκείνο το καλοκαίρι δεν μπόρεσαν να ταξιδέψουν . 28700_31240
+%mor:	det|εκείνος-Neut-Def-Dem-Sing det|ο-Neut-Def-Art-Sing noun|καλοκαίρι-Neut-Acc part|δεν verb|μπορώ-Fin-Perf-Ind-Past-P3 aux|να-Inf-S verb|ταξιδεύω-Fin-Perf-Ind-P3 .
+%gra:	1|3|DET 2|3|DET 3|5|NSUBJ 4|5|ADVMOD 5|0|ROOT 6|7|AUX 7|5|XCOMP 8|5|PUNCT
+*PAR1:	Και εκείνο το καλοκαίρι δεν μπόρεσαν να ταξιδέψουν . 31240_34480
+%mor:	cconj|και det|εκείνος-Neut-Def-Dem-Sing det|ο-Neut-Def-Art-Sing noun|καλοκαίρι-Neut-Nom part|δεν verb|μπορώ-Fin-Perf-Ind-Past-P3 aux|να-Inf-S verb|ταξιδεύω-Fin-Perf-Ind-P3 .
+%gra:	1|4|CC 2|4|DET 3|4|DET 4|6|OBL 5|6|ADVMOD 6|0|ROOT 7|8|AUX 8|6|XCOMP 9|6|PUNCT
+*PAR1:	Έτσι ο Αντώνης σκαρφίζεται του κόσμου της σκανδαλιάς . 38740_44580
+%mor:	adv|έτσι det|ο-Masc-Def-Art-Sing propn|Αντώνη-Masc-Nom verb|σκαρφίζω-Fin-Imp-Ind-Pres-S3 det|ο-Masc-Def-Art-Sing noun|κόσμος-Masc-Gen det|ο-Fem-Def-Art-Sing noun|σκανδαλιά-Fem-Gen .
+%gra:	1|4|ADVMOD 2|3|DET 3|4|NSUBJ-PASS 4|0|ROOT 5|6|DET 6|4|OBL 7|8|DET 8|6|NMOD 9|4|PUNCT
+*PAR1:	Μπλέκει σε αυτές και τα αδέλφια του . 47480_49540
+%mor:	verb|μπλέκω-Fin-Imp-Ind-Pres-S3 adp|σε pron|αυτός-Dem-Acc-P3 cconj|και det|ο-Neut-Def-Art-Plur noun|αδέρφι-Neut-Plur-Acc pron|μου-Prs-Gen-S3 .
+%gra:	1|0|ROOT 2|3|CASE 3|1|OBL 4|6|CC 5|6|DET 6|3|CONJ 7|6|NMOD 8|1|PUNCT
+*PAR0:	Παρατηρούντάς το στο τέλος . 50100_51440
+%mor:	propn|Παρατηρούντα-Fem-Nom det|ο-Neut-Def-Art-Sing adp|στο noun|τέλος-Neut-Acc .
+%gra:	1|0|ROOT 2|4|DET 3|4|CASE 4|1|NMOD 5|1|PUNCT
+*PAR1:	Την . 54360_54920
+%mor:	pron|ο-Prs-Acc-S3 .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR0:	Τιμωρία της αυστηρίστη έστω . 54920_56760
+%mor:	noun|τιμωρία-Fem-Nom det|ο-Fem-Def-Art-Sing adj|αυστηρίστος-Gen-S1 adv|έστω .
+%gra:	1|0|ROOT 2|3|DET 3|1|AMOD 4|1|PUNCT 5|1|PUNCT
+*PAR1:	Αυτό όμως που κερδίζει το θαυμασμό όλων είναι . 63080_65880
+%mor:	pron|αυτός-Dem-Nom-S3 cconj|όμως pron|που-Rel-Nom-S3 verb|κερδίζω-Fin-Imp-Ind-Pres-S3 det|ο-Masc-Def-Art-Sing noun|θαυμασμός-Masc-Acc adj|όλος-Gen-P1 aux|είμαι-Fin-Imp-Ind-Pres-S3 .
+%gra:	1|4|NSUBJ 2|4|CC 3|4|NSUBJ 4|0|ROOT 5|6|DET 6|4|OBJ 7|6|AMOD 8|4|COP 9|4|PUNCT
+*PAR0:	Η ακεραιότητα . 65880_68740
+%mor:	det|ο-Fem-Def-Art-Sing noun|ακεραιότητα-Fem-Nom .
+%gra:	1|2|DET 2|0|ROOT 3|2|PUNCT
+*PAR1:	Του χαρακτήρα του . 68740_69660
+%mor:	det|ο-Masc-Def-Art-Sing noun|χαρακτήρας-Masc-Gen pron|μου-Prs-Gen-S3 .
+%gra:	1|2|DET 2|0|ROOT 3|2|NMOD 4|2|PUNCT
+*PAR1:	Όταν για χάρη της αλήθειας . 71480_73440
+%mor:	sconj|όταν adp|για adv|χάρη det|ο-Fem-Def-Art-Sing noun|αλήθεια-Fem-Gen .
+%gra:	1|3|MARK 2|3|CASE 3|0|ROOT 4|5|DET 5|3|NMOD 6|3|PUNCT
+*PAR0:	Παραδέχεται . 75010_76650
+%mor:	verb|παραδέχομαι-Fin-Imp-Ind-Pres-S3 .
+%gra:	1|0|ROOT 2|1|PUNCT
+*PAR1:	Κάθε το αταξία . 76650_77670
+%mor:	det|κάθε-Fem-Def-Ind-Sing det|ο-Neut-Def-Art-Sing noun|αταξία-Fem-Nom .
+%gra:	1|3|DET 2|3|DET 3|0|ROOT 4|3|PUNCT
+@End

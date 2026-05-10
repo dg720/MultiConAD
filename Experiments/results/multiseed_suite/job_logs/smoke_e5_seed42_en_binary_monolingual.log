@@ -1,0 +1,22 @@
+[2026-05-08 21:18:33] smoke_e5_seed42_en_binary_monolingual: method=e5 seed=42 training=mono translated=no task=binary test=en train=2140 test=194
+[2026-05-08 21:18:33] Encoding 2140 texts for seed42_mono_binary_no_en_train.npy
+[2026-05-08 21:19:24] Encoding 194 texts for seed42_mono_binary_no_en_test.npy
+[2026-05-08 21:19:28] smoke_e5_seed42_en_binary_monolingual: fitting DT
+[2026-05-08 21:19:36] smoke_e5_seed42_en_binary_monolingual: DT accuracy=0.7732 params={'max_depth': 10}
+[2026-05-08 21:19:36] smoke_e5_seed42_en_binary_monolingual: fitting RF
+[2026-05-08 21:20:00] smoke_e5_seed42_en_binary_monolingual: RF accuracy=0.8247 params={'n_estimators': 100}
+[2026-05-08 21:20:00] smoke_e5_seed42_en_binary_monolingual: fitting SVM
+[2026-05-08 21:21:40] smoke_e5_seed42_en_binary_monolingual: SVM accuracy=0.7784 params={'C': 10, 'kernel': 'linear'}
+[2026-05-08 21:21:40] smoke_e5_seed42_en_binary_monolingual: fitting LR
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: LR accuracy=0.8196 params={'C': 10}
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion DT+RF accuracy=0.7784
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion DT+SVM accuracy=0.7732
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion DT+LR accuracy=0.7784
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion RF+SVM accuracy=0.8557
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion RF+LR accuracy=0.8505
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion SVM+LR accuracy=0.8351
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion DT+RF+SVM accuracy=0.8247
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion DT+RF+LR accuracy=0.8299
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion DT+SVM+LR accuracy=0.8505
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion RF+SVM+LR accuracy=0.8660
+[2026-05-08 21:21:41] smoke_e5_seed42_en_binary_monolingual: fusion DT+RF+SVM+LR accuracy=0.8299

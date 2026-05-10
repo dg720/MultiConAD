@@ -19,6 +19,7 @@ parser.add_argument('--task', required=True, choices=['binary', 'multiclass'])
 parser.add_argument('--translated', required=True, choices=['yes', 'no'])
 parser.add_argument('--training', required=True, choices=['mono', 'multi'])
 parser.add_argument('--cache_dir', default=None, help='Directory to cache embeddings')
+parser.add_argument('--svm_class_weight', choices=['balanced', 'none'], default='balanced')
 args = parser.parse_args()
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
@@ -30,6 +31,7 @@ os.makedirs(CACHE_DIR, exist_ok=True)
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(f"Device: {device}")
+svm_class_weight = None if args.svm_class_weight == 'none' else 'balanced'
 
 _model = None
 
@@ -58,7 +60,13 @@ def get_embeddings(df, text_col, cache_key):
     cache_path = os.path.join(CACHE_DIR, f"{cache_key}.npy")
     if os.path.exists(cache_path):
         print(f"  Loading cached embeddings: {cache_key}")
-        return np.load(cache_path)
+        embeddings = np.load(cache_path)
+        if embeddings.shape[0] == len(df):
+            return embeddings
+        print(
+            f"  Cache row mismatch for {cache_key}: cache={embeddings.shape[0]} current={len(df)}. "
+            "Rebuilding cache."
+        )
     print(f"  Encoding {len(df)} texts: {cache_key}")
     model = _get_model()
     texts = ["passage: " + str(t) for t in df[text_col].fillna('').tolist()]
@@ -111,6 +119,7 @@ print(f"E5-large | training={args.training} | test={args.test_language} | task={
 print(f"Train size: {len(train_combined)} | Test size: {len(test_df)}")
 print(f"Label dist (train): {dict(train_combined['Diagnosis'].value_counts())}")
 print(f"Label dist (test):  {dict(test_df['Diagnosis'].value_counts())}")
+print(f"SVM class_weight: {args.svm_class_weight}")
 print('='*60)
 
 X_train = get_embeddings(train_combined, text_col, train_cache_key)
@@ -121,7 +130,7 @@ y_test  = test_df['Diagnosis'].values
 classifiers = {
     'Decision Tree':       (DecisionTreeClassifier(random_state=42),                        {'max_depth': [10, 20, 30]}),
     'Random Forest':       (RandomForestClassifier(random_state=42),                         {'n_estimators': [50, 100, 200]}),
-    'SVM':                 (SVC(random_state=42, class_weight='balanced'),                   {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}),
+    'SVM':                 (SVC(random_state=42, class_weight=svm_class_weight),             {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}),
     'Logistic Regression': (LogisticRegression(random_state=42, max_iter=1000),              {'C': [0.1, 1, 10]}),
 }
 

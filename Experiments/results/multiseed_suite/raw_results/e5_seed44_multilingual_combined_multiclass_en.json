@@ -1,0 +1,87 @@
+{
+  "job": {
+    "id": "e5_seed44_multilingual_combined_multiclass_en",
+    "kind": "experiment",
+    "seed": 44,
+    "method": "e5",
+    "training": "multi",
+    "translated": "no",
+    "task": "multiclass",
+    "test_language": "en",
+    "setting_name": "multilingual_combined"
+  },
+  "train_size": 3573,
+  "test_size": 272,
+  "train_label_dist": {
+    "HC": 2082,
+    "Dementia": 814,
+    "MCI": 677
+  },
+  "test_label_dist": {
+    "HC": 131,
+    "MCI": 78,
+    "Dementia": 63
+  },
+  "classifiers": {
+    "DT": {
+      "accuracy": 0.5183823529411765,
+      "best_params": {
+        "max_depth": 10
+      }
+    },
+    "RF": {
+      "accuracy": 0.5808823529411765,
+      "best_params": {
+        "n_estimators": 50
+      }
+    },
+    "SVM": {
+      "accuracy": 0.5625,
+      "best_params": {
+        "C": 1,
+        "kernel": "linear"
+      }
+    },
+    "LR": {
+      "accuracy": 0.6323529411764706,
+      "best_params": {
+        "C": 10
+      }
+    }
+  },
+  "fusion": {
+    "DT+RF": {
+      "accuracy": 0.5220588235294118
+    },
+    "DT+SVM": {
+      "accuracy": 0.5183823529411765
+    },
+    "DT+LR": {
+      "accuracy": 0.5257352941176471
+    },
+    "RF+SVM": {
+      "accuracy": 0.5845588235294118
+    },
+    "RF+LR": {
+      "accuracy": 0.6029411764705882
+    },
+    "SVM+LR": {
+      "accuracy": 0.6176470588235294
+    },
+    "DT+RF+SVM": {
+      "accuracy": 0.5845588235294118
+    },
+    "DT+RF+LR": {
+      "accuracy": 0.6029411764705882
+    },
+    "DT+SVM+LR": {
+      "accuracy": 0.6286764705882353
+    },
+    "RF+SVM+LR": {
+      "accuracy": 0.6286764705882353
+    },
+    "DT+RF+SVM+LR": {
+      "accuracy": 0.6029411764705882
+    }
+  }
+}

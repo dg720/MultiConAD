@@ -1,0 +1,22 @@
+[2026-05-09 05:59:07] e5_seed43_translated_combined_binary_en: method=e5 seed=43 training=multi translated=yes task=binary test=en train=2896 test=194
+[2026-05-09 05:59:07] Encoding 2896 texts for seed43_multi_binary_yes_en_train.npy
+[2026-05-09 05:59:56] Encoding 194 texts for seed43_multi_binary_yes_en_test.npy
+[2026-05-09 06:00:01] e5_seed43_translated_combined_binary_en: fitting DT
+[2026-05-09 06:00:51] e5_seed43_translated_combined_binary_en: DT accuracy=0.7474 params={'max_depth': 10}
+[2026-05-09 06:00:51] e5_seed43_translated_combined_binary_en: fitting RF
+[2026-05-09 06:03:15] e5_seed43_translated_combined_binary_en: RF accuracy=0.7887 params={'n_estimators': 200}
+[2026-05-09 06:03:15] e5_seed43_translated_combined_binary_en: fitting SVM
+[2026-05-09 06:06:34] e5_seed43_translated_combined_binary_en: SVM accuracy=0.8660 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-09 06:06:34] e5_seed43_translated_combined_binary_en: fitting LR
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: LR accuracy=0.6753 params={'C': 0.1}
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion DT+RF accuracy=0.7526
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion DT+SVM accuracy=0.7526
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion DT+LR accuracy=0.7526
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion RF+SVM accuracy=0.8711
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion RF+LR accuracy=0.7062
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion SVM+LR accuracy=0.7938
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion DT+RF+SVM accuracy=0.8402
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion DT+RF+LR accuracy=0.7474
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion DT+SVM+LR accuracy=0.7990
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion RF+SVM+LR accuracy=0.7887
+[2026-05-09 06:06:35] e5_seed43_translated_combined_binary_en: fusion DT+RF+SVM+LR accuracy=0.7990

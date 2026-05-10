@@ -1,0 +1,18 @@
+
+================================================================================
+2026-05-08T09:21:55+01:00  START  clean_english
+description: Rebuild cleaned English train/test splits
+cwd: C:\Users\dhruv\Documents\06 Coding\MultiConAD
+command: ['C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe', 'Preprocessing_text/text_cleaning_English.py']
+outputs: ['Preprocessing_text/cleaned/train_english.jsonl', 'Preprocessing_text/cleaned/test_english.jsonl']
+================================================================================
+
+Combined JSONL file saved to: C:\Users\dhruv\Documents\06 Coding\MultiConAD\Preprocessing_text\cleaned\combined_jsonl_English.jsonl
+Non-WLS: 1358 records  WLS: 1363 records
+Train: 2449 (non-WLS 1086 + WLS 1363)  Test: 272
+Train diagnosis dist: {'HC': np.int64(1628), 'Dementia': np.int64(512), 'MCI': np.int64(309)}
+Test  diagnosis dist: {'HC': np.int64(131), 'MCI': np.int64(78), 'Dementia': np.int64(63)}
+
+--------------------------------------------------------------------------------
+2026-05-08T09:22:10+01:00  END  returncode=0  duration_sec=15.4
+--------------------------------------------------------------------------------

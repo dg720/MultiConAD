@@ -1,0 +1,22 @@
+[2026-05-08 22:15:35] e5_seed42_monolingual_binary_en: method=e5 seed=42 training=mono translated=no task=binary test=en train=2140 test=194
+[2026-05-08 22:15:36] Loading cached embeddings: seed42_mono_binary_no_en_train.npy
+[2026-05-08 22:15:36] Loading cached embeddings: seed42_mono_binary_no_en_test.npy
+[2026-05-08 22:15:36] e5_seed42_monolingual_binary_en: fitting DT
+[2026-05-08 22:15:44] e5_seed42_monolingual_binary_en: DT accuracy=0.7732 params={'max_depth': 10}
+[2026-05-08 22:15:44] e5_seed42_monolingual_binary_en: fitting RF
+[2026-05-08 22:16:09] e5_seed42_monolingual_binary_en: RF accuracy=0.8247 params={'n_estimators': 100}
+[2026-05-08 22:16:09] e5_seed42_monolingual_binary_en: fitting SVM
+[2026-05-08 22:17:59] e5_seed42_monolingual_binary_en: SVM accuracy=0.7784 params={'C': 10, 'kernel': 'linear'}
+[2026-05-08 22:17:59] e5_seed42_monolingual_binary_en: fitting LR
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: LR accuracy=0.8196 params={'C': 10}
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion DT+RF accuracy=0.7784
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion DT+SVM accuracy=0.7732
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion DT+LR accuracy=0.7784
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion RF+SVM accuracy=0.8557
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion RF+LR accuracy=0.8505
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion SVM+LR accuracy=0.8351
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion DT+RF+SVM accuracy=0.8247
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion DT+RF+LR accuracy=0.8299
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion DT+SVM+LR accuracy=0.8505
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion RF+SVM+LR accuracy=0.8660
+[2026-05-08 22:18:00] e5_seed42_monolingual_binary_en: fusion DT+RF+SVM+LR accuracy=0.8299

@@ -1,0 +1,124 @@
+{
+  "created_at": "2026-05-08 21:15:13",
+  "jobs": {
+    "prepare_seed_42": {
+      "status": "done",
+      "started_at": "2026-05-08 21:15:14",
+      "job": {
+        "id": "prepare_seed_42",
+        "kind": "prepare_seed",
+        "seed": 42
+      },
+      "result": {
+        "seed_root": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_42",
+        "cleaned_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_42\\cleaned",
+        "translated_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_42\\translated"
+      },
+      "finished_at": "2026-05-08 21:15:15"
+    },
+    "prepare_seed_43": {
+      "status": "done",
+      "started_at": "2026-05-08 21:15:15",
+      "job": {
+        "id": "prepare_seed_43",
+        "kind": "prepare_seed",
+        "seed": 43
+      },
+      "result": {
+        "seed_root": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_43",
+        "cleaned_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_43\\cleaned",
+        "translated_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_43\\translated"
+      },
+      "finished_at": "2026-05-08 21:15:15"
+    },
+    "prepare_seed_44": {
+      "status": "done",
+      "started_at": "2026-05-08 21:15:15",
+      "job": {
+        "id": "prepare_seed_44",
+        "kind": "prepare_seed",
+        "seed": 44
+      },
+      "result": {
+        "seed_root": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_44",
+        "cleaned_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_44\\cleaned",
+        "translated_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_44\\translated"
+      },
+      "finished_at": "2026-05-08 21:15:16"
+    },
+    "prepare_seed_45": {
+      "status": "done",
+      "started_at": "2026-05-08 21:15:16",
+      "job": {
+        "id": "prepare_seed_45",
+        "kind": "prepare_seed",
+        "seed": 45
+      },
+      "result": {
+        "seed_root": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_45",
+        "cleaned_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_45\\cleaned",
+        "translated_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_45\\translated"
+      },
+      "finished_at": "2026-05-08 21:15:16"
+    },
+    "prepare_seed_46": {
+      "status": "done",
+      "started_at": "2026-05-08 21:15:16",
+      "job": {
+        "id": "prepare_seed_46",
+        "kind": "prepare_seed",
+        "seed": 46
+      },
+      "result": {
+        "seed_root": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_46",
+        "cleaned_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_46\\cleaned",
+        "translated_dir": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\seed_data\\seed_46\\translated"
+      },
+      "finished_at": "2026-05-08 21:15:16"
+    },
+    "smoke_tfidf_seed42_cha_multiclass_translated_combined": {
+      "status": "done",
+      "started_at": "2026-05-08 21:15:16",
+      "job": {
+        "id": "smoke_tfidf_seed42_cha_multiclass_translated_combined",
+        "kind": "experiment",
+        "seed": 42,
+        "method": "tfidf",
+        "training": "multi",
+        "translated": "yes",
+        "task": "multiclass",
+        "test_language": "cha",
+        "setting_name": "translated_combined"
+      },
+      "result_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\raw_results\\smoke_tfidf_seed42_cha_multiclass_translated_combined.json",
+      "finished_at": "2026-05-08 21:18:33"
+    },
+    "smoke_e5_seed42_en_binary_monolingual": {
+      "status": "done",
+      "started_at": "2026-05-08 21:18:33",
+      "job": {
+        "id": "smoke_e5_seed42_en_binary_monolingual",
+        "kind": "experiment",
+        "seed": 42,
+        "method": "e5",
+        "training": "mono",
+        "translated": "no",
+        "task": "binary",
+        "test_language": "en",
+        "setting_name": "monolingual"
+      },
+      "result_path": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\Experiments\\results\\multiseed_suite\\raw_results\\smoke_e5_seed42_en_binary_monolingual.json",
+      "finished_at": "2026-05-08 21:21:41"
+    },
+    "aggregate_smoke": {
+      "status": "done",
+      "started_at": "2026-05-08 21:21:41",
+      "job": {
+        "id": "aggregate_smoke",
+        "kind": "aggregate",
+        "smoke": true
+      },
+      "finished_at": "2026-05-08 21:21:41"
+    }
+  }
+}

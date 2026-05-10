@@ -1,0 +1,20 @@
+[2026-05-09 19:37:13] tfidf_seed46_multilingual_combined_multiclass_cha: method=tfidf seed=46 training=multi translated=no task=multiclass test=cha train=3573 test=153
+[2026-05-09 19:37:13] tfidf_seed46_multilingual_combined_multiclass_cha: fitting DT
+[2026-05-09 19:37:24] tfidf_seed46_multilingual_combined_multiclass_cha: DT accuracy=0.4248 params={'max_depth': 30}
+[2026-05-09 19:37:24] tfidf_seed46_multilingual_combined_multiclass_cha: fitting RF
+[2026-05-09 19:38:51] tfidf_seed46_multilingual_combined_multiclass_cha: RF accuracy=0.4575 params={'n_estimators': 50}
+[2026-05-09 19:38:51] tfidf_seed46_multilingual_combined_multiclass_cha: fitting SVM
+[2026-05-09 19:49:11] tfidf_seed46_multilingual_combined_multiclass_cha: SVM accuracy=0.4379 params={'C': 1, 'kernel': 'rbf'}
+[2026-05-09 19:49:11] tfidf_seed46_multilingual_combined_multiclass_cha: fitting LR
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: LR accuracy=0.4444 params={'C': 10}
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion DT+RF accuracy=0.4379
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion DT+SVM accuracy=0.4248
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion DT+LR accuracy=0.4510
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion RF+SVM accuracy=0.4510
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion RF+LR accuracy=0.4706
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion SVM+LR accuracy=0.4510
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion DT+RF+SVM accuracy=0.4444
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion DT+RF+LR accuracy=0.4575
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion DT+SVM+LR accuracy=0.4379
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion RF+SVM+LR accuracy=0.4510
+[2026-05-09 19:49:19] tfidf_seed46_multilingual_combined_multiclass_cha: fusion DT+RF+SVM+LR accuracy=0.4575

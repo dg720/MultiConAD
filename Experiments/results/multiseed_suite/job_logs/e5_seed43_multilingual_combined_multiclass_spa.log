@@ -1,0 +1,22 @@
+[2026-05-09 05:47:45] e5_seed43_multilingual_combined_multiclass_spa: method=e5 seed=43 training=multi translated=no task=multiclass test=spa train=3573 test=76
+[2026-05-09 05:47:45] Encoding 3573 texts for seed43_multi_multiclass_no_spa_train.npy
+[2026-05-09 05:48:56] Encoding 76 texts for seed43_multi_multiclass_no_spa_test.npy
+[2026-05-09 05:48:58] e5_seed43_multilingual_combined_multiclass_spa: fitting DT
+[2026-05-09 05:49:59] e5_seed43_multilingual_combined_multiclass_spa: DT accuracy=0.4342 params={'max_depth': 20}
+[2026-05-09 05:49:59] e5_seed43_multilingual_combined_multiclass_spa: fitting RF
+[2026-05-09 05:52:45] e5_seed43_multilingual_combined_multiclass_spa: RF accuracy=0.6447 params={'n_estimators': 50}
+[2026-05-09 05:52:45] e5_seed43_multilingual_combined_multiclass_spa: fitting SVM
+[2026-05-09 05:59:03] e5_seed43_multilingual_combined_multiclass_spa: SVM accuracy=0.3421 params={'C': 1, 'kernel': 'linear'}
+[2026-05-09 05:59:03] e5_seed43_multilingual_combined_multiclass_spa: fitting LR
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: LR accuracy=0.6316 params={'C': 10}
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion DT+RF accuracy=0.4342
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion DT+SVM accuracy=0.4342
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion DT+LR accuracy=0.4342
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion RF+SVM accuracy=0.6184
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion RF+LR accuracy=0.6184
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion SVM+LR accuracy=0.6447
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion DT+RF+SVM accuracy=0.4868
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion DT+RF+LR accuracy=0.6184
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion DT+SVM+LR accuracy=0.4868
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion RF+SVM+LR accuracy=0.6184
+[2026-05-09 05:59:07] e5_seed43_multilingual_combined_multiclass_spa: fusion DT+RF+SVM+LR accuracy=0.5789

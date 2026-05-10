@@ -1,0 +1,20 @@
+
+================================================================================
+2026-05-08T09:22:10+01:00  START  clean_greek
+description: Rebuild cleaned Greek train/test splits
+cwd: C:\Users\dhruv\Documents\06 Coding\MultiConAD
+command: ['C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe', 'Preprocessing_text/text_cleaning_Greek.py']
+outputs: ['Preprocessing_text/cleaned/train_greek.jsonl', 'Preprocessing_text/cleaned/test_greek.jsonl']
+================================================================================
+
+Combined JSONL file saved to: C:\Users\dhruv\Documents\06 Coding\MultiConAD\Preprocessing_text\cleaned\combined_jsonl_Greek_M_ADReSS_D3_5_7.jsonl
+Greek: 264 records after cleaning
+Diagnosis
+AD     132
+HC      83
+MCI     49
+Train: 211  Test: 53
+
+--------------------------------------------------------------------------------
+2026-05-08T09:22:12+01:00  END  returncode=0  duration_sec=1.7
+--------------------------------------------------------------------------------

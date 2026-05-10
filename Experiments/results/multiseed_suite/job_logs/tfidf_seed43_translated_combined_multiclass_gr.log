@@ -1,0 +1,20 @@
+[2026-05-09 03:47:50] tfidf_seed43_translated_combined_multiclass_gr: method=tfidf seed=43 training=multi translated=yes task=multiclass test=gr train=3573 test=53
+[2026-05-09 03:47:50] tfidf_seed43_translated_combined_multiclass_gr: fitting DT
+[2026-05-09 03:48:01] tfidf_seed43_translated_combined_multiclass_gr: DT accuracy=0.4340 params={'max_depth': 20}
+[2026-05-09 03:48:01] tfidf_seed43_translated_combined_multiclass_gr: fitting RF
+[2026-05-09 03:49:05] tfidf_seed43_translated_combined_multiclass_gr: RF accuracy=0.6415 params={'n_estimators': 50}
+[2026-05-09 03:49:05] tfidf_seed43_translated_combined_multiclass_gr: fitting SVM
+[2026-05-09 04:02:37] tfidf_seed43_translated_combined_multiclass_gr: SVM accuracy=0.5660 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-09 04:02:37] tfidf_seed43_translated_combined_multiclass_gr: fitting LR
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: LR accuracy=0.5283 params={'C': 10}
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion DT+RF accuracy=0.4340
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion DT+SVM accuracy=0.4906
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion DT+LR accuracy=0.4906
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion RF+SVM accuracy=0.6226
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion RF+LR accuracy=0.5472
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion SVM+LR accuracy=0.5283
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion DT+RF+SVM accuracy=0.6038
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion DT+RF+LR accuracy=0.5660
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion DT+SVM+LR accuracy=0.5283
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion RF+SVM+LR accuracy=0.6038
+[2026-05-09 04:02:43] tfidf_seed43_translated_combined_multiclass_gr: fusion DT+RF+SVM+LR accuracy=0.5660

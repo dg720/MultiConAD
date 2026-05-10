@@ -1,0 +1,22 @@
+[2026-05-08 23:02:34] e5_seed42_monolingual_multiclass_cha: method=e5 seed=42 training=mono translated=no task=multiclass test=cha train=610 test=153
+[2026-05-08 23:02:34] Encoding 610 texts for seed42_mono_multiclass_no_cha_train.npy
+[2026-05-08 23:02:42] Encoding 153 texts for seed42_mono_multiclass_no_cha_test.npy
+[2026-05-08 23:02:44] e5_seed42_monolingual_multiclass_cha: fitting DT
+[2026-05-08 23:02:50] e5_seed42_monolingual_multiclass_cha: DT accuracy=0.4379 params={'max_depth': 10}
+[2026-05-08 23:02:50] e5_seed42_monolingual_multiclass_cha: fitting RF
+[2026-05-08 23:03:08] e5_seed42_monolingual_multiclass_cha: RF accuracy=0.6013 params={'n_estimators': 200}
+[2026-05-08 23:03:08] e5_seed42_monolingual_multiclass_cha: fitting SVM
+[2026-05-08 23:03:15] e5_seed42_monolingual_multiclass_cha: SVM accuracy=0.5686 params={'C': 10, 'kernel': 'linear'}
+[2026-05-08 23:03:15] e5_seed42_monolingual_multiclass_cha: fitting LR
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: LR accuracy=0.6405 params={'C': 10}
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion DT+RF accuracy=0.4379
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion DT+SVM accuracy=0.4379
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion DT+LR accuracy=0.4379
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion RF+SVM accuracy=0.6471
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion RF+LR accuracy=0.6405
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion SVM+LR accuracy=0.6209
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion DT+RF+SVM accuracy=0.5490
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion DT+RF+LR accuracy=0.5817
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion DT+SVM+LR accuracy=0.6013
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion RF+SVM+LR accuracy=0.6536
+[2026-05-08 23:03:16] e5_seed42_monolingual_multiclass_cha: fusion DT+RF+SVM+LR accuracy=0.5686

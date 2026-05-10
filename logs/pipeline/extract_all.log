@@ -1,0 +1,129 @@
+
+================================================================================
+2026-05-08T07:58:11+01:00  START  extract_all
+description: Run Step 2 extraction and attach labels across all datasets
+cwd: C:\Users\dhruv\Documents\06 Coding\MultiConAD
+command: ['C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe', 'Extracting data/run_step2_collections.py']
+outputs: ['Extracting data/jsonl_files/Chinese_NCMMSC_output.jsonl', 'Extracting data/jsonl_files/ASR_taukadial_train_output.jsonl', 'Extracting data/jsonl_files/English_WLS_output.jsonl']
+================================================================================
+
+
+[English CHA]
+Traceback (most recent call last):
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\Extracting data\run_step2_collections.py", line 479, in <module>
+    produced.append(run_cha(path, "english", name))
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\Extracting data\run_step2_collections.py", line 437, in run_cha
+    for dp in col.get_normalized_data():
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\Extracting data\collection.py", line 56, in get_normalized_data
+    for raw_datapoint in self:
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\Extracting data\cha_collection.py", line 20, in __iter__
+    yield from self.parse_cha_file(file_path, self._parse_line_english_chinese)
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\Extracting data\cha_collection.py", line 60, in parse_cha_file
+    for line in file:
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 1697: character maps to <undefined>
+
+--------------------------------------------------------------------------------
+2026-05-08T07:58:19+01:00  END  returncode=1  duration_sec=8.6
+--------------------------------------------------------------------------------
+
+================================================================================
+2026-05-08T09:21:10+01:00  START  extract_all
+description: Run Step 2 extraction and attach labels across all datasets
+cwd: C:\Users\dhruv\Documents\06 Coding\MultiConAD
+command: ['C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe', 'Extracting data/run_step2_collections.py']
+outputs: ['Extracting data/jsonl_files/Chinese_NCMMSC_output.jsonl', 'Extracting data/jsonl_files/ASR_taukadial_train_output.jsonl', 'Extracting data/jsonl_files/English_WLS_output.jsonl']
+================================================================================
+
+
+[English CHA]
+  English_Pitt_Control_cookie_output.jsonl: 243 records
+  English_Pitt_Dementia_cookie_output.jsonl: 309 records
+  English_Lu_output.jsonl: 54 records
+  English_Baycrest_output.jsonl: 10 records
+  English_Delaware_output.jsonl: 407 records
+  English_Kempler_output.jsonl: 7 records
+Traceback (most recent call last):
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\Extracting data\run_step2_collections.py", line 487, in <module>
+    print(f"    \u2192 {n_labeled} Kempler records labeled from corpus note")
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.3056.0_x64__qbz5n2kfra8p0\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 4: character maps to <undefined>
+
+--------------------------------------------------------------------------------
+2026-05-08T09:21:13+01:00  END  returncode=1  duration_sec=3.8
+--------------------------------------------------------------------------------
+
+================================================================================
+2026-05-08T09:21:46+01:00  START  extract_all
+description: Run Step 2 extraction and attach labels across all datasets
+cwd: C:\Users\dhruv\Documents\06 Coding\MultiConAD
+command: ['C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe', 'Extracting data/run_step2_collections.py']
+outputs: ['Extracting data/jsonl_files/Chinese_NCMMSC_output.jsonl', 'Extracting data/jsonl_files/ASR_taukadial_train_output.jsonl', 'Extracting data/jsonl_files/English_WLS_output.jsonl']
+================================================================================
+
+
+[English CHA]
+  English_Pitt_Control_cookie_output.jsonl: 243 records
+  English_Pitt_Dementia_cookie_output.jsonl: 309 records
+  English_Lu_output.jsonl: 54 records
+  English_Baycrest_output.jsonl: 10 records
+  English_Delaware_output.jsonl: 407 records
+  English_Kempler_output.jsonl: 7 records
+    → 7 Kempler records labeled from corpus note
+  English_VAS_output.jsonl: 100 records
+    → 100 VAS records labeled from demo.xlsx
+  English_WLS_output.jsonl: 1368 records
+    → 1368 WLS records labeled (2020 consensus + 2011 fluency threshold)
+
+[Spanish CHA]
+  Spanish_Ivanova_output.jsonl: 357 records
+  Spanish_PerLA_output.jsonl: 27 records
+
+[Chinese TSV]
+  Chinese_iFlytek_output.jsonl: 401 records
+
+[Chinese ASR]
+  Chinese_NCMMSC_output.jsonl: 399 records
+    → 399 NCMMSC records labeled from filename
+
+[ASR transcriptions]
+  ASR_adress_m_gr_output.jsonl: 46 records
+    → 46 records labeled
+  ASR_ds3_output.jsonl: 250 records
+    → 149 records labeled
+  ASR_ds5_output.jsonl: 93 records
+    → 93 records labeled
+  ASR_ds7_output.jsonl: 59 records
+    → 58 records labeled
+  ASR_taukadial_test_output.jsonl: 120 records
+    → 120 records labeled
+  ASR_taukadial_train_output.jsonl: 386 records
+    → 386 records labeled
+
+Done. 18 JSONL files written to C:\Users\dhruv\Documents\06 Coding\MultiConAD\Extracting data\jsonl_files
+  English_Pitt_Control_cookie_output.jsonl: 243
+  English_Pitt_Dementia_cookie_output.jsonl: 309
+  English_Lu_output.jsonl: 54
+  English_Baycrest_output.jsonl: 10
+  English_Delaware_output.jsonl: 407
+  English_Kempler_output.jsonl: 7
+  English_VAS_output.jsonl: 100
+  English_WLS_output.jsonl: 1368
+  Spanish_Ivanova_output.jsonl: 357
+  Spanish_PerLA_output.jsonl: 27
+  Chinese_iFlytek_output.jsonl: 401
+  Chinese_NCMMSC_output.jsonl: 399
+  ASR_adress_m_gr_output.jsonl: 46
+  ASR_ds3_output.jsonl: 250
+  ASR_ds5_output.jsonl: 93
+  ASR_ds7_output.jsonl: 59
+  ASR_taukadial_test_output.jsonl: 120
+  ASR_taukadial_train_output.jsonl: 386
+
+Total records: 4636
+
+--------------------------------------------------------------------------------
+2026-05-08T09:21:55+01:00  END  returncode=0  duration_sec=9.1
+--------------------------------------------------------------------------------

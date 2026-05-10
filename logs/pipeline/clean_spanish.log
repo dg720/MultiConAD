@@ -1,0 +1,20 @@
+
+================================================================================
+2026-05-08T09:22:12+01:00  START  clean_spanish
+description: Rebuild cleaned Spanish train/test splits
+cwd: C:\Users\dhruv\Documents\06 Coding\MultiConAD
+command: ['C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe', 'Preprocessing_text/text_cleaning_Spanish.py']
+outputs: ['Preprocessing_text/cleaned/train_spanish.jsonl', 'Preprocessing_text/cleaned/test_spanish.jsonl']
+================================================================================
+
+Combined JSONL file saved to: C:\Users\dhruv\Documents\06 Coding\MultiConAD\Preprocessing_text\cleaned\combined_jsonl_spanish_perla_Ivanova.jsonl
+Spanish: 379 records after cleaning
+Diagnosis
+HC     195
+AD      97
+MCI     87
+Train: 303  Test: 76
+
+--------------------------------------------------------------------------------
+2026-05-08T09:22:14+01:00  END  returncode=0  duration_sec=1.8
+--------------------------------------------------------------------------------

@@ -1,0 +1,22 @@
+[2026-05-08 23:03:36] e5_seed42_multilingual_combined_binary_en: method=e5 seed=42 training=multi translated=no task=binary test=en train=2896 test=194
+[2026-05-08 23:03:36] Encoding 2896 texts for seed42_multi_binary_no_en_train.npy
+[2026-05-08 23:04:30] Encoding 194 texts for seed42_multi_binary_no_en_test.npy
+[2026-05-08 23:04:34] e5_seed42_multilingual_combined_binary_en: fitting DT
+[2026-05-08 23:05:26] e5_seed42_multilingual_combined_binary_en: DT accuracy=0.7526 params={'max_depth': 10}
+[2026-05-08 23:05:26] e5_seed42_multilingual_combined_binary_en: fitting RF
+[2026-05-08 23:07:56] e5_seed42_multilingual_combined_binary_en: RF accuracy=0.8041 params={'n_estimators': 200}
+[2026-05-08 23:07:56] e5_seed42_multilingual_combined_binary_en: fitting SVM
+[2026-05-08 23:11:37] e5_seed42_multilingual_combined_binary_en: SVM accuracy=0.7784 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-08 23:11:37] e5_seed42_multilingual_combined_binary_en: fitting LR
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: LR accuracy=0.6753 params={'C': 0.1}
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion DT+RF accuracy=0.7629
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion DT+SVM accuracy=0.7526
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion DT+LR accuracy=0.7526
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion RF+SVM accuracy=0.8505
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion RF+LR accuracy=0.6907
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion SVM+LR accuracy=0.7732
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion DT+RF+SVM accuracy=0.8402
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion DT+RF+LR accuracy=0.7732
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion DT+SVM+LR accuracy=0.8093
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion RF+SVM+LR accuracy=0.8041
+[2026-05-08 23:11:38] e5_seed42_multilingual_combined_binary_en: fusion DT+RF+SVM+LR accuracy=0.8144

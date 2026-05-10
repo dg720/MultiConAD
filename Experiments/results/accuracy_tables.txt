@@ -9,7 +9,7 @@
 
 
 % ============================================================
-% BINARY RESULT TABLE
+% TABLE 6
 % ============================================================
 \begin{table}[htbp]
 \centering
@@ -76,12 +76,12 @@ DT & RF & SVM & LR \\
 \bottomrule
 \end{tabular}
 }
-\caption{Replication of Table~5 (binary AD vs.\ HC), accuracy. Bold marks the best classifier within each block; arrows compare against Monolingual.}
+\caption{Table 6: Binary MultiConAD accuracy replication, arrows compare against monolingual training.}
 \label{tab:multiconad_binary_acc}
 \end{table}
 
 % ============================================================
-% BINARY DELTA TABLE
+% TABLE 7
 % ============================================================
 \begin{table}[htbp]
 \centering
@@ -115,8 +115,8 @@ DT & RF & SVM & LR \\
 \multirow{2}{*}{Chinese}
 & Sparse
   & \dpos{0.11} & \dpos{0.11} & \dpos{0.12} & \dpos{0.05}
-  & \dpos{0.08} & \dpos{0.09} & \dneg{0.44} & \dpos{0.03}
-  & \dneg{0.02} & \dneg{0.02} & \dneg{0.07} & \dneg{0.06} \\
+  & \dpos{0.08} & \dneg{0.09} & \dneg{0.44} & \dneg{0.03}
+  & \dneg{0.02} & \dpos{0.02} & \dneg{0.07} & \dneg{0.06} \\
 
 & Dense
   & \dpos{0.16} & \dpos{0.23} & \dpos{0.05} & \dpos{0.13}
@@ -130,14 +130,14 @@ DT & RF & SVM & LR \\
   & \dneg{0.07} & \dpos{0.07} & \dneg{0.09} & \dneg{0.11} \\
 
 & Dense
-  & \dneg{0.05} & \dneg{0.08} & \dpos{0.01} & \dneg{0.07}
+  & \dneg{0.08} & \dneg{0.08} & \dpos{0.01} & \dneg{0.07}
   & \dpos{0.15} & \dneg{0.05} & \dneg{0.05} & \dneg{0.33}
   & \dneg{0.02} & \dpos{0.06} & \dneg{0.07} & \dneg{0.24} \\[3pt]
 
 \multirow{2}{*}{English}
 & Sparse
-  & \dpos{0.04} & \dpos{0.02} & \dpos{0.09} & \dpos{0.08}
-  & \dpos{0.09} & \dpos{0.07} & \dpos{0.24} & \dpos{0.11}
+  & \dpos{0.04} & \dneg{0.02} & \dpos{0.09} & \dpos{0.08}
+  & \dpos{0.09} & \dpos{0.07} & \dpos{0.24} & \dneg{0.11}
   & \dpos{0.05} & \dpos{0.03} & \dpos{0.10} & \dpos{0.08} \\
 
 & Dense
@@ -148,12 +148,12 @@ DT & RF & SVM & LR \\
 \bottomrule
 \end{tabular}
 }
-\caption{Delta vs.\ Shakeri et al.~\cite{shakeri2025} for binary AD vs.\ HC, accuracy. Values are this replication minus the paper; green~=~improvement, red~=~underperformance.}
+\caption{Table 7: Binary accuracy deltas against Shakeri et al. green improves, red underperforms.}
 \label{tab:multiconad_binary_acc_delta}
 \end{table}
 
 % ============================================================
-% MULTICLASS RESULT TABLE
+% TABLE 8
 % ============================================================
 \begin{table}[htbp]
 \centering
@@ -209,7 +209,7 @@ DT & RF & SVM & LR \\
 \multirow{2}{*}{English}
 & Sparse
   & 0.54 & 0.63 & \textbf{0.68} & 0.67
-  & 0.56$^{\uparrow}$ & 0.61$^{\downarrow}$ & \textbf{0.67}$^{\downarrow}$ & 0.66$^{\downarrow}$
+  & 0.56$^{\uparrow}$ & 0.61$^{\downarrow}$ & \textbf{0.67}$^{\uparrow}$ & 0.66$^{\downarrow}$
   & 0.59$^{\uparrow}$ & 0.65$^{\uparrow}$ & \textbf{0.67}$^{\downarrow}$ & 0.56$^{\downarrow}$ \\
 
 & Dense
@@ -220,12 +220,12 @@ DT & RF & SVM & LR \\
 \bottomrule
 \end{tabular}
 }
-\caption{Replication of Table~5 (multiclass AD vs.\ MCI vs.\ HC), accuracy. Bold marks the best classifier within each block; arrows compare against Monolingual.}
+\caption{Table 8: Multiclass MultiConAD accuracy replication, arrows compare against monolingual training.}
 \label{tab:multiconad_multiclass_acc}
 \end{table}
 
 % ============================================================
-% MULTICLASS DELTA TABLE
+% TABLE 9
 % ============================================================
 \begin{table}[htbp]
 \centering
@@ -280,9 +280,9 @@ DT & RF & SVM & LR \\
 
 \multirow{2}{*}{English}
 & Sparse
-  & \dneg{0.05} & \dpos{0.01} & \dpos{0.03} & \dpos{0.02}
+  & \dneg{0.05} & \dneg{0.01} & \dpos{0.03} & \dpos{0.02}
   & \dneg{0.03} & \dpos{0.03} & \dpos{0.26} & \dzero
-  & \dpos{0.09} & \dpos{0.04} & \dpos{0.01} & \dneg{0.08} \\
+  & \dpos{0.09} & \dpos{0.04} & \dzero & \dneg{0.08} \\
 
 & Dense
   & \dpos{0.03} & \dneg{0.03} & \dneg{0.17} & \dpos{0.03}
@@ -292,7 +292,6 @@ DT & RF & SVM & LR \\
 \bottomrule
 \end{tabular}
 }
-\caption{Delta vs.\ Shakeri et al.~\cite{shakeri2025} for multiclass AD vs.\ MCI vs.\ HC, accuracy. Values are this replication minus the paper; green~=~improvement, red~=~underperformance.}
+\caption{Table 9: Multiclass accuracy deltas against Shakeri et al. green improves, red underperforms.}
 \label{tab:multiconad_multiclass_acc_delta}
 \end{table}
-

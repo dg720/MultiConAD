@@ -1,0 +1,22 @@
+[2026-05-09 17:45:36] e5_seed45_translated_combined_multiclass_en: method=e5 seed=45 training=multi translated=yes task=multiclass test=en train=3573 test=272
+[2026-05-09 17:45:36] Encoding 3573 texts for seed45_multi_multiclass_yes_en_train.npy
+[2026-05-09 17:46:37] Encoding 272 texts for seed45_multi_multiclass_yes_en_test.npy
+[2026-05-09 17:46:43] e5_seed45_translated_combined_multiclass_en: fitting DT
+[2026-05-09 17:47:44] e5_seed45_translated_combined_multiclass_en: DT accuracy=0.5037 params={'max_depth': 20}
+[2026-05-09 17:47:44] e5_seed45_translated_combined_multiclass_en: fitting RF
+[2026-05-09 17:50:39] e5_seed45_translated_combined_multiclass_en: RF accuracy=0.6029 params={'n_estimators': 100}
+[2026-05-09 17:50:39] e5_seed45_translated_combined_multiclass_en: fitting SVM
+[2026-05-09 17:57:47] e5_seed45_translated_combined_multiclass_en: SVM accuracy=0.5735 params={'C': 1, 'kernel': 'rbf'}
+[2026-05-09 17:57:47] e5_seed45_translated_combined_multiclass_en: fitting LR
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: LR accuracy=0.6471 params={'C': 10}
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion DT+RF accuracy=0.5074
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion DT+SVM accuracy=0.5074
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion DT+LR accuracy=0.5074
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion RF+SVM accuracy=0.6324
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion RF+LR accuracy=0.6507
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion SVM+LR accuracy=0.6618
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion DT+RF+SVM accuracy=0.5882
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion DT+RF+LR accuracy=0.5882
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion DT+SVM+LR accuracy=0.6360
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion RF+SVM+LR accuracy=0.6581
+[2026-05-09 17:57:52] e5_seed45_translated_combined_multiclass_en: fusion DT+RF+SVM+LR accuracy=0.5956

@@ -16,6 +16,7 @@ parser.add_argument('--test_language', required=True, choices=['en', 'gr', 'cha'
 parser.add_argument('--task', required=True, choices=['binary', 'multiclass'])
 parser.add_argument('--translated', required=True, choices=['yes', 'no'])
 parser.add_argument('--training', required=True, choices=['mono', 'multi'])
+parser.add_argument('--svm_class_weight', choices=['balanced', 'none'], default='balanced')
 args = parser.parse_args()
 
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
@@ -38,6 +39,7 @@ def load(split, lang, translated=False):
 
 use_translated = args.translated == 'yes'
 text_col = 'translated' if use_translated else 'Text_interviewer_participant'
+svm_class_weight = None if args.svm_class_weight == 'none' else 'balanced'
 
 train_en  = load('train', 'en',  use_translated)
 test_en   = load('test',  'en',  use_translated)
@@ -83,7 +85,7 @@ classifiers = {
     'Decision Tree':      (DecisionTreeClassifier(random_state=42),      {'max_depth': [10, 20, 30]}),
     'Random Forest':      (RandomForestClassifier(random_state=42),       {'n_estimators': [50, 100, 200]}),
     'Naive Bayes':        (MultinomialNB(),                               {'alpha': [0.5, 1.0, 1.5]}),
-    'SVM':                (SVC(random_state=42, class_weight='balanced'),  {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}),
+    'SVM':                (SVC(random_state=42, class_weight=svm_class_weight),  {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}),
     'Logistic Regression':(LogisticRegression(random_state=42, max_iter=1000), {'C': [0.1, 1, 10]}),
 }
 
@@ -93,6 +95,7 @@ print(f"Train size: {len(train_combined)} | Test size: {len(test_df)}")
 print(f"Train langs: {[lang_map[k] for k in all_trains if all_trains[k] is not None and any(all_trains[k].equals(d) for d in train_dfs)]}")
 print(f"Label dist (train): {dict(y_train.value_counts())}")
 print(f"Label dist (test):  {dict(y_test.value_counts())}")
+print(f"SVM class_weight: {args.svm_class_weight}")
 print('='*60)
 
 for name, (clf, params) in classifiers.items():

@@ -1,0 +1,20 @@
+[2026-05-09 15:13:52] tfidf_seed45_translated_combined_multiclass_cha: method=tfidf seed=45 training=multi translated=yes task=multiclass test=cha train=3573 test=153
+[2026-05-09 15:13:52] tfidf_seed45_translated_combined_multiclass_cha: fitting DT
+[2026-05-09 15:14:03] tfidf_seed45_translated_combined_multiclass_cha: DT accuracy=0.4510 params={'max_depth': 10}
+[2026-05-09 15:14:03] tfidf_seed45_translated_combined_multiclass_cha: fitting RF
+[2026-05-09 15:15:14] tfidf_seed45_translated_combined_multiclass_cha: RF accuracy=0.5556 params={'n_estimators': 200}
+[2026-05-09 15:15:14] tfidf_seed45_translated_combined_multiclass_cha: fitting SVM
+[2026-05-09 15:28:44] tfidf_seed45_translated_combined_multiclass_cha: SVM accuracy=0.6667 params={'C': 10, 'kernel': 'rbf'}
+[2026-05-09 15:28:44] tfidf_seed45_translated_combined_multiclass_cha: fitting LR
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: LR accuracy=0.6797 params={'C': 10}
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion DT+RF accuracy=0.5359
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion DT+SVM accuracy=0.5948
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion DT+LR accuracy=0.6078
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion RF+SVM accuracy=0.6471
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion RF+LR accuracy=0.6863
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion SVM+LR accuracy=0.6667
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion DT+RF+SVM accuracy=0.6078
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion DT+RF+LR accuracy=0.6209
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion DT+SVM+LR accuracy=0.6797
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion RF+SVM+LR accuracy=0.6993
+[2026-05-09 15:28:50] tfidf_seed45_translated_combined_multiclass_cha: fusion DT+RF+SVM+LR accuracy=0.6667

@@ -7,6 +7,27 @@ from dataclasses import asdict
 
 
 class CHACollection(Collection):
+    def _open_cha_file(self, file_path: str):
+        """
+        Open a .cha file with explicit fallback encodings.
+
+        The corpora in this repo are not encoding-homogeneous. Most files are
+        UTF-8/UTF-8-SIG, but some legacy CHAT files decode only under a single-
+        byte encoding. Fall back to latin-1 as the final permissive decoder so
+        extraction keeps moving instead of crashing the whole pipeline.
+        """
+        encodings = ("utf-8-sig", "utf-8", "cp1252", "latin-1")
+        last_error = None
+        for encoding in encodings:
+            try:
+                return open(file_path, "r", encoding=encoding)
+            except UnicodeDecodeError as exc:
+                last_error = exc
+                continue
+        if last_error:
+            raise last_error
+        return open(file_path, "r", encoding="utf-8", errors="replace")
+
     def __iter__(self) -> Iterator[RawDataPoint]:
         """
         Iterate through all .cha files in the specified path and yield raw data points.
@@ -55,8 +76,7 @@ class CHACollection(Collection):
             "text_interviewer_participant": [],
         }
 
-
-        with open(file_path, 'r') as file:
+        with self._open_cha_file(file_path) as file:
             for line in file:
                 parse_line_func(info, line,file_path)
 

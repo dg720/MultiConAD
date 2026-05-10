@@ -1,0 +1,21 @@
+
+================================================================================
+2026-05-08T09:22:14+01:00  START  clean_chinese
+description: Rebuild cleaned Chinese train/test splits
+cwd: C:\Users\dhruv\Documents\06 Coding\MultiConAD
+command: ['C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\.venv\\Scripts\\python.exe', 'Preprocessing_text/text_cleaning_Chinese.py']
+outputs: ['Preprocessing_text/cleaned/train_chinese.jsonl', 'Preprocessing_text/cleaned/test_chinese.jsonl']
+================================================================================
+
+Combined JSONL file saved to: C:\Users\dhruv\Documents\06 Coding\MultiConAD\Preprocessing_text\cleaned\combined_jsonl_Chinese_iFlyTek_Taukdial_NCMMSC.jsonl
+Input records: 1306  (datasets: {'Unknown': 506, 'Predictive_Chinese_challenge_Chinese_2019': 401, 'NCMMSC2021_AD': 399})
+Chinese: 763 records after cleaning
+Diagnosis
+MCI    324
+HC     290
+AD     149
+Train: 610  Test: 153
+
+--------------------------------------------------------------------------------
+2026-05-08T09:22:16+01:00  END  returncode=0  duration_sec=2.0
+--------------------------------------------------------------------------------
