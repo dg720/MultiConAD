@@ -1,0 +1,26 @@
+{
+  "run_name": "language_en_cookie_theft_clean_phase2",
+  "n_rows": 1942,
+  "n_groups": 1711,
+  "best_model": {
+    "run_name": "language_en_cookie_theft_clean_phase2",
+    "subset_name": "rich_universal",
+    "top_k": 100,
+    "num_selected_features": 100,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "balanced_accuracy": 0.7088394934091496,
+    "macro_f1": 0.745128533528497,
+    "sensitivity": 0.4245283018867924,
+    "specificity": 0.9931506849315068,
+    "precision": 0.9574468085106383,
+    "auroc": 0.809463039545102,
+    "auprc": 0.7259927162665992,
+    "accuracy": 0.8417085427135679
+  },
+  "test_class_counts": {
+    "0": 292,
+    "1": 106
+  },
+  "primary_selection_metric": "raw accuracy"
+}

@@ -216,6 +216,7 @@ def collect_doc_stats(text: str, language: str, doc) -> dict[str, object]:
     tokens = []
     lemmas = []
     token_lengths = []
+    upos_sequences = []
     upos_counts = Counter()
     dep_counts = Counter()
     dep_lengths = []
@@ -229,6 +230,7 @@ def collect_doc_stats(text: str, language: str, doc) -> dict[str, object]:
             "tokens": fallback_tokens,
             "lemmas": fallback_tokens,
             "token_lengths": [len(token) for token in fallback_tokens],
+            "upos_sequences": [],
             "upos_counts": upos_counts,
             "dep_counts": dep_counts,
             "dep_lengths": dep_lengths,
@@ -237,6 +239,7 @@ def collect_doc_stats(text: str, language: str, doc) -> dict[str, object]:
 
     for sentence in doc.sentences:
         sent_tokens = []
+        sent_upos = []
         tree_depths.extend(sentence_tree_depth(sentence))
         for word in sentence.words:
             if word.upos == "PUNCT":
@@ -250,6 +253,7 @@ def collect_doc_stats(text: str, language: str, doc) -> dict[str, object]:
             lemmas.append(lemma_text or token_text)
             token_lengths.append(len(token_text))
             upos_counts[word.upos] += 1
+            sent_upos.append(word.upos)
             dep_label = str(word.deprel or "").split(":", 1)[0]
             if dep_label:
                 dep_counts[dep_label] += 1
@@ -257,12 +261,14 @@ def collect_doc_stats(text: str, language: str, doc) -> dict[str, object]:
                 dep_lengths.append(abs(int(word.id) - int(word.head)))
         if sent_tokens:
             utterances.append(" ".join(sent_tokens))
+            upos_sequences.append(sent_upos)
 
     return {
         "utterances": utterances if utterances else split_utterances(text, language),
         "tokens": tokens,
         "lemmas": lemmas if lemmas else tokens,
         "token_lengths": token_lengths,
+        "upos_sequences": upos_sequences,
         "upos_counts": upos_counts,
         "dep_counts": dep_counts,
         "dep_lengths": dep_lengths,
@@ -283,21 +289,29 @@ def collect_chat_tier_stats(transcript_path: str, text: str, language: str) -> d
     tokens = []
     lemmas = []
     token_lengths = []
+    upos_sequences = []
     upos_counts = Counter()
     dep_counts = Counter()
     dep_lengths = []
     tree_depths = []
 
     active_par = False
+    current_upos_sequence = []
     for line in raw.splitlines():
         stripped = line.strip()
         if stripped.startswith("*PAR:"):
+            if current_upos_sequence:
+                upos_sequences.append(current_upos_sequence)
+                current_upos_sequence = []
             active_par = True
             utterance_text = clean_text(stripped.replace("*PAR:", "", 1))
             if utterance_text:
                 utterances.append(utterance_text.lower())
             continue
         if stripped.startswith("*") and not stripped.startswith("*PAR:"):
+            if current_upos_sequence:
+                upos_sequences.append(current_upos_sequence)
+                current_upos_sequence = []
             active_par = False
             continue
         if not active_par:
@@ -319,6 +333,7 @@ def collect_chat_tier_stats(transcript_path: str, text: str, language: str) -> d
                     token_lengths.append(len(lemma))
                 if upos and upos != "PUNCT":
                     upos_counts[upos] += 1
+                    current_upos_sequence.append(upos)
 
         if stripped.startswith("%gra:"):
             body = stripped.split(":", 1)[1].strip()
@@ -339,11 +354,15 @@ def collect_chat_tier_stats(transcript_path: str, text: str, language: str) -> d
     if not tokens and not utterances:
         return None
 
+    if current_upos_sequence:
+        upos_sequences.append(current_upos_sequence)
+
     return {
         "utterances": utterances if utterances else split_utterances(text, language),
         "tokens": tokens,
         "lemmas": lemmas if lemmas else tokens,
         "token_lengths": token_lengths,
+        "upos_sequences": upos_sequences,
         "upos_counts": upos_counts,
         "dep_counts": dep_counts,
         "dep_lengths": dep_lengths,

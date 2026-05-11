@@ -1,0 +1,26 @@
+{
+  "run_name": "cookie_theft_pooled_clean_phase2",
+  "n_rows": 2059,
+  "n_groups": 1822,
+  "best_model": {
+    "run_name": "cookie_theft_pooled_clean_phase2",
+    "subset_name": "all_phase2",
+    "top_k": 100,
+    "num_selected_features": 100,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "balanced_accuracy": 0.7490943567102508,
+    "macro_f1": 0.7814908323330988,
+    "sensitivity": 0.5213675213675214,
+    "specificity": 0.97682119205298,
+    "precision": 0.8970588235294118,
+    "auroc": 0.8115271409973397,
+    "auprc": 0.7561350285490218,
+    "accuracy": 0.8496420047732696
+  },
+  "test_class_counts": {
+    "0": 302,
+    "1": 117
+  },
+  "primary_selection_metric": "raw accuracy"
+}

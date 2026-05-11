@@ -223,6 +223,26 @@ rd_insertion_ratio,rd,1,READING,1,0,1,rd insertion ratio
 rd_repetition_ratio,rd,1,READING,1,0,1,rd repetition ratio
 rd_pause_per_reference_token,rd,1,READING,1,0,1,rd pause per reference token
 rd_content_word_recall_ratio,rd,1,READING,1,0,1,rd content word recall ratio
+sr_propositions_recalled_count,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr propositions recalled count
+sr_propositions_recalled_ratio,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr propositions recalled ratio
+sr_key_event_coverage,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr key event coverage
+sr_event_order_score,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr event order score
+sr_intrusion_count,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr intrusion count
+sr_semantic_similarity_to_reference_story,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr semantic similarity to reference story
+sr_repetition_rate,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr repetition rate
+sr_content_density,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr content density
+ft_item_count,ft,0,FLUENCY,1,0,1,ft item count
+ft_unique_item_count,ft,0,FLUENCY,1,0,1,ft unique item count
+ft_repetition_count,ft,0,FLUENCY,1,0,1,ft repetition count
+ft_intrusion_count,ft,0,FLUENCY,1,0,1,ft intrusion count
+ft_valid_item_count,ft,0,FLUENCY,1,0,1,ft valid item count
+ft_valid_item_ratio,ft,0,FLUENCY,1,0,1,ft valid item ratio
+ft_items_per_second,ft,0,FLUENCY,1,0,1,ft items per second
+ft_cluster_count,ft,0,FLUENCY,1,0,1,ft cluster count
+ft_mean_cluster_size,ft,0,FLUENCY,1,0,1,ft mean cluster size
+ft_switch_count,ft,0,FLUENCY,1,0,1,ft switch count
+ft_letter_valid_count,ft,0,FLUENCY,1,0,1,ft letter valid count
+ft_letter_violation_count,ft,0,FLUENCY,1,0,1,ft letter violation count
 fc_topic_coherence,fc,1,CONVERSATION,1,0,1,fc topic coherence
 fc_topic_switch_rate,fc,1,CONVERSATION,1,0,1,fc topic switch rate
 fc_embedding_dispersion,fc,1,CONVERSATION,1,0,1,fc embedding dispersion
@@ -231,6 +251,51 @@ fc_repetition_rate,fc,1,CONVERSATION,1,0,1,fc repetition rate
 fc_mean_utterance_similarity,fc,1,CONVERSATION,1,0,1,fc mean utterance similarity
 fc_first_last_similarity,fc,1,CONVERSATION,1,0,1,fc first last similarity
 fc_topic_return_ratio,fc,1,CONVERSATION,1,0,1,fc topic return ratio
+pr_np_count,pr,0,ALL,1,0,1,pr np count
+pr_vp_count,pr,0,ALL,1,0,1,pr vp count
+pr_pp_count,pr,0,ALL,1,0,1,pr pp count
+pr_adjp_count,pr,0,ALL,1,0,1,pr adjp count
+pr_advp_count,pr,0,ALL,1,0,1,pr advp count
+pr_np_ratio,pr,0,ALL,1,0,1,pr np ratio
+pr_vp_ratio,pr,0,ALL,1,0,1,pr vp ratio
+pr_pp_ratio,pr,0,ALL,1,0,1,pr pp ratio
+pr_adjp_ratio,pr,0,ALL,1,0,1,pr adjp ratio
+pr_advp_ratio,pr,0,ALL,1,0,1,pr advp ratio
+pr_np_mean_len,pr,0,ALL,1,0,1,pr np mean len
+pr_vp_mean_len,pr,0,ALL,1,0,1,pr vp mean len
+pr_pp_mean_len,pr,0,ALL,1,0,1,pr pp mean len
+pr_adjp_mean_len,pr,0,ALL,1,0,1,pr adjp mean len
+pr_advp_mean_len,pr,0,ALL,1,0,1,pr advp mean len
+pr_np_rate,pr,0,ALL,1,0,1,pr np rate
+pr_vp_rate,pr,0,ALL,1,0,1,pr vp rate
+pr_pp_rate,pr,0,ALL,1,0,1,pr pp rate
+pr_chunk_density,pr,0,ALL,1,0,1,pr chunk density
+pr_chunk_diversity,pr,0,ALL,1,0,1,pr chunk diversity
+pr_det_noun_ratio,pr,0,ALL,1,0,1,pr det noun ratio
+pr_adj_noun_ratio,pr,0,ALL,1,0,1,pr adj noun ratio
+pr_pron_verb_ratio,pr,0,ALL,1,0,1,pr pron verb ratio
+pr_noun_verb_ratio,pr,0,ALL,1,0,1,pr noun verb ratio
+pr_verb_det_ratio,pr,0,ALL,1,0,1,pr verb det ratio
+pr_adp_noun_ratio,pr,0,ALL,1,0,1,pr adp noun ratio
+pr_aux_verb_ratio,pr,0,ALL,1,0,1,pr aux verb ratio
+pr_verb_adv_ratio,pr,0,ALL,1,0,1,pr verb adv ratio
+pr_adv_verb_ratio,pr,0,ALL,1,0,1,pr adv verb ratio
+pr_noun_adp_ratio,pr,0,ALL,1,0,1,pr noun adp ratio
+pr_verb_pron_ratio,pr,0,ALL,1,0,1,pr verb pron ratio
+pr_cconj_pron_ratio,pr,0,ALL,1,0,1,pr cconj pron ratio
+pr_sconj_pron_ratio,pr,0,ALL,1,0,1,pr sconj pron ratio
+pr_adp_det_ratio,pr,0,ALL,1,0,1,pr adp det ratio
+pr_det_adj_ratio,pr,0,ALL,1,0,1,pr det adj ratio
+pr_det_adj_noun_ratio,pr,0,ALL,1,0,1,pr det adj noun ratio
+pr_det_noun_verb_ratio,pr,0,ALL,1,0,1,pr det noun verb ratio
+pr_pron_aux_verb_ratio,pr,0,ALL,1,0,1,pr pron aux verb ratio
+pr_pron_verb_det_ratio,pr,0,ALL,1,0,1,pr pron verb det ratio
+pr_adp_det_noun_ratio,pr,0,ALL,1,0,1,pr adp det noun ratio
+pr_noun_aux_verb_ratio,pr,0,ALL,1,0,1,pr noun aux verb ratio
+pr_root_verb_ratio,pr,0,ALL,1,0,1,pr root verb ratio
+pr_root_noun_ratio,pr,0,ALL,1,0,1,pr root noun ratio
+pr_root_pron_ratio,pr,0,ALL,1,0,1,pr root pron ratio
+pr_root_adj_ratio,pr,0,ALL,1,0,1,pr root adj ratio
 sx_sentence_length_q25,sx,0,ALL,1,0,1,sx sentence length q25
 sx_sentence_length_q50,sx,0,ALL,1,0,1,sx sentence length q50
 sx_sentence_length_q75,sx,0,ALL,1,0,1,sx sentence length q75
@@ -374,3 +439,5 @@ par_f0_q75,par,0,ALL,0,1,0,par f0 q75
 par_f0_iqr,par,0,ALL,0,1,0,par f0 iqr
 par_voiced_frame_ratio,par,0,ALL,0,1,0,par voiced frame ratio
 par_nonzero_rms_ratio,par,0,ALL,0,1,0,par nonzero rms ratio
+pr_adjp_rate,pr,0,ALL,1,0,1,pr adjp rate
+pr_advp_rate,pr,0,ALL,1,0,1,pr advp rate

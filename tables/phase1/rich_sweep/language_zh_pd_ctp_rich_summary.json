@@ -27,17 +27,18 @@
   "best_result": {
     "run_name": "language_zh_pd_ctp_rich",
     "subset": "pause_only",
-    "top_k": 20,
+    "top_k": "20",
     "num_features": 20,
     "model_family": "dt",
     "model_variant": "depth20",
     "balanced_accuracy": 0.9861111111111112,
-    "macro_f1": 0.9635459817729909,
+    "macro_f1": 0.9635459817729908,
     "sensitivity": 1.0,
     "specificity": 0.9722222222222222,
     "precision": 0.8888888888888888,
     "auroc": 0.986111111111111,
-    "auprc": 0.8888888888888888
+    "auprc": 0.8888888888888888,
+    "accuracy": 0.9772727272727273
   },
   "methodology": {
     "split": "single grouped 80/20 holdout by group_id with group-label stratification",
@@ -71,5 +72,10 @@
     "imputation": "median imputation with explicit missingness indicators",
     "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
     "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
-  }
+  },
+  "test_class_counts": {
+    "0": 36,
+    "1": 8
+  },
+  "primary_selection_metric": "raw accuracy"
 }

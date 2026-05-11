@@ -1,0 +1,43 @@
+Saliency Radar Interpretation
+============================
+Method
+------
+These radar maps use AD-oriented feature burden scores on a 0-100 scale.
+For each feature, the direction is set from the training split so that higher values are more AD-like.
+The fixed-feature plots use the same top 16 pooled all-universal features in every language.
+The local-feature plots use the top 16 features from the best all-universal model within each language.
+
+Fixed pooled feature set
+-----------------------
+disc_mean_pairwise_utt_similarity, ac_egemaps_slopeuv0_500_sma3nz_amean, ac_egemaps_stddevvoicedsegmentlengthsec, ac_egemaps_slopev0_500_sma3nz_amean, syn_adp_ratio, ac_egemaps_jitterlocal_sma3nz_stddevnorm, len_speech_duration, syn_determiner_noun_ratio, graph_density, syn_propn_ratio, syn_clause_density, ac_egemaps_mfcc1_sma3_stddevnorm, pause_mean_duration, syn_adv_ratio, syn_aux_verb_ratio, pause_std_duration
+
+English
+-------
+syn: AD-HC gap 11.3 (AD mean 47.9, HC mean 36.6)
+disc: AD-HC gap 4.1 (AD mean 43.9, HC mean 39.8)
+ac: AD-HC gap 0.0 (AD mean 50.0, HC mean 50.0)
+
+Chinese
+-------
+len: AD-HC gap 29.4 (AD mean 76.1, HC mean 46.7)
+pause: AD-HC gap 26.9 (AD mean 82.9, HC mean 55.9)
+ac: AD-HC gap 17.4 (AD mean 61.4, HC mean 43.9)
+
+Greek
+-----
+len: AD-HC gap 24.0 (AD mean 39.3, HC mean 15.3)
+ac: AD-HC gap 15.5 (AD mean 58.1, HC mean 42.6)
+pause: AD-HC gap 10.1 (AD mean 34.7, HC mean 24.6)
+
+Spanish
+-------
+disc: AD-HC gap 11.0 (AD mean 63.4, HC mean 52.4)
+syn: AD-HC gap 0.1 (AD mean 46.0, HC mean 45.9)
+ac: AD-HC gap 0.0 (AD mean 50.0, HC mean 50.0)
+
+Interpretation
+--------------
+The fixed pooled feature set does show language-specific skew rather than one universal saliency shape.
+English and Spanish lean more on lexical, syntactic, and discourse burden.
+Chinese shows stronger pause/rate and some acoustic burden on the pooled feature set.
+Greek remains the most acoustically skewed profile even when the feature set is fixed across languages.

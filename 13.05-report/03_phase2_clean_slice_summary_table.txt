@@ -1,0 +1,30 @@
+Phase 2 Clean-Slice Summary
+===========================
+These rows keep the current best feature subset per clean slice, then show how raw accuracy changes as k varies.
+
+Table 1. Best pruning strategy overall from the stored clean-slice runs
+
+Slice                Best Subset            Best Model Best k #Feat Best Acc
+----------------------------------------------------------------------------
+English Cookie Theft rich_universal         rf:n200    100    100   84.2    
+Chinese Cookie Theft semantic_plus_pause    rf:n200    50     41    92.0    
+Greek Lion Scene     rich_universal         lr:c1      50     50    90.9    
+Spanish Reading      task_specific_semantic lr:c1      50     9     75.9    
+
+Table 2. Accuracy sensitivity by pruning level within the winning subset
+
+Slice                k=all k=100 k=50 k=25 k=10
+-----------------------------------------------
+English Cookie Theft 84.2  84.2  83.9 83.9 83.7
+Chinese Cookie Theft 92.0  92.0  92.0 92.0 88.0
+Greek Lion Scene     86.4  81.8  90.9 81.8 72.7
+Spanish Reading      75.9  75.9  75.9 75.9 75.9
+
+Table 3. Best model at each pruning level within the winning subset
+
+Slice                k=all         k=100         k=50               k=25               k=10           
+------------------------------------------------------------------------------------------------------
+English Cookie Theft rf:n200 (380) rf:n200 (100) svm:linear_c1 (50) svm:rbf_c1 (25)    svm:rbf_c1 (10)
+Chinese Cookie Theft rf:n200 (41)  rf:n200 (41)  rf:n200 (41)       rf:n200 (25)       rf:n200 (10)   
+Greek Lion Scene     rf:n200 (302) lr:c1 (100)   lr:c1 (50)         svm:linear_c1 (25) rf:n200 (10)   
+Spanish Reading      lr:c1 (9)     lr:c1 (9)     lr:c1 (9)          lr:c1 (9)          lr:c1 (9)      

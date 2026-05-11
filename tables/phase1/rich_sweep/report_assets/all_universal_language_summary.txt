@@ -1,0 +1,11 @@
+Phase 1 Combined-Pool Language Summary
+=====================================
+All rows in this table use the full Phase 1 combined feature pool (`all_universal`) within each language.
+k is the number of ANOVA-ranked features kept from that combined pool before fitting the classifier.
+
+Language   Best Text Mono Best Text Multi  Combined Feature Acc Model            k   #Feat  Delta vs Global
+-----------------------------------------------------------------------------------------------------------
+Chinese              84.1            83.9                  81.2 svm:linear_c1   all     192              2.8
+English              88.9            87.8                  86.2 rf:n200        100     100              7.7
+Greek                79.1            76.7                  83.3 rf:n200        all     192              4.9
+Spanish              74.9            75.6                  85.2 rf:n200        all      69              6.8

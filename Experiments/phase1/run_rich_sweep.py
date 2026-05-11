@@ -12,6 +12,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.inspection import permutation_importance
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
+    accuracy_score,
     average_precision_score,
     balanced_accuracy_score,
     f1_score,
@@ -270,6 +271,7 @@ def model_specs() -> list[dict[str, object]]:
 
 def compute_metrics(y_true: pd.Series, pred: np.ndarray, score_values: np.ndarray) -> dict[str, float]:
     result = {
+        "accuracy": float(accuracy_score(y_true, pred)),
         "balanced_accuracy": float(balanced_accuracy_score(y_true, pred)),
         "macro_f1": float(f1_score(y_true, pred, average="macro")),
         "sensitivity": float(recall_score(y_true, pred, pos_label=1)),
@@ -324,7 +326,7 @@ def permutation_importance_frame(estimator: Pipeline, x_test: pd.DataFrame, y_te
         y_test,
         n_repeats=PERMUTATION_REPEATS,
         random_state=SEED,
-        scoring="balanced_accuracy",
+        scoring="accuracy",
         n_jobs=1,
     )
     return pd.DataFrame(
@@ -426,16 +428,16 @@ def run_feature_sweep(
                 results.append(row)
                 log(
                     f"{run_name}: subset={subset} top_k={k} model={spec['model_family']}:{spec['model_variant']} "
-                    f"bal_acc={metrics['balanced_accuracy']:.3f} auroc={metrics['auroc']:.3f}"
+                    f"acc={metrics['accuracy']:.3f} bal_acc={metrics['balanced_accuracy']:.3f} auroc={metrics['auroc']:.3f}"
                 )
                 if (
-                    metrics["balanced_accuracy"] > best_score
+                    metrics["accuracy"] > best_score
                     or (
-                        metrics["balanced_accuracy"] == best_score
+                        metrics["accuracy"] == best_score
                         and metrics["auroc"] > best_tiebreak
                     )
                 ):
-                    best_score = metrics["balanced_accuracy"]
+                    best_score = metrics["accuracy"]
                     best_tiebreak = metrics["auroc"]
                     best_state = {
                         "subset": subset,
@@ -453,7 +455,7 @@ def run_feature_sweep(
     if best_state is None or best_anova is None:
         raise RuntimeError(f"No completed sweep state for {run_name}")
 
-    results_df = pd.DataFrame(results).sort_values(["balanced_accuracy", "auroc", "macro_f1"], ascending=False)
+    results_df = pd.DataFrame(results).sort_values(["accuracy", "auroc", "balanced_accuracy", "macro_f1"], ascending=False)
     results_df.to_csv(output_dir / f"{run_name}_model_results.csv", index=False)
 
     best_anova.to_csv(output_dir / f"{run_name}_anova_ranking.csv", index=False)
@@ -481,6 +483,7 @@ def run_feature_sweep(
         "train_groups": int(train_df["group_id"].nunique()),
         "test_groups": int(test_df["group_id"].nunique()),
         "class_counts": df["binary_label"].value_counts().sort_index().to_dict(),
+        "test_class_counts": y_test.value_counts().sort_index().to_dict(),
         "grouping_levels": grouping_levels,
         "best_config": {
             "subset": best_state["subset"],
@@ -507,6 +510,7 @@ def run_feature_sweep(
             "imputation": "median imputation with explicit missingness indicators",
             "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
             "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available",
+            "primary_selection_metric": "raw accuracy",
         },
     }
     write_json(output_dir / f"{run_name}_summary.json", summary)

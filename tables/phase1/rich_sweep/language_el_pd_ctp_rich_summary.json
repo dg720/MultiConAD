@@ -27,17 +27,18 @@
   "best_result": {
     "run_name": "language_el_pd_ctp_rich",
     "subset": "acoustic_only",
-    "top_k": 50,
+    "top_k": "50",
     "num_features": 50,
     "model_family": "svm",
     "model_variant": "linear_c1",
     "balanced_accuracy": 0.925,
     "macro_f1": 0.925,
-    "sensitivity": 0.9333333333333333,
+    "sensitivity": 0.9333333333333332,
     "specificity": 0.9166666666666666,
-    "precision": 0.9333333333333333,
-    "auroc": 0.9444444444444445,
-    "auprc": 0.9733333333333334
+    "precision": 0.9333333333333332,
+    "auroc": 0.9444444444444444,
+    "auprc": 0.9733333333333334,
+    "accuracy": 0.9259259259259259
   },
   "methodology": {
     "split": "single grouped 80/20 holdout by group_id with group-label stratification",
@@ -71,5 +72,10 @@
     "imputation": "median imputation with explicit missingness indicators",
     "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
     "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
-  }
+  },
+  "test_class_counts": {
+    "0": 12,
+    "1": 15
+  },
+  "primary_selection_metric": "raw accuracy"
 }

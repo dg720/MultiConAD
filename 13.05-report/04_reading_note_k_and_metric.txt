@@ -1,0 +1,12 @@
+How To Read k And Accuracy
+==========================
+k is the number of features kept after ANOVA ranking within a chosen feature subset.
+
+Examples
+--------
+- k=100: keep the top 100 ranked features from that subset.
+- k=50: keep the top 50 ranked features.
+- k=all: keep every usable feature in that subset; no ANOVA pruning.
+
+Going forward, the primary metric is raw accuracy, not balanced accuracy.
+Balanced accuracy is still retained in the detailed CSV-backed source files for reference, but the report tables in this folder are written around raw accuracy because that matches the benchmark text tables.

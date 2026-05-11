@@ -45,6 +45,8 @@ SUMMARY_PATH = TABLES_PHASE2_ROOT / "phase2_manifest_summary.json"
 
 PICTURE_LEXICONS_PATH = RESOURCES_PHASE2_ROOT / "picture_prompt_lexicons.json"
 READING_REFERENCES_PATH = RESOURCES_PHASE2_ROOT / "reading_references.json"
+STORY_REFERENCES_PATH = RESOURCES_PHASE2_ROOT / "story_references.json"
+FLUENCY_RESOURCES_PATH = RESOURCES_PHASE2_ROOT / "fluency_resources.json"
 
 
 def _safe_stat(value: float) -> float:
@@ -184,6 +186,87 @@ def empty_fc_features() -> dict[str, float]:
     }
 
 
+def empty_ft_features() -> dict[str, float]:
+    return {
+        "ft_item_count": np.nan,
+        "ft_unique_item_count": np.nan,
+        "ft_repetition_count": np.nan,
+        "ft_intrusion_count": np.nan,
+        "ft_valid_item_count": np.nan,
+        "ft_valid_item_ratio": np.nan,
+        "ft_items_per_second": np.nan,
+        "ft_cluster_count": np.nan,
+        "ft_mean_cluster_size": np.nan,
+        "ft_switch_count": np.nan,
+        "ft_letter_valid_count": np.nan,
+        "ft_letter_violation_count": np.nan,
+    }
+
+
+def empty_sr_features() -> dict[str, float]:
+    return {
+        "sr_propositions_recalled_count": np.nan,
+        "sr_propositions_recalled_ratio": np.nan,
+        "sr_key_event_coverage": np.nan,
+        "sr_event_order_score": np.nan,
+        "sr_intrusion_count": np.nan,
+        "sr_semantic_similarity_to_reference_story": np.nan,
+        "sr_repetition_rate": np.nan,
+        "sr_content_density": np.nan,
+    }
+
+
+def empty_pr_features() -> dict[str, float]:
+    names = [
+        "pr_np_count",
+        "pr_vp_count",
+        "pr_pp_count",
+        "pr_adjp_count",
+        "pr_advp_count",
+        "pr_np_ratio",
+        "pr_vp_ratio",
+        "pr_pp_ratio",
+        "pr_adjp_ratio",
+        "pr_advp_ratio",
+        "pr_np_mean_len",
+        "pr_vp_mean_len",
+        "pr_pp_mean_len",
+        "pr_adjp_mean_len",
+        "pr_advp_mean_len",
+        "pr_np_rate",
+        "pr_vp_rate",
+        "pr_pp_rate",
+        "pr_chunk_density",
+        "pr_chunk_diversity",
+        "pr_det_noun_ratio",
+        "pr_adj_noun_ratio",
+        "pr_pron_verb_ratio",
+        "pr_noun_verb_ratio",
+        "pr_verb_det_ratio",
+        "pr_adp_noun_ratio",
+        "pr_aux_verb_ratio",
+        "pr_verb_adv_ratio",
+        "pr_adv_verb_ratio",
+        "pr_noun_adp_ratio",
+        "pr_verb_pron_ratio",
+        "pr_cconj_pron_ratio",
+        "pr_sconj_pron_ratio",
+        "pr_adp_det_ratio",
+        "pr_det_adj_ratio",
+        "pr_det_adj_noun_ratio",
+        "pr_det_noun_verb_ratio",
+        "pr_pron_aux_verb_ratio",
+        "pr_pron_verb_det_ratio",
+        "pr_adp_det_noun_ratio",
+        "pr_noun_aux_verb_ratio",
+        "pr_root_verb_ratio",
+        "pr_root_noun_ratio",
+        "pr_root_pron_ratio",
+        "pr_root_adj_ratio",
+    ]
+    return {name: np.nan for name in names}
+
+
 def empty_sx_features() -> dict[str, float]:
     names = [
         "sx_sentence_length_q25",
@@ -242,6 +325,144 @@ def empty_par_features() -> dict[str, float]:
 def prompt_keywords_for_family(lexicon: dict, language: str) -> dict[str, list[str]]:
     language_block = lexicon.get("languages", {}).get(language, {})
     return {key: [clean_text(value).lower() for value in values] for key, values in language_block.items()}
+
+
+def shallow_chunks(upos_sequence: list[str]) -> list[tuple[str, int]]:
+    chunks: list[tuple[str, int]] = []
+    idx = 0
+    while idx < len(upos_sequence):
+        pos = upos_sequence[idx]
+        if pos in {"DET", "ADJ", "NUM", "NOUN", "PROPN", "PRON"}:
+            start = idx
+            seen_nominal = False
+            while idx < len(upos_sequence) and upos_sequence[idx] in {"DET", "ADJ", "NUM", "NOUN", "PROPN", "PRON"}:
+                if upos_sequence[idx] in {"NOUN", "PROPN", "PRON"}:
+                    seen_nominal = True
+                idx += 1
+            if seen_nominal:
+                chunks.append(("NP", idx - start))
+                continue
+            idx = start
+        if pos in {"AUX", "VERB", "ADV", "PART"}:
+            start = idx
+            seen_verb = False
+            while idx < len(upos_sequence) and upos_sequence[idx] in {"AUX", "VERB", "ADV", "PART"}:
+                if upos_sequence[idx] == "VERB":
+                    seen_verb = True
+                idx += 1
+            if seen_verb:
+                chunks.append(("VP", idx - start))
+                continue
+            idx = start
+        if pos == "ADP":
+            start = idx
+            idx += 1
+            while idx < len(upos_sequence) and upos_sequence[idx] in {"DET", "ADJ", "NUM", "NOUN", "PROPN", "PRON"}:
+                idx += 1
+            chunks.append(("PP", idx - start))
+            continue
+        if pos == "ADJ":
+            start = idx
+            while idx < len(upos_sequence) and upos_sequence[idx] == "ADJ":
+                idx += 1
+            chunks.append(("ADJP", idx - start))
+            continue
+        if pos == "ADV":
+            start = idx
+            while idx < len(upos_sequence) and upos_sequence[idx] == "ADV":
+                idx += 1
+            chunks.append(("ADVP", idx - start))
+            continue
+        idx += 1
+    return chunks
+
+
+def pos_ngram_ratios(upos_sequences: list[list[str]]) -> dict[str, float]:
+    bigram_templates = [
+        ("DET", "NOUN"),
+        ("ADJ", "NOUN"),
+        ("PRON", "VERB"),
+        ("NOUN", "VERB"),
+        ("VERB", "DET"),
+        ("ADP", "NOUN"),
+        ("AUX", "VERB"),
+        ("VERB", "ADV"),
+        ("ADV", "VERB"),
+        ("NOUN", "ADP"),
+        ("VERB", "PRON"),
+        ("CCONJ", "PRON"),
+        ("SCONJ", "PRON"),
+        ("ADP", "DET"),
+        ("DET", "ADJ"),
+    ]
+    trigram_templates = [
+        ("DET", "ADJ", "NOUN"),
+        ("DET", "NOUN", "VERB"),
+        ("PRON", "AUX", "VERB"),
+        ("PRON", "VERB", "DET"),
+        ("ADP", "DET", "NOUN"),
+        ("NOUN", "AUX", "VERB"),
+    ]
+    bigrams = []
+    trigrams = []
+    roots = []
+    for seq in upos_sequences:
+        if seq:
+            roots.append(seq[0])
+        bigrams.extend(zip(seq[:-1], seq[1:]))
+        trigrams.extend(zip(seq[:-2], seq[1:-1], seq[2:]))
+    bigram_counter = Counter(bigrams)
+    trigram_counter = Counter(trigrams)
+    root_counter = Counter(roots)
+    total_bigrams = len(bigrams)
+    total_trigrams = len(trigrams)
+    total_roots = len(roots)
+    features = {}
+    for left, right in bigram_templates:
+        features[f"pr_{left.lower()}_{right.lower()}_ratio"] = safe_div(bigram_counter[(left, right)], total_bigrams)
+    for first, second, third in trigram_templates:
+        features[f"pr_{first.lower()}_{second.lower()}_{third.lower()}_ratio"] = safe_div(
+            trigram_counter[(first, second, third)],
+            total_trigrams,
+        )
+    for root in ("VERB", "NOUN", "PRON", "ADJ"):
+        features[f"pr_root_{root.lower()}_ratio"] = safe_div(root_counter[root], total_roots)
+    return features
+
+
+def production_phrase_features(row: pd.Series, stats: dict[str, object]) -> dict[str, float]:
+    features = empty_pr_features()
+    upos_sequences = [seq for seq in stats.get("upos_sequences", []) if seq]
+    if not upos_sequences:
+        return features
+
+    all_chunks: list[tuple[str, int]] = []
+    for seq in upos_sequences:
+        all_chunks.extend(shallow_chunks(seq))
+
+    if not all_chunks:
+        features.update(pos_ngram_ratios(upos_sequences))
+        return features
+
+    chunk_counter = Counter(chunk_type for chunk_type, _ in all_chunks)
+    chunk_lengths: dict[str, list[int]] = {}
+    for chunk_type, length in all_chunks:
+        chunk_lengths.setdefault(chunk_type, []).append(length)
+
+    utterance_count = max(len(stats.get("utterances", [])), 1)
+    total_chunks = len(all_chunks)
+    for chunk_type in ("NP", "VP", "PP", "ADJP", "ADVP"):
+        lower = chunk_type.lower()
+        features[f"pr_{lower}_count"] = float(chunk_counter.get(chunk_type, 0))
+        features[f"pr_{lower}_ratio"] = safe_div(chunk_counter.get(chunk_type, 0), total_chunks)
+        lengths = np.array(chunk_lengths.get(chunk_type, []), dtype=float)
+        features[f"pr_{lower}_mean_len"] = _safe_stat(np.mean(lengths)) if lengths.size else np.nan
+        features[f"pr_{lower}_rate"] = safe_div(chunk_counter.get(chunk_type, 0), utterance_count)
+
+    features["pr_chunk_density"] = safe_div(total_chunks, sum(len(seq) for seq in upos_sequences))
+    features["pr_chunk_diversity"] = safe_div(len(chunk_counter), total_chunks)
+    features.update(pos_ngram_ratios(upos_sequences))
+    return features
 
 
 def count_keyword_mentions(tokens: list[str], text: str, keywords: list[str]) -> int:
@@ -403,6 +624,125 @@ def reading_features(row: pd.Series, stats: dict[str, object], base_row: dict[st
             "rd_repetition_ratio": repeated_ngram_ratio(tokens, 1),
             "rd_pause_per_reference_token": safe_div(base_row.get("pause_total_duration", np.nan), len(reference_tokens)),
             "rd_content_word_recall_ratio": safe_div(len(set(content_reference) & candidate_vocab), len(set(content_reference))),
+        }
+    )
+    return features
+
+
+def story_features(row: pd.Series, stats: dict[str, object], prompt_family: str, story_refs: dict) -> dict[str, float]:
+    features = empty_sr_features()
+    reference_block = story_refs.get(prompt_family, {}).get(row["language"], {})
+    reference_text = clean_text(reference_block.get("reference_text", ""))
+    if not reference_text:
+        return features
+
+    tokens = [clean_text(token).lower() for token in stats.get("tokens", []) if clean_text(token)]
+    utterances = [clean_text(utt).lower() for utt in stats.get("utterances", []) if clean_text(utt)]
+    reference_tokens = tokenize(reference_text, row["language"])
+    if not tokens or not reference_tokens:
+        return features
+
+    matcher = SequenceMatcher(a=reference_tokens, b=tokens)
+    matched_blocks = [block for block in matcher.get_matching_blocks() if block.size > 0]
+    matched_size = sum(block.size for block in matched_blocks)
+    reference_vocab = set(reference_tokens)
+    token_vocab = set(tokens)
+    temporal_markers = {"then", "after", "before", "when", "while", "next", "finally", "because", "and"}
+    if row["language"] == "es":
+        temporal_markers = {"entonces", "despues", "antes", "cuando", "mientras", "luego", "finalmente", "porque", "y"}
+    elif row["language"] == "el":
+        temporal_markers = {"μετα", "πριν", "οταν", "ενω", "υστερα", "τελικα", "γιατι", "και"}
+    elif row["language"] == "zh":
+        temporal_markers = {"然后", "之后", "之前", "当", "最后", "因为", "和"}
+
+    event_order_hits = sum(1 for token in tokens if token in temporal_markers)
+    features.update(
+        {
+            "sr_propositions_recalled_count": float(len(reference_vocab & token_vocab)),
+            "sr_propositions_recalled_ratio": safe_div(len(reference_vocab & token_vocab), len(reference_vocab)),
+            "sr_key_event_coverage": safe_div(matched_size, len(reference_tokens)),
+            "sr_event_order_score": safe_div(event_order_hits, max(len(utterances), 1)),
+            "sr_intrusion_count": float(len(token_vocab - reference_vocab)),
+            "sr_semantic_similarity_to_reference_story": cosine_between_texts(" ".join(tokens), reference_text),
+            "sr_repetition_rate": repeated_ngram_ratio(tokens, 1),
+            "sr_content_density": safe_div(len(reference_vocab & token_vocab), len(tokens)),
+        }
+    )
+    return features
+
+
+def fluency_features(row: pd.Series, stats: dict[str, object], base_row: dict[str, float], fluency_resources: dict) -> dict[str, float]:
+    features = empty_ft_features()
+    if row["task_type"] != "FLUENCY":
+        return features
+
+    prompt_id = str(row.get("prompt_id", "")).strip().lower()
+    if "animal" in prompt_id:
+        resource_key = "animals"
+    elif "letter_f" in prompt_id or "phon_f" in prompt_id or prompt_id.endswith("_f"):
+        resource_key = "letter_f"
+    else:
+        return features
+
+    resource = fluency_resources.get(resource_key, {})
+    valid_items = {clean_text(item).lower() for item in resource.get("language_items", {}).get(row["language"], []) if clean_text(item)}
+    if not valid_items:
+        return features
+
+    tokens = [clean_text(token).lower() for token in stats.get("tokens", []) if clean_text(token)]
+    duration = base_row.get("len_audio_duration", np.nan)
+    if not tokens:
+        return features
+
+    counts = Counter(tokens)
+    valid_mentions = [token for token in tokens if token in valid_items]
+    valid_counter = Counter(valid_mentions)
+    unique_valid = list(valid_counter.keys())
+    repetitions = sum(max(0, count - 1) for count in valid_counter.values())
+    intrusions = [token for token in tokens if token not in valid_items and token not in FILLERS.get(row["language"], set())]
+
+    switch_count = 0
+    prev_initial = None
+    for token in unique_valid:
+        initial = token[:1]
+        if prev_initial is not None and initial != prev_initial:
+            switch_count += 1
+        prev_initial = initial
+
+    letter_valid_count = np.nan
+    letter_violation_count = np.nan
+    if resource_key == "letter_f":
+        letter_valid_count = float(sum(1 for token in valid_mentions if token.startswith("f")))
+        letter_violation_count = float(sum(1 for token in valid_mentions if not token.startswith("f")))
+
+    cluster_sizes = []
+    if unique_valid:
+        current_cluster = 1
+        prev_initial = unique_valid[0][:1]
+        for token in unique_valid[1:]:
+            initial = token[:1]
+            if initial == prev_initial:
+                current_cluster += 1
+            else:
+                cluster_sizes.append(current_cluster)
+                current_cluster = 1
+                prev_initial = initial
+        cluster_sizes.append(current_cluster)
+
+    features.update(
+        {
+            "ft_item_count": float(len(tokens)),
+            "ft_unique_item_count": float(len(set(tokens))),
+            "ft_repetition_count": float(repetitions),
+            "ft_intrusion_count": float(len(intrusions)),
+            "ft_valid_item_count": float(len(valid_mentions)),
+            "ft_valid_item_ratio": safe_div(len(valid_mentions), len(tokens)),
+            "ft_items_per_second": safe_div(len(valid_mentions), duration),
+            "ft_cluster_count": float(len(cluster_sizes)),
+            "ft_mean_cluster_size": _safe_stat(np.mean(cluster_sizes)) if cluster_sizes else np.nan,
+            "ft_switch_count": float(switch_count),
+            "ft_letter_valid_count": letter_valid_count,
+            "ft_letter_violation_count": letter_violation_count,
         }
     )
     return features
@@ -594,12 +934,15 @@ def build_phase2_metadata(phase1_metadata: pd.DataFrame, new_feature_columns: li
                     "pd": "PD_CTP",
                     "rd": "READING",
                     "fc": "CONVERSATION",
+                    "ft": "FLUENCY",
+                    "sr": "STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY",
+                    "pr": "ALL",
                     "sx": "ALL",
                     "par": "ALL",
                 }.get(group, "ALL"),
                 "requires_text": int(group != "par"),
                 "requires_audio": int(group == "par"),
-                "language_dependent_tooling": int(group in {"pd", "rd", "fc", "sx"}),
+                "language_dependent_tooling": int(group in {"pd", "rd", "fc", "ft", "sr", "pr", "sx"}),
                 "description": name.replace("_", " "),
             }
         )
@@ -624,6 +967,8 @@ def main() -> None:
 
     picture_lexicons = load_json(PICTURE_LEXICONS_PATH)
     reading_refs = load_json(READING_REFERENCES_PATH)
+    story_refs = load_json(STORY_REFERENCES_PATH)
+    fluency_resources = load_json(FLUENCY_RESOURCES_PATH)
 
     text_stats_cache = build_text_stats_cache(manifest, log)
     language_frequency_tables = build_language_frequency_tables(text_stats_cache, manifest)
@@ -645,7 +990,10 @@ def main() -> None:
         pd_features, detected_prompt_family = picture_description_features(row, stats, base_row, picture_lexicons)
         rich_row.update(pd_features)
         rich_row.update(reading_features(row, stats, base_row, reading_refs))
+        rich_row.update(story_features(row, stats, detected_prompt_family, story_refs))
+        rich_row.update(fluency_features(row, stats, base_row, fluency_resources))
         rich_row.update(conversation_features(row, stats))
+        rich_row.update(production_phrase_features(row, stats))
         rich_row.update(richer_syntax_features(row, stats, language_frequency_tables.get(row["language"], Counter())))
         rich_row.update(richer_acoustic_features(str(row.get("audio_path", ""))))
         rows.append(rich_row)

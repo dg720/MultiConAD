@@ -1,0 +1,26 @@
+Phase 1 All-Task Feature Comparison
+===================================
+Text baseline numbers are accuracy (%) from `paper_vs_ours_3tables.txt`.
+Feature benchmark numbers are single-seed raw accuracy (%) from the Phase 1 rich sweep.
+
+Global Feature Benchmark
+------------------------
+All languages pooled: 79.0 accuracy, 74.8 bal acc, 81.9 AUROC, text_plus_pause_plus_acoustic k=50 svm:rbf_c1.
+Top pooled feature groups: disc, ac, len, syn
+Top pooled features: ac_egemaps_slopeuv0_500_sma3nz_amean, disc_mean_pairwise_utt_similarity, ac_mfcc_1_mean, len_speech_duration, ac_egemaps_slopev0_500_sma3nz_amean
+
+Language-Level All-Task Comparison
+----------------------------------
+Language | Text Mono Acc | Text Multi-Combined Acc | Text Translated Acc | Feature Local Acc | Feature Global Acc | Delta Local-Global | Local Feature Set | Local Top Features
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Chinese  |          84.1 |                     83.9 |                86.6 |              87.5 |               79.0 |                8.5 | text_plus_pause k=100 svm:rbf_c1 | len_speech_duration, pause_std_duration, pause_articulation_rate_words_per_speaking_second, len_syllables_per_second, len_tokens_per_second
+English  |          88.9 |                     87.8 |                88.5 |              86.4 |               79.0 |                7.4 | text_plus_pause_plus_graph k=100 rf:n200 | lex_brunet, syn_amod_ratio, lex_mattr_10, len_type_count, syn_adv_ratio
+Greek    |          79.1 |                     76.7 |                67.9 |              85.7 |               79.0 |                6.7 | acoustic_only k=100 svm:rbf_c1 | ac_egemaps_loudness_sma3_stddevnorm, ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm, ac_egemaps_hnrdbacf_sma3nz_stddevnorm, ac_egemaps_slopeuv500_1500_sma3nz_amean, ac_egemaps_spectralfluxv_sma3nz_stddevnorm
+Spanish  |          74.9 |                     75.6 |                74.6 |              85.2 |               79.0 |                6.2 | all_universal k=all rf:n200 | len_std_utterance_length, disc_mean_pairwise_utt_similarity, lex_mattr_20, lex_mean_token_length, lex_mattr_10
+
+Feature Selection Readout
+-------------------------
+Chinese: local best 87.5 vs same-subset full 87.5 (+0.0), vs full universal 81.2 (+6.2).
+English: local best 86.4 vs same-subset full 86.0 (+0.4), vs full universal 85.8 (+0.6).
+Greek: local best 85.7 vs same-subset full 85.7 (+0.0), vs full universal 83.3 (+2.4).
+Spanish: local best 85.2 vs same-subset full 85.2 (+0.0), vs full universal 85.2 (+0.0).

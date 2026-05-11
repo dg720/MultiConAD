@@ -10,6 +10,10 @@
     "0.0": 195,
     "1.0": 97
   },
+  "test_class_counts": {
+    "0": 43,
+    "1": 18
+  },
   "grouping_levels": [
     [
       "task_type",
@@ -21,27 +25,28 @@
     []
   ],
   "best_config": {
-    "subset": "text_only",
-    "top_k": "20",
-    "num_features": 20,
+    "subset": "all_universal",
+    "top_k": "all",
+    "num_features": 69,
     "model_family": "rf",
     "model_variant": "n200",
     "native_importance_type": "impurity_importance"
   },
   "best_result": {
     "run_name": "language_es_all_rich",
-    "subset": "text_only",
-    "top_k": 20,
-    "num_features": 20,
+    "subset": "all_universal",
+    "top_k": "all",
+    "num_features": 69,
     "model_family": "rf",
     "model_variant": "n200",
-    "balanced_accuracy": 0.7984496124031008,
-    "macro_f1": 0.8130745658835546,
-    "sensitivity": 0.6666666666666666,
-    "specificity": 0.9302325581395349,
-    "precision": 0.8,
-    "auroc": 0.7835917312661499,
-    "auprc": 0.7112232540956298
+    "accuracy": 0.8524590163934426,
+    "balanced_accuracy": 0.7822997416020672,
+    "macro_f1": 0.80538816022687,
+    "sensitivity": 0.6111111111111112,
+    "specificity": 0.9534883720930233,
+    "precision": 0.8461538461538461,
+    "auroc": 0.83656330749354,
+    "auprc": 0.7872644280614639
   },
   "methodology": {
     "split": "single grouped 80/20 holdout by group_id with group-label stratification",
@@ -74,6 +79,7 @@
     ],
     "imputation": "median imputation with explicit missingness indicators",
     "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
-    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available",
+    "primary_selection_metric": "raw accuracy"
   }
 }

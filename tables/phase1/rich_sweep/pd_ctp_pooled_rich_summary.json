@@ -10,6 +10,10 @@
     "0.0": 1691,
     "1.0": 651
   },
+  "test_class_counts": {
+    "0": 339,
+    "1": 136
+  },
   "grouping_levels": [
     [
       "language",
@@ -22,26 +26,27 @@
   ],
   "best_config": {
     "subset": "all_universal",
-    "top_k": "100",
-    "num_features": 100,
-    "model_family": "svm",
-    "model_variant": "linear_c1",
-    "native_importance_type": "coefficient"
+    "top_k": "all",
+    "num_features": 193,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "native_importance_type": "impurity_importance"
   },
   "best_result": {
     "run_name": "pd_ctp_pooled_rich",
     "subset": "all_universal",
-    "top_k": 100,
-    "num_features": 100,
-    "model_family": "svm",
-    "model_variant": "linear_c1",
-    "balanced_accuracy": 0.7505314072531668,
-    "macro_f1": 0.7516339869281046,
-    "sensitivity": 0.6397058823529411,
-    "specificity": 0.8613569321533924,
-    "precision": 0.6492537313432836,
-    "auroc": 0.8127711261495748,
-    "auprc": 0.7274706406220033
+    "top_k": "all",
+    "num_features": 193,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "accuracy": 0.8357894736842105,
+    "balanced_accuracy": 0.7308476487940309,
+    "macro_f1": 0.7615830115830116,
+    "sensitivity": 0.4852941176470588,
+    "specificity": 0.976401179941003,
+    "precision": 0.8918918918918919,
+    "auroc": 0.859751865347909,
+    "auprc": 0.7887994103276537
   },
   "methodology": {
     "split": "single grouped 80/20 holdout by group_id with group-label stratification",
@@ -74,6 +79,7 @@
     ],
     "imputation": "median imputation with explicit missingness indicators",
     "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
-    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available",
+    "primary_selection_metric": "raw accuracy"
   }
 }

@@ -2,19 +2,33 @@
   "run_name": "pd_ctp_pooled_phase2",
   "n_rows": 2342,
   "n_groups": 1971,
+  "train_rows": 1867,
+  "test_rows": 475,
+  "train_groups": 1576,
+  "test_groups": 395,
+  "class_counts": {
+    "0.0": 1691,
+    "1.0": 651
+  },
+  "test_class_counts": {
+    "0.0": 339,
+    "1.0": 136
+  },
+  "primary_selection_metric": "raw accuracy",
   "best_model": {
     "run_name": "pd_ctp_pooled_phase2",
-    "subset_name": "all_phase2",
+    "subset_name": "phase1_universal",
     "top_k": 100,
     "num_selected_features": 100,
-    "model_family": "lr",
-    "model_variant": "c1",
-    "balanced_accuracy": 0.7740217768523339,
-    "macro_f1": 0.7637793214642803,
-    "sensitivity": 0.7132352941176471,
-    "specificity": 0.8348082595870207,
-    "precision": 0.6339869281045751,
-    "auroc": 0.8548065243796633,
-    "auprc": 0.7758575998135506
+    "model_family": "rf",
+    "model_variant": "n200",
+    "accuracy": 0.8294736842105264,
+    "balanced_accuracy": 0.7220197813638729,
+    "macro_f1": 0.7515642252484358,
+    "sensitivity": 0.47058823529411764,
+    "specificity": 0.9734513274336283,
+    "precision": 0.8767123287671232,
+    "auroc": 0.8509023078257851,
+    "auprc": 0.774783815494933
   }
 }

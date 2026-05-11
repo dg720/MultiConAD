@@ -1,0 +1,31 @@
+Phase 1 vs Phase 2 Takeaway
+===========================
+
+Yes, broadly, but with one refinement.
+
+The clean message is:
+
+- Phase 1: once you use the full universal feature pool within a language, aggressive top-k pruning often does not change raw accuracy much.
+- Phase 2: the richer, task-aware features are where feature choice starts to matter more, especially on cleaner task slices.
+
+More precisely:
+
+- In Phase 1 all-universal, several languages hit their best raw accuracy with k=all or tie with k=100.
+  - That suggests the universal Phase 1 pool is already fairly compact and redundant pruning is not buying much.
+  - English is the main exception, where pruning helped more.
+
+- In Phase 2, task-specific structure matters more.
+  - Chinese Cookie Theft: semantic_plus_pause beats the broader all_phase2 setup.
+  - Spanish Reading: task_specific_semantic beats the broader all_phase2 setup.
+  - Greek Lion Scene: improvement is real, though it comes more from a cleaner slice plus richer universal features than from one semantic block alone.
+
+So I would phrase it as:
+
+- Phase 1 tells us the broad translingual signal is already present in the universal feature pool, and selecting a smaller subset does not always materially improve performance.
+- Phase 2 tells us that once the task is clean enough, task-specific features become more useful and more interpretable.
+
+I would avoid saying simply “Phase 1 features don’t matter.”
+The better statement is:
+
+- Phase 1 feature pruning often doesn’t matter much
+- Phase 2 feature design matters more

@@ -14,7 +14,13 @@
     "sensitivity": 1.0,
     "specificity": 0.75,
     "precision": 0.8333333333333334,
-    "auroc": 0.9611111111111111,
-    "auprc": 0.9706654456654455
-  }
+    "auroc": 0.9611111111111112,
+    "auprc": 0.9706654456654455,
+    "accuracy": 0.8888888888888888
+  },
+  "test_class_counts": {
+    "0": 12,
+    "1": 15
+  },
+  "primary_selection_metric": "raw accuracy"
 }

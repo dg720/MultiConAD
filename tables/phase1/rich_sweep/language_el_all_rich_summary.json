@@ -31,7 +31,7 @@
   "best_result": {
     "run_name": "language_el_all_rich",
     "subset": "acoustic_only",
-    "top_k": 100,
+    "top_k": "100",
     "num_features": 100,
     "model_family": "svm",
     "model_variant": "rbf_c1",
@@ -41,7 +41,8 @@
     "specificity": 0.9285714285714286,
     "precision": 0.9583333333333334,
     "auroc": 0.9336734693877552,
-    "auprc": 0.9750417175417175
+    "auprc": 0.9750417175417176,
+    "accuracy": 0.8571428571428571
   },
   "methodology": {
     "split": "single grouped 80/20 holdout by group_id with group-label stratification",
@@ -75,5 +76,10 @@
     "imputation": "median imputation with explicit missingness indicators",
     "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
     "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
-  }
+  },
+  "test_class_counts": {
+    "0": 14,
+    "1": 28
+  },
+  "primary_selection_metric": "raw accuracy"
 }

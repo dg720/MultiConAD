@@ -31,7 +31,7 @@
   "best_result": {
     "run_name": "language_zh_all_rich",
     "subset": "text_plus_pause",
-    "top_k": 100,
+    "top_k": "100",
     "num_features": 82,
     "model_family": "svm",
     "model_variant": "rbf_c1",
@@ -41,7 +41,8 @@
     "specificity": 0.9444444444444444,
     "precision": 0.8636363636363636,
     "auroc": 0.9131054131054132,
-    "auprc": 0.8340828852116506
+    "auprc": 0.8340828852116506,
+    "accuracy": 0.875
   },
   "methodology": {
     "split": "single grouped 80/20 holdout by group_id with group-label stratification",
@@ -75,5 +76,10 @@
     "imputation": "median imputation with explicit missingness indicators",
     "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
     "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
-  }
+  },
+  "test_class_counts": {
+    "0": 54,
+    "1": 26
+  },
+  "primary_selection_metric": "raw accuracy"
 }

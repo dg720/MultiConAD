@@ -1,0 +1,10 @@
+slice_slug,view_type,task_slug,language,run_name,subset_name,top_k,num_selected_features,balanced_accuracy,auroc,model_family,model_variant,usable_feature_count,n_rows,n_ad,n_hc
+en_cookie_theft,global,cookie_theft,en,cookie_theft_pooled_clean_phase2,phase1_universal,100,100,0.7540187920982623,0.8352295239712457,svm,linear_c1,100,1942,537,1405
+en_cookie_theft,local,cookie_theft,en,language_en_cookie_theft_clean_phase2,phase1_universal,50,50,0.7445399327991729,0.8227578185577669,lr,c1,50,1942,537,1405
+zh_cookie_theft,global,cookie_theft,zh,cookie_theft_pooled_clean_phase2,phase1_universal,100,100,0.7540187920982623,0.8352295239712457,svm,linear_c1,100,117,38,79
+zh_cookie_theft,local,cookie_theft,zh,language_zh_cookie_theft_clean_phase2,phase1_universal,50,50,0.8786764705882353,0.9191176470588235,lr,c1,50,117,38,79
+el_lion_scene,global,lion_scene,el,language_el_pd_ctp_phase2,rich_universal,100,100,0.875,0.9611111111111111,rf,n200,100,106,55,51
+el_lion_scene,local,lion_scene,el,language_el_lion_scene_clean_phase2,rich_universal,50,50,0.9090909090909092,0.884297520661157,lr,c1,50,106,55,51
+es_reading,global,reading,es,benchmark_wide_phase2,all_phase2,100,100,0.7749982810190119,0.8526145700828549,svm,rbf_c1,58,269,74,195
+es_reading,local,reading,es,language_es_reading_clean_phase2,task_specific_semantic,50,9,0.7286821705426356,0.7922480620155039,lr,c1,9,269,74,195
+cookie_theft_pooled,task_pooled,cookie_theft,multilingual,cookie_theft_pooled_clean_phase2,phase1_universal,100,100,0.7540187920982623,0.8352295239712457,svm,linear_c1,100,2059,575,1484

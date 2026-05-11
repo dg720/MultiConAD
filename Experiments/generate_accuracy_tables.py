@@ -12,12 +12,14 @@ paper-comparison screenshots used in this repo.
 
 from __future__ import annotations
 
+import csv
 import os
 
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 RESULTS_DIR = os.path.join(PROJECT_ROOT, "tables", "experiment-results")
+SUMMARY_DIR = os.path.join(RESULTS_DIR, "multiseed-suite", "summaries")
 
 ACCURACY_TEX_PATH = os.path.join(RESULTS_DIR, "accuracy_tables.txt")
 PLAIN_TXT_PATH = os.path.join(RESULTS_DIR, "tfidf_comparison_tables.txt")
@@ -26,6 +28,12 @@ LANGS = ["Spanish", "Chinese", "Greek", "English"]
 REPRS = ["Sparse", "Dense"]
 CLFS = ["DT", "RF", "SVM", "LR"]
 MODES = ["mono", "multi", "trans"]
+SUMMARY_METHODS = {"Sparse": "tfidf", "Dense": "e5"}
+SUMMARY_SETTINGS = {
+    "mono": "monolingual",
+    "multi": "multilingual_combined",
+    "trans": "translated_combined",
+}
 
 
 def cell(value: float, arrow: str = "") -> tuple[float, str]:
@@ -36,144 +44,147 @@ RESULT_TABLES = {
     "binary": {
         "Spanish": {
             "Sparse": {
-                "mono":  [cell(0.71), cell(0.71), cell(0.81), cell(0.76)],
-                "multi": [cell(0.76, "up"), cell(0.75, "up"), cell(0.34, "down"), cell(0.80, "up")],
-                "trans": [cell(0.71), cell(0.75, "up"), cell(0.69, "down"), cell(0.68, "down")],
+                "mono":  [cell(0.73), cell(0.73), cell(0.78), cell(0.78)],
+                "multi": [cell(0.80, "up"), cell(0.76, "up"), cell(0.66, "down"), cell(0.80, "up")],
+                "trans": [cell(0.75, "up"), cell(0.80, "up"), cell(0.75, "down"), cell(0.73, "down")],
             },
             "Dense": {
-                "mono":  [cell(0.75), cell(0.71), cell(0.78), cell(0.76)],
-                "multi": [cell(0.66, "down"), cell(0.78, "up"), cell(0.73, "down"), cell(0.66, "down")],
-                "trans": [cell(0.66, "down"), cell(0.71), cell(0.34, "down"), cell(0.66, "down")],
+                "mono":  [cell(0.71), cell(0.71), cell(0.80), cell(0.80)],
+                "multi": [cell(0.66, "down"), cell(0.78, "up"), cell(0.66, "down"), cell(0.80)],
+                "trans": [cell(0.59, "down"), cell(0.76, "up"), cell(0.78, "down"), cell(0.76, "down")],
             },
         },
         "Chinese": {
             "Sparse": {
-                "mono":  [cell(0.78), cell(0.80), cell(0.82), cell(0.75)],
-                "multi": [cell(0.75, "down"), cell(0.78, "down"), cell(0.23, "down"), cell(0.72, "down")],
-                "trans": [cell(0.68, "down"), cell(0.88, "up"), cell(0.82), cell(0.78, "up")],
+                "mono":  [cell(0.67), cell(0.69), cell(0.70), cell(0.70)],
+                "multi": [cell(0.67), cell(0.69), cell(0.67, "down"), cell(0.69, "down")],
+                "trans": [cell(0.70, "up"), cell(0.90, "up"), cell(0.89, "up"), cell(0.84, "up")],
             },
             "Dense": {
-                "mono":  [cell(0.85), cell(0.93), cell(0.88), cell(0.93)],
-                "multi": [cell(0.80, "down"), cell(0.90, "down"), cell(0.85, "down"), cell(0.78, "down")],
-                "trans": [cell(0.75, "down"), cell(0.85, "down"), cell(0.78, "down"), cell(0.78, "down")],
+                "mono":  [cell(0.69), cell(0.76), cell(0.83), cell(0.80)],
+                "multi": [cell(0.76, "up"), cell(0.86, "up"), cell(0.67, "down"), cell(0.81, "up")],
+                "trans": [cell(0.66, "down"), cell(0.84, "up"), cell(0.80, "down"), cell(0.84, "up")],
             },
         },
         "Greek": {
             "Sparse": {
-                "mono":  [cell(0.77), cell(0.67), cell(0.74), cell(0.74)],
-                "multi": [cell(0.65, "down"), cell(0.58, "down"), cell(0.60, "down"), cell(0.72, "down")],
-                "trans": [cell(0.51, "down"), cell(0.74, "up"), cell(0.60, "down"), cell(0.40, "down")],
+                "mono":  [cell(0.68), cell(0.78), cell(0.77), cell(0.78)],
+                "multi": [cell(0.68), cell(0.76, "down"), cell(0.60, "down"), cell(0.73, "down")],
+                "trans": [cell(0.58, "down"), cell(0.67, "down"), cell(0.69, "down"), cell(0.51, "down")],
             },
             "Dense": {
-                "mono":  [cell(0.60), cell(0.67), cell(0.79), cell(0.70)],
-                "multi": [cell(0.79, "up"), cell(0.70, "up"), cell(0.70, "down"), cell(0.40, "down")],
-                "trans": [cell(0.60), cell(0.72, "up"), cell(0.63, "down"), cell(0.40, "down")],
+                "mono":  [cell(0.65), cell(0.75), cell(0.78), cell(0.77)],
+                "multi": [cell(0.64, "down"), cell(0.75), cell(0.75, "down"), cell(0.73, "down")],
+                "trans": [cell(0.62, "down"), cell(0.66, "down"), cell(0.70, "down"), cell(0.64, "down")],
             },
         },
         "English": {
             "Sparse": {
-                "mono":  [cell(0.77), cell(0.79), cell(0.86), cell(0.83)],
-                "multi": [cell(0.76, "down"), cell(0.81, "up"), cell(0.82, "down"), cell(0.86, "up")],
-                "trans": [cell(0.78, "up"), cell(0.77, "down"), cell(0.86), cell(0.69, "down")],
+                "mono":  [cell(0.73), cell(0.78), cell(0.77), cell(0.75)],
+                "multi": [cell(0.67, "down"), cell(0.74, "down"), cell(0.58, "down"), cell(0.75)],
+                "trans": [cell(0.73), cell(0.74, "down"), cell(0.76, "down"), cell(0.61, "down")],
             },
             "Dense": {
-                "mono":  [cell(0.75), cell(0.78), cell(0.84), cell(0.86)],
-                "multi": [cell(0.77, "up"), cell(0.76, "down"), cell(0.86, "up"), cell(0.69, "down")],
-                "trans": [cell(0.71, "down"), cell(0.78), cell(0.77, "down"), cell(0.69, "down")],
+                "mono":  [cell(0.65), cell(0.75), cell(0.81), cell(0.79)],
+                "multi": [cell(0.67, "up"), cell(0.77, "up"), cell(0.58, "down"), cell(0.67, "down")],
+                "trans": [cell(0.71, "up"), cell(0.73, "down"), cell(0.83, "up"), cell(0.70, "down")],
             },
         },
     },
     "multiclass": {
         "Spanish": {
             "Sparse": {
-                "mono":  [cell(0.47), cell(0.55), cell(0.63), cell(0.59)],
-                "multi": [cell(0.45, "down"), cell(0.51, "down"), cell(0.58, "down"), cell(0.62, "up")],
-                "trans": [cell(0.51, "up"), cell(0.57, "up"), cell(0.43, "down"), cell(0.57, "down")],
+                "mono":  [cell(0.61), cell(0.60), cell(0.61), cell(0.61)],
+                "multi": [cell(0.51, "down"), cell(0.62, "up"), cell(0.51, "down"), cell(0.58, "down")],
+                "trans": [cell(0.47, "down"), cell(0.58, "down"), cell(0.56, "down"), cell(0.56, "down")],
             },
             "Dense": {
-                "mono":  [cell(0.49), cell(0.61), cell(0.62), cell(0.61)],
-                "multi": [cell(0.53, "up"), cell(0.57, "down"), cell(0.24, "down"), cell(0.57, "down")],
-                "trans": [cell(0.51, "up"), cell(0.55, "down"), cell(0.30, "down"), cell(0.61)],
+                "mono":  [cell(0.52), cell(0.61), cell(0.61), cell(0.61)],
+                "multi": [cell(0.47, "down"), cell(0.61), cell(0.61), cell(0.57, "down")],
+                "trans": [cell(0.60, "up"), cell(0.58, "down"), cell(0.56, "down"), cell(0.51, "down")],
             },
         },
         "Chinese": {
             "Sparse": {
-                "mono":  [cell(0.45), cell(0.43), cell(0.41), cell(0.41)],
-                "multi": [cell(0.47, "up"), cell(0.41, "down"), cell(0.42, "up"), cell(0.39, "down")],
-                "trans": [cell(0.54, "up"), cell(0.59, "up"), cell(0.46, "up"), cell(0.43, "up")],
+                "mono":  [cell(0.36), cell(0.35), cell(0.40), cell(0.39)],
+                "multi": [cell(0.42, "up"), cell(0.39, "up"), cell(0.39, "down"), cell(0.40, "up")],
+                "trans": [cell(0.45, "up"), cell(0.59, "up"), cell(0.68, "up"), cell(0.62, "up")],
             },
             "Dense": {
-                "mono":  [cell(0.61), cell(0.49), cell(0.49), cell(0.51)],
-                "multi": [cell(0.53, "down"), cell(0.49), cell(0.47, "down"), cell(0.62, "up")],
-                "trans": [cell(0.38, "down"), cell(0.53, "up"), cell(0.47, "down"), cell(0.55, "up")],
+                "mono":  [cell(0.51), cell(0.58), cell(0.59), cell(0.56)],
+                "multi": [cell(0.43, "down"), cell(0.62, "up"), cell(0.60, "up"), cell(0.60, "up")],
+                "trans": [cell(0.43, "down"), cell(0.64, "up"), cell(0.60, "up"), cell(0.45, "down")],
             },
         },
         "Greek": {
             "Sparse": {
-                "mono":  [cell(0.49), cell(0.57), cell(0.62), cell(0.60)],
-                "multi": [cell(0.43, "down"), cell(0.53, "down"), cell(0.55, "down"), cell(0.58, "down")],
-                "trans": [cell(0.40, "down"), cell(0.68, "up"), cell(0.53, "down"), cell(0.51, "down")],
+                "mono":  [cell(0.59), cell(0.74), cell(0.67), cell(0.71)],
+                "multi": [cell(0.57, "down"), cell(0.71, "down"), cell(0.53, "down"), cell(0.66, "down")],
+                "trans": [cell(0.64, "up"), cell(0.65, "down"), cell(0.69, "up"), cell(0.60, "down")],
             },
             "Dense": {
-                "mono":  [cell(0.40), cell(0.57), cell(0.66), cell(0.55)],
-                "multi": [cell(0.43, "up"), cell(0.55, "down"), cell(0.49, "down"), cell(0.62, "up")],
-                "trans": [cell(0.45, "up"), cell(0.57), cell(0.55, "down"), cell(0.57, "up")],
+                "mono":  [cell(0.54), cell(0.66), cell(0.73), cell(0.73)],
+                "multi": [cell(0.54), cell(0.66), cell(0.65, "down"), cell(0.67, "down")],
+                "trans": [cell(0.62, "up"), cell(0.61, "down"), cell(0.60, "down"), cell(0.42, "down")],
             },
         },
         "English": {
             "Sparse": {
-                "mono":  [cell(0.54), cell(0.63), cell(0.68), cell(0.67)],
-                "multi": [cell(0.56, "up"), cell(0.61, "down"), cell(0.67, "up"), cell(0.66, "down")],
-                "trans": [cell(0.59, "up"), cell(0.65, "up"), cell(0.67, "down"), cell(0.56, "down")],
+                "mono":  [cell(0.59), cell(0.62), cell(0.65), cell(0.65)],
+                "multi": [cell(0.59), cell(0.58, "down"), cell(0.41, "down"), cell(0.66, "up")],
+                "trans": [cell(0.50, "down"), cell(0.61, "down"), cell(0.66, "up"), cell(0.64, "down")],
             },
             "Dense": {
-                "mono":  [cell(0.54), cell(0.59), cell(0.48), cell(0.66)],
-                "multi": [cell(0.55, "up"), cell(0.61, "up"), cell(0.51, "up"), cell(0.67, "up")],
-                "trans": [cell(0.60, "up"), cell(0.60, "up"), cell(0.53, "up"), cell(0.65, "down")],
+                "mono":  [cell(0.51), cell(0.62), cell(0.65), cell(0.63)],
+                "multi": [cell(0.50, "down"), cell(0.62), cell(0.65), cell(0.63)],
+                "trans": [cell(0.50, "down"), cell(0.57, "down"), cell(0.66, "up"), cell(0.41, "down")],
             },
         },
     },
 }
 
 
-DELTA_TABLES = {
-    "binary": {
-        "Spanish": {
-            "Sparse": {"mono": [-0.02, -0.02, +0.03, -0.02], "multi": [-0.04, -0.01, -0.32,  0.00], "trans": [-0.04, -0.05, -0.06, -0.05]},
-            "Dense":  {"mono": [+0.04,  0.00, -0.02, -0.04], "multi": [ 0.00,  0.00, +0.07, -0.14], "trans": [+0.07, -0.05, -0.44, -0.10]},
-        },
-        "Chinese": {
-            "Sparse": {"mono": [+0.11, +0.11, +0.12, +0.05], "multi": [+0.08, -0.09, -0.44, -0.03], "trans": [-0.02, +0.02, -0.07, -0.06]},
-            "Dense":  {"mono": [+0.16, +0.23, +0.05, +0.13], "multi": [+0.14, +0.04, +0.04, -0.03], "trans": [+0.09, +0.01, -0.02, -0.06]},
-        },
-        "Greek": {
-            "Sparse": {"mono": [+0.09, -0.11, -0.03, -0.04], "multi": [-0.03, -0.18,  0.00, -0.01], "trans": [-0.07, +0.07, -0.09, -0.11]},
-            "Dense":  {"mono": [-0.08, -0.08, +0.01, -0.07], "multi": [+0.15, -0.05, -0.05, -0.33], "trans": [-0.02, +0.06, -0.07, -0.24]},
-        },
-        "English": {
-            "Sparse": {"mono": [+0.04, -0.02, +0.09, +0.08], "multi": [+0.09, +0.07, +0.24, -0.11], "trans": [+0.05, +0.03, +0.10, +0.08]},
-            "Dense":  {"mono": [+0.10, +0.03, +0.03, +0.07], "multi": [+0.10, -0.01, +0.28, +0.02], "trans": [ 0.00, +0.05, -0.06, -0.01]},
-        },
-    },
-    "multiclass": {
-        "Spanish": {
-            "Sparse": {"mono": [-0.14, -0.05, +0.02, -0.02], "multi": [-0.06, -0.11, +0.07, +0.04], "trans": [+0.04, -0.01, -0.13, +0.01]},
-            "Dense":  {"mono": [-0.03,  0.00, +0.01,  0.00], "multi": [+0.06, -0.04, -0.37,  0.00], "trans": [-0.09, -0.03, -0.26, +0.10]},
-        },
-        "Chinese": {
-            "Sparse": {"mono": [+0.09, +0.08, +0.01, +0.02], "multi": [+0.05, +0.02, +0.03, -0.01], "trans": [+0.09,  0.00, -0.22, -0.19]},
-            "Dense":  {"mono": [+0.10, -0.09, -0.10, -0.05], "multi": [+0.10, -0.13, -0.13, +0.02], "trans": [-0.05, -0.11, -0.13, +0.10]},
-        },
-        "Greek": {
-            "Sparse": {"mono": [-0.10, -0.17, -0.05, -0.11], "multi": [-0.14, -0.18, +0.02, -0.08], "trans": [-0.24, +0.03, -0.16, -0.09]},
-            "Dense":  {"mono": [-0.14, -0.09, -0.07, -0.18], "multi": [-0.11, -0.11, -0.16, -0.05], "trans": [-0.17, -0.04, -0.05, +0.15]},
-        },
-        "English": {
-            "Sparse": {"mono": [-0.05, -0.01, +0.03, +0.02], "multi": [-0.03, +0.03, +0.26,  0.00], "trans": [+0.09, +0.04,  0.00, -0.08]},
-            "Dense":  {"mono": [+0.03, -0.03, -0.17, +0.03], "multi": [+0.05, -0.01, -0.14, +0.04], "trans": [+0.10, +0.03, -0.13, +0.24]},
-        },
-    },
-}
+def load_summary_rows(method_key: str, setting_key: str, task_key: str) -> dict[str, dict[str, str]]:
+    path = os.path.join(SUMMARY_DIR, f"{method_key}_{SUMMARY_SETTINGS[setting_key]}_{task_key}.csv")
+    rows: dict[str, dict[str, str]] = {}
+    with open(path, encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            rows[row["Language"]] = row
+    return rows
+
+
+def parse_mean_percent(value: str) -> float:
+    return float(value.split("+/-", 1)[0].strip()) / 100.0
+
+
+def build_delta_tables() -> dict[str, dict[str, dict[str, dict[str, list[float]]]]]:
+    delta_tables: dict[str, dict[str, dict[str, dict[str, list[float]]]]] = {}
+    summary_cache: dict[tuple[str, str, str], dict[str, dict[str, str]]] = {}
+
+    for task_key in RESULT_TABLES:
+        delta_tables[task_key] = {}
+        for repr_label in REPRS:
+            method_key = SUMMARY_METHODS[repr_label]
+            for mode_key in MODES:
+                summary_cache[(task_key, repr_label, mode_key)] = load_summary_rows(method_key, mode_key, task_key)
+
+        for lang in LANGS:
+            delta_tables[task_key][lang] = {}
+            for repr_label in REPRS:
+                delta_tables[task_key][lang][repr_label] = {}
+                for mode_key in MODES:
+                    ours_row = summary_cache[(task_key, repr_label, mode_key)][lang]
+                    paper_cells = RESULT_TABLES[task_key][lang][repr_label][mode_key]
+                    deltas = [
+                        round(parse_mean_percent(ours_row[clf]) - paper_cells[idx][0], 2)
+                        for idx, clf in enumerate(CLFS)
+                    ]
+                    delta_tables[task_key][lang][repr_label][mode_key] = deltas
+
+    return delta_tables
+
+
+DELTA_TABLES = build_delta_tables()
 
 
 PREAMBLE = r"""\usepackage{booktabs}

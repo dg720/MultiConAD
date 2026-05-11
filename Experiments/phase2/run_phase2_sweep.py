@@ -12,6 +12,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.inspection import permutation_importance
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
+    accuracy_score,
     average_precision_score,
     balanced_accuracy_score,
     f1_score,
@@ -121,18 +122,18 @@ def normalize_with_fallback(train_df: pd.DataFrame, test_df: pd.DataFrame, featu
 
 
 def core_feature_columns(df: pd.DataFrame) -> list[str]:
-    allowed_prefixes = ("len_", "lex_", "pause_", "disc_", "syn_", "graph_", "ac_", "sx_", "par_", "pd_", "rd_", "fc_")
+    allowed_prefixes = ("len_", "lex_", "pause_", "disc_", "syn_", "graph_", "ac_", "sx_", "par_", "pd_", "rd_", "fc_", "ft_", "sr_", "pr_")
     return [col for col in df.columns if col.startswith(allowed_prefixes) and pd.api.types.is_numeric_dtype(df[col])]
 
 
 def feature_subset_columns(df: pd.DataFrame, subset_name: str) -> list[str]:
     all_cols = core_feature_columns(df)
     phase1_universal = {col for col in all_cols if col.startswith(("len_", "lex_", "pause_", "disc_", "syn_", "graph_", "ac_"))}
-    rich_syntax = {col for col in all_cols if col.startswith("sx_")}
+    rich_syntax = {col for col in all_cols if col.startswith(("sx_", "pr_"))}
     rich_acoustic = {col for col in all_cols if col.startswith("par_")}
-    task_semantic = {col for col in all_cols if col.startswith(("pd_", "rd_", "fc_"))}
+    task_semantic = {col for col in all_cols if col.startswith(("pd_", "rd_", "fc_", "ft_", "sr_"))}
     pause_cols = {col for col in all_cols if col.startswith("pause_") or col in {"len_audio_duration", "len_speech_duration", "len_tokens_per_second", "len_syllables_per_second"}}
-    rich_text = {col for col in all_cols if col.startswith(("len_", "lex_", "disc_", "syn_", "graph_", "sx_"))}
+    rich_text = {col for col in all_cols if col.startswith(("len_", "lex_", "disc_", "syn_", "graph_", "sx_", "pr_"))}
     acoustic_all = {col for col in all_cols if col.startswith(("ac_", "par_"))}
 
     subsets = {
@@ -181,6 +182,7 @@ def model_specs():
 
 def compute_metrics(y_true: pd.Series, pred: np.ndarray, score_values: np.ndarray) -> dict[str, float]:
     result = {
+        "accuracy": float(accuracy_score(y_true, pred)),
         "balanced_accuracy": float(balanced_accuracy_score(y_true, pred)),
         "macro_f1": float(f1_score(y_true, pred, average="macro")),
         "sensitivity": float(recall_score(y_true, pred, pos_label=1)),
@@ -209,7 +211,7 @@ def apply_filters(df: pd.DataFrame, filters: dict[str, object]) -> pd.DataFrame:
 
 
 def importance_frame(pipeline, feature_names: list[str], test_x: pd.DataFrame, test_y: pd.Series):
-    perm = permutation_importance(pipeline, test_x[feature_names], test_y, n_repeats=PERMUTATION_REPEATS, random_state=SEED, scoring="balanced_accuracy")
+    perm = permutation_importance(pipeline, test_x[feature_names], test_y, n_repeats=PERMUTATION_REPEATS, random_state=SEED, scoring="accuracy")
     frame = pd.DataFrame({"feature_name": feature_names, "importance_mean": perm.importances_mean, "importance_std": perm.importances_std}).sort_values("importance_mean", ascending=False)
     frame["feature_group"] = frame["feature_name"].str.split("_", n=1).str[0]
     return frame
@@ -261,7 +263,7 @@ def run_spec(df: pd.DataFrame, spec: RunSpec, log):
 
     if not results:
         return None
-    result_df = pd.DataFrame(results).sort_values(["balanced_accuracy", "auroc", "macro_f1"], ascending=False)
+    result_df = pd.DataFrame(results).sort_values(["accuracy", "auroc", "balanced_accuracy", "macro_f1"], ascending=False)
     best = result_df.iloc[0].to_dict()
     key = (best["subset_name"], str(best["top_k"]), best["model_family"], best["model_variant"])
     importance_df = importance_tables[key]
@@ -274,9 +276,21 @@ def run_spec(df: pd.DataFrame, spec: RunSpec, log):
     importance_group_df.to_csv(RUN_ROOT / f"{stem}_permutation_importance_feature_groups.csv", index=False)
     anova_df.to_csv(RUN_ROOT / f"{stem}_anova_ranking.csv", index=False)
     anova_group_df.to_csv(RUN_ROOT / f"{stem}_anova_feature_groups.csv", index=False)
-    summary = {"run_name": spec.name, "n_rows": int(len(filtered)), "n_groups": int(filtered["group_id"].nunique()), "best_model": best}
+    summary = {
+        "run_name": spec.name,
+        "n_rows": int(len(filtered)),
+        "n_groups": int(filtered["group_id"].nunique()),
+        "train_rows": int(len(train_df)),
+        "test_rows": int(len(test_df)),
+        "train_groups": int(train_df["group_id"].nunique()),
+        "test_groups": int(test_df["group_id"].nunique()),
+        "class_counts": filtered["binary_label"].value_counts().sort_index().to_dict(),
+        "test_class_counts": test_df["binary_label"].value_counts().sort_index().to_dict(),
+        "primary_selection_metric": "raw accuracy",
+        "best_model": best,
+    }
     write_json(RUN_ROOT / f"{stem}_summary.json", summary)
-    log(f"Completed {spec.name}: best={best['model_family']}:{best['model_variant']} subset={best['subset_name']} top_k={best['top_k']} bal_acc={best['balanced_accuracy']:.3f}")
+    log(f"Completed {spec.name}: best={best['model_family']}:{best['model_variant']} subset={best['subset_name']} top_k={best['top_k']} acc={best['accuracy']:.3f} bal_acc={best['balanced_accuracy']:.3f}")
     return summary
 
 

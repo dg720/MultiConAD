@@ -1,0 +1,76 @@
+Phase 2 Top Features By Language
+================================
+
+These are the top permutation-ranked features from the current stored winning Phase 2 clean-slice model in each language.
+
+Important note
+--------------
+For these Phase 2 clean-slice results, we are still using the winning feature subset per slice, not forcing every language to use the full `all_phase2` pool.
+See `TBU.md` in this folder for the pending correction and the follow-up experiment plan.
+
+- English Cookie Theft: `rich_universal`
+- Chinese Cookie Theft: `semantic_plus_pause`
+- Greek Lion Scene: `rich_universal`
+- Spanish Reading: `task_specific_semantic`
+
+English
+-------
+Model: rf:n200 | subset=rich_universal | k=100 | acc=84.2%
+1. syn_aux_ratio [syn]
+2. syn_pronoun_ratio [syn]
+3. syn_mean_dependency_length [syn]
+4. syn_num_ratio [syn]
+5. syn_clause_density [syn]
+6. graph_density [graph]
+7. syn_determiner_ratio [syn]
+8. len_utterance_count [len]
+9. syn_utterance_count [syn]
+10. lex_function_word_ratio [lex]
+
+Chinese
+-------
+Model: rf:n200 | subset=semantic_plus_pause | k=50 | acc=92.0%
+1. len_speech_duration [len]
+2. lex_mattr_20 [lex]
+3. disc_repeated_trigram_ratio [disc]
+4. syn_adp_ratio [syn]
+5. syn_determiner_noun_ratio [syn]
+6. syn_nsubj_ratio [syn]
+7. graph_node_count [graph]
+8. len_type_count [len]
+9. disc_adjacent_utterance_similarity_mean [disc]
+10. disc_local_coherence [disc]
+
+Greek
+-----
+Model: lr:c1 | subset=rich_universal | k=50 | acc=90.9%
+1. ac_egemaps_f3frequency_sma3nz_stddevnorm [ac]
+2. ac_egemaps_jitterlocal_sma3nz_amean [ac]
+3. lex_honore [lex]
+4. par_mfcc_12_skew [par]
+5. par_mfcc_10_std [par]
+6. par_mfcc_5_skew [par]
+7. par_mfcc_9_kurtosis [par]
+8. ac_egemaps_spectralflux_sma3_stddevnorm [ac]
+9. par_mfcc_8_kurtosis [par]
+10. ac_egemaps_mfcc4_sma3_stddevnorm [ac]
+
+Spanish
+-------
+Model: lr:c1 | subset=task_specific_semantic | k=50 | acc=75.9%
+1. rd_sequence_match_ratio [rd]
+2. rd_content_word_recall_ratio [rd]
+3. rd_repetition_ratio [rd]
+4. rd_reference_bigram_coverage [rd]
+5. rd_reference_order_score [rd]
+6. rd_reference_token_coverage [rd]
+7. rd_omission_ratio [rd]
+8. rd_insertion_ratio [rd]
+9. rd_prompt_similarity [rd]
+
+Interpretation
+--------------
+- English Phase 2 remains mostly syntax-led even after the richer feature expansion.
+- Chinese Phase 2 is the clearest case where the winning slice uses a more task-shaped subset rather than a broad universal pool.
+- Greek Phase 2 is strongly acoustic/paralinguistic.
+- Spanish Reading is almost entirely driven by the reading-reference block, which is the cleanest example of task-specific semantic features dominating.

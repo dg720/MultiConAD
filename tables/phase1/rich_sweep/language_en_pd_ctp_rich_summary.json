@@ -10,6 +10,10 @@
     "0.0": 1467,
     "1.0": 537
   },
+  "test_class_counts": {
+    "0": 304,
+    "1": 106
+  },
   "grouping_levels": [
     [
       "dataset_name"
@@ -17,27 +21,28 @@
     []
   ],
   "best_config": {
-    "subset": "text_only",
-    "top_k": "50",
-    "num_features": 50,
-    "model_family": "svm",
-    "model_variant": "linear_c1",
-    "native_importance_type": "coefficient"
+    "subset": "text_plus_pause_plus_acoustic",
+    "top_k": "all",
+    "num_features": 188,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "native_importance_type": "impurity_importance"
   },
   "best_result": {
     "run_name": "language_en_pd_ctp_rich",
-    "subset": "text_only",
-    "top_k": 50,
-    "num_features": 50,
-    "model_family": "svm",
-    "model_variant": "linear_c1",
-    "balanced_accuracy": 0.7560513902681232,
-    "macro_f1": 0.7704291689997036,
-    "sensitivity": 0.5943396226415094,
-    "specificity": 0.9177631578947368,
-    "precision": 0.7159090909090909,
-    "auroc": 0.8249596573982126,
-    "auprc": 0.7421312001214991
+    "subset": "text_plus_pause_plus_acoustic",
+    "top_k": "all",
+    "num_features": 188,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "accuracy": 0.8439024390243902,
+    "balanced_accuracy": 0.7011854518371401,
+    "macro_f1": 0.7389054726368159,
+    "sensitivity": 0.4056603773584906,
+    "specificity": 0.9967105263157895,
+    "precision": 0.9772727272727273,
+    "auroc": 0.8179307348560081,
+    "auprc": 0.7209905626883972
   },
   "methodology": {
     "split": "single grouped 80/20 holdout by group_id with group-label stratification",
@@ -70,6 +75,7 @@
     ],
     "imputation": "median imputation with explicit missingness indicators",
     "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
-    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available",
+    "primary_selection_metric": "raw accuracy"
   }
 }

@@ -1,0 +1,26 @@
+{
+  "run_name": "language_es_reading_clean_phase2",
+  "n_rows": 269,
+  "n_groups": 102,
+  "best_model": {
+    "run_name": "language_es_reading_clean_phase2",
+    "subset_name": "task_specific_semantic",
+    "top_k": 50,
+    "num_selected_features": 9,
+    "model_family": "lr",
+    "model_variant": "c1",
+    "balanced_accuracy": 0.7286821705426356,
+    "macro_f1": 0.7087517934002869,
+    "sensitivity": 0.6666666666666666,
+    "specificity": 0.7906976744186046,
+    "precision": 0.5263157894736842,
+    "auroc": 0.7922480620155039,
+    "auprc": 0.6600831179402608,
+    "accuracy": 0.7586206896551724
+  },
+  "test_class_counts": {
+    "0": 43,
+    "1": 15
+  },
+  "primary_selection_metric": "raw accuracy"
+}

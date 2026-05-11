@@ -1,0 +1,5 @@
+language_code,language,global_combined_feature_accuracy,global_combined_feature_model,global_combined_feature_top_k,combined_feature_accuracy,combined_feature_balanced_accuracy,combined_feature_auroc,combined_feature_model,combined_feature_top_k,combined_feature_num_features,delta_vs_global_combined_feature,text_best_monolingual_accuracy,text_best_multilingual_combined_accuracy,text_best_translated_combined_accuracy
+en,English,0.7846364883401921,svm:rbf_c1,50,0.8618556701030928,0.7218514755461137,0.8399990763404609,rf:n200,100,100,0.07721918176290077,88.9,87.8,88.5
+es,Spanish,0.7846364883401921,svm:rbf_c1,50,0.8524590163934426,0.7822997416020672,0.83656330749354,rf:n200,all,69,0.06782252805325051,74.9,75.6,74.6
+zh,Chinese,0.7846364883401921,svm:rbf_c1,50,0.8125,0.7813390313390314,0.9138176638176638,svm:linear_c1,all,192,0.027863511659807938,84.1,83.9,86.6
+el,Greek,0.7846364883401921,svm:rbf_c1,50,0.8333333333333334,0.8035714285714286,0.9056122448979592,rf:n200,all,192,0.04869684499314131,79.1,76.7,67.9

@@ -66,9 +66,15 @@ def apply_filter(df: pd.DataFrame, filters: dict[str, object]) -> pd.DataFrame:
     return out
 
 
-def fit_run(df: pd.DataFrame, filters: dict[str, object], grouping_levels: list[list[str]], summary_name: str):
+def fit_run(
+    df: pd.DataFrame,
+    filters: dict[str, object],
+    grouping_levels: list[list[str]],
+    summary_name: str,
+    override_best: dict[str, object] | None = None,
+):
     summary = pd.read_json(RICH_SWEEP_ROOT / f"{summary_name}_summary.json", typ="series")
-    best = summary["best_config"]
+    best = override_best or summary["best_config"]
     run_df = apply_filter(df, filters)
     train_df, test_df = grouped_train_test_split(run_df, test_size=0.2, seed=42)
 
@@ -92,8 +98,10 @@ def fit_run(df: pd.DataFrame, filters: dict[str, object], grouping_levels: list[
     else:
         score = estimator.decision_function(x_test)
 
-    native_path = RICH_SWEEP_ROOT / f"{summary_name}_native_importance_no_missing_indicators.csv"
-    native_importance = pd.read_csv(native_path) if native_path.exists() else None
+    native_importance = None
+    if override_best is None:
+        native_path = RICH_SWEEP_ROOT / f"{summary_name}_native_importance_no_missing_indicators.csv"
+        native_importance = pd.read_csv(native_path) if native_path.exists() else None
     return {
         "summary": summary,
         "run_df": run_df,
@@ -135,17 +143,33 @@ def choose_saliency_pair(run_state: dict[str, object]) -> pd.DataFrame:
 
 def make_saliency_plot(run_state: dict[str, object], pair: pd.DataFrame, output_path: Path) -> pd.DataFrame:
     native = run_state["native_importance"]
-    top_features = native.head(10)["feature_name"].tolist()
 
     estimator = run_state["estimator"]
     imputer = estimator.named_steps["imputer"]
-    scaler = estimator.named_steps["scaler"]
+    scaler = estimator.named_steps.get("scaler")
     clf = estimator.named_steps["clf"]
     imputed_names = list(imputer.get_feature_names_out(run_state["selected_cols"]))
 
+    if native is None:
+        if not hasattr(clf, "coef_"):
+            raise RuntimeError("Saliency plot requires a linear model with coefficients.")
+        native = pd.DataFrame(
+            {
+                "feature_name": imputed_names,
+                "native_importance": clf.coef_[0],
+                "native_importance_abs": np.abs(clf.coef_[0]),
+            }
+        )
+        native = native[~native["feature_name"].str.startswith("missingindicator_")].sort_values(
+            "native_importance_abs",
+            ascending=False,
+        )
+
+    top_features = native.head(10)["feature_name"].tolist()
+
     pair_x = run_state["x_test"].loc[pair.index, run_state["selected_cols"]]
     imputed = imputer.transform(pair_x)
-    scaled = scaler.transform(imputed)
+    scaled = scaler.transform(imputed) if scaler is not None else imputed
     coef = clf.coef_[0]
 
     rows = []
@@ -196,7 +220,7 @@ def make_saliency_plot(run_state: dict[str, object], pair: pd.DataFrame, output_
     ax.set_yticks([20, 40, 60, 80, 100])
     ax.set_yticklabels(["20", "40", "60", "80", "100"], fontsize=8)
     ax.set_ylim(0, 100)
-    ax.set_title("English PD_CTP Saliency Map\nTop linear-SVM feature contributions for one AD and one HC subject", pad=20)
+    ax.set_title("English PD_CTP Saliency Map\nTop linear-model feature contributions for one AD and one HC subject", pad=20)
     ax.legend(loc="upper right", bbox_to_anchor=(1.28, 1.15), frameon=False)
     plt.tight_layout()
     fig.savefig(output_path, dpi=220, bbox_inches="tight")
@@ -768,6 +792,31 @@ def main():
         grouping_levels=[["dataset_name"], []],
         summary_name="language_en_pd_ctp_rich",
     )
+    en_pd_ctp_results = pd.read_csv(RICH_SWEEP_ROOT / "language_en_pd_ctp_rich_model_results.csv")
+    en_pd_ctp_linear_best = (
+        en_pd_ctp_results[
+            ((en_pd_ctp_results["model_family"] == "lr"))
+            | (
+                (en_pd_ctp_results["model_family"] == "svm")
+                & (en_pd_ctp_results["model_variant"] == "linear_c1")
+            )
+        ]
+        .sort_values(["accuracy", "auroc", "balanced_accuracy", "macro_f1"], ascending=False)
+        .iloc[0]
+        .to_dict()
+    )
+    en_pd_ctp_saliency_state = fit_run(
+        df,
+        filters={"language": "en", "task_type": "PD_CTP"},
+        grouping_levels=[["dataset_name"], []],
+        summary_name="language_en_pd_ctp_rich",
+        override_best={
+            "subset": en_pd_ctp_linear_best["subset"],
+            "top_k": en_pd_ctp_linear_best["top_k"],
+            "model_family": en_pd_ctp_linear_best["model_family"],
+            "model_variant": en_pd_ctp_linear_best["model_variant"],
+        },
+    )
     zh_state = fit_run(
         df,
         filters={"language": "zh", "task_type": "PD_CTP"},
@@ -788,11 +837,11 @@ def main():
     )
 
     log("Selecting a well-classified English PD_CTP AD/HC pair")
-    pair = choose_saliency_pair(en_pd_ctp_state)
+    pair = choose_saliency_pair(en_pd_ctp_saliency_state)
     safe_to_csv(pair, REPORT_ROOT / "english_pd_ctp_selected_pair.csv")
 
     log("Generating patient-level saliency figure")
-    saliency_df = make_saliency_plot(en_pd_ctp_state, pair, REPORT_ROOT / "english_pd_ctp_saliency_map.png")
+    saliency_df = make_saliency_plot(en_pd_ctp_saliency_state, pair, REPORT_ROOT / "english_pd_ctp_saliency_map.png")
 
     log("Building worked example table")
     example_df = example_feature_table(REPORT_ROOT / "feature_example_table.csv")
@@ -836,7 +885,7 @@ def main():
 
     def best_by_method(df: pd.DataFrame) -> pd.DataFrame:
         out = (
-            df.sort_values(["balanced_accuracy", "auroc", "macro_f1"], ascending=False)
+            df.sort_values(["accuracy", "auroc", "balanced_accuracy", "macro_f1"], ascending=False)
             .groupby(["model_family", "model_variant"], as_index=False)
             .first()
         )
@@ -847,6 +896,7 @@ def main():
                 "subset",
                 "top_k",
                 "num_features",
+                "accuracy",
                 "balanced_accuracy",
                 "precision",
                 "sensitivity",

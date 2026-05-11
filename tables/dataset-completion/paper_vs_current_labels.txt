@@ -1,16 +1,23 @@
-Paper vs current benchmark/source data.
-Comparison basis:
-- "Paper" is transcribed from Table 1 in the paper.
-- Table 1 counts = total source files (train + test combined, before the 80/20 split) for all datasets
-  EXCEPT NCMMSC, where only the training split was used (test labels were unavailable to paper authors;
-  see Section 3.1.4: "only the training set was used due to test set label unavailability").
-- "Current repo" reflects what is actually present in this repo's current extracted benchmark inputs.
-- Match notes in the current repo table: `✓` roughly aligned, `✗` differs materially, `(✓)` aligned with a known structural reason for the count difference.
+Paper vs current benchmark/source data
 
-Paper table
+Comparison basis
+- "Paper" is transcribed from Table 1 in `2024_multiconad_multilingual_alzheimer_shakeri_farmanbar_balog_annotated.pdf`.
+- Table 1 is mostly source-level counts before the 80/20 train/test split.
+- The one exception is NCMMSE/NCMMSC: the paper row is train-only because the paper did not use the labeled test set.
+- "Current repo source pool" below is computed from the live extracted JSONL files in `data/processed/extracted/`.
+- "Current cleaned benchmark" below is computed from the live cleaned train/test JSONL files in `data/processed/cleaned/`.
+- This file is independent of the Phase 1 / Phase 2 feature experiments.
+
+Diagnosis bucket mapping used for current repo counts
+- `DM`: dementia-like labels that are not explicitly `AD` in the raw source files, e.g. `Dementia`, `D`, `Memory`, `Vascular`, `Pick's`, `Aphasia`
+- `AD`: explicit AD-like labels, e.g. `AD`, `ProbableAD`, `PossibleAD`, `Alzheimer's`, `DTA`
+- `HC`: healthy/control-like labels, e.g. `HC`, `Control`, `CTRL`, `NC`, `H`
+- `Unknown`: rows still unlabeled in the raw extracted pool
+
+Paper Table 1 counts
 
 Language | Source   | Paper DM | Paper AD | Paper MCI | Paper HC
----------|----------|----------|----------|-----------|----------
+---------|----------|----------|----------|-----------|---------
 English  | Pitt     | 0        | 255      | 42        | 243
 English  | Lu       | 6        | 16       | 2         | 27
 English  | VAS      | 30       | 0        | 35        | 36
@@ -28,46 +35,43 @@ Greek    | DS5      | 0        | 26       | 35        | 31
 Greek    | DS7      | 0        | 27       | 35        | 2
 Greek    | ADReSS-M | 0        | 22       | 0         | 24
 
-Current repo table
+Current repo source pool counts
 
-Language | Source   | Repo DM | Repo AD | Repo MCI | Repo HC | Rough match
----------|----------|---------|---------|----------|---------|------------
-English  | Pitt     | 0       | 255     | 42       | 243     | ✓
-English  | Lu       | 6       | 16      | 2        | 27      | ✓
-English  | VAS      | 29      | 0       | 35       | 36      | ✓
-English  | Baycrest | 0       | 3       | 7        | 0       | ✓
-English  | Kempler  | 0       | 7       | 0        | 0       | ✓
-English  | WLS      | 262     | 0       | 0        | 1106    | ✓
-English  | Delaware | 0       | 0       | 148      | 256     | (✓) - larger longitudinal dataset available with multiple participants having repeat visits 
-English  | Taukdial | 0       | 0       | 153      | 93      | (✓) - effectively same, just reporting 3x picture descriptions
-Spanish  | Ivanova  | 0       | 74      | 87       | 196     | ✓
-Spanish  | PerLA    | 0       | 23      | 0        | 0       | (✓) - effectively same, just reporting 21 speakers, some longitudinal
-Chinese  | NCMMSE   | 0       | 114     | 132      | 153     | (✓) - extra test data now available, train data matches
-Chinese  | iFkyTek  | 0       | 68      | 144      | 111     | ✓
-Chinese  | Taukdial | 0       | 0       | 131      | 129     | (✓) - effectively same, just reporting 3x picture descriptions
-Greek    | DS3      | 0       | 107     | 0        | 42      | (✓) - same source cohort, but file-level benchmark keeps repeated interviews/tasks so repo count is larger
-Greek    | DS5      | 0       | 26      | 36       | 31      | ✓
-Greek    | DS7      | 0       | 27      | 29       | 2       | (✓) - effectively same, including a few additional MCI cases
-Greek    | ADReSS-M | 0       | 22      | 0        | 24      | ✓
+Language | Source   | Repo DM | Repo AD | Repo MCI | Repo HC | Repo Unknown | Repo Total
+---------|----------|---------|---------|----------|---------|--------------|-----------
+English  | Pitt     | 8       | 255     | 42       | 243     | 4            | 552
+English  | Lu       | 9       | 16      | 2        | 27      | 0            | 54
+English  | VAS      | 29      | 0       | 35       | 36      | 0            | 100
+English  | Baycrest | 0       | 3       | 7        | 0       | 0            | 10
+English  | Kempler  | 0       | 7       | 0        | 0       | 0            | 7
+English  | WLS      | 262     | 0       | 0        | 1106    | 0            | 1368
+English  | Delaware | 0       | 0       | 148      | 256     | 3            | 407
+English  | Taukdial | 0       | 0       | 221      | 165     | 0            | 386
+Spanish  | Ivanova  | 0       | 74      | 87       | 196     | 0            | 357
+Spanish  | PerLA    | 0       | 26      | 0        | 0       | 1            | 27
+Chinese  | NCMMSE   | 0       | 114     | 132      | 153     | 0            | 399
+Chinese  | iFkyTek  | 0       | 68      | 144      | 111     | 78           | 401
+Chinese  | Taukdial | 0       | 0       | 63       | 57      | 0            | 120
+Greek    | DS3      | 0       | 107     | 0        | 42      | 101          | 250
+Greek    | DS5      | 0       | 26      | 36       | 31      | 0            | 93
+Greek    | DS7      | 0       | 27      | 29       | 2       | 1            | 59
+Greek    | ADReSS-M | 0       | 22      | 0        | 24      | 0            | 46
 
-Table 4-style split summary
+Current cleaned benchmark counts
 
-Paper version
+These are the live benchmark rows after language-specific cleaning, unlabeled-row removal, outlier filtering, and the repo's 80/20 train/test split.
 
-Language | Train AD | Train MCI | Train HC | Test AD | Test MCI | Test HC
----------|----------|-----------|----------|---------|----------|--------
-Spanish  | 78       | 70        | 156      | 20      | 18       | 39
-Chinese  | 93       | 200       | 187      | 23      | 51       | 47
-Greek    | 266      | 51        | 87       | 66      | 13       | 22
-English  | 512      | 239       | 1450     | 63      | 60       | 87
-Total    | 949      | 560       | 1880     | 172     | 142      | 195
+Language | Train AD_or_Dementia | Train MCI | Train HC | Test AD_or_Dementia | Test MCI | Test HC | Total
+---------|----------------------|-----------|----------|---------------------|----------|---------|------
+Spanish  | 77                   | 70        | 156      | 20                  | 17       | 39      | 379
+Chinese  | 119                  | 259       | 232      | 30                  | 65       | 58      | 763
+Greek    | 106                  | 39        | 66       | 26                  | 10       | 17      | 264
+English  | 512                  | 309       | 1628     | 63                  | 78       | 131     | 2721
+Total    | 814                  | 677       | 2082     | 139                 | 170      | 245     | 4127
 
-Current repo version
-
-Language | Train AD | Train MCI | Train HC | Test AD | Test MCI | Test HC
----------|----------|-----------|----------|---------|----------|--------
-Spanish  | 77       | 70        | 156      | 20      | 17       | 39
-Chinese  | 37       | 143       | 124      | 9       | 36       | 31   ← STALE: NCMMSC now integrated; update after transcription + cleaning
-Greek    | 106      | 39        | 66       | 26      | 10       | 17
-English  | 512      | 309       | 1628     | 63      | 78       | 131
-Total    | 732      | 561       | 1974     | 118     | 141      | 218  ← Chinese row stale; retotal after cleaning
+Key observations
+- NCMMSE is no longer stale here. The current source pool includes the labeled test subset, so the repo has `399` labeled NCMMSE rows versus the paper's `280` train-only row.
+- English Taukdial and Chinese Taukdial are separated in the current repo, whereas the paper reports one English row and does not break out the Chinese test portion this way.
+- Delaware, DS3, and Taukdial are materially larger in the current repo because the repo keeps file-level/session-level datapoints, not a paper-compatible participant-level subset.
+- WLS remains weakly labeled in the repo. The current source pool is `262 DM / 1106 HC`; the paper row reports `263 AD / 1106 HC`.
+- The cleaned benchmark totals are expected to differ from the raw source-pool totals because unlabeled rows are dropped and the cleaning scripts apply text-length filtering before the train/test split.
