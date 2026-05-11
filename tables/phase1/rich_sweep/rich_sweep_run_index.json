@@ -1,0 +1,796 @@
+{
+  "completed_runs": [
+    "benchmark_wide_rich",
+    "pd_ctp_pooled_rich",
+    "language_en_all_rich",
+    "language_es_all_rich",
+    "language_zh_all_rich",
+    "language_el_all_rich",
+    "language_en_pd_ctp_rich",
+    "language_zh_pd_ctp_rich",
+    "language_el_pd_ctp_rich",
+    "language_es_reading_rich"
+  ],
+  "skipped_runs": [],
+  "summaries": {
+    "benchmark_wide_rich": {
+      "seed": 42,
+      "rows": 3280,
+      "groups": 2393,
+      "train_rows": 2551,
+      "test_rows": 729,
+      "train_groups": 1914,
+      "test_groups": 479,
+      "class_counts": {
+        "0.0": 2327,
+        "1.0": 953
+      },
+      "grouping_levels": [
+        [
+          "language",
+          "task_type",
+          "dataset_name"
+        ],
+        [
+          "language",
+          "task_type"
+        ],
+        [
+          "language"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "all_universal",
+        "top_k": "50",
+        "num_features": 50,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "native_importance_type": null
+      },
+      "best_result": {
+        "run_name": "benchmark_wide_rich",
+        "subset": "all_universal",
+        "top_k": 50,
+        "num_features": 50,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "balanced_accuracy": 0.7491018324337333,
+        "macro_f1": 0.7515590913530938,
+        "sensitivity": 0.6483050847457628,
+        "specificity": 0.8498985801217038,
+        "precision": 0.6740088105726872,
+        "auroc": 0.8179470210059476,
+        "auprc": 0.7364120949629462
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "pd_ctp_pooled_rich": {
+      "seed": 42,
+      "rows": 2342,
+      "groups": 1971,
+      "train_rows": 1867,
+      "test_rows": 475,
+      "train_groups": 1576,
+      "test_groups": 395,
+      "class_counts": {
+        "0.0": 1691,
+        "1.0": 651
+      },
+      "grouping_levels": [
+        [
+          "language",
+          "dataset_name"
+        ],
+        [
+          "language"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "all_universal",
+        "top_k": "100",
+        "num_features": 100,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "native_importance_type": "coefficient"
+      },
+      "best_result": {
+        "run_name": "pd_ctp_pooled_rich",
+        "subset": "all_universal",
+        "top_k": 100,
+        "num_features": 100,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "balanced_accuracy": 0.7505314072531668,
+        "macro_f1": 0.7516339869281046,
+        "sensitivity": 0.6397058823529411,
+        "specificity": 0.8613569321533924,
+        "precision": 0.6492537313432836,
+        "auroc": 0.8127711261495748,
+        "auprc": 0.7274706406220033
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_en_all_rich": {
+      "seed": 42,
+      "rows": 2334,
+      "groups": 1904,
+      "train_rows": 1849,
+      "test_rows": 485,
+      "train_groups": 1523,
+      "test_groups": 381,
+      "class_counts": {
+        "0.0": 1759,
+        "1.0": 575
+      },
+      "grouping_levels": [
+        [
+          "task_type",
+          "dataset_name"
+        ],
+        [
+          "task_type"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "text_only",
+        "top_k": "100",
+        "num_features": 62,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "native_importance_type": null
+      },
+      "best_result": {
+        "run_name": "language_en_all_rich",
+        "subset": "text_only",
+        "top_k": 100,
+        "num_features": 62,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "balanced_accuracy": 0.7462014501454763,
+        "macro_f1": 0.7540641312453393,
+        "sensitivity": 0.5932203389830508,
+        "specificity": 0.8991825613079019,
+        "precision": 0.6542056074766355,
+        "auroc": 0.8141597007343094,
+        "auprc": 0.6640668869108026
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_es_all_rich": {
+      "seed": 42,
+      "rows": 292,
+      "groups": 125,
+      "train_rows": 231,
+      "test_rows": 61,
+      "train_groups": 100,
+      "test_groups": 25,
+      "class_counts": {
+        "0.0": 195,
+        "1.0": 97
+      },
+      "grouping_levels": [
+        [
+          "task_type",
+          "dataset_name"
+        ],
+        [
+          "task_type"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "text_only",
+        "top_k": "20",
+        "num_features": 20,
+        "model_family": "rf",
+        "model_variant": "n200",
+        "native_importance_type": "impurity_importance"
+      },
+      "best_result": {
+        "run_name": "language_es_all_rich",
+        "subset": "text_only",
+        "top_k": 20,
+        "num_features": 20,
+        "model_family": "rf",
+        "model_variant": "n200",
+        "balanced_accuracy": 0.7984496124031008,
+        "macro_f1": 0.8130745658835546,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.9302325581395349,
+        "precision": 0.8,
+        "auroc": 0.7835917312661499,
+        "auprc": 0.7112232540956298
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_zh_all_rich": {
+      "seed": 42,
+      "rows": 439,
+      "groups": 222,
+      "train_rows": 359,
+      "test_rows": 80,
+      "train_groups": 177,
+      "test_groups": 45,
+      "class_counts": {
+        "0.0": 290,
+        "1.0": 149
+      },
+      "grouping_levels": [
+        [
+          "task_type",
+          "dataset_name"
+        ],
+        [
+          "task_type"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "text_plus_pause",
+        "top_k": "100",
+        "num_features": 82,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "native_importance_type": null
+      },
+      "best_result": {
+        "run_name": "language_zh_all_rich",
+        "subset": "text_plus_pause",
+        "top_k": 100,
+        "num_features": 82,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "balanced_accuracy": 0.8376068376068375,
+        "macro_f1": 0.8511904761904762,
+        "sensitivity": 0.7307692307692307,
+        "specificity": 0.9444444444444444,
+        "precision": 0.8636363636363636,
+        "auroc": 0.9131054131054132,
+        "auprc": 0.8340828852116506
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_el_all_rich": {
+      "seed": 42,
+      "rows": 215,
+      "groups": 142,
+      "train_rows": 173,
+      "test_rows": 42,
+      "train_groups": 113,
+      "test_groups": 29,
+      "class_counts": {
+        "0.0": 83,
+        "1.0": 132
+      },
+      "grouping_levels": [
+        [
+          "task_type",
+          "dataset_name"
+        ],
+        [
+          "task_type"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "acoustic_only",
+        "top_k": "100",
+        "num_features": 100,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "native_importance_type": null
+      },
+      "best_result": {
+        "run_name": "language_el_all_rich",
+        "subset": "acoustic_only",
+        "top_k": 100,
+        "num_features": 100,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "balanced_accuracy": 0.875,
+        "macro_f1": 0.8485576923076923,
+        "sensitivity": 0.8214285714285714,
+        "specificity": 0.9285714285714286,
+        "precision": 0.9583333333333334,
+        "auroc": 0.9336734693877552,
+        "auprc": 0.9750417175417175
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_en_pd_ctp_rich": {
+      "seed": 42,
+      "rows": 2004,
+      "groups": 1711,
+      "train_rows": 1594,
+      "test_rows": 410,
+      "train_groups": 1368,
+      "test_groups": 343,
+      "class_counts": {
+        "0.0": 1467,
+        "1.0": 537
+      },
+      "grouping_levels": [
+        [
+          "dataset_name"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "text_only",
+        "top_k": "50",
+        "num_features": 50,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "native_importance_type": "coefficient"
+      },
+      "best_result": {
+        "run_name": "language_en_pd_ctp_rich",
+        "subset": "text_only",
+        "top_k": 50,
+        "num_features": 50,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "balanced_accuracy": 0.7560513902681232,
+        "macro_f1": 0.7704291689997036,
+        "sensitivity": 0.5943396226415094,
+        "specificity": 0.9177631578947368,
+        "precision": 0.7159090909090909,
+        "auroc": 0.8249596573982126,
+        "auprc": 0.7421312001214991
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_zh_pd_ctp_rich": {
+      "seed": 42,
+      "rows": 205,
+      "groups": 127,
+      "train_rows": 161,
+      "test_rows": 44,
+      "train_groups": 101,
+      "test_groups": 26,
+      "class_counts": {
+        "0.0": 167,
+        "1.0": 38
+      },
+      "grouping_levels": [
+        [
+          "dataset_name"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "pause_only",
+        "top_k": "20",
+        "num_features": 20,
+        "model_family": "dt",
+        "model_variant": "depth20",
+        "native_importance_type": "impurity_importance"
+      },
+      "best_result": {
+        "run_name": "language_zh_pd_ctp_rich",
+        "subset": "pause_only",
+        "top_k": 20,
+        "num_features": 20,
+        "model_family": "dt",
+        "model_variant": "depth20",
+        "balanced_accuracy": 0.9861111111111112,
+        "macro_f1": 0.9635459817729909,
+        "sensitivity": 1.0,
+        "specificity": 0.9722222222222222,
+        "precision": 0.8888888888888888,
+        "auroc": 0.986111111111111,
+        "auprc": 0.8888888888888888
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_el_pd_ctp_rich": {
+      "seed": 42,
+      "rows": 133,
+      "groups": 133,
+      "train_rows": 106,
+      "test_rows": 27,
+      "train_groups": 106,
+      "test_groups": 27,
+      "class_counts": {
+        "0.0": 57,
+        "1.0": 76
+      },
+      "grouping_levels": [
+        [
+          "dataset_name"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "acoustic_only",
+        "top_k": "50",
+        "num_features": 50,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "native_importance_type": "coefficient"
+      },
+      "best_result": {
+        "run_name": "language_el_pd_ctp_rich",
+        "subset": "acoustic_only",
+        "top_k": 50,
+        "num_features": 50,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "balanced_accuracy": 0.925,
+        "macro_f1": 0.925,
+        "sensitivity": 0.9333333333333333,
+        "specificity": 0.9166666666666666,
+        "precision": 0.9333333333333333,
+        "auroc": 0.9444444444444445,
+        "auprc": 0.9733333333333334
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    },
+    "language_es_reading_rich": {
+      "seed": 42,
+      "rows": 269,
+      "groups": 102,
+      "train_rows": 211,
+      "test_rows": 58,
+      "train_groups": 81,
+      "test_groups": 21,
+      "class_counts": {
+        "0.0": 195,
+        "1.0": 74
+      },
+      "grouping_levels": [
+        [
+          "dataset_name"
+        ],
+        []
+      ],
+      "best_config": {
+        "subset": "text_only",
+        "top_k": "10",
+        "num_features": 10,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "native_importance_type": "coefficient"
+      },
+      "best_result": {
+        "run_name": "language_es_reading_rich",
+        "subset": "text_only",
+        "top_k": 10,
+        "num_features": 10,
+        "model_family": "svm",
+        "model_variant": "linear_c1",
+        "balanced_accuracy": 0.7403100775193798,
+        "macro_f1": 0.7247170500182549,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.813953488372093,
+        "precision": 0.5555555555555556,
+        "auroc": 0.7519379844961241,
+        "auprc": 0.5551438572794072
+      },
+      "methodology": {
+        "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+        "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+        "feature_selection": "ANOVA f_classif fit on training data only",
+        "feature_subsets": [
+          "all_universal",
+          "text_only",
+          "pause_only",
+          "speech_graph_only",
+          "acoustic_only",
+          "text_plus_pause",
+          "text_plus_pause_plus_graph",
+          "text_plus_pause_plus_acoustic"
+        ],
+        "top_k_values": [
+          5,
+          10,
+          20,
+          50,
+          100,
+          "all"
+        ],
+        "classifiers": [
+          "logistic regression C=1",
+          "decision tree max_depth=20",
+          "random forest n_estimators=200",
+          "SVM linear C=1",
+          "SVM rbf C=1"
+        ],
+        "imputation": "median imputation with explicit missingness indicators",
+        "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+        "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+      }
+    }
+  }
+}

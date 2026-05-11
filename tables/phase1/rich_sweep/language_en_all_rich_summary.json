@@ -1,0 +1,79 @@
+{
+  "seed": 42,
+  "rows": 2334,
+  "groups": 1904,
+  "train_rows": 1849,
+  "test_rows": 485,
+  "train_groups": 1523,
+  "test_groups": 381,
+  "class_counts": {
+    "0.0": 1759,
+    "1.0": 575
+  },
+  "grouping_levels": [
+    [
+      "task_type",
+      "dataset_name"
+    ],
+    [
+      "task_type"
+    ],
+    []
+  ],
+  "best_config": {
+    "subset": "text_only",
+    "top_k": "100",
+    "num_features": 62,
+    "model_family": "svm",
+    "model_variant": "rbf_c1",
+    "native_importance_type": null
+  },
+  "best_result": {
+    "run_name": "language_en_all_rich",
+    "subset": "text_only",
+    "top_k": 100,
+    "num_features": 62,
+    "model_family": "svm",
+    "model_variant": "rbf_c1",
+    "balanced_accuracy": 0.7462014501454763,
+    "macro_f1": 0.7540641312453393,
+    "sensitivity": 0.5932203389830508,
+    "specificity": 0.8991825613079019,
+    "precision": 0.6542056074766355,
+    "auroc": 0.8141597007343094,
+    "auprc": 0.6640668869108026
+  },
+  "methodology": {
+    "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+    "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+    "feature_selection": "ANOVA f_classif fit on training data only",
+    "feature_subsets": [
+      "all_universal",
+      "text_only",
+      "pause_only",
+      "speech_graph_only",
+      "acoustic_only",
+      "text_plus_pause",
+      "text_plus_pause_plus_graph",
+      "text_plus_pause_plus_acoustic"
+    ],
+    "top_k_values": [
+      5,
+      10,
+      20,
+      50,
+      100,
+      "all"
+    ],
+    "classifiers": [
+      "logistic regression C=1",
+      "decision tree max_depth=20",
+      "random forest n_estimators=200",
+      "SVM linear C=1",
+      "SVM rbf C=1"
+    ],
+    "imputation": "median imputation with explicit missingness indicators",
+    "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+  }
+}

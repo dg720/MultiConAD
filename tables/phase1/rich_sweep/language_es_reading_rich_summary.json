@@ -1,0 +1,75 @@
+{
+  "seed": 42,
+  "rows": 269,
+  "groups": 102,
+  "train_rows": 211,
+  "test_rows": 58,
+  "train_groups": 81,
+  "test_groups": 21,
+  "class_counts": {
+    "0.0": 195,
+    "1.0": 74
+  },
+  "grouping_levels": [
+    [
+      "dataset_name"
+    ],
+    []
+  ],
+  "best_config": {
+    "subset": "text_only",
+    "top_k": "10",
+    "num_features": 10,
+    "model_family": "svm",
+    "model_variant": "linear_c1",
+    "native_importance_type": "coefficient"
+  },
+  "best_result": {
+    "run_name": "language_es_reading_rich",
+    "subset": "text_only",
+    "top_k": 10,
+    "num_features": 10,
+    "model_family": "svm",
+    "model_variant": "linear_c1",
+    "balanced_accuracy": 0.7403100775193798,
+    "macro_f1": 0.7247170500182549,
+    "sensitivity": 0.6666666666666666,
+    "specificity": 0.813953488372093,
+    "precision": 0.5555555555555556,
+    "auroc": 0.7519379844961241,
+    "auprc": 0.5551438572794072
+  },
+  "methodology": {
+    "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+    "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+    "feature_selection": "ANOVA f_classif fit on training data only",
+    "feature_subsets": [
+      "all_universal",
+      "text_only",
+      "pause_only",
+      "speech_graph_only",
+      "acoustic_only",
+      "text_plus_pause",
+      "text_plus_pause_plus_graph",
+      "text_plus_pause_plus_acoustic"
+    ],
+    "top_k_values": [
+      5,
+      10,
+      20,
+      50,
+      100,
+      "all"
+    ],
+    "classifiers": [
+      "logistic regression C=1",
+      "decision tree max_depth=20",
+      "random forest n_estimators=200",
+      "SVM linear C=1",
+      "SVM rbf C=1"
+    ],
+    "imputation": "median imputation with explicit missingness indicators",
+    "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+  }
+}

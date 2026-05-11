@@ -1,0 +1,79 @@
+{
+  "seed": 42,
+  "rows": 439,
+  "groups": 222,
+  "train_rows": 359,
+  "test_rows": 80,
+  "train_groups": 177,
+  "test_groups": 45,
+  "class_counts": {
+    "0.0": 290,
+    "1.0": 149
+  },
+  "grouping_levels": [
+    [
+      "task_type",
+      "dataset_name"
+    ],
+    [
+      "task_type"
+    ],
+    []
+  ],
+  "best_config": {
+    "subset": "text_plus_pause",
+    "top_k": "100",
+    "num_features": 82,
+    "model_family": "svm",
+    "model_variant": "rbf_c1",
+    "native_importance_type": null
+  },
+  "best_result": {
+    "run_name": "language_zh_all_rich",
+    "subset": "text_plus_pause",
+    "top_k": 100,
+    "num_features": 82,
+    "model_family": "svm",
+    "model_variant": "rbf_c1",
+    "balanced_accuracy": 0.8376068376068375,
+    "macro_f1": 0.8511904761904762,
+    "sensitivity": 0.7307692307692307,
+    "specificity": 0.9444444444444444,
+    "precision": 0.8636363636363636,
+    "auroc": 0.9131054131054132,
+    "auprc": 0.8340828852116506
+  },
+  "methodology": {
+    "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+    "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+    "feature_selection": "ANOVA f_classif fit on training data only",
+    "feature_subsets": [
+      "all_universal",
+      "text_only",
+      "pause_only",
+      "speech_graph_only",
+      "acoustic_only",
+      "text_plus_pause",
+      "text_plus_pause_plus_graph",
+      "text_plus_pause_plus_acoustic"
+    ],
+    "top_k_values": [
+      5,
+      10,
+      20,
+      50,
+      100,
+      "all"
+    ],
+    "classifiers": [
+      "logistic regression C=1",
+      "decision tree max_depth=20",
+      "random forest n_estimators=200",
+      "SVM linear C=1",
+      "SVM rbf C=1"
+    ],
+    "imputation": "median imputation with explicit missingness indicators",
+    "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+  }
+}

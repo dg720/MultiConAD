@@ -454,6 +454,88 @@ These should remain optional if graph construction becomes brittle for some tran
 
 This remains the scientific core of the final biomarker interpretation, but it should come after the universal baseline is working.
 
+Phase 2 should now explicitly include four richer feature sets derived from the Lindsay et al. and Balagopalan et al. feature-based AD papers:
+
+```text
+1. Prompt-aware PD_CTP semantic / content-unit features
+2. Task-aware semantic modules for READING / CONVERSATION / STORY_NARRATIVE / FLUENCY
+3. Richer lexicosyntactic feature families beyond the Phase 1 universal syntax block
+4. Richer acoustic / paralinguistic feature families beyond eGeMAPS + lightweight fallback audio
+```
+
+These four sets should be implemented additively on top of the Phase 1 universal baseline rather than replacing it.
+
+### Richer Phase 2 feature sets
+
+#### 1. Prompt-aware PD_CTP semantic / content-unit features
+
+Use the Lindsay-style content-unit accounting and the Balagopalan-style picture-description semantic block when the prompt is known or can be mapped confidently.
+
+This includes:
+
+```text
+content-unit presence
+content-unit counts
+content-unit density
+keyword coverage
+keyword diversity
+content-unit efficiency
+prompt-reference similarity
+utterance-to-content-unit coherence
+object vs action unit balance
+```
+
+This is the main claim-bearing module for semantically comparable picture description prompts such as Cookie Theft.
+
+#### 2. Task-aware semantic modules beyond PD_CTP
+
+For non-PD_CTP prompts, Phase 2 should add prompt-aware feature blocks instead of forcing them into the same semantic space:
+
+```text
+READING          -> reference-overlap, order preservation, omission / insertion proxies, repetition, pause-aware reading control
+CONVERSATION     -> topic coherence, topic switching, entity density, topic return, discourse dispersion
+STORY_NARRATIVE  -> proposition coverage, event order, intrusion rate, story-reference similarity
+FLUENCY          -> validity, intrusions, repetitions, switching, clustering, letter/category compliance
+```
+
+These blocks can remain sparse and task-gated when prompt references are unavailable.
+
+#### 3. Richer lexicosyntactic feature families
+
+Phase 2 should extend the universal text block toward the richer handcrafted inventories used in Balagopalan et al.
+
+Target additions:
+
+```text
+phrase-type ratios
+constituency / production-rule proxies
+dependency-shape distributions
+expanded POS ratio inventory
+lexical norm summaries where resources exist
+sentiment / valence summaries where resources exist
+additional local / global coherence summaries
+task-aware repetition and error ratios
+```
+
+This does not require exact paper replication of every parser-specific feature, but the live pipeline should aim for comparable richness and grouping.
+
+#### 4. Richer acoustic / paralinguistic feature families
+
+Phase 2 should also extend the audio block beyond `openSMILE/eGeMAPSv02` and the lightweight Phase 1 fallback set.
+
+Target additions:
+
+```text
+expanded MFCC statistics (mean / std / skew / kurtosis across more coefficients)
+pitch distribution summaries
+energy / spectral summaries
+voicing / speaking-ratio controls
+pause-family expansions
+prosodic stability features
+```
+
+Where robust tooling is available, these should be added as additive paralinguistic blocks rather than replacing `eGeMAPS`.
+
 ### PD_CTP features
 
 This is the main biomarker module.
@@ -472,6 +554,16 @@ pd_action_units_ratio
 pd_keyword_to_nonkeyword_ratio
 pd_repeated_content_unit_ratio
 pd_semantic_similarity_to_unit_list
+pd_num_unique_keywords
+pd_num_total_keywords
+pd_unique_unit_density
+pd_total_unit_density
+pd_unique_unit_efficiency
+pd_total_unit_efficiency
+pd_percentage_units_mentioned
+pd_keyword_ttr
+pd_mean_utterance_to_unit_similarity
+pd_global_prompt_coherence
 ```
 
 This is the primary task-specific semantic block for cross-lingual biomarker claims.
@@ -532,12 +624,16 @@ Reading tasks should not be forced into `PD_CTP`.
 Treat them as a separate task family and emphasize:
 
 ```text
-lexical
-pause
-acoustic
-prosodic
-error / repetition
-coherence-lite
+rd_reference_token_coverage
+rd_reference_bigram_coverage
+rd_prompt_similarity
+rd_sequence_match_ratio
+rd_reference_order_score
+rd_omission_ratio
+rd_insertion_ratio
+rd_repetition_ratio
+rd_pause_per_reference_token
+rd_content_word_recall_ratio
 ```
 
 Do not make reading-task semantic coverage features central unless prompt-specific reading references are available.

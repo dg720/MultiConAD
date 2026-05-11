@@ -1,0 +1,75 @@
+{
+  "seed": 42,
+  "rows": 133,
+  "groups": 133,
+  "train_rows": 106,
+  "test_rows": 27,
+  "train_groups": 106,
+  "test_groups": 27,
+  "class_counts": {
+    "0.0": 57,
+    "1.0": 76
+  },
+  "grouping_levels": [
+    [
+      "dataset_name"
+    ],
+    []
+  ],
+  "best_config": {
+    "subset": "acoustic_only",
+    "top_k": "50",
+    "num_features": 50,
+    "model_family": "svm",
+    "model_variant": "linear_c1",
+    "native_importance_type": "coefficient"
+  },
+  "best_result": {
+    "run_name": "language_el_pd_ctp_rich",
+    "subset": "acoustic_only",
+    "top_k": 50,
+    "num_features": 50,
+    "model_family": "svm",
+    "model_variant": "linear_c1",
+    "balanced_accuracy": 0.925,
+    "macro_f1": 0.925,
+    "sensitivity": 0.9333333333333333,
+    "specificity": 0.9166666666666666,
+    "precision": 0.9333333333333333,
+    "auroc": 0.9444444444444445,
+    "auprc": 0.9733333333333334
+  },
+  "methodology": {
+    "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+    "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+    "feature_selection": "ANOVA f_classif fit on training data only",
+    "feature_subsets": [
+      "all_universal",
+      "text_only",
+      "pause_only",
+      "speech_graph_only",
+      "acoustic_only",
+      "text_plus_pause",
+      "text_plus_pause_plus_graph",
+      "text_plus_pause_plus_acoustic"
+    ],
+    "top_k_values": [
+      5,
+      10,
+      20,
+      50,
+      100,
+      "all"
+    ],
+    "classifiers": [
+      "logistic regression C=1",
+      "decision tree max_depth=20",
+      "random forest n_estimators=200",
+      "SVM linear C=1",
+      "SVM rbf C=1"
+    ],
+    "imputation": "median imputation with explicit missingness indicators",
+    "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+  }
+}

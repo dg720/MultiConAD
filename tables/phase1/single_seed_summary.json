@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "best_config": {
+    "subset": "all_universal",
+    "top_k": "50",
+    "model": "logreg",
+    "num_features": 50
+  },
+  "best_result": {
+    "subset": "all_universal",
+    "top_k": 50,
+    "model": "logreg",
+    "num_features": 50,
+    "balanced_accuracy": 0.6596933337917282,
+    "macro_f1": 0.6520085055908348,
+    "auroc": 0.6988861003197305,
+    "auprc": 0.5371477799407165,
+    "sensitivity": 0.5932203389830508,
+    "specificity": 0.7261663286004056,
+    "precision": 0.509090909090909
+  }
+}

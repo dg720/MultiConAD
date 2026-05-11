@@ -1,0 +1,64 @@
+Loading manifest and features
+Eligible AD_vs_HC rows: 3280
+Eligible groups: 2393
+Train rows/groups: 2551/1914
+Test rows/groups: 729/479
+Loading manifest and features
+Eligible AD_vs_HC rows: 3280
+Eligible groups: 2393
+Train rows/groups: 2551/1914
+Test rows/groups: 729/479
+Loading manifest and features
+Eligible AD_vs_HC rows: 3280
+Eligible groups: 2393
+Train rows/groups: 2551/1914
+Test rows/groups: 729/479
+all_universal top_k=10 model=logreg bal_acc=0.595 macro_f1=0.593
+all_universal top_k=10 model=linear_svm bal_acc=0.592 macro_f1=0.591
+all_universal top_k=10 model=rf bal_acc=0.589 macro_f1=0.589
+all_universal top_k=20 model=logreg bal_acc=0.634 macro_f1=0.626
+all_universal top_k=20 model=linear_svm bal_acc=0.644 macro_f1=0.638
+all_universal top_k=20 model=rf bal_acc=0.630 macro_f1=0.637
+all_universal top_k=50 model=logreg bal_acc=0.660 macro_f1=0.652
+all_universal top_k=50 model=linear_svm bal_acc=0.659 macro_f1=0.651
+all_universal top_k=50 model=rf bal_acc=0.630 macro_f1=0.636
+all_universal top_k=all model=logreg bal_acc=0.634 macro_f1=0.629
+all_universal top_k=all model=linear_svm bal_acc=0.653 macro_f1=0.647
+all_universal top_k=all model=rf bal_acc=0.628 macro_f1=0.633
+text_only top_k=10 model=logreg bal_acc=0.606 macro_f1=0.597
+text_only top_k=10 model=linear_svm bal_acc=0.601 macro_f1=0.596
+text_only top_k=10 model=rf bal_acc=0.577 macro_f1=0.574
+text_only top_k=20 model=logreg bal_acc=0.620 macro_f1=0.608
+text_only top_k=20 model=linear_svm bal_acc=0.624 macro_f1=0.617
+text_only top_k=20 model=rf bal_acc=0.588 macro_f1=0.584
+text_only top_k=50 model=logreg bal_acc=0.616 macro_f1=0.602
+text_only top_k=50 model=linear_svm bal_acc=0.623 macro_f1=0.613
+text_only top_k=50 model=rf bal_acc=0.590 macro_f1=0.583
+text_only top_k=all model=logreg bal_acc=0.616 macro_f1=0.602
+text_only top_k=all model=linear_svm bal_acc=0.623 macro_f1=0.613
+text_only top_k=all model=rf bal_acc=0.594 macro_f1=0.588
+acoustic_only top_k=10 model=logreg bal_acc=0.527 macro_f1=0.508
+acoustic_only top_k=10 model=linear_svm bal_acc=0.546 macro_f1=0.533
+acoustic_only top_k=10 model=rf bal_acc=0.626 macro_f1=0.631
+acoustic_only top_k=20 model=logreg bal_acc=0.559 macro_f1=0.546
+acoustic_only top_k=20 model=linear_svm bal_acc=0.567 macro_f1=0.557
+acoustic_only top_k=20 model=rf bal_acc=0.640 macro_f1=0.647
+acoustic_only top_k=50 model=logreg bal_acc=0.584 macro_f1=0.586
+acoustic_only top_k=50 model=linear_svm bal_acc=0.585 macro_f1=0.585
+acoustic_only top_k=50 model=rf bal_acc=0.562 macro_f1=0.563
+acoustic_only top_k=all model=logreg bal_acc=0.584 macro_f1=0.586
+acoustic_only top_k=all model=linear_svm bal_acc=0.585 macro_f1=0.585
+acoustic_only top_k=all model=rf bal_acc=0.558 macro_f1=0.558
+text_plus_acoustic top_k=10 model=logreg bal_acc=0.595 macro_f1=0.593
+text_plus_acoustic top_k=10 model=linear_svm bal_acc=0.592 macro_f1=0.591
+text_plus_acoustic top_k=10 model=rf bal_acc=0.589 macro_f1=0.589
+text_plus_acoustic top_k=20 model=logreg bal_acc=0.634 macro_f1=0.626
+text_plus_acoustic top_k=20 model=linear_svm bal_acc=0.644 macro_f1=0.638
+text_plus_acoustic top_k=20 model=rf bal_acc=0.630 macro_f1=0.637
+text_plus_acoustic top_k=50 model=logreg bal_acc=0.660 macro_f1=0.652
+text_plus_acoustic top_k=50 model=linear_svm bal_acc=0.659 macro_f1=0.651
+text_plus_acoustic top_k=50 model=rf bal_acc=0.630 macro_f1=0.636
+text_plus_acoustic top_k=all model=logreg bal_acc=0.634 macro_f1=0.629
+text_plus_acoustic top_k=all model=linear_svm bal_acc=0.653 macro_f1=0.647
+text_plus_acoustic top_k=all model=rf bal_acc=0.628 macro_f1=0.633
+Finished single-seed phase 1 experiment run

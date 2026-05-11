@@ -1,0 +1,11 @@
+feature_name,feature_family,explanation,example_value,example_text
+len_token_count,len,Total number of word tokens in the response.,20,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+len_type_count,len,Number of distinct word forms used at least once.,14,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+len_tokens_per_utterance,len,Average number of tokens per utterance after splitting the response.,6.667,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+lex_lemma_type_token_ratio,lex,Distinct lemmas divided by total tokens; reduces inflectional duplication.,0.700,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+lex_function_word_ratio,lex,"Share of tokens that are function words such as determiners, pronouns, auxiliaries, and conjunctions.",0.550,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+syn_determiner_ratio,syn,"Share of tokens tagged as determiners, e.g. 'the', 'a'.",0.300,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+syn_aux_ratio,syn,"Share of tokens tagged as auxiliary verbs, e.g. 'is', 'are'.",0.150,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+syn_noun_ratio,syn,Share of tokens tagged as common nouns.,0.300,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+syn_content_function_ratio,syn,Content-word count divided by function-word count.,0.818,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.
+syn_mean_dependency_length,syn,Average absolute token distance between a word and its syntactic head.,1.588,The boy is taking a cookie from the jar. The mother is washing the dishes. The girl is watching them.

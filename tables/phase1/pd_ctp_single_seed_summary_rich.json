@@ -1,0 +1,24 @@
+{
+  "seed": 42,
+  "rows": 2342,
+  "groups": 1971,
+  "best_config": {
+    "subset": "all_universal",
+    "top_k": "50",
+    "model": "logreg",
+    "num_features": 50
+  },
+  "best_result": {
+    "subset": "all_universal",
+    "top_k": 50,
+    "model": "logreg",
+    "num_features": 50,
+    "balanced_accuracy": 0.734990456359535,
+    "macro_f1": 0.7213015193313295,
+    "auroc": 0.8029021343050495,
+    "auprc": 0.7058423840953061,
+    "sensitivity": 0.6764705882352942,
+    "specificity": 0.7935103244837758,
+    "precision": 0.5679012345679012
+  }
+}

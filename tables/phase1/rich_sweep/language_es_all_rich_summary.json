@@ -1,0 +1,79 @@
+{
+  "seed": 42,
+  "rows": 292,
+  "groups": 125,
+  "train_rows": 231,
+  "test_rows": 61,
+  "train_groups": 100,
+  "test_groups": 25,
+  "class_counts": {
+    "0.0": 195,
+    "1.0": 97
+  },
+  "grouping_levels": [
+    [
+      "task_type",
+      "dataset_name"
+    ],
+    [
+      "task_type"
+    ],
+    []
+  ],
+  "best_config": {
+    "subset": "text_only",
+    "top_k": "20",
+    "num_features": 20,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "native_importance_type": "impurity_importance"
+  },
+  "best_result": {
+    "run_name": "language_es_all_rich",
+    "subset": "text_only",
+    "top_k": 20,
+    "num_features": 20,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "balanced_accuracy": 0.7984496124031008,
+    "macro_f1": 0.8130745658835546,
+    "sensitivity": 0.6666666666666666,
+    "specificity": 0.9302325581395349,
+    "precision": 0.8,
+    "auroc": 0.7835917312661499,
+    "auprc": 0.7112232540956298
+  },
+  "methodology": {
+    "split": "single grouped 80/20 holdout by group_id with group-label stratification",
+    "normalization": "train-only hierarchical z-scoring with fallback by grouping levels",
+    "feature_selection": "ANOVA f_classif fit on training data only",
+    "feature_subsets": [
+      "all_universal",
+      "text_only",
+      "pause_only",
+      "speech_graph_only",
+      "acoustic_only",
+      "text_plus_pause",
+      "text_plus_pause_plus_graph",
+      "text_plus_pause_plus_acoustic"
+    ],
+    "top_k_values": [
+      5,
+      10,
+      20,
+      50,
+      100,
+      "all"
+    ],
+    "classifiers": [
+      "logistic regression C=1",
+      "decision tree max_depth=20",
+      "random forest n_estimators=200",
+      "SVM linear C=1",
+      "SVM rbf C=1"
+    ],
+    "imputation": "median imputation with explicit missingness indicators",
+    "importance_primary": "held-out permutation importance on the fitted best model using original selected input columns",
+    "importance_secondary": "native coefficients or impurity importances on the transformed post-imputation design matrix when available"
+  }
+}
