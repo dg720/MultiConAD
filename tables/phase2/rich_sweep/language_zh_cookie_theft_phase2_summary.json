@@ -1,0 +1,20 @@
+{
+  "run_name": "language_zh_cookie_theft_phase2",
+  "n_rows": 117,
+  "n_groups": 111,
+  "best_model": {
+    "run_name": "language_zh_cookie_theft_phase2",
+    "subset_name": "phase1_universal",
+    "top_k": 50,
+    "num_selected_features": 50,
+    "model_family": "lr",
+    "model_variant": "c1",
+    "balanced_accuracy": 0.8786764705882353,
+    "macro_f1": 0.8663101604278074,
+    "sensitivity": 0.875,
+    "specificity": 0.8823529411764706,
+    "precision": 0.7777777777777778,
+    "auroc": 0.9191176470588235,
+    "auprc": 0.8470619658119658
+  }
+}

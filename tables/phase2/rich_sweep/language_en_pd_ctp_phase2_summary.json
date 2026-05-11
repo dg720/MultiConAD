@@ -1,0 +1,20 @@
+{
+  "run_name": "language_en_pd_ctp_phase2",
+  "n_rows": 2004,
+  "n_groups": 1711,
+  "best_model": {
+    "run_name": "language_en_pd_ctp_phase2",
+    "subset_name": "all_phase2",
+    "top_k": 100,
+    "num_selected_features": 100,
+    "model_family": "lr",
+    "model_variant": "c1",
+    "balanced_accuracy": 0.7483862959285005,
+    "macro_f1": 0.7438202932122284,
+    "sensitivity": 0.6415094339622641,
+    "specificity": 0.8552631578947368,
+    "precision": 0.6071428571428571,
+    "auroc": 0.8395916087388282,
+    "auprc": 0.7524342313009464
+  }
+}

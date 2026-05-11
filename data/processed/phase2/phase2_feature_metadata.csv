@@ -1,0 +1,376 @@
+feature_name,feature_group,task_specific,valid_task_types,requires_text,requires_audio,language_dependent_tooling,description
+len_token_count,len,False,ALL,1,0,0,len token count
+len_type_count,len,False,ALL,1,0,0,len type count
+len_utterance_count,len,False,ALL,1,0,0,len utterance count
+len_mean_utterance_length,len,False,ALL,1,0,0,len mean utterance length
+len_std_utterance_length,len,False,ALL,1,0,0,len std utterance length
+len_tokens_per_utterance,len,False,ALL,1,0,0,len tokens per utterance
+len_syllable_count,len,False,ALL,1,0,0,len syllable count
+lex_type_token_ratio,lex,False,ALL,1,0,1,lex type token ratio
+lex_lemma_type_token_ratio,lex,False,ALL,1,0,1,lex lemma type token ratio
+lex_mattr_10,lex,False,ALL,1,0,1,lex mattr 10
+lex_mattr_20,lex,False,ALL,1,0,1,lex mattr 20
+lex_hapax_ratio,lex,False,ALL,1,0,1,lex hapax ratio
+lex_repetition_rate,lex,False,ALL,1,0,1,lex repetition rate
+lex_mean_token_length,lex,False,ALL,1,0,1,lex mean token length
+lex_std_token_length,lex,False,ALL,1,0,1,lex std token length
+lex_function_word_ratio,lex,False,ALL,1,0,1,lex function word ratio
+lex_content_word_ratio,lex,False,ALL,1,0,1,lex content word ratio
+lex_brunet,lex,False,ALL,1,0,1,lex brunet
+lex_honore,lex,False,ALL,1,0,1,lex honore
+pause_filled_count,pause,False,ALL,1,1,0,pause filled count
+pause_filled_per_100_words,pause,False,ALL,1,1,0,pause filled per 100 words
+disc_repeated_unigram_ratio,disc,False,ALL,1,0,1,disc repeated unigram ratio
+disc_repeated_bigram_ratio,disc,False,ALL,1,0,1,disc repeated bigram ratio
+disc_repeated_trigram_ratio,disc,False,ALL,1,0,1,disc repeated trigram ratio
+disc_immediate_repetition_count,disc,False,ALL,1,0,1,disc immediate repetition count
+syn_noun_ratio,syn,False,ALL,1,0,1,syn noun ratio
+syn_verb_ratio,syn,False,ALL,1,0,1,syn verb ratio
+syn_adj_ratio,syn,False,ALL,1,0,1,syn adj ratio
+syn_adv_ratio,syn,False,ALL,1,0,1,syn adv ratio
+syn_adp_ratio,syn,False,ALL,1,0,1,syn adp ratio
+syn_aux_ratio,syn,False,ALL,1,0,1,syn aux ratio
+syn_pronoun_ratio,syn,False,ALL,1,0,1,syn pronoun ratio
+syn_determiner_ratio,syn,False,ALL,1,0,1,syn determiner ratio
+syn_cconj_ratio,syn,False,ALL,1,0,1,syn cconj ratio
+syn_sconj_ratio,syn,False,ALL,1,0,1,syn sconj ratio
+syn_interjection_ratio,syn,False,ALL,1,0,1,syn interjection ratio
+syn_propn_ratio,syn,False,ALL,1,0,1,syn propn ratio
+syn_part_ratio,syn,False,ALL,1,0,1,syn part ratio
+syn_num_ratio,syn,False,ALL,1,0,1,syn num ratio
+syn_noun_verb_ratio,syn,False,ALL,1,0,1,syn noun verb ratio
+syn_pronoun_noun_ratio,syn,False,ALL,1,0,1,syn pronoun noun ratio
+syn_determiner_noun_ratio,syn,False,ALL,1,0,1,syn determiner noun ratio
+syn_aux_verb_ratio,syn,False,ALL,1,0,1,syn aux verb ratio
+syn_content_function_ratio,syn,False,ALL,1,0,1,syn content function ratio
+syn_open_closed_ratio,syn,False,ALL,1,0,1,syn open closed ratio
+syn_clause_density,syn,False,ALL,1,0,1,syn clause density
+syn_subordination_ratio,syn,False,ALL,1,0,1,syn subordination ratio
+syn_nsubj_ratio,syn,False,ALL,1,0,1,syn nsubj ratio
+syn_obj_ratio,syn,False,ALL,1,0,1,syn obj ratio
+syn_obl_ratio,syn,False,ALL,1,0,1,syn obl ratio
+syn_advmod_ratio,syn,False,ALL,1,0,1,syn advmod ratio
+syn_amod_ratio,syn,False,ALL,1,0,1,syn amod ratio
+syn_mean_dependency_length,syn,False,ALL,1,0,1,syn mean dependency length
+syn_std_dependency_length,syn,False,ALL,1,0,1,syn std dependency length
+syn_max_dependency_length,syn,False,ALL,1,0,1,syn max dependency length
+syn_mean_tree_depth,syn,False,ALL,1,0,1,syn mean tree depth
+syn_max_tree_depth,syn,False,ALL,1,0,1,syn max tree depth
+syn_mean_utterance_length_words,syn,False,ALL,1,0,1,syn mean utterance length words
+syn_utterance_count,syn,False,ALL,1,0,1,syn utterance count
+disc_adjacent_utterance_similarity_mean,disc,False,ALL,1,0,1,disc adjacent utterance similarity mean
+disc_adjacent_utterance_similarity_std,disc,False,ALL,1,0,1,disc adjacent utterance similarity std
+disc_mean_pairwise_utt_similarity,disc,False,ALL,1,0,1,disc mean pairwise utt similarity
+disc_semantic_drift,disc,False,ALL,1,0,1,disc semantic drift
+disc_local_coherence,disc,False,ALL,1,0,1,disc local coherence
+graph_node_count,graph,False,ALL,1,0,1,graph node count
+graph_edge_count,graph,False,ALL,1,0,1,graph edge count
+graph_density,graph,False,ALL,1,0,1,graph density
+graph_self_loop_ratio,graph,False,ALL,1,0,1,graph self loop ratio
+graph_largest_component_ratio,graph,False,ALL,1,0,1,graph largest component ratio
+graph_average_degree,graph,False,ALL,1,0,1,graph average degree
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz amean
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz stddevnorm
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile20_0,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz percentile20 0
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile50_0,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz percentile50 0
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile80_0,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz percentile80 0
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_pctlrange0_2,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz pctlrange0 2
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanrisingslope,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz meanrisingslope
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevrisingslope,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz stddevrisingslope
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz meanfallingslope
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevfallingslope,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz stddevfallingslope
+ac_egemaps_loudness_sma3_amean,ac,False,ALL,0,1,0,ac egemaps loudness sma3 amean
+ac_egemaps_loudness_sma3_stddevnorm,ac,False,ALL,0,1,0,ac egemaps loudness sma3 stddevnorm
+ac_egemaps_loudness_sma3_percentile20_0,ac,False,ALL,0,1,0,ac egemaps loudness sma3 percentile20 0
+ac_egemaps_loudness_sma3_percentile50_0,ac,False,ALL,0,1,0,ac egemaps loudness sma3 percentile50 0
+ac_egemaps_loudness_sma3_percentile80_0,ac,False,ALL,0,1,0,ac egemaps loudness sma3 percentile80 0
+ac_egemaps_loudness_sma3_pctlrange0_2,ac,False,ALL,0,1,0,ac egemaps loudness sma3 pctlrange0 2
+ac_egemaps_loudness_sma3_meanrisingslope,ac,False,ALL,0,1,0,ac egemaps loudness sma3 meanrisingslope
+ac_egemaps_loudness_sma3_stddevrisingslope,ac,False,ALL,0,1,0,ac egemaps loudness sma3 stddevrisingslope
+ac_egemaps_loudness_sma3_meanfallingslope,ac,False,ALL,0,1,0,ac egemaps loudness sma3 meanfallingslope
+ac_egemaps_loudness_sma3_stddevfallingslope,ac,False,ALL,0,1,0,ac egemaps loudness sma3 stddevfallingslope
+ac_egemaps_spectralflux_sma3_amean,ac,False,ALL,0,1,0,ac egemaps spectralflux sma3 amean
+ac_egemaps_spectralflux_sma3_stddevnorm,ac,False,ALL,0,1,0,ac egemaps spectralflux sma3 stddevnorm
+ac_egemaps_mfcc1_sma3_amean,ac,False,ALL,0,1,0,ac egemaps mfcc1 sma3 amean
+ac_egemaps_mfcc1_sma3_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc1 sma3 stddevnorm
+ac_egemaps_mfcc2_sma3_amean,ac,False,ALL,0,1,0,ac egemaps mfcc2 sma3 amean
+ac_egemaps_mfcc2_sma3_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc2 sma3 stddevnorm
+ac_egemaps_mfcc3_sma3_amean,ac,False,ALL,0,1,0,ac egemaps mfcc3 sma3 amean
+ac_egemaps_mfcc3_sma3_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc3 sma3 stddevnorm
+ac_egemaps_mfcc4_sma3_amean,ac,False,ALL,0,1,0,ac egemaps mfcc4 sma3 amean
+ac_egemaps_mfcc4_sma3_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc4 sma3 stddevnorm
+ac_egemaps_jitterlocal_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps jitterlocal sma3nz amean
+ac_egemaps_jitterlocal_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps jitterlocal sma3nz stddevnorm
+ac_egemaps_shimmerlocaldb_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps shimmerlocaldb sma3nz amean
+ac_egemaps_shimmerlocaldb_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps shimmerlocaldb sma3nz stddevnorm
+ac_egemaps_hnrdbacf_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps hnrdbacf sma3nz amean
+ac_egemaps_hnrdbacf_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps hnrdbacf sma3nz stddevnorm
+ac_egemaps_logrelf0_h1_h2_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps logrelf0 h1 h2 sma3nz amean
+ac_egemaps_logrelf0_h1_h2_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps logrelf0 h1 h2 sma3nz stddevnorm
+ac_egemaps_logrelf0_h1_a3_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps logrelf0 h1 a3 sma3nz amean
+ac_egemaps_logrelf0_h1_a3_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps logrelf0 h1 a3 sma3nz stddevnorm
+ac_egemaps_f1frequency_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f1frequency sma3nz amean
+ac_egemaps_f1frequency_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f1frequency sma3nz stddevnorm
+ac_egemaps_f1bandwidth_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f1bandwidth sma3nz amean
+ac_egemaps_f1bandwidth_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f1bandwidth sma3nz stddevnorm
+ac_egemaps_f1amplitudelogrelf0_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f1amplitudelogrelf0 sma3nz amean
+ac_egemaps_f1amplitudelogrelf0_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f1amplitudelogrelf0 sma3nz stddevnorm
+ac_egemaps_f2frequency_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f2frequency sma3nz amean
+ac_egemaps_f2frequency_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f2frequency sma3nz stddevnorm
+ac_egemaps_f2bandwidth_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f2bandwidth sma3nz amean
+ac_egemaps_f2bandwidth_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f2bandwidth sma3nz stddevnorm
+ac_egemaps_f2amplitudelogrelf0_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f2amplitudelogrelf0 sma3nz amean
+ac_egemaps_f2amplitudelogrelf0_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f2amplitudelogrelf0 sma3nz stddevnorm
+ac_egemaps_f3frequency_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f3frequency sma3nz amean
+ac_egemaps_f3frequency_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f3frequency sma3nz stddevnorm
+ac_egemaps_f3bandwidth_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f3bandwidth sma3nz amean
+ac_egemaps_f3bandwidth_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f3bandwidth sma3nz stddevnorm
+ac_egemaps_f3amplitudelogrelf0_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f3amplitudelogrelf0 sma3nz amean
+ac_egemaps_f3amplitudelogrelf0_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f3amplitudelogrelf0 sma3nz stddevnorm
+ac_egemaps_alpharatiov_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps alpharatiov sma3nz amean
+ac_egemaps_alpharatiov_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps alpharatiov sma3nz stddevnorm
+ac_egemaps_hammarbergindexv_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps hammarbergindexv sma3nz amean
+ac_egemaps_hammarbergindexv_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps hammarbergindexv sma3nz stddevnorm
+ac_egemaps_slopev0_500_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps slopev0 500 sma3nz amean
+ac_egemaps_slopev0_500_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps slopev0 500 sma3nz stddevnorm
+ac_egemaps_slopev500_1500_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps slopev500 1500 sma3nz amean
+ac_egemaps_slopev500_1500_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps slopev500 1500 sma3nz stddevnorm
+ac_egemaps_spectralfluxv_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps spectralfluxv sma3nz amean
+ac_egemaps_spectralfluxv_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps spectralfluxv sma3nz stddevnorm
+ac_egemaps_mfcc1v_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps mfcc1v sma3nz amean
+ac_egemaps_mfcc1v_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc1v sma3nz stddevnorm
+ac_egemaps_mfcc2v_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps mfcc2v sma3nz amean
+ac_egemaps_mfcc2v_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc2v sma3nz stddevnorm
+ac_egemaps_mfcc3v_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps mfcc3v sma3nz amean
+ac_egemaps_mfcc3v_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc3v sma3nz stddevnorm
+ac_egemaps_mfcc4v_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps mfcc4v sma3nz amean
+ac_egemaps_mfcc4v_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps mfcc4v sma3nz stddevnorm
+ac_egemaps_alpharatiouv_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps alpharatiouv sma3nz amean
+ac_egemaps_hammarbergindexuv_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps hammarbergindexuv sma3nz amean
+ac_egemaps_slopeuv0_500_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps slopeuv0 500 sma3nz amean
+ac_egemaps_slopeuv500_1500_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps slopeuv500 1500 sma3nz amean
+ac_egemaps_spectralfluxuv_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps spectralfluxuv sma3nz amean
+ac_egemaps_loudnesspeakspersec,ac,False,ALL,0,1,0,ac egemaps loudnesspeakspersec
+ac_egemaps_voicedsegmentspersec,ac,False,ALL,0,1,0,ac egemaps voicedsegmentspersec
+ac_egemaps_meanvoicedsegmentlengthsec,ac,False,ALL,0,1,0,ac egemaps meanvoicedsegmentlengthsec
+ac_egemaps_stddevvoicedsegmentlengthsec,ac,False,ALL,0,1,0,ac egemaps stddevvoicedsegmentlengthsec
+ac_egemaps_meanunvoicedsegmentlength,ac,False,ALL,0,1,0,ac egemaps meanunvoicedsegmentlength
+ac_egemaps_stddevunvoicedsegmentlength,ac,False,ALL,0,1,0,ac egemaps stddevunvoicedsegmentlength
+ac_egemaps_equivalentsoundlevel_dbp,ac,False,ALL,0,1,0,ac egemaps equivalentsoundlevel dbp
+ac_duration,ac,False,ALL,0,1,0,ac duration
+ac_rms_mean,ac,False,ALL,0,1,0,ac rms mean
+ac_rms_std,ac,False,ALL,0,1,0,ac rms std
+ac_zcr_mean,ac,False,ALL,0,1,0,ac zcr mean
+ac_zcr_std,ac,False,ALL,0,1,0,ac zcr std
+ac_f0_mean,ac,False,ALL,0,1,0,ac f0 mean
+ac_f0_std,ac,False,ALL,0,1,0,ac f0 std
+ac_mfcc_1_mean,ac,False,ALL,0,1,0,ac mfcc 1 mean
+ac_mfcc_1_std,ac,False,ALL,0,1,0,ac mfcc 1 std
+ac_mfcc_2_mean,ac,False,ALL,0,1,0,ac mfcc 2 mean
+ac_mfcc_2_std,ac,False,ALL,0,1,0,ac mfcc 2 std
+ac_mfcc_3_mean,ac,False,ALL,0,1,0,ac mfcc 3 mean
+ac_mfcc_3_std,ac,False,ALL,0,1,0,ac mfcc 3 std
+ac_mfcc_4_mean,ac,False,ALL,0,1,0,ac mfcc 4 mean
+ac_mfcc_4_std,ac,False,ALL,0,1,0,ac mfcc 4 std
+ac_mfcc_5_mean,ac,False,ALL,0,1,0,ac mfcc 5 mean
+ac_mfcc_5_std,ac,False,ALL,0,1,0,ac mfcc 5 std
+pause_short_count,pause,False,ALL,1,1,0,pause short count
+pause_medium_count,pause,False,ALL,1,1,0,pause medium count
+pause_long_count,pause,False,ALL,1,1,0,pause long count
+pause_total_duration,pause,False,ALL,1,1,0,pause total duration
+pause_mean_duration,pause,False,ALL,1,1,0,pause mean duration
+pause_median_duration,pause,False,ALL,1,1,0,pause median duration
+pause_std_duration,pause,False,ALL,1,1,0,pause std duration
+pause_iqr_duration,pause,False,ALL,1,1,0,pause iqr duration
+len_audio_duration,len,False,ALL,1,1,0,len audio duration
+len_speech_duration,len,False,ALL,1,1,0,len speech duration
+pause_silence_ratio,pause,False,ALL,1,1,0,pause silence ratio
+pause_speaking_to_total_ratio,pause,False,ALL,1,1,0,pause speaking to total ratio
+len_tokens_per_second,len,False,ALL,1,0,0,len tokens per second
+len_syllables_per_second,len,False,ALL,1,0,0,len syllables per second
+pause_pause_to_word_ratio,pause,False,ALL,1,1,0,pause pause to word ratio
+pause_long_ratio,pause,False,ALL,1,1,0,pause long ratio
+pause_to_speech_ratio,pause,False,ALL,1,1,0,pause to speech ratio
+pause_speech_rate_words_per_second,pause,False,ALL,1,1,0,pause speech rate words per second
+pause_articulation_rate_words_per_speaking_second,pause,False,ALL,1,1,0,pause articulation rate words per speaking second
+pd_unique_units_count,pd,1,PD_CTP,1,0,1,pd unique units count
+pd_unique_units_ratio,pd,1,PD_CTP,1,0,1,pd unique units ratio
+pd_total_unit_mentions,pd,1,PD_CTP,1,0,1,pd total unit mentions
+pd_content_density,pd,1,PD_CTP,1,0,1,pd content density
+pd_object_units_ratio,pd,1,PD_CTP,1,0,1,pd object units ratio
+pd_action_units_ratio,pd,1,PD_CTP,1,0,1,pd action units ratio
+pd_keyword_to_nonkeyword_ratio,pd,1,PD_CTP,1,0,1,pd keyword to nonkeyword ratio
+pd_repeated_content_unit_ratio,pd,1,PD_CTP,1,0,1,pd repeated content unit ratio
+pd_semantic_similarity_to_unit_list,pd,1,PD_CTP,1,0,1,pd semantic similarity to unit list
+pd_num_unique_keywords,pd,1,PD_CTP,1,0,1,pd num unique keywords
+pd_num_total_keywords,pd,1,PD_CTP,1,0,1,pd num total keywords
+pd_unique_unit_density,pd,1,PD_CTP,1,0,1,pd unique unit density
+pd_total_unit_density,pd,1,PD_CTP,1,0,1,pd total unit density
+pd_unique_unit_efficiency,pd,1,PD_CTP,1,0,1,pd unique unit efficiency
+pd_total_unit_efficiency,pd,1,PD_CTP,1,0,1,pd total unit efficiency
+pd_percentage_units_mentioned,pd,1,PD_CTP,1,0,1,pd percentage units mentioned
+pd_keyword_ttr,pd,1,PD_CTP,1,0,1,pd keyword ttr
+pd_mean_utterance_to_unit_similarity,pd,1,PD_CTP,1,0,1,pd mean utterance to unit similarity
+pd_global_prompt_coherence,pd,1,PD_CTP,1,0,1,pd global prompt coherence
+pd_detected_prompt_score,pd,1,PD_CTP,1,0,1,pd detected prompt score
+rd_reference_token_coverage,rd,1,READING,1,0,1,rd reference token coverage
+rd_reference_bigram_coverage,rd,1,READING,1,0,1,rd reference bigram coverage
+rd_prompt_similarity,rd,1,READING,1,0,1,rd prompt similarity
+rd_sequence_match_ratio,rd,1,READING,1,0,1,rd sequence match ratio
+rd_reference_order_score,rd,1,READING,1,0,1,rd reference order score
+rd_omission_ratio,rd,1,READING,1,0,1,rd omission ratio
+rd_insertion_ratio,rd,1,READING,1,0,1,rd insertion ratio
+rd_repetition_ratio,rd,1,READING,1,0,1,rd repetition ratio
+rd_pause_per_reference_token,rd,1,READING,1,0,1,rd pause per reference token
+rd_content_word_recall_ratio,rd,1,READING,1,0,1,rd content word recall ratio
+fc_topic_coherence,fc,1,CONVERSATION,1,0,1,fc topic coherence
+fc_topic_switch_rate,fc,1,CONVERSATION,1,0,1,fc topic switch rate
+fc_embedding_dispersion,fc,1,CONVERSATION,1,0,1,fc embedding dispersion
+fc_named_entity_density,fc,1,CONVERSATION,1,0,1,fc named entity density
+fc_repetition_rate,fc,1,CONVERSATION,1,0,1,fc repetition rate
+fc_mean_utterance_similarity,fc,1,CONVERSATION,1,0,1,fc mean utterance similarity
+fc_first_last_similarity,fc,1,CONVERSATION,1,0,1,fc first last similarity
+fc_topic_return_ratio,fc,1,CONVERSATION,1,0,1,fc topic return ratio
+sx_sentence_length_q25,sx,0,ALL,1,0,1,sx sentence length q25
+sx_sentence_length_q50,sx,0,ALL,1,0,1,sx sentence length q50
+sx_sentence_length_q75,sx,0,ALL,1,0,1,sx sentence length q75
+sx_sentence_length_cv,sx,0,ALL,1,0,1,sx sentence length cv
+sx_dep_length_q25,sx,0,ALL,1,0,1,sx dep length q25
+sx_dep_length_q50,sx,0,ALL,1,0,1,sx dep length q50
+sx_dep_length_q75,sx,0,ALL,1,0,1,sx dep length q75
+sx_tree_depth_std,sx,0,ALL,1,0,1,sx tree depth std
+sx_tree_depth_q75,sx,0,ALL,1,0,1,sx tree depth q75
+sx_upos_entropy,sx,0,ALL,1,0,1,sx upos entropy
+sx_dep_entropy,sx,0,ALL,1,0,1,sx dep entropy
+sx_clause_per_100_tokens,sx,0,ALL,1,0,1,sx clause per 100 tokens
+sx_coordination_density,sx,0,ALL,1,0,1,sx coordination density
+sx_modifier_density,sx,0,ALL,1,0,1,sx modifier density
+sx_nominal_density,sx,0,ALL,1,0,1,sx nominal density
+sx_verbal_density,sx,0,ALL,1,0,1,sx verbal density
+sx_np_like_ratio,sx,0,ALL,1,0,1,sx np like ratio
+sx_pp_like_ratio,sx,0,ALL,1,0,1,sx pp like ratio
+sx_vp_like_ratio,sx,0,ALL,1,0,1,sx vp like ratio
+sx_subject_object_balance,sx,0,ALL,1,0,1,sx subject object balance
+sx_function_word_ratio_lexicon,sx,0,ALL,1,0,1,sx function word ratio lexicon
+sx_content_word_ratio_lexicon,sx,0,ALL,1,0,1,sx content word ratio lexicon
+sx_mean_log_lemma_freq,sx,0,ALL,1,0,1,sx mean log lemma freq
+sx_std_log_lemma_freq,sx,0,ALL,1,0,1,sx std log lemma freq
+sx_rare_lemma_ratio,sx,0,ALL,1,0,1,sx rare lemma ratio
+sx_very_rare_lemma_ratio,sx,0,ALL,1,0,1,sx very rare lemma ratio
+sx_adjacent_similarity_min,sx,0,ALL,1,0,1,sx adjacent similarity min
+sx_adjacent_similarity_max,sx,0,ALL,1,0,1,sx adjacent similarity max
+sx_pairwise_similarity_std,sx,0,ALL,1,0,1,sx pairwise similarity std
+sx_low_similarity_frac_05,sx,0,ALL,1,0,1,sx low similarity frac 05
+sx_low_similarity_frac_03,sx,0,ALL,1,0,1,sx low similarity frac 03
+par_mfcc_1_mean,par,0,ALL,0,1,0,par mfcc 1 mean
+par_mfcc_1_std,par,0,ALL,0,1,0,par mfcc 1 std
+par_mfcc_1_skew,par,0,ALL,0,1,0,par mfcc 1 skew
+par_mfcc_1_kurtosis,par,0,ALL,0,1,0,par mfcc 1 kurtosis
+par_delta_mfcc_1_mean,par,0,ALL,0,1,0,par delta mfcc 1 mean
+par_delta_mfcc_1_std,par,0,ALL,0,1,0,par delta mfcc 1 std
+par_mfcc_2_mean,par,0,ALL,0,1,0,par mfcc 2 mean
+par_mfcc_2_std,par,0,ALL,0,1,0,par mfcc 2 std
+par_mfcc_2_skew,par,0,ALL,0,1,0,par mfcc 2 skew
+par_mfcc_2_kurtosis,par,0,ALL,0,1,0,par mfcc 2 kurtosis
+par_delta_mfcc_2_mean,par,0,ALL,0,1,0,par delta mfcc 2 mean
+par_delta_mfcc_2_std,par,0,ALL,0,1,0,par delta mfcc 2 std
+par_mfcc_3_mean,par,0,ALL,0,1,0,par mfcc 3 mean
+par_mfcc_3_std,par,0,ALL,0,1,0,par mfcc 3 std
+par_mfcc_3_skew,par,0,ALL,0,1,0,par mfcc 3 skew
+par_mfcc_3_kurtosis,par,0,ALL,0,1,0,par mfcc 3 kurtosis
+par_delta_mfcc_3_mean,par,0,ALL,0,1,0,par delta mfcc 3 mean
+par_delta_mfcc_3_std,par,0,ALL,0,1,0,par delta mfcc 3 std
+par_mfcc_4_mean,par,0,ALL,0,1,0,par mfcc 4 mean
+par_mfcc_4_std,par,0,ALL,0,1,0,par mfcc 4 std
+par_mfcc_4_skew,par,0,ALL,0,1,0,par mfcc 4 skew
+par_mfcc_4_kurtosis,par,0,ALL,0,1,0,par mfcc 4 kurtosis
+par_delta_mfcc_4_mean,par,0,ALL,0,1,0,par delta mfcc 4 mean
+par_delta_mfcc_4_std,par,0,ALL,0,1,0,par delta mfcc 4 std
+par_mfcc_5_mean,par,0,ALL,0,1,0,par mfcc 5 mean
+par_mfcc_5_std,par,0,ALL,0,1,0,par mfcc 5 std
+par_mfcc_5_skew,par,0,ALL,0,1,0,par mfcc 5 skew
+par_mfcc_5_kurtosis,par,0,ALL,0,1,0,par mfcc 5 kurtosis
+par_delta_mfcc_5_mean,par,0,ALL,0,1,0,par delta mfcc 5 mean
+par_delta_mfcc_5_std,par,0,ALL,0,1,0,par delta mfcc 5 std
+par_mfcc_6_mean,par,0,ALL,0,1,0,par mfcc 6 mean
+par_mfcc_6_std,par,0,ALL,0,1,0,par mfcc 6 std
+par_mfcc_6_skew,par,0,ALL,0,1,0,par mfcc 6 skew
+par_mfcc_6_kurtosis,par,0,ALL,0,1,0,par mfcc 6 kurtosis
+par_delta_mfcc_6_mean,par,0,ALL,0,1,0,par delta mfcc 6 mean
+par_delta_mfcc_6_std,par,0,ALL,0,1,0,par delta mfcc 6 std
+par_mfcc_7_mean,par,0,ALL,0,1,0,par mfcc 7 mean
+par_mfcc_7_std,par,0,ALL,0,1,0,par mfcc 7 std
+par_mfcc_7_skew,par,0,ALL,0,1,0,par mfcc 7 skew
+par_mfcc_7_kurtosis,par,0,ALL,0,1,0,par mfcc 7 kurtosis
+par_delta_mfcc_7_mean,par,0,ALL,0,1,0,par delta mfcc 7 mean
+par_delta_mfcc_7_std,par,0,ALL,0,1,0,par delta mfcc 7 std
+par_mfcc_8_mean,par,0,ALL,0,1,0,par mfcc 8 mean
+par_mfcc_8_std,par,0,ALL,0,1,0,par mfcc 8 std
+par_mfcc_8_skew,par,0,ALL,0,1,0,par mfcc 8 skew
+par_mfcc_8_kurtosis,par,0,ALL,0,1,0,par mfcc 8 kurtosis
+par_delta_mfcc_8_mean,par,0,ALL,0,1,0,par delta mfcc 8 mean
+par_delta_mfcc_8_std,par,0,ALL,0,1,0,par delta mfcc 8 std
+par_mfcc_9_mean,par,0,ALL,0,1,0,par mfcc 9 mean
+par_mfcc_9_std,par,0,ALL,0,1,0,par mfcc 9 std
+par_mfcc_9_skew,par,0,ALL,0,1,0,par mfcc 9 skew
+par_mfcc_9_kurtosis,par,0,ALL,0,1,0,par mfcc 9 kurtosis
+par_delta_mfcc_9_mean,par,0,ALL,0,1,0,par delta mfcc 9 mean
+par_delta_mfcc_9_std,par,0,ALL,0,1,0,par delta mfcc 9 std
+par_mfcc_10_mean,par,0,ALL,0,1,0,par mfcc 10 mean
+par_mfcc_10_std,par,0,ALL,0,1,0,par mfcc 10 std
+par_mfcc_10_skew,par,0,ALL,0,1,0,par mfcc 10 skew
+par_mfcc_10_kurtosis,par,0,ALL,0,1,0,par mfcc 10 kurtosis
+par_delta_mfcc_10_mean,par,0,ALL,0,1,0,par delta mfcc 10 mean
+par_delta_mfcc_10_std,par,0,ALL,0,1,0,par delta mfcc 10 std
+par_mfcc_11_mean,par,0,ALL,0,1,0,par mfcc 11 mean
+par_mfcc_11_std,par,0,ALL,0,1,0,par mfcc 11 std
+par_mfcc_11_skew,par,0,ALL,0,1,0,par mfcc 11 skew
+par_mfcc_11_kurtosis,par,0,ALL,0,1,0,par mfcc 11 kurtosis
+par_delta_mfcc_11_mean,par,0,ALL,0,1,0,par delta mfcc 11 mean
+par_delta_mfcc_11_std,par,0,ALL,0,1,0,par delta mfcc 11 std
+par_mfcc_12_mean,par,0,ALL,0,1,0,par mfcc 12 mean
+par_mfcc_12_std,par,0,ALL,0,1,0,par mfcc 12 std
+par_mfcc_12_skew,par,0,ALL,0,1,0,par mfcc 12 skew
+par_mfcc_12_kurtosis,par,0,ALL,0,1,0,par mfcc 12 kurtosis
+par_delta_mfcc_12_mean,par,0,ALL,0,1,0,par delta mfcc 12 mean
+par_delta_mfcc_12_std,par,0,ALL,0,1,0,par delta mfcc 12 std
+par_mfcc_13_mean,par,0,ALL,0,1,0,par mfcc 13 mean
+par_mfcc_13_std,par,0,ALL,0,1,0,par mfcc 13 std
+par_mfcc_13_skew,par,0,ALL,0,1,0,par mfcc 13 skew
+par_mfcc_13_kurtosis,par,0,ALL,0,1,0,par mfcc 13 kurtosis
+par_delta_mfcc_13_mean,par,0,ALL,0,1,0,par delta mfcc 13 mean
+par_delta_mfcc_13_std,par,0,ALL,0,1,0,par delta mfcc 13 std
+par_spectral_centroid_mean,par,0,ALL,0,1,0,par spectral centroid mean
+par_spectral_centroid_std,par,0,ALL,0,1,0,par spectral centroid std
+par_spectral_centroid_skew,par,0,ALL,0,1,0,par spectral centroid skew
+par_spectral_centroid_kurtosis,par,0,ALL,0,1,0,par spectral centroid kurtosis
+par_spectral_bandwidth_mean,par,0,ALL,0,1,0,par spectral bandwidth mean
+par_spectral_bandwidth_std,par,0,ALL,0,1,0,par spectral bandwidth std
+par_spectral_bandwidth_skew,par,0,ALL,0,1,0,par spectral bandwidth skew
+par_spectral_bandwidth_kurtosis,par,0,ALL,0,1,0,par spectral bandwidth kurtosis
+par_spectral_rolloff_mean,par,0,ALL,0,1,0,par spectral rolloff mean
+par_spectral_rolloff_std,par,0,ALL,0,1,0,par spectral rolloff std
+par_spectral_rolloff_skew,par,0,ALL,0,1,0,par spectral rolloff skew
+par_spectral_rolloff_kurtosis,par,0,ALL,0,1,0,par spectral rolloff kurtosis
+par_spectral_flatness_mean,par,0,ALL,0,1,0,par spectral flatness mean
+par_spectral_flatness_std,par,0,ALL,0,1,0,par spectral flatness std
+par_spectral_flatness_skew,par,0,ALL,0,1,0,par spectral flatness skew
+par_spectral_flatness_kurtosis,par,0,ALL,0,1,0,par spectral flatness kurtosis
+par_rms_mean,par,0,ALL,0,1,0,par rms mean
+par_rms_std,par,0,ALL,0,1,0,par rms std
+par_rms_skew,par,0,ALL,0,1,0,par rms skew
+par_rms_kurtosis,par,0,ALL,0,1,0,par rms kurtosis
+par_zcr_mean,par,0,ALL,0,1,0,par zcr mean
+par_zcr_std,par,0,ALL,0,1,0,par zcr std
+par_zcr_skew,par,0,ALL,0,1,0,par zcr skew
+par_zcr_kurtosis,par,0,ALL,0,1,0,par zcr kurtosis
+par_f0_mean,par,0,ALL,0,1,0,par f0 mean
+par_f0_std,par,0,ALL,0,1,0,par f0 std
+par_f0_min,par,0,ALL,0,1,0,par f0 min
+par_f0_max,par,0,ALL,0,1,0,par f0 max
+par_f0_median,par,0,ALL,0,1,0,par f0 median
+par_f0_q25,par,0,ALL,0,1,0,par f0 q25
+par_f0_q75,par,0,ALL,0,1,0,par f0 q75
+par_f0_iqr,par,0,ALL,0,1,0,par f0 iqr
+par_voiced_frame_ratio,par,0,ALL,0,1,0,par voiced frame ratio
+par_nonzero_rms_ratio,par,0,ALL,0,1,0,par nonzero rms ratio

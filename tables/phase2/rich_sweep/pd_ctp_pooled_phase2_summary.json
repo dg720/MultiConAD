@@ -1,0 +1,20 @@
+{
+  "run_name": "pd_ctp_pooled_phase2",
+  "n_rows": 2342,
+  "n_groups": 1971,
+  "best_model": {
+    "run_name": "pd_ctp_pooled_phase2",
+    "subset_name": "all_phase2",
+    "top_k": 100,
+    "num_selected_features": 100,
+    "model_family": "lr",
+    "model_variant": "c1",
+    "balanced_accuracy": 0.7740217768523339,
+    "macro_f1": 0.7637793214642803,
+    "sensitivity": 0.7132352941176471,
+    "specificity": 0.8348082595870207,
+    "precision": 0.6339869281045751,
+    "auroc": 0.8548065243796633,
+    "auprc": 0.7758575998135506
+  }
+}

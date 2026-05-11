@@ -1,0 +1,185 @@
+{
+  "completed_runs": [
+    {
+      "run_name": "benchmark_wide_phase2",
+      "n_rows": 3280,
+      "n_groups": 2393,
+      "best_model": {
+        "run_name": "benchmark_wide_phase2",
+        "subset_name": "all_phase2",
+        "top_k": 100,
+        "num_selected_features": 100,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "balanced_accuracy": 0.7749982810190119,
+        "macro_f1": 0.779821935077214,
+        "sensitivity": 0.673728813559322,
+        "specificity": 0.8762677484787018,
+        "precision": 0.7227272727272728,
+        "auroc": 0.8526145700828549,
+        "auprc": 0.7902484885203799
+      }
+    },
+    {
+      "run_name": "pd_ctp_pooled_phase2",
+      "n_rows": 2342,
+      "n_groups": 1971,
+      "best_model": {
+        "run_name": "pd_ctp_pooled_phase2",
+        "subset_name": "all_phase2",
+        "top_k": 100,
+        "num_selected_features": 100,
+        "model_family": "lr",
+        "model_variant": "c1",
+        "balanced_accuracy": 0.7740217768523339,
+        "macro_f1": 0.7637793214642803,
+        "sensitivity": 0.7132352941176471,
+        "specificity": 0.8348082595870207,
+        "precision": 0.6339869281045751,
+        "auroc": 0.8548065243796633,
+        "auprc": 0.7758575998135506
+      }
+    },
+    {
+      "run_name": "cookie_theft_pooled_phase2",
+      "n_rows": 2059,
+      "n_groups": 1822,
+      "best_model": {
+        "run_name": "cookie_theft_pooled_phase2",
+        "subset_name": "rich_universal",
+        "top_k": 100,
+        "num_selected_features": 100,
+        "model_family": "svm",
+        "model_variant": "rbf_c1",
+        "balanced_accuracy": 0.7596790626591952,
+        "macro_f1": 0.7705978100029595,
+        "sensitivity": 0.6153846153846154,
+        "specificity": 0.9039735099337748,
+        "precision": 0.7128712871287128,
+        "auroc": 0.7893247297220807,
+        "auprc": 0.7116557968124126
+      }
+    },
+    {
+      "run_name": "language_en_pd_ctp_phase2",
+      "n_rows": 2004,
+      "n_groups": 1711,
+      "best_model": {
+        "run_name": "language_en_pd_ctp_phase2",
+        "subset_name": "all_phase2",
+        "top_k": 100,
+        "num_selected_features": 100,
+        "model_family": "lr",
+        "model_variant": "c1",
+        "balanced_accuracy": 0.7483862959285005,
+        "macro_f1": 0.7438202932122284,
+        "sensitivity": 0.6415094339622641,
+        "specificity": 0.8552631578947368,
+        "precision": 0.6071428571428571,
+        "auroc": 0.8395916087388282,
+        "auprc": 0.7524342313009464
+      }
+    },
+    {
+      "run_name": "language_zh_pd_ctp_phase2",
+      "n_rows": 205,
+      "n_groups": 127,
+      "best_model": {
+        "run_name": "language_zh_pd_ctp_phase2",
+        "subset_name": "all_phase2",
+        "top_k": 100,
+        "num_selected_features": 100,
+        "model_family": "lr",
+        "model_variant": "c1",
+        "balanced_accuracy": 0.9375,
+        "macro_f1": 0.9598173515981735,
+        "sensitivity": 0.875,
+        "specificity": 1.0,
+        "precision": 1.0,
+        "auroc": 0.9756944444444444,
+        "auprc": 0.9416666666666667
+      }
+    },
+    {
+      "run_name": "language_el_pd_ctp_phase2",
+      "n_rows": 133,
+      "n_groups": 133,
+      "best_model": {
+        "run_name": "language_el_pd_ctp_phase2",
+        "subset_name": "rich_universal",
+        "top_k": 100,
+        "num_selected_features": 100,
+        "model_family": "rf",
+        "model_variant": "n200",
+        "balanced_accuracy": 0.875,
+        "macro_f1": 0.8831168831168831,
+        "sensitivity": 1.0,
+        "specificity": 0.75,
+        "precision": 0.8333333333333334,
+        "auroc": 0.9611111111111111,
+        "auprc": 0.9706654456654455
+      }
+    },
+    {
+      "run_name": "language_en_cookie_theft_phase2",
+      "n_rows": 1942,
+      "n_groups": 1711,
+      "best_model": {
+        "run_name": "language_en_cookie_theft_phase2",
+        "subset_name": "all_phase2",
+        "top_k": 100,
+        "num_selected_features": 100,
+        "model_family": "lr",
+        "model_variant": "c1",
+        "balanced_accuracy": 0.7505492375290772,
+        "macro_f1": 0.7482928391306087,
+        "sensitivity": 0.6415094339622641,
+        "specificity": 0.8595890410958904,
+        "precision": 0.6238532110091743,
+        "auroc": 0.833354872059964,
+        "auprc": 0.7539137998550896
+      }
+    },
+    {
+      "run_name": "language_zh_cookie_theft_phase2",
+      "n_rows": 117,
+      "n_groups": 111,
+      "best_model": {
+        "run_name": "language_zh_cookie_theft_phase2",
+        "subset_name": "phase1_universal",
+        "top_k": 50,
+        "num_selected_features": 50,
+        "model_family": "lr",
+        "model_variant": "c1",
+        "balanced_accuracy": 0.8786764705882353,
+        "macro_f1": 0.8663101604278074,
+        "sensitivity": 0.875,
+        "specificity": 0.8823529411764706,
+        "precision": 0.7777777777777778,
+        "auroc": 0.9191176470588235,
+        "auprc": 0.8470619658119658
+      }
+    },
+    {
+      "run_name": "language_es_reading_phase2",
+      "n_rows": 269,
+      "n_groups": 102,
+      "best_model": {
+        "run_name": "language_es_reading_phase2",
+        "subset_name": "task_specific_semantic",
+        "top_k": 50,
+        "num_selected_features": 9,
+        "model_family": "lr",
+        "model_variant": "c1",
+        "balanced_accuracy": 0.7286821705426356,
+        "macro_f1": 0.7087517934002869,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.7906976744186046,
+        "precision": 0.5263157894736842,
+        "auroc": 0.7922480620155039,
+        "auprc": 0.6600831179402608
+      }
+    }
+  ],
+  "skipped_runs": []
+}

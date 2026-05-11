@@ -1,0 +1,9 @@
+Completed benchmark_wide_phase2: best=svm:rbf_c1 subset=all_phase2 top_k=100 bal_acc=0.775
+Completed pd_ctp_pooled_phase2: best=lr:c1 subset=all_phase2 top_k=100 bal_acc=0.774
+Completed cookie_theft_pooled_phase2: best=svm:rbf_c1 subset=rich_universal top_k=100 bal_acc=0.760
+Completed language_en_pd_ctp_phase2: best=lr:c1 subset=all_phase2 top_k=100 bal_acc=0.748
+Completed language_zh_pd_ctp_phase2: best=lr:c1 subset=all_phase2 top_k=100 bal_acc=0.938
+Completed language_el_pd_ctp_phase2: best=rf:n200 subset=rich_universal top_k=100 bal_acc=0.875
+Completed language_en_cookie_theft_phase2: best=lr:c1 subset=all_phase2 top_k=100 bal_acc=0.751
+Completed language_zh_cookie_theft_phase2: best=lr:c1 subset=phase1_universal top_k=50 bal_acc=0.879
+Completed language_es_reading_phase2: best=lr:c1 subset=task_specific_semantic top_k=50 bal_acc=0.729

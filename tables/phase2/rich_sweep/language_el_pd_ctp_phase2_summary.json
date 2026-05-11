@@ -1,0 +1,20 @@
+{
+  "run_name": "language_el_pd_ctp_phase2",
+  "n_rows": 133,
+  "n_groups": 133,
+  "best_model": {
+    "run_name": "language_el_pd_ctp_phase2",
+    "subset_name": "rich_universal",
+    "top_k": 100,
+    "num_selected_features": 100,
+    "model_family": "rf",
+    "model_variant": "n200",
+    "balanced_accuracy": 0.875,
+    "macro_f1": 0.8831168831168831,
+    "sensitivity": 1.0,
+    "specificity": 0.75,
+    "precision": 0.8333333333333334,
+    "auroc": 0.9611111111111111,
+    "auprc": 0.9706654456654455
+  }
+}

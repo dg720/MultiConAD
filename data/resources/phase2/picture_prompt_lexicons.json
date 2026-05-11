@@ -1,0 +1,210 @@
+{
+  "cookie_theft": {
+    "object_categories": [
+      "boy",
+      "girl",
+      "mother",
+      "cookie",
+      "jar",
+      "stool",
+      "sink",
+      "water",
+      "window",
+      "curtain",
+      "dish",
+      "dishcloth",
+      "cupboard",
+      "kitchen"
+    ],
+    "action_categories": [
+      "action_take",
+      "action_fall",
+      "action_overflow",
+      "action_wash"
+    ],
+    "languages": {
+      "en": {
+        "boy": ["boy", "son", "brother", "kid"],
+        "girl": ["girl", "daughter", "sister", "kid"],
+        "mother": ["mother", "mom", "mama", "woman", "lady"],
+        "cookie": ["cookie", "cookies", "biscuit", "biscuits"],
+        "jar": ["jar", "cookie jar"],
+        "stool": ["stool", "stepstool", "step stool", "chair"],
+        "sink": ["sink"],
+        "water": ["water"],
+        "window": ["window"],
+        "curtain": ["curtain", "curtains"],
+        "dish": ["dish", "dishes", "plate", "plates"],
+        "dishcloth": ["dishcloth", "cloth", "rag", "towel"],
+        "cupboard": ["cupboard", "cabinet", "shelf"],
+        "kitchen": ["kitchen"],
+        "action_take": ["take", "reach", "grab", "steal", "getting"],
+        "action_fall": ["fall", "falling", "tip", "tipping", "slip", "slipping"],
+        "action_overflow": ["overflow", "overflowing", "spill", "spilling", "running"],
+        "action_wash": ["wash", "washing", "dry", "drying", "clean", "cleaning"]
+      },
+      "zh": {
+        "boy": ["男孩", "小男孩", "儿子"],
+        "girl": ["女孩", "小女孩", "女儿", "妹妹"],
+        "mother": ["妈妈", "母亲", "女人"],
+        "cookie": ["饼干", "曲奇"],
+        "jar": ["罐", "罐子", "饼干罐"],
+        "stool": ["凳子", "椅子", "小凳子"],
+        "sink": ["水槽", "洗碗池"],
+        "water": ["水"],
+        "window": ["窗", "窗户"],
+        "curtain": ["窗帘"],
+        "dish": ["盘子", "碟子", "碗"],
+        "dishcloth": ["抹布", "毛巾", "布"],
+        "cupboard": ["柜子", "橱柜"],
+        "kitchen": ["厨房"],
+        "action_take": ["拿", "取", "够", "偷"],
+        "action_fall": ["掉", "摔", "倒", "跌"],
+        "action_overflow": ["溢", "流", "漏"],
+        "action_wash": ["洗", "擦", "收拾"]
+      }
+    }
+  },
+  "lion_scene": {
+    "object_categories": [
+      "lion",
+      "lioness",
+      "cub",
+      "prey",
+      "bones",
+      "tree",
+      "grass",
+      "animal"
+    ],
+    "action_categories": [
+      "action_eat",
+      "action_watch"
+    ],
+    "languages": {
+      "el": {
+        "lion": ["λιοντάρι", "λιοντάρια"],
+        "lioness": ["λεονταρίνα"],
+        "cub": ["λιονταράκι", "μικρό", "μωρό"],
+        "prey": ["ζώο", "σφάγιο", "κρέας", "βούβαλο", "ελάφι"],
+        "bones": ["κόκαλα", "σκελετός"],
+        "tree": ["δέντρο", "κλαδί"],
+        "grass": ["χόρτο", "γρασίδι", "λιβάδι"],
+        "animal": ["ζώο", "ζωάκι"],
+        "action_eat": ["τρώνε", "τρώει", "έφαγαν", "κατασπαράξει"],
+        "action_watch": ["βλέπω", "κοιτάνε", "βρίσκονται"]
+      }
+    }
+  },
+  "cat_tree": {
+    "object_categories": [
+      "girl",
+      "cat",
+      "tree",
+      "father",
+      "ladder",
+      "dog",
+      "fireman",
+      "bird"
+    ],
+    "action_categories": [
+      "action_climb",
+      "action_rescue"
+    ],
+    "languages": {
+      "en": {
+        "girl": ["girl", "little girl", "child"],
+        "cat": ["cat", "kitty"],
+        "tree": ["tree"],
+        "father": ["father", "dad", "man"],
+        "ladder": ["ladder"],
+        "dog": ["dog"],
+        "fireman": ["fireman", "fire department", "fire truck", "truck"],
+        "bird": ["bird"],
+        "action_climb": ["climb", "climbed", "up"],
+        "action_rescue": ["rescue", "save", "help", "get", "called"]
+      }
+    }
+  },
+  "car_trip": {
+    "object_categories": [
+      "car",
+      "driver",
+      "woman",
+      "boy",
+      "girl",
+      "dog",
+      "grandmother",
+      "window"
+    ],
+    "action_categories": [
+      "action_drive",
+      "action_look",
+      "action_blow"
+    ],
+    "languages": {
+      "en": {
+        "car": ["car"],
+        "driver": ["driver", "man", "father", "wheel"],
+        "woman": ["woman", "mother", "mom"],
+        "boy": ["boy"],
+        "girl": ["girl"],
+        "dog": ["dog"],
+        "grandmother": ["grandmother", "grandma"],
+        "window": ["window"],
+        "action_drive": ["drive", "driving"],
+        "action_look": ["look", "looking"],
+        "action_blow": ["blow", "blowing", "bubble"]
+      }
+    }
+  },
+  "umbrella_rain": {
+    "object_categories": [
+      "boy",
+      "umbrella",
+      "rain",
+      "mother",
+      "puddle",
+      "house"
+    ],
+    "action_categories": [
+      "action_rain",
+      "action_return"
+    ],
+    "languages": {
+      "en": {
+        "boy": ["boy", "child"],
+        "umbrella": ["umbrella"],
+        "rain": ["rain", "raining"],
+        "mother": ["mother", "mom"],
+        "puddle": ["puddle", "wet", "feet"],
+        "house": ["house", "home"],
+        "action_rain": ["rain", "raining", "wet"],
+        "action_return": ["return", "came", "comes", "home", "back"]
+      }
+    }
+  },
+  "tour_bus": {
+    "object_categories": [
+      "bus",
+      "hotel",
+      "people",
+      "town",
+      "swimming"
+    ],
+    "action_categories": [
+      "action_arrive",
+      "action_pickup"
+    ],
+    "languages": {
+      "en": {
+        "bus": ["bus", "tour bus"],
+        "hotel": ["hotel"],
+        "people": ["people"],
+        "town": ["town"],
+        "swimming": ["swimming", "swim"],
+        "action_arrive": ["coming", "arrive"],
+        "action_pickup": ["pick", "pickup", "pick up"]
+      }
+    }
+  }
+}
