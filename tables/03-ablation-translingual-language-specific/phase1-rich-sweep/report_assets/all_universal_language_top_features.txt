@@ -1,0 +1,59 @@
+Phase 1 Combined-Pool Top Features By Language
+=============================================
+These are permutation-ranked features from the best `all_universal` model in each language.
+
+Chinese
+-------
+Model: svm:linear_c1 | k=all | acc=81.2%
+1. lex_mattr_20 [lex]
+2. len_speech_duration [len]
+3. ac_egemaps_slopeuv0_500_sma3nz_amean [ac]
+4. ac_mfcc_3_std [ac]
+5. syn_determiner_ratio [syn]
+6. ac_egemaps_mfcc2_sma3_stddevnorm [ac]
+7. pause_filled_count [pause]
+8. ac_mfcc_1_std [ac]
+9. ac_zcr_mean [ac]
+10. syn_pronoun_ratio [syn]
+
+English
+-------
+Model: rf:n200 | k=100 | acc=86.2%
+1. lex_std_token_length [lex]
+2. syn_num_ratio [syn]
+3. syn_mean_dependency_length [syn]
+4. syn_utterance_count [syn]
+5. syn_std_dependency_length [syn]
+6. disc_immediate_repetition_count [disc]
+7. syn_clause_density [syn]
+8. disc_repeated_unigram_ratio [disc]
+9. syn_pronoun_noun_ratio [syn]
+10. syn_pronoun_ratio [syn]
+
+Greek
+-----
+Model: rf:n200 | k=all | acc=83.3%
+1. ac_egemaps_loudness_sma3_stddevrisingslope [ac]
+2. ac_egemaps_jitterlocal_sma3nz_stddevnorm [ac]
+3. ac_egemaps_spectralfluxv_sma3nz_stddevnorm [ac]
+4. ac_egemaps_slopev0_500_sma3nz_amean [ac]
+5. ac_mfcc_5_std [ac]
+6. ac_egemaps_spectralfluxv_sma3nz_amean [ac]
+7. syn_determiner_ratio [syn]
+8. ac_egemaps_f3frequency_sma3nz_amean [ac]
+9. len_std_utterance_length [len]
+10. ac_rms_mean [ac]
+
+Spanish
+-------
+Model: rf:n200 | k=all | acc=85.2%
+1. lex_mattr_10 [lex]
+2. graph_average_degree [graph]
+3. lex_mattr_20 [lex]
+4. lex_std_token_length [lex]
+5. disc_mean_pairwise_utt_similarity [disc]
+6. disc_repeated_unigram_ratio [disc]
+7. lex_mean_token_length [lex]
+8. disc_repeated_bigram_ratio [disc]
+9. len_std_utterance_length [len]
+10. disc_semantic_drift [disc]

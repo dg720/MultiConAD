@@ -37,8 +37,20 @@ from processing.phase2.common import PHASE2_ROOT, TABLES_PHASE2_ROOT
 SEED = 42
 PERMUTATION_REPEATS = 5
 FEATURES_PATH = PHASE2_ROOT / "phase2_features.csv"
-RUN_ROOT = TABLES_PHASE2_ROOT / "rich_sweep"
+RUN_ROOT = TABLES_PHASE2_ROOT / "phase2-rich-sweep"
 RUN_ROOT.mkdir(parents=True, exist_ok=True)
+
+
+def run_result_tables_dir() -> Path:
+    path = RUN_ROOT / "result-tables" / "csv"
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def run_summaries_dir() -> Path:
+    path = RUN_ROOT / "summaries"
+    path.mkdir(parents=True, exist_ok=True)
+    return path
 
 
 @dataclass(frozen=True)
@@ -122,7 +134,27 @@ def normalize_with_fallback(train_df: pd.DataFrame, test_df: pd.DataFrame, featu
 
 
 def core_feature_columns(df: pd.DataFrame) -> list[str]:
-    allowed_prefixes = ("len_", "lex_", "pause_", "disc_", "syn_", "graph_", "ac_", "sx_", "par_", "pd_", "rd_", "fc_", "ft_", "sr_", "pr_")
+    allowed_prefixes = (
+        "len_",
+        "lex_",
+        "pause_",
+        "disc_",
+        "syn_",
+        "graph_",
+        "ac_",
+        "sx_",
+        "par_",
+        "pd_",
+        "rd_",
+        "fc_",
+        "ft_",
+        "sr_",
+        "cmd_",
+        "rep_",
+        "ms_",
+        "na_",
+        "pr_",
+    )
     return [col for col in df.columns if col.startswith(allowed_prefixes) and pd.api.types.is_numeric_dtype(df[col])]
 
 
@@ -131,7 +163,7 @@ def feature_subset_columns(df: pd.DataFrame, subset_name: str) -> list[str]:
     phase1_universal = {col for col in all_cols if col.startswith(("len_", "lex_", "pause_", "disc_", "syn_", "graph_", "ac_"))}
     rich_syntax = {col for col in all_cols if col.startswith(("sx_", "pr_"))}
     rich_acoustic = {col for col in all_cols if col.startswith("par_")}
-    task_semantic = {col for col in all_cols if col.startswith(("pd_", "rd_", "fc_", "ft_", "sr_"))}
+    task_semantic = {col for col in all_cols if col.startswith(("pd_", "rd_", "fc_", "ft_", "sr_", "cmd_", "rep_", "ms_", "na_"))}
     pause_cols = {col for col in all_cols if col.startswith("pause_") or col in {"len_audio_duration", "len_speech_duration", "len_tokens_per_second", "len_syllables_per_second"}}
     rich_text = {col for col in all_cols if col.startswith(("len_", "lex_", "disc_", "syn_", "graph_", "sx_", "pr_"))}
     acoustic_all = {col for col in all_cols if col.startswith(("ac_", "par_"))}
@@ -271,11 +303,12 @@ def run_spec(df: pd.DataFrame, spec: RunSpec, log):
     anova_df = anova_tables[key]
     anova_group_df = anova_df.assign(feature_group=anova_df["feature_name"].str.split("_", n=1).str[0]).groupby("feature_group", dropna=False)[["f_score"]].mean().reset_index().sort_values("f_score", ascending=False)
     stem = spec.name
-    result_df.to_csv(RUN_ROOT / f"{stem}_model_results.csv", index=False)
-    importance_df.to_csv(RUN_ROOT / f"{stem}_permutation_importance.csv", index=False)
-    importance_group_df.to_csv(RUN_ROOT / f"{stem}_permutation_importance_feature_groups.csv", index=False)
-    anova_df.to_csv(RUN_ROOT / f"{stem}_anova_ranking.csv", index=False)
-    anova_group_df.to_csv(RUN_ROOT / f"{stem}_anova_feature_groups.csv", index=False)
+    result_dir = run_result_tables_dir()
+    result_df.to_csv(result_dir / f"{stem}_model_results.csv", index=False)
+    importance_df.to_csv(result_dir / f"{stem}_permutation_importance.csv", index=False)
+    importance_group_df.to_csv(result_dir / f"{stem}_permutation_importance_feature_groups.csv", index=False)
+    anova_df.to_csv(result_dir / f"{stem}_anova_ranking.csv", index=False)
+    anova_group_df.to_csv(result_dir / f"{stem}_anova_feature_groups.csv", index=False)
     summary = {
         "run_name": spec.name,
         "n_rows": int(len(filtered)),
@@ -289,7 +322,7 @@ def run_spec(df: pd.DataFrame, spec: RunSpec, log):
         "primary_selection_metric": "raw accuracy",
         "best_model": best,
     }
-    write_json(RUN_ROOT / f"{stem}_summary.json", summary)
+    write_json(run_summaries_dir() / f"{stem}_summary.json", summary)
     log(f"Completed {spec.name}: best={best['model_family']}:{best['model_variant']} subset={best['subset_name']} top_k={best['top_k']} acc={best['accuracy']:.3f} bal_acc={best['balanced_accuracy']:.3f}")
     return summary
 
@@ -323,8 +356,8 @@ def main():
         except Exception as exc:
             skipped.append({"run_name": spec.name, "reason": str(exc)})
             log(f"Failed {spec.name}: {exc}")
-    write_json(RUN_ROOT / "phase2_run_index.json", {"completed_runs": summaries, "skipped_runs": skipped})
-    pd.DataFrame(skipped).to_csv(RUN_ROOT / "phase2_skipped_runs.csv", index=False)
+    write_json(run_summaries_dir() / "phase2_run_index.json", {"completed_runs": summaries, "skipped_runs": skipped})
+    pd.DataFrame(skipped).to_csv(run_result_tables_dir() / "phase2_skipped_runs.csv", index=False)
 
 
 if __name__ == "__main__":

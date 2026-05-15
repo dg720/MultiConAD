@@ -1,0 +1,14 @@
+Language-Specific Welch Median + IQR Overlay
+===========================================
+This plot mirrors the pooled median/IQR radar style, but each language uses its own Welch+Bonferroni+|d| top feature list.
+The displayed burden scores remain AD-oriented on a 0-100 scale.
+- solid line: per-language median burden for AD or HC
+- shaded band: interquartile range (25th to 75th percentile)
+- no individual sample traces are drawn
+
+Language-specific Welch feature sets
+-----------------------------------
+English: syn_mean_dependency_length, syn_std_dependency_length, syn_obl_ratio, syn_max_dependency_length, syn_num_ratio, syn_mean_tree_depth, syn_interjection_ratio, syn_determiner_noun_ratio, syn_subordination_ratio, len_tokens_per_utterance, len_mean_utterance_length, syn_mean_utterance_length_words, syn_aux_verb_ratio, syn_clause_density, syn_max_tree_depth, len_utterance_count
+Chinese: ac_egemaps_alpharatiov_sma3nz_amean, ac_egemaps_logrelf0_h1_a3_sma3nz_amean, ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm, ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope, ac_egemaps_mfcc1v_sma3nz_amean, ac_egemaps_slopeuv500_1500_sma3nz_amean, ac_mfcc_3_mean, ac_egemaps_hammarbergindexv_sma3nz_amean, ac_egemaps_f2bandwidth_sma3nz_stddevnorm, ac_egemaps_f3bandwidth_sma3nz_stddevnorm, ac_egemaps_slopev500_1500_sma3nz_amean, ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile20_0, ac_egemaps_jitterlocal_sma3nz_amean, ac_mfcc_2_std, ac_egemaps_hnrdbacf_sma3nz_amean, ac_egemaps_mfcc1_sma3_amean
+Greek: ac_egemaps_loudness_sma3_stddevfallingslope, ac_egemaps_loudness_sma3_stddevrisingslope, ac_rms_std, ac_egemaps_loudness_sma3_meanrisingslope, ac_egemaps_loudness_sma3_meanfallingslope, ac_egemaps_equivalentsoundlevel_dbp, ac_egemaps_loudness_sma3_pctlrange0_2, ac_egemaps_loudness_sma3_percentile80_0, ac_egemaps_spectralfluxv_sma3nz_stddevnorm
+Spanish: lex_mean_token_length, syn_determiner_ratio, syn_noun_ratio, lex_type_token_ratio, disc_repeated_unigram_ratio, lex_repetition_rate, lex_lemma_type_token_ratio, syn_pronoun_noun_ratio, lex_brunet, lex_std_token_length, lex_hapax_ratio, syn_pronoun_ratio, graph_average_degree, disc_repeated_bigram_ratio, graph_node_count, len_type_count

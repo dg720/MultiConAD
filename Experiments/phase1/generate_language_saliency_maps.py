@@ -42,7 +42,7 @@ LANGUAGE_SPECS = {
         "grouping_levels": [["task_type", "dataset_name"], ["task_type"], []],
     },
 }
-PALETTE = {"AD": "#b24a4a", "HC": "#4f7f68"}
+PALETTE = {"AD": "#df4b4b", "HC": "#22a66f"}
 
 
 def load_merged() -> pd.DataFrame:
@@ -70,7 +70,7 @@ def get_model_estimator(model_family: str, model_variant: str):
 
 
 def best_row_for_run(run_name: str, subset: str = "all_universal") -> pd.Series:
-    df = pd.read_csv(p1.RICH_SWEEP_ROOT / f"{run_name}_model_results.csv")
+    df = pd.read_csv(p1.RICH_SWEEP_RESULT_TABLES / f"{run_name}_model_results.csv")
     return (
         df[df["subset"] == subset]
         .sort_values(["accuracy", "auroc", "balanced_accuracy", "macro_f1"], ascending=False)

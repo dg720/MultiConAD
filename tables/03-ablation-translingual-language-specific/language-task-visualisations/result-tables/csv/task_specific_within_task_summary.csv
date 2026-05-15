@@ -1,0 +1,54 @@
+feature_name,feature_label,feature_group,task_type,paper_task_labels,diagnostic_strength_within_task,language_specificity_within_task,direction_consistency,valid_languages,valid_cells,languages,cell_ids,max_abs_effect,significant_cells,top50_cells
+pd_unique_unit_density,unique unit density,pd,PD_CTP,FT|PD,0.5090533778092784,0.4977784506047171,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,1.1425030586141558,1,1
+pd_object_units_ratio,object units ratio,pd,PD_CTP,FT|PD,0.4003132467080201,0.486005840176116,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.8592657448876083,0,0
+pd_action_units_ratio,action units ratio,pd,PD_CTP,FT|PD,0.4003132467080199,0.48600584017611587,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.8592657448876083,0,0
+pd_detected_prompt_score,detected prompt score,pd,PD_CTP,FT|PD,0.34034601317254337,0.3619519827533015,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.8416342568240031,2,1
+pd_keyword_ttr,keyword ttr,pd,PD_CTP,FT|PD,0.3339573331525098,0.3542854100468776,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.433576949506257,0,0
+pd_keyword_to_nonkeyword_ratio,keyword to nonkeyword ratio,pd,PD_CTP,FT|PD,0.2961694380139512,0.30148942594661177,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.6916324718130026,0,0
+pd_content_density,content density,pd,PD_CTP,FT|PD,0.29627252053789105,0.2916285144381964,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.7010544330277773,0,0
+pd_total_unit_density,total unit density,pd,PD_CTP,FT|PD,0.29627252053789105,0.2916285144381964,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.7010544330277773,0,0
+pd_percentage_units_mentioned,PD units mentioned,pd,PD_CTP,FT|PD,0.5748504821140353,0.21927164143416636,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.8804972945290428,1,1
+pd_unique_units_ratio,PD unique units ratio,pd,PD_CTP,FT|PD,0.5748504821140353,0.21927164143416636,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.8804972945290428,1,1
+pd_num_unique_keywords,PD unique keywords,pd,PD_CTP,FT|PD,0.5413805234327131,0.20554141030612003,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.8240800864562045,1,1
+pd_unique_units_count,PD unique units count,pd,PD_CTP,FT|PD,0.5606525014887563,0.1995096062930604,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.8379033526532051,1,1
+pd_mean_utterance_to_unit_similarity,mean utterance to unit similarity,pd,PD_CTP,FT|PD,0.18884195421511707,0.18740729967395464,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.23668200347823445,0,0
+pd_num_total_keywords,num total keywords,pd,PD_CTP,FT|PD,0.33974913885702307,0.16880937859983497,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.5783555125603347,1,1
+pd_total_unit_mentions,total unit mentions,pd,PD_CTP,FT|PD,0.33974913885702307,0.16880937859983497,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.5783555125603347,1,1
+pd_global_prompt_coherence,global prompt coherence,pd,PD_CTP,FT|PD,0.1685759448787829,0.14794292601713877,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.2787698621780744,0,0
+pd_repeated_content_unit_ratio,repeated content unit ratio,pd,PD_CTP,FT|PD,0.12057452463569059,0.14488162909648547,0.6666666666666666,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.21953095975272058,0,0
+pd_semantic_similarity_to_unit_list,semantic similarity to unit list,pd,PD_CTP,FT|PD,0.14211886475213384,0.11387297658507714,1.0,3,3,el|en|zh,el|PD_CTP|en|PD_CTP|zh|PD_CTP,0.2787698621780744,0,0
+pd_unique_unit_efficiency,unique unit efficiency,pd,PD_CTP,FT|PD,0.5834561241013151,0.37615401529868486,1.0,2,2,el|zh,el|PD_CTP|zh|PD_CTP,0.9596101394000001,1,1
+pd_total_unit_efficiency,total unit efficiency,pd,PD_CTP,FT|PD,0.40695825161643795,0.27047216324083595,1.0,2,2,el|zh,el|PD_CTP|zh|PD_CTP,0.677430414857274,0,0
+sr_key_event_coverage,key event coverage,sr,PICTURE_RECALL,FT|PD,1.891752434312501,,1.0,1,1,el,el|PICTURE_RECALL,1.891752434312501,0,1
+sr_propositions_recalled_ratio,propositions recalled ratio,sr,PICTURE_RECALL,FT|PD,1.8462098416998216,,1.0,1,1,el,el|PICTURE_RECALL,1.8462098416998216,0,1
+sr_propositions_recalled_count,propositions recalled count,sr,PICTURE_RECALL,FT|PD,1.8462098416998214,,1.0,1,1,el,el|PICTURE_RECALL,1.8462098416998214,0,1
+sr_semantic_similarity_to_reference_story,semantic similarity to referenc...,sr,PICTURE_RECALL,FT|PD,1.3848139889702256,,1.0,1,1,el,el|PICTURE_RECALL,1.3848139889702256,0,1
+cmd_token_count,token count,cmd,COMMAND,FC,1.3468081189738763,,1.0,1,1,en,en|COMMAND,1.3468081189738763,1,1
+cmd_utterance_count,utterance count,cmd,COMMAND,FC,1.142911472470404,,1.0,1,1,en,en|COMMAND,1.142911472470404,1,1
+rd_sequence_match_ratio,sequence match ratio,rd,READING,NA,0.9735884464348251,,1.0,1,1,es,es|READING,0.9735884464348251,1,1
+sr_content_density,content density,sr,PICTURE_RECALL,FT|PD,0.9731416880341477,,1.0,1,1,el,el|PICTURE_RECALL,0.9731416880341477,0,0
+rd_prompt_similarity,prompt similarity,rd,READING,NA,0.9068001435787955,,1.0,1,1,es,es|READING,0.9068001435787955,1,1
+rd_insertion_ratio,insertion ratio,rd,READING,NA,0.8948142545130845,,1.0,1,1,es,es|READING,0.8948142545130845,1,1
+rd_reference_bigram_coverage,reference bigram coverage,rd,READING,NA,0.8141636217116074,,1.0,1,1,es,es|READING,0.8141636217116074,1,1
+rd_reference_order_score,reference order score,rd,READING,NA,0.7485565441050187,,1.0,1,1,es,es|READING,0.7485565441050187,0,1
+rd_content_word_recall_ratio,content word recall ratio,rd,READING,NA,0.7362889444539968,,1.0,1,1,es,es|READING,0.7362889444539968,0,1
+rd_reference_token_coverage,reference token coverage,rd,READING,NA,0.7230619742470304,,1.0,1,1,es,es|READING,0.7230619742470304,0,1
+rd_omission_ratio,omission ratio,rd,READING,NA,0.7230619742470298,,1.0,1,1,es,es|READING,0.7230619742470298,0,1
+cmd_device_keyword_ratio,device keyword ratio,cmd,COMMAND,FC,0.6447935195098007,,1.0,1,1,en,en|COMMAND,0.6447935195098007,0,1
+rd_repetition_ratio,repetition ratio,rd,READING,NA,0.5864184749695455,,1.0,1,1,es,es|READING,0.5864184749695455,0,1
+rep_token_count,token count,rep,REPETITION,FT|PD,0.46119070226060793,,1.0,1,1,el,el|REPETITION,0.46119070226060793,0,0
+cmd_mean_utterance_length,mean utterance length,cmd,COMMAND,FC,0.46002543356364195,,1.0,1,1,en,en|COMMAND,0.46002543356364195,0,1
+rep_reference_token_coverage,reference token coverage,rep,REPETITION,FT|PD,0.36538386912092446,,1.0,1,1,el,el|REPETITION,0.36538386912092446,0,0
+cmd_request_marker_ratio,request marker ratio,cmd,COMMAND,FC,0.335593323094999,,1.0,1,1,en,en|COMMAND,0.335593323094999,0,1
+rep_immediate_repetition_count,immediate repetition count,rep,REPETITION,FT|PD,0.2988071523335984,,1.0,1,1,el,el|REPETITION,0.2988071523335984,0,0
+rep_repetition_rate,repetition rate,rep,REPETITION,FT|PD,0.2820654426368573,,1.0,1,1,el,el|REPETITION,0.2820654426368573,0,0
+rep_unique_token_ratio,unique token ratio,rep,REPETITION,FT|PD,0.2820654426368573,,1.0,1,1,el,el|REPETITION,0.2820654426368573,0,0
+cmd_repetition_rate,repetition rate,cmd,COMMAND,FC,0.27164996982752465,,1.0,1,1,en,en|COMMAND,0.27164996982752465,0,0
+cmd_unique_token_ratio,unique token ratio,cmd,COMMAND,FC,0.2665348460278765,,1.0,1,1,en,en|COMMAND,0.2665348460278765,0,0
+sr_repetition_rate,repetition rate,sr,PICTURE_RECALL,FT|PD,0.2549735014313235,,1.0,1,1,el,el|PICTURE_RECALL,0.2549735014313235,0,0
+rep_sequence_match_to_reference,sequence match to reference,rep,REPETITION,FT|PD,0.24787298477727704,,1.0,1,1,el,el|REPETITION,0.24787298477727704,0,0
+sr_intrusion_count,intrusion count,sr,PICTURE_RECALL,FT|PD,0.2166407431581352,,1.0,1,1,el,el|PICTURE_RECALL,0.2166407431581352,0,0
+sr_event_order_score,event order score,sr,PICTURE_RECALL,FT|PD,0.20757756108309408,,1.0,1,1,el,el|PICTURE_RECALL,0.20757756108309408,0,0
+rep_duration_per_token,duration per token,rep,REPETITION,FT|PD,0.18235193964191126,,1.0,1,1,el,el|REPETITION,0.18235193964191126,0,0
+rep_bigram_repetition_rate,bigram repetition rate,rep,REPETITION,FT|PD,0.0725911374774099,,1.0,1,1,el,el|REPETITION,0.0725911374774099,0,0
+cmd_action_verb_ratio,action verb ratio,cmd,COMMAND,FC,0.014235326478129086,,1.0,1,1,en,en|COMMAND,0.014235326478129086,0,0

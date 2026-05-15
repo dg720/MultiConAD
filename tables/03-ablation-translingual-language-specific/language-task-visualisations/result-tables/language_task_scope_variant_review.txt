@@ -1,0 +1,93 @@
+Language-Task Scope Variant Visualisation Review
+================================================
+
+Purpose
+-------
+This reruns the language/task specificity visual grammar separately for core/general features and task-specific features, without overwriting the full-feature V2 figures.
+
+Review
+------
+The core-only ranked plot and grouped heatmap are the most interpretable main figures. They remove sparse task-derived features and show cross-task behaviour for general lexical, syntactic, pause, discourse, acoustic, and paralinguistic features.
+The task-specific-only plots are useful as an audit of task-feature behaviour, but they should be treated as supporting figures. Most task-specific features are sparse or single-task by construction, so they cannot support clean translingual or language-specific claims.
+The fixed-size scatter variants are clearer than the original dense scatter after splitting by scope, but they are still secondary to the ranked plot and grouped heatmap. For task-specific features, the scatter mainly shows missing task-specificity estimates rather than a clean quadrant structure.
+The diagnostic-strength-vs-coverage variants are useful for explaining why some apparently strong task-specific effects are weak evidence: high effect size often comes with very few valid cells.
+
+Recommendation
+--------------
+Use ranked_feature_groups_core_v2 and language_task_heatmap_by_interpretation_core_v2 as the main interpretability figures.
+Use ranked_feature_groups_task_specific_v2 and diagnostic_strength_coverage_task_specific_v2 as supporting/audit figures.
+Keep the full-feature V2 plots as appendix-style comprehensive views.
+
+Scope summary
+-------------
+        scope  features  selected  translingual  language_sensitive  task_sensitive  language_task_confounded  unstable
+         core       382        36            42                  11               8                        44       277
+task_specific        92        12            10                   2               0                         0        80
+
+Selected rows: core
+-------------------
+category_prefix                           display_name                                     feature_name feature_group diagnostic_strength language_specificity task_specificity_score direction_consistency  valid_cells
+             TL                             noun ratio                                   syn_noun_ratio           syn               0.657                0.262                  0.308                 0.875            8
+             TL                           short pauses                                pause_short_count         pause               0.477                0.204                  0.367                 0.800            5
+             TL            egemaps mfcc2v sma3nz amean                   ac_egemaps_mfcc2v_sma3nz_amean            ac               0.435                0.278                  0.377                 1.000            4
+             TL                        noun/verb ratio                              syn_noun_verb_ratio           syn               0.435                0.048                  0.348                 0.875            8
+             TL egemaps slopev500 1500 sma3nz stdde...      ac_egemaps_slopev500_1500_sma3nz_stddevnorm            ac               0.433                0.026                  0.353                 0.750            4
+             TL                 content function ratio                       syn_content_function_ratio           syn               0.433                0.173                  0.247                 0.750            8
+             TL                         aux verb ratio                               syn_aux_verb_ratio           syn               0.416                0.149                  0.253                 0.875            8
+             TL                  repeated bigram ratio                       disc_repeated_bigram_ratio          disc               0.404                0.301                  0.244                 1.000            8
+             TL                            hapax ratio                                  lex_hapax_ratio           lex               0.374                0.250                  0.257                 0.875            8
+             TL           egemaps voicedsegmentspersec                  ac_egemaps_voicedsegmentspersec            ac               0.363                0.295                  0.302                 0.750            4
+             LS                     content-word ratio                           lex_content_word_ratio           lex               0.592                0.582                  0.310                 0.750            8
+             LS                   utterance similarity                disc_mean_pairwise_utt_similarity          disc               0.483                0.495                  0.372                 0.875            8
+             LS                    subordination ratio                          syn_subordination_ratio           syn               0.434                0.423                  0.253                 0.750            8
+             LS                               MATTR 20                                     lex_mattr_20           lex               0.602                0.398                  0.338                 0.875            8
+             LS                         logRelF0 H1-A3           ac_egemaps_logrelf0_h1_a3_sma3nz_amean            ac               0.303                0.368                  0.329                 0.750            4
+             LS                       type token ratio                             lex_type_token_ratio           lex               0.433                0.332                  0.291                 0.750            8
+             LS                        repetition rate                              lex_repetition_rate           lex               0.433                0.332                  0.291                 0.750            8
+             LS                 repeated unigram ratio                      disc_repeated_unigram_ratio          disc               0.433                0.332                  0.291                 0.750            8
+             TS      egemaps slopeuv0 500 sma3nz amean             ac_egemaps_slopeuv0_500_sma3nz_amean            ac               1.128                0.080                  0.851                 0.750            4
+             TS egemaps shimmerlocaldb sma3nz stdde...      ac_egemaps_shimmerlocaldb_sma3nz_stddevnorm            ac               0.818                0.085                  0.656                 0.750            4
+             TS                           object ratio                                    syn_obj_ratio           syn               0.525                0.297                  0.577                 0.750            8
+             TS                 low similarity frac 05                        sx_low_similarity_frac_05            sx               0.369                0.242                  0.528                 0.750            8
+             TS       egemaps slopev0 500 sma3nz amean              ac_egemaps_slopev0_500_sma3nz_amean            ac               0.607                0.136                  0.439                 0.750            4
+             TS       egemaps f1bandwidth sma3nz amean              ac_egemaps_f1bandwidth_sma3nz_amean            ac               0.389                0.186                  0.423                 0.750            4
+             TS      egemaps alpharatiouv sma3nz amean             ac_egemaps_alpharatiouv_sma3nz_amean            ac               0.438                0.173                  0.421                 0.750            4
+             TS                    function-word ratio                          lex_function_word_ratio           lex               0.518                0.217                  0.413                 0.750            8
+            LTC                            mfcc 1 mean                                   ac_mfcc_1_mean            ac               2.209                1.110                  2.069                 0.750            4
+            LTC                           loudness p20          ac_egemaps_loudness_sma3_percentile20_0            ac               1.891                0.999                  2.010                 0.750            4
+            LTC       egemaps equivalentsoundlevel dbp              ac_egemaps_equivalentsoundlevel_dbp            ac               1.786                1.246                  1.646                 0.750            4
+            LTC  egemaps f2amplitudelogrelf0 sma3nz...      ac_egemaps_f2amplitudelogrelf0_sma3nz_amean            ac               1.452                0.868                  2.000                 1.000            4
+            LTC  egemaps f3amplitudelogrelf0 sma3nz...      ac_egemaps_f3amplitudelogrelf0_sma3nz_amean            ac               1.403                0.838                  1.938                 1.000            4
+            LTC  egemaps f1amplitudelogrelf0 sma3nz...      ac_egemaps_f1amplitudelogrelf0_sma3nz_amean            ac               1.324                0.845                  1.842                 1.000            4
+            LTC  egemaps f2amplitudelogrelf0 sma3nz... ac_egemaps_f2amplitudelogrelf0_sma3nz_stddevnorm            ac               1.287                0.730                  1.744                 0.750            4
+            LTC                  loudness rising slope       ac_egemaps_loudness_sma3_stddevrisingslope            ac               1.266                0.871                  0.995                 0.750            4
+            LTC egemaps loudness sma3 stddevfalling...      ac_egemaps_loudness_sma3_stddevfallingslope            ac               1.244                0.877                  0.971                 0.750            4
+            LTC                                rms std                                       ac_rms_std            ac               1.205                0.899                  0.964                 0.750            4
+
+Generated figures
+- ranked_feature_groups_core_v2.png
+- language_task_heatmap_by_interpretation_core_v2.png
+- specificity_scatter_fixed_core_v2.png
+- diagnostic_strength_coverage_core_v2.png
+
+Selected rows: task_specific
+----------------------------
+category_prefix                     display_name                        feature_name feature_group diagnostic_strength language_specificity task_specificity_score direction_consistency  valid_cells
+             TL            PD unique units ratio               pd_unique_units_ratio            pd               0.575                0.219                                        1.000            3
+             TL               PD units mentioned       pd_percentage_units_mentioned            pd               0.575                0.219                                        1.000            3
+             TL            PD unique units count               pd_unique_units_count            pd               0.561                0.200                                        1.000            3
+             TL               PD unique keywords              pd_num_unique_keywords            pd               0.541                0.206                                        1.000            3
+             TL            total unit efficiency            pd_total_unit_efficiency            pd               0.407                0.270                                        1.000            2
+             TL              total unit mentions              pd_total_unit_mentions            pd               0.340                0.169                                        1.000            3
+             TL               num total keywords               pd_num_total_keywords            pd               0.340                0.169                                        1.000            3
+             TL                  content density                  pd_content_density            pd               0.296                0.292                                        1.000            3
+             TL               total unit density               pd_total_unit_density            pd               0.296                0.292                                        1.000            3
+             TL semantic similarity to unit list pd_semantic_similarity_to_unit_list            pd               0.142                0.114                                        1.000            3
+             LS           unique unit efficiency           pd_unique_unit_efficiency            pd               0.583                0.376                                        1.000            2
+             LS            detected prompt score            pd_detected_prompt_score            pd               0.340                0.362                                        1.000            3
+
+Generated figures
+- ranked_feature_groups_task_specific_v2.png
+- language_task_heatmap_by_interpretation_task_specific_v2.png
+- specificity_scatter_fixed_task_specific_v2.png
+- diagnostic_strength_coverage_task_specific_v2.png

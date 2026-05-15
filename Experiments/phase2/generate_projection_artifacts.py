@@ -17,7 +17,9 @@ from processing.phase1.common import make_logger
 from processing.phase2.common import PHASE2_ROOT, TABLES_PHASE2_ROOT
 
 
-RICH_SWEEP_ROOT = TABLES_PHASE2_ROOT / "rich_sweep"
+RICH_SWEEP_ROOT = TABLES_PHASE2_ROOT / "phase2-rich-sweep"
+RICH_SWEEP_RESULT_TABLES = RICH_SWEEP_ROOT / "result-tables" / "csv"
+RICH_SWEEP_SUMMARIES = RICH_SWEEP_ROOT / "summaries"
 REPORT_ROOT = RICH_SWEEP_ROOT / "report_assets"
 REPORT_ROOT.mkdir(parents=True, exist_ok=True)
 
@@ -65,14 +67,14 @@ SLICE_CONFIG = {
 
 
 def load_summary(run_name: str) -> dict[str, object]:
-    return json.loads((RICH_SWEEP_ROOT / f"{run_name}_summary.json").read_text(encoding="utf-8"))
+    return json.loads((RICH_SWEEP_SUMMARIES / f"{run_name}_summary.json").read_text(encoding="utf-8"))
 
 
 def load_best_feature_names(run_name: str) -> list[str]:
     summary = load_summary(run_name)
     best = summary["best_model"]
     top_k = int(best["top_k"])
-    ranking = pd.read_csv(RICH_SWEEP_ROOT / f"{run_name}_anova_ranking.csv")
+    ranking = pd.read_csv(RICH_SWEEP_RESULT_TABLES / f"{run_name}_anova_ranking.csv")
     return ranking["feature_name"].head(top_k).tolist()
 
 

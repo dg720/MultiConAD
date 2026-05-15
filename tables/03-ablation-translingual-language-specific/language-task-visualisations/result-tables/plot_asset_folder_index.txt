@@ -1,0 +1,44 @@
+Language-Task Visualisation Plot Folder Index
+=============================================
+
+Root folder
+-----------
+tables/03-ablation-translingual-language-specific/language-task-visualisations/report_assets/
+
+Subfolders
+----------
+legacy-v1/
+Original dense scatter and first heatmap variants.
+
+full-feature-v2/
+Full feature-set V2 figures:
+- ranked grouped overview
+- grouped interpretation heatmap
+- feature-family composition
+
+scope-variants/
+Core-only and task-specific-only variants over all valid language-task cells.
+
+pd-only-variants/
+Strict PD_CTP-only variants:
+- PD-only core/general features
+- PD-only task-specific PD features
+- PD-only full feature set
+
+Notes
+-----
+The PD-only variants are the cleanest comparability check because task_type is fixed to PD_CTP.
+One duplicate PDF may remain temporarily in the root folder if it is open in another process:
+language_task_heatmap_by_interpretation_v2.pdf. A copy has already been placed under full-feature-v2/.
+
+tone-semitone-focus/
+Forced-in tone, F0, and semitone plots:
+- all-task language-task heatmap
+- Chinese NCMMSC/NCMMSE OTHER ranked effects
+- semitone availability by language-task cell
+
+task-specific-within-task/
+Task-specific feature figures that compare language specificity only within the task where each feature is valid.
+- ranked within-task language specificity
+- strength vs within-task language specificity scatter
+- task-specific language-task effect heatmap

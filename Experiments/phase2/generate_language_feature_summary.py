@@ -12,7 +12,9 @@ from processing.phase1.common import make_logger
 from processing.phase2.common import TABLES_PHASE2_ROOT
 
 
-CLEAN_ROOT = TABLES_PHASE2_ROOT / "clean_prompt_sweep"
+CLEAN_ROOT = TABLES_PHASE2_ROOT / "phase2-clean-prompt-sweep"
+CLEAN_RESULT_TABLES = CLEAN_ROOT / "result-tables" / "csv"
+CLEAN_SUMMARIES = CLEAN_ROOT / "summaries"
 REPORT_ROOT = CLEAN_ROOT / "report_assets"
 REPORT_ROOT.mkdir(parents=True, exist_ok=True)
 
@@ -30,7 +32,7 @@ def best_row(df: pd.DataFrame) -> pd.Series:
 
 
 def load_summary(run_name: str) -> dict:
-    return json.loads((CLEAN_ROOT / f"{run_name}_summary.json").read_text(encoding="utf-8"))
+    return json.loads((CLEAN_SUMMARIES / f"{run_name}_summary.json").read_text(encoding="utf-8"))
 
 
 def markdown_table(df: pd.DataFrame) -> str:
@@ -59,7 +61,7 @@ def main():
     top_feature_rows = []
 
     for slice_slug, language, task, run_name in SLICE_CONFIG:
-        results = pd.read_csv(CLEAN_ROOT / f"{run_name}_model_results.csv")
+        results = pd.read_csv(CLEAN_RESULT_TABLES / f"{run_name}_model_results.csv")
         best = best_row(results)
 
         same_subset = results[results["subset_name"] == best["subset_name"]].copy()
@@ -69,7 +71,7 @@ def main():
         all_phase2 = results[results["subset_name"] == "all_phase2"].copy()
         all_phase2_best = best_row(all_phase2) if not all_phase2.empty else None
 
-        importance = pd.read_csv(CLEAN_ROOT / f"{run_name}_permutation_importance.csv")
+        importance = pd.read_csv(CLEAN_RESULT_TABLES / f"{run_name}_permutation_importance.csv")
         top_features = importance.head(10).copy()
         top_features["slice_slug"] = slice_slug
         top_features["language"] = language

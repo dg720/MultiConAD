@@ -1,9 +1,9 @@
 """Write the accuracy and delta tables used in the paper-comparison notes.
 
 This script emits two outputs:
-1. results/accuracy_tables.txt
+1. results/result-tables/accuracy_tables.txt
    LaTeX tables for binary + multiclass accuracy and delta tables.
-2. results/tfidf_comparison_tables.txt
+2. results/result-tables/tfidf_comparison_tables.txt
    Plain-text table dump with the same values for quick inspection.
 
 The values below are the reviewed table values to keep in sync with the
@@ -18,11 +18,12 @@ import os
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-RESULTS_DIR = os.path.join(PROJECT_ROOT, "tables", "experiment-results")
+RESULTS_DIR = os.path.join(PROJECT_ROOT, "tables", "01-baselines", "embedding-baselines")
 SUMMARY_DIR = os.path.join(RESULTS_DIR, "multiseed-suite", "summaries")
+RESULT_TABLES_DIR = os.path.join(RESULTS_DIR, "result-tables")
 
-ACCURACY_TEX_PATH = os.path.join(RESULTS_DIR, "accuracy_tables.txt")
-PLAIN_TXT_PATH = os.path.join(RESULTS_DIR, "tfidf_comparison_tables.txt")
+ACCURACY_TEX_PATH = os.path.join(RESULT_TABLES_DIR, "accuracy_tables.txt")
+PLAIN_TXT_PATH = os.path.join(RESULT_TABLES_DIR, "tfidf_comparison_tables.txt")
 
 LANGS = ["Spanish", "Chinese", "Greek", "English"]
 REPRS = ["Sparse", "Dense"]
@@ -381,7 +382,7 @@ def write_plain_text() -> None:
 
 
 def main() -> None:
-    os.makedirs(RESULTS_DIR, exist_ok=True)
+    os.makedirs(RESULT_TABLES_DIR, exist_ok=True)
     with open(ACCURACY_TEX_PATH, "w", encoding="utf-8") as f:
         f.write("% ============================================================\n")
         f.write("% Preamble commands (add to your document once)\n")

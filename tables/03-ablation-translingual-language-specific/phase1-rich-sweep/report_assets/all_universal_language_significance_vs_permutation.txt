@@ -1,0 +1,73 @@
+Phase 1 Language-Specific Significance vs Permutation Importance
+==============================================================
+Significance uses per-language Kruskal-Wallis tests on raw Phase 1 feature values from the training split of the stored best `all_universal` run.
+Bonferroni and FDR are applied within each language over all tested Phase 1 features.
+Permutation importance is taken from the fitted best `all_universal` model on the held-out test split.
+
+Chinese
+-------
+Tested features: 192 | Bonferroni-significant: 71 | FDR-significant: 130 | Shared top-10 overlap: 0/10
+Top significance features
+1. ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm [ac] p=5.72e-25 bonf=1.10e-22 fdr=1.10e-22 overlap=-
+2. ac_egemaps_alpharatiov_sma3nz_amean [ac] p=8.24e-24 bonf=1.58e-21 fdr=7.91e-22 overlap=-
+3. ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope [ac] p=1.59e-23 bonf=3.05e-21 fdr=1.02e-21 overlap=-
+4. ac_egemaps_jitterlocal_sma3nz_amean [ac] p=8.89e-22 bonf=1.71e-19 fdr=4.19e-20 overlap=-
+5. ac_egemaps_logrelf0_h1_a3_sma3nz_amean [ac] p=1.09e-21 bonf=2.09e-19 fdr=4.19e-20 overlap=-
+6. ac_egemaps_f2bandwidth_sma3nz_stddevnorm [ac] p=4.55e-19 bonf=8.73e-17 fdr=1.41e-17 overlap=-
+7. ac_mfcc_3_mean [ac] p=5.14e-19 bonf=9.87e-17 fdr=1.41e-17 overlap=-
+8. ac_egemaps_slopev500_1500_sma3nz_amean [ac] p=6.56e-19 bonf=1.26e-16 fdr=1.57e-17 overlap=-
+9. ac_egemaps_mfcc1v_sma3nz_amean [ac] p=7.93e-19 bonf=1.52e-16 fdr=1.69e-17 overlap=-
+10. ac_egemaps_hammarbergindexv_sma3nz_amean [ac] p=1.64e-18 bonf=3.15e-16 fdr=3.15e-17 overlap=-
+Permutation-only top features: lex_mattr_20, len_speech_duration, ac_egemaps_slopeuv0_500_sma3nz_amean, ac_mfcc_3_std, syn_determiner_ratio, ac_egemaps_mfcc2_sma3_stddevnorm, pause_filled_count, ac_mfcc_1_std, ac_zcr_mean, syn_pronoun_ratio
+Significance-only top features: ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm, ac_egemaps_alpharatiov_sma3nz_amean, ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope, ac_egemaps_jitterlocal_sma3nz_amean, ac_egemaps_logrelf0_h1_a3_sma3nz_amean, ac_egemaps_f2bandwidth_sma3nz_stddevnorm, ac_mfcc_3_mean, ac_egemaps_slopev500_1500_sma3nz_amean, ac_egemaps_mfcc1v_sma3nz_amean, ac_egemaps_hammarbergindexv_sma3nz_amean
+
+English
+-------
+Tested features: 70 | Bonferroni-significant: 47 | FDR-significant: 58 | Shared top-10 overlap: 4/10
+Top significance features
+1. syn_mean_dependency_length [syn] p=2.59e-57 bonf=1.81e-55 fdr=1.81e-55 overlap=perm#3
+2. len_utterance_count [len] p=7.63e-55 bonf=5.34e-53 fdr=1.78e-53 overlap=-
+3. syn_utterance_count [syn] p=7.63e-55 bonf=5.34e-53 fdr=1.78e-53 overlap=perm#4
+4. syn_std_dependency_length [syn] p=2.76e-51 bonf=1.93e-49 fdr=4.83e-50 overlap=perm#5
+5. syn_obl_ratio [syn] p=6.59e-40 bonf=4.61e-38 fdr=9.22e-39 overlap=-
+6. syn_propn_ratio [syn] p=1.20e-38 bonf=8.41e-37 fdr=1.23e-37 overlap=-
+7. syn_num_ratio [syn] p=1.23e-38 bonf=8.61e-37 fdr=1.23e-37 overlap=perm#2
+8. syn_aux_verb_ratio [syn] p=1.53e-36 bonf=1.07e-34 fdr=1.34e-35 overlap=-
+9. syn_mean_tree_depth [syn] p=5.09e-31 bonf=3.57e-29 fdr=3.96e-30 overlap=-
+10. syn_max_dependency_length [syn] p=4.67e-30 bonf=3.27e-28 fdr=3.27e-29 overlap=-
+Permutation-only top features: lex_std_token_length, disc_immediate_repetition_count, syn_clause_density, disc_repeated_unigram_ratio, syn_pronoun_noun_ratio, syn_pronoun_ratio
+Significance-only top features: len_utterance_count, syn_obl_ratio, syn_propn_ratio, syn_aux_verb_ratio, syn_mean_tree_depth, syn_max_dependency_length
+
+Greek
+-----
+Tested features: 192 | Bonferroni-significant: 9 | FDR-significant: 34 | Shared top-10 overlap: 2/10
+Top significance features
+1. ac_egemaps_loudness_sma3_stddevfallingslope [ac] p=3.12e-12 bonf=5.99e-10 fdr=3.65e-10 overlap=-
+2. ac_rms_std [ac] p=3.81e-12 bonf=7.31e-10 fdr=3.65e-10 overlap=-
+3. ac_egemaps_loudness_sma3_stddevrisingslope [ac] p=1.01e-11 bonf=1.94e-09 fdr=6.48e-10 overlap=perm#1
+4. ac_egemaps_loudness_sma3_meanrisingslope [ac] p=2.76e-11 bonf=5.29e-09 fdr=1.32e-09 overlap=-
+5. ac_egemaps_loudness_sma3_pctlrange0_2 [ac] p=4.03e-10 bonf=7.74e-08 fdr=1.55e-08 overlap=-
+6. ac_egemaps_loudness_sma3_meanfallingslope [ac] p=9.57e-10 bonf=1.84e-07 fdr=3.06e-08 overlap=-
+7. ac_egemaps_equivalentsoundlevel_dbp [ac] p=7.48e-06 bonf=1.44e-03 fdr=2.05e-04 overlap=-
+8. ac_egemaps_spectralfluxv_sma3nz_stddevnorm [ac] p=1.36e-05 bonf=2.62e-03 fdr=3.28e-04 overlap=perm#3
+9. ac_egemaps_loudness_sma3_percentile80_0 [ac] p=8.35e-05 bonf=1.60e-02 fdr=1.78e-03 overlap=-
+10. disc_semantic_drift [disc] p=4.91e-04 bonf=9.43e-02 fdr=7.86e-03 overlap=-
+Permutation-only top features: ac_egemaps_jitterlocal_sma3nz_stddevnorm, ac_egemaps_slopev0_500_sma3nz_amean, ac_mfcc_5_std, ac_egemaps_spectralfluxv_sma3nz_amean, syn_determiner_ratio, ac_egemaps_f3frequency_sma3nz_amean, len_std_utterance_length, ac_rms_mean
+Significance-only top features: ac_egemaps_loudness_sma3_stddevfallingslope, ac_rms_std, ac_egemaps_loudness_sma3_meanrisingslope, ac_egemaps_loudness_sma3_pctlrange0_2, ac_egemaps_loudness_sma3_meanfallingslope, ac_egemaps_equivalentsoundlevel_dbp, ac_egemaps_loudness_sma3_percentile80_0, disc_semantic_drift
+
+Spanish
+-------
+Tested features: 69 | Bonferroni-significant: 33 | FDR-significant: 50 | Shared top-10 overlap: 2/10
+Top significance features
+1. lex_mean_token_length [lex] p=6.53e-08 bonf=4.50e-06 fdr=4.50e-06 overlap=perm#7
+2. pause_filled_count [pause] p=2.03e-07 bonf=1.40e-05 fdr=5.69e-06 overlap=-
+3. disc_immediate_repetition_count [disc] p=3.51e-07 bonf=2.42e-05 fdr=5.69e-06 overlap=-
+4. syn_interjection_ratio [syn] p=3.60e-07 bonf=2.48e-05 fdr=5.69e-06 overlap=-
+5. lex_std_token_length [lex] p=4.12e-07 bonf=2.84e-05 fdr=5.69e-06 overlap=perm#4
+6. syn_pronoun_noun_ratio [syn] p=6.24e-07 bonf=4.30e-05 fdr=7.17e-06 overlap=-
+7. lex_brunet [lex] p=7.78e-07 bonf=5.37e-05 fdr=7.67e-06 overlap=-
+8. pause_filled_per_100_words [pause] p=1.07e-06 bonf=7.36e-05 fdr=9.20e-06 overlap=-
+9. syn_determiner_ratio [syn] p=1.83e-06 bonf=1.26e-04 fdr=1.40e-05 overlap=-
+10. syn_pronoun_ratio [syn] p=2.13e-06 bonf=1.47e-04 fdr=1.47e-05 overlap=-
+Permutation-only top features: lex_mattr_10, graph_average_degree, lex_mattr_20, disc_mean_pairwise_utt_similarity, disc_repeated_unigram_ratio, disc_repeated_bigram_ratio, len_std_utterance_length, disc_semantic_drift
+Significance-only top features: pause_filled_count, disc_immediate_repetition_count, syn_interjection_ratio, syn_pronoun_noun_ratio, lex_brunet, pause_filled_per_100_words, syn_determiner_ratio, syn_pronoun_ratio

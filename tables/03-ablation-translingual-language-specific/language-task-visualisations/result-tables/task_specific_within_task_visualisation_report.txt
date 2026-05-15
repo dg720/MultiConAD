@@ -1,0 +1,64 @@
+Task-Specific Within-Task Visualisation Report
+==============================================
+
+Method
+------
+Task-specific features are not plotted on the general task-specificity axis. They are only valid within their task domain by construction.
+For each feature-task pair, language specificity is the standard deviation of signed AD-HC Cohen's d across valid languages inside that same task.
+Feature-task pairs with only one valid language have undefined language specificity and are listed separately as sparse evidence rather than plotted on the language-specificity scatter.
+
+Comparable feature-task pairs (at least two valid languages)
+-----------------------------------------------------------
+                    feature_label task_type diagnostic_strength_within_task language_specificity_within_task  valid_languages  valid_cells languages
+              unique unit density    PD_CTP                           0.509                            0.498                3            3  el|en|zh
+               object units ratio    PD_CTP                           0.400                            0.486                3            3  el|en|zh
+               action units ratio    PD_CTP                           0.400                            0.486                3            3  el|en|zh
+           unique unit efficiency    PD_CTP                           0.583                            0.376                2            2     el|zh
+            detected prompt score    PD_CTP                           0.340                            0.362                3            3  el|en|zh
+                      keyword ttr    PD_CTP                           0.334                            0.354                3            3  el|en|zh
+      keyword to nonkeyword ratio    PD_CTP                           0.296                            0.301                3            3  el|en|zh
+                  content density    PD_CTP                           0.296                            0.292                3            3  el|en|zh
+               total unit density    PD_CTP                           0.296                            0.292                3            3  el|en|zh
+            total unit efficiency    PD_CTP                           0.407                            0.270                2            2     el|zh
+               PD units mentioned    PD_CTP                           0.575                            0.219                3            3  el|en|zh
+            PD unique units ratio    PD_CTP                           0.575                            0.219                3            3  el|en|zh
+               PD unique keywords    PD_CTP                           0.541                            0.206                3            3  el|en|zh
+            PD unique units count    PD_CTP                           0.561                            0.200                3            3  el|en|zh
+mean utterance to unit similarity    PD_CTP                           0.189                            0.187                3            3  el|en|zh
+               num total keywords    PD_CTP                           0.340                            0.169                3            3  el|en|zh
+              total unit mentions    PD_CTP                           0.340                            0.169                3            3  el|en|zh
+          global prompt coherence    PD_CTP                           0.169                            0.148                3            3  el|en|zh
+      repeated content unit ratio    PD_CTP                           0.121                            0.145                3            3  el|en|zh
+ semantic similarity to unit list    PD_CTP                           0.142                            0.114                3            3  el|en|zh
+
+Sparse single-language task-specific effects
+--------------------------------------------
+                     feature_label      task_type diagnostic_strength_within_task language_specificity_within_task  valid_languages  valid_cells languages
+                key event coverage PICTURE_RECALL                           1.892                                                 1            1        el
+       propositions recalled ratio PICTURE_RECALL                           1.846                                                 1            1        el
+       propositions recalled count PICTURE_RECALL                           1.846                                                 1            1        el
+semantic similarity to referenc... PICTURE_RECALL                           1.385                                                 1            1        el
+                       token count        COMMAND                           1.347                                                 1            1        en
+                   utterance count        COMMAND                           1.143                                                 1            1        en
+              sequence match ratio        READING                           0.974                                                 1            1        es
+                   content density PICTURE_RECALL                           0.973                                                 1            1        el
+                 prompt similarity        READING                           0.907                                                 1            1        es
+                   insertion ratio        READING                           0.895                                                 1            1        es
+         reference bigram coverage        READING                           0.814                                                 1            1        es
+             reference order score        READING                           0.749                                                 1            1        es
+         content word recall ratio        READING                           0.736                                                 1            1        es
+          reference token coverage        READING                           0.723                                                 1            1        es
+                    omission ratio        READING                           0.723                                                 1            1        es
+              device keyword ratio        COMMAND                           0.645                                                 1            1        en
+                  repetition ratio        READING                           0.586                                                 1            1        es
+                       token count     REPETITION                           0.461                                                 1            1        el
+             mean utterance length        COMMAND                           0.460                                                 1            1        en
+          reference token coverage     REPETITION                           0.365                                                 1            1        el
+
+Generated files
+---------------
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\task-specific-within-task\task_specific_language_specificity_ranked.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\task-specific-within-task\task_specific_strength_vs_language_specificity.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\task-specific-within-task\task_specific_within_task_effect_heatmap.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\result-tables\csv\task_specific_within_task_summary.csv
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\result-tables\csv\task_specific_within_task_effects.csv

@@ -18,7 +18,10 @@ if str(PROJECT_ROOT) not in sys.path:
 from experiments.phase1.run_rich_sweep import (  # noqa: E402
     FEATURES_PATH,
     MANIFEST_PATH,
+    RICH_SWEEP_KEY_RESULTS,
+    RICH_SWEEP_RESULT_TABLES,
     RICH_SWEEP_ROOT,
+    RICH_SWEEP_SUMMARIES,
     grouped_train_test_split,
     model_specs,
     normalize_with_fallback,
@@ -73,7 +76,7 @@ def fit_run(
     summary_name: str,
     override_best: dict[str, object] | None = None,
 ):
-    summary = pd.read_json(RICH_SWEEP_ROOT / f"{summary_name}_summary.json", typ="series")
+    summary = pd.read_json(RICH_SWEEP_SUMMARIES / f"{summary_name}_summary.json", typ="series")
     best = override_best or summary["best_config"]
     run_df = apply_filter(df, filters)
     train_df, test_df = grouped_train_test_split(run_df, test_size=0.2, seed=42)
@@ -100,7 +103,7 @@ def fit_run(
 
     native_importance = None
     if override_best is None:
-        native_path = RICH_SWEEP_ROOT / f"{summary_name}_native_importance_no_missing_indicators.csv"
+        native_path = RICH_SWEEP_RESULT_TABLES / f"{summary_name}_native_importance_no_missing_indicators.csv"
         native_importance = pd.read_csv(native_path) if native_path.exists() else None
     return {
         "summary": summary,
@@ -336,7 +339,7 @@ def bh_fdr(p_values: list[float]) -> list[float]:
 
 
 def feature_differentiation_table(run_state: dict[str, object], output_csv: Path) -> pd.DataFrame:
-    native = pd.read_csv(RICH_SWEEP_ROOT / "pd_ctp_pooled_rich_native_importance_no_missing_indicators.csv")
+    native = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "pd_ctp_pooled_rich_native_importance_no_missing_indicators.csv")
     native = native.set_index("feature_name")
     selected = [feature for feature in run_state["selected_cols"] if feature in native.index]
     train_df = run_state["train_df"].copy()
@@ -620,7 +623,7 @@ def build_report(
     en_pair: pd.DataFrame,
     saliency_df: pd.DataFrame,
 ) -> None:
-    report_path = RICH_SWEEP_ROOT / "REPORT_RESULTS.md"
+    report_path = RICH_SWEEP_KEY_RESULTS / "REPORT_RESULTS.md"
     ad_row = en_pair[en_pair["diagnosis_mapped"] == "AD"].iloc[0]
     hc_row = en_pair[en_pair["diagnosis_mapped"] == "HC"].iloc[0]
 
@@ -635,8 +638,8 @@ def build_report(
         columns=["analysis", "best_model", "feature_subset", "top_k", "balanced_accuracy", "macro_f1", "auroc", "auprc"],
     )
 
-    cross_lingual_df = pd.read_csv(RICH_SWEEP_ROOT / "cross_lingual_all_tasks_feature_stability.csv").head(10)
-    pd_ctp_overlap_df = pd.read_csv(RICH_SWEEP_ROOT / "cross_lingual_pd_ctp_feature_group_stability.csv")
+    cross_lingual_df = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "cross_lingual_all_tasks_feature_stability.csv").head(10)
+    pd_ctp_overlap_df = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "cross_lingual_pd_ctp_feature_group_stability.csv")
 
     md = []
     md.append("# Phase 1 Rich Sweep Report")
@@ -792,7 +795,7 @@ def main():
         grouping_levels=[["dataset_name"], []],
         summary_name="language_en_pd_ctp_rich",
     )
-    en_pd_ctp_results = pd.read_csv(RICH_SWEEP_ROOT / "language_en_pd_ctp_rich_model_results.csv")
+    en_pd_ctp_results = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "language_en_pd_ctp_rich_model_results.csv")
     en_pd_ctp_linear_best = (
         en_pd_ctp_results[
             ((en_pd_ctp_results["model_family"] == "lr"))
@@ -870,18 +873,18 @@ def main():
     )
 
     log("Building ANOVA summary tables")
-    benchmark_anova_df = pd.read_csv(RICH_SWEEP_ROOT / "benchmark_wide_rich_anova_ranking.csv").head(15)[
+    benchmark_anova_df = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "benchmark_wide_rich_anova_ranking.csv").head(15)[
         ["feature_name", "f_score", "p_value"]
     ]
-    pd_ctp_anova_df = pd.read_csv(RICH_SWEEP_ROOT / "pd_ctp_pooled_rich_anova_ranking.csv").head(15)[
+    pd_ctp_anova_df = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "pd_ctp_pooled_rich_anova_ranking.csv").head(15)[
         ["feature_name", "f_score", "p_value"]
     ]
     safe_to_csv(benchmark_anova_df, REPORT_ROOT / "benchmark_wide_top_anova.csv")
     safe_to_csv(pd_ctp_anova_df, REPORT_ROOT / "pd_ctp_pooled_top_anova.csv")
 
     log("Building best-by-method result tables")
-    benchmark_results = pd.read_csv(RICH_SWEEP_ROOT / "benchmark_wide_rich_model_results.csv")
-    pd_ctp_results = pd.read_csv(RICH_SWEEP_ROOT / "pd_ctp_pooled_rich_model_results.csv")
+    benchmark_results = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "benchmark_wide_rich_model_results.csv")
+    pd_ctp_results = pd.read_csv(RICH_SWEEP_RESULT_TABLES / "pd_ctp_pooled_rich_model_results.csv")
 
     def best_by_method(df: pd.DataFrame) -> pd.DataFrame:
         out = (

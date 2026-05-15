@@ -73,7 +73,7 @@ def fmt(val):
 def run():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(script_dir)
-    results_dir = os.path.join(project_root, "tables", "experiment-results")
+    results_dir = os.path.join(project_root, "tables", "01-baselines", "embedding-baselines", "result-tables")
     tfidf_path = os.path.join(results_dir, "tfidf_results.txt")
     e5_path = os.path.join(results_dir, "e5_results.txt")
 

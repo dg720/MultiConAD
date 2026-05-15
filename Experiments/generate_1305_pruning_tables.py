@@ -18,7 +18,7 @@ from experiments.phase1.generate_all_task_feature_comparison import parse_best_t
 
 
 REPORT_ROOT = PROJECT_ROOT / "13.05-report"
-TEXT_SUMMARY_PATH = PROJECT_ROOT / "tables" / "experiment-results" / "multiseed-suite" / "paper_vs_ours_3tables.txt"
+TEXT_SUMMARY_PATH = PROJECT_ROOT / "tables" / "01-baselines" / "embedding-baselines" / "multiseed-suite" / "result-tables" / "paper_vs_ours_3tables.txt"
 K_VALUES: list[int | str] = ["all", 100, 50, 25, 10]
 
 
@@ -205,7 +205,7 @@ def build_phase1_tables() -> str:
     model_rows = []
 
     for spec in PHASE1_SPECS:
-        run_df = pd.read_csv(p1.RICH_SWEEP_ROOT / f"{spec['run_name']}_model_results.csv")
+        run_df = pd.read_csv(p1.RICH_SWEEP_RESULT_TABLES / f"{spec['run_name']}_model_results.csv")
         best_overall = (
             run_df[run_df["subset"] == "all_universal"]
             .sort_values(["accuracy", "auroc", "balanced_accuracy", "macro_f1"], ascending=False)
@@ -280,7 +280,7 @@ def build_phase2_tables() -> str:
     model_rows = []
 
     for spec in PHASE2_SPECS:
-        summary = json.loads((p2.RUN_ROOT.parent / "clean_prompt_sweep" / f"{spec['run_name']}_summary.json").read_text(encoding="utf-8"))
+        summary = json.loads((p2.RUN_ROOT.parent / "phase2-clean-prompt-sweep" / "summaries" / f"{spec['run_name']}_summary.json").read_text(encoding="utf-8"))
         best = summary["best_model"]
         subset_name = best["subset_name"]
         summary_rows.append(

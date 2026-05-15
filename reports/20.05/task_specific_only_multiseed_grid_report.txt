@@ -1,0 +1,69 @@
+Task-Specific Features Only - 15-Seed Full GridSearchCV Top-k Report
+==========================================================================
+Feature pool: Only task-specific Phase 2 groups: pd, rd, fc, ft, sr, cmd, rep, ms, and na.
+Seeds: 42-56 (15 seeds).
+Rows: languages. Columns: k values. Cells: mean +/- sd held-out accuracy (%) across seeds.
+For each seed/language/ranking/k cell, the reported result is the best held-out accuracy across DT, RF, SVM, and LR after GridSearchCV.
+Tuning grid: DT max_depth=[10,20,30]; RF n_estimators=[50,100,200]; SVM C=[0.1,1,10] kernel=[linear,rbf]; LR C=[0.1,1,10].
+Ranking methods: ANOVA=f_classif by F score; Welch+Bonferroni=Welch t-test ranked by Bonferroni-adjusted p-value, then raw p-value, then |Cohen's d|.
+k values: 5, 10, 20, 50, 100, all.
+
+ANOVA-ranked top-k accuracy
+---------------------------
+language            k=5         k=10         k=20         k=50        k=100        k=all
+----------------------------------------------------------------------------------------
+Chinese    75.8 +/- 9.3 75.8 +/- 9.2 76.5 +/- 9.5 76.5 +/- 9.5 76.5 +/- 9.5 76.4 +/- 9.5
+English    76.8 +/- 0.9 77.6 +/- 1.0 79.0 +/- 1.5 79.2 +/- 1.2 79.2 +/- 1.2 78.9 +/- 1.1
+Greek      70.7 +/- 9.2 71.0 +/- 8.5 69.2 +/- 7.3 69.1 +/- 7.4 69.6 +/- 7.9 69.0 +/- 7.4
+Spanish    77.4 +/- 5.8 78.1 +/- 5.9 78.7 +/- 5.4 78.7 +/- 5.4 78.7 +/- 5.4 78.8 +/- 5.5
+
+Welch t-test + Bonferroni-ranked top-k accuracy
+-----------------------------------------------
+language            k=5         k=10         k=20         k=50        k=100        k=all
+----------------------------------------------------------------------------------------
+Chinese    75.6 +/- 9.2 75.8 +/- 9.2 76.6 +/- 9.4 76.6 +/- 9.4 76.6 +/- 9.4 76.4 +/- 9.5
+English    76.9 +/- 0.9 77.7 +/- 0.8 78.6 +/- 1.0 79.0 +/- 1.0 79.0 +/- 1.0 78.9 +/- 1.1
+Greek      71.5 +/- 9.8 70.8 +/- 8.6 68.8 +/- 7.6 69.3 +/- 7.7 69.3 +/- 7.7 69.0 +/- 7.4
+Spanish    77.4 +/- 5.5 78.4 +/- 4.6 78.4 +/- 4.6 78.4 +/- 4.6 78.4 +/- 4.6 78.8 +/- 5.5
+
+Best setting by language and method
+-----------------------------------
+language   method               best k       accuracy common model   
+---------------------------------------------------------------------
+Chinese    anova                   100   76.5 +/- 9.5 RF (8/15)      
+Chinese    welch_bonferroni        100   76.6 +/- 9.4 RF (8/15)      
+English    anova                   100   79.2 +/- 1.2 RF (13/15)     
+English    welch_bonferroni        100   79.0 +/- 1.0 RF (13/15)     
+Greek      anova                    10   71.0 +/- 8.5 LR (6/15)      
+Greek      welch_bonferroni          5   71.5 +/- 9.8 LR (5/15)      
+Spanish    anova                   all   78.8 +/- 5.5 LR (6/15)      
+Spanish    welch_bonferroni        all   78.8 +/- 5.5 LR (6/15)      
+
+Comparison with previous core feature-set run
+---------------------------------------------
+Delta is current best mean accuracy minus previous core-feature best mean accuracy, in percentage points.
+language   method                    current   cur k           core  core k    delta
+------------------------------------------------------------------------------------
+Chinese    anova                76.5 +/- 9.5     100   84.4 +/- 2.7     all     -7.9
+Chinese    welch_bonferroni     76.6 +/- 9.4     100   85.5 +/- 3.3     100     -8.9
+English    anova                79.2 +/- 1.2     100   85.0 +/- 1.2     all     -5.8
+English    welch_bonferroni     79.0 +/- 1.0     100   85.0 +/- 1.2     all     -6.0
+Greek      anova                71.0 +/- 8.5      10   81.9 +/- 5.5     100    -10.9
+Greek      welch_bonferroni     71.5 +/- 9.8       5   81.6 +/- 6.4     all    -10.1
+Spanish    anova                78.8 +/- 5.5     all   75.8 +/- 4.5     100     +3.0
+Spanish    welch_bonferroni     78.8 +/- 5.5     all   76.0 +/- 4.8     100     +2.7
+
+Feature availability
+--------------------
+language       pool   usable
+----------------------------
+Chinese          92       19
+English          92       43
+Greek            92       53
+Spanish          92       16
+
+Interpretation note
+-------------------
+These runs are language-specific held-out evaluations with train-split-only normalization and train-split-only ranking.
+Task-specific features are sparse by design, so task-only results can be dominated by which task domains exist within each language.
+For k=all, ANOVA and Welch use the same usable feature pool; any difference would indicate a resume/version issue rather than ranking behavior.

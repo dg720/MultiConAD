@@ -223,26 +223,26 @@ rd_insertion_ratio,rd,1,READING,1,0,1,rd insertion ratio
 rd_repetition_ratio,rd,1,READING,1,0,1,rd repetition ratio
 rd_pause_per_reference_token,rd,1,READING,1,0,1,rd pause per reference token
 rd_content_word_recall_ratio,rd,1,READING,1,0,1,rd content word recall ratio
-sr_propositions_recalled_count,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr propositions recalled count
-sr_propositions_recalled_ratio,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr propositions recalled ratio
-sr_key_event_coverage,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr key event coverage
-sr_event_order_score,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr event order score
-sr_intrusion_count,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr intrusion count
-sr_semantic_similarity_to_reference_story,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr semantic similarity to reference story
-sr_repetition_rate,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr repetition rate
-sr_content_density,sr,0,STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY,1,0,1,sr content density
-ft_item_count,ft,0,FLUENCY,1,0,1,ft item count
-ft_unique_item_count,ft,0,FLUENCY,1,0,1,ft unique item count
-ft_repetition_count,ft,0,FLUENCY,1,0,1,ft repetition count
-ft_intrusion_count,ft,0,FLUENCY,1,0,1,ft intrusion count
-ft_valid_item_count,ft,0,FLUENCY,1,0,1,ft valid item count
-ft_valid_item_ratio,ft,0,FLUENCY,1,0,1,ft valid item ratio
-ft_items_per_second,ft,0,FLUENCY,1,0,1,ft items per second
-ft_cluster_count,ft,0,FLUENCY,1,0,1,ft cluster count
-ft_mean_cluster_size,ft,0,FLUENCY,1,0,1,ft mean cluster size
-ft_switch_count,ft,0,FLUENCY,1,0,1,ft switch count
-ft_letter_valid_count,ft,0,FLUENCY,1,0,1,ft letter valid count
-ft_letter_violation_count,ft,0,FLUENCY,1,0,1,ft letter violation count
+sr_propositions_recalled_count,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr propositions recalled count
+sr_propositions_recalled_ratio,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr propositions recalled ratio
+sr_key_event_coverage,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr key event coverage
+sr_event_order_score,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr event order score
+sr_intrusion_count,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr intrusion count
+sr_semantic_similarity_to_reference_story,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr semantic similarity to reference story
+sr_repetition_rate,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr repetition rate
+sr_content_density,sr,1,STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY,1,0,1,sr content density
+ft_item_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft item count
+ft_unique_item_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft unique item count
+ft_repetition_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft repetition count
+ft_intrusion_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft intrusion count
+ft_valid_item_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft valid item count
+ft_valid_item_ratio,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft valid item ratio
+ft_items_per_second,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft items per second
+ft_cluster_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft cluster count
+ft_mean_cluster_size,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft mean cluster size
+ft_switch_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft switch count
+ft_letter_valid_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft letter valid count
+ft_letter_violation_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft letter violation count
 fc_topic_coherence,fc,1,CONVERSATION,1,0,1,fc topic coherence
 fc_topic_switch_rate,fc,1,CONVERSATION,1,0,1,fc topic switch rate
 fc_embedding_dispersion,fc,1,CONVERSATION,1,0,1,fc embedding dispersion
@@ -251,6 +251,40 @@ fc_repetition_rate,fc,1,CONVERSATION,1,0,1,fc repetition rate
 fc_mean_utterance_similarity,fc,1,CONVERSATION,1,0,1,fc mean utterance similarity
 fc_first_last_similarity,fc,1,CONVERSATION,1,0,1,fc first last similarity
 fc_topic_return_ratio,fc,1,CONVERSATION,1,0,1,fc topic return ratio
+cmd_token_count,cmd,1,COMMAND,1,0,1,cmd token count
+cmd_unique_token_ratio,cmd,1,COMMAND,1,0,1,cmd unique token ratio
+cmd_utterance_count,cmd,1,COMMAND,1,0,1,cmd utterance count
+cmd_mean_utterance_length,cmd,1,COMMAND,1,0,1,cmd mean utterance length
+cmd_device_keyword_ratio,cmd,1,COMMAND,1,0,1,cmd device keyword ratio
+cmd_request_marker_ratio,cmd,1,COMMAND,1,0,1,cmd request marker ratio
+cmd_action_verb_ratio,cmd,1,COMMAND,1,0,1,cmd action verb ratio
+cmd_repetition_rate,cmd,1,COMMAND,1,0,1,cmd repetition rate
+cmd_duration_per_token,cmd,1,COMMAND,1,0,1,cmd duration per token
+rep_token_count,rep,1,REPETITION,1,0,1,rep token count
+rep_unique_token_ratio,rep,1,REPETITION,1,0,1,rep unique token ratio
+rep_immediate_repetition_count,rep,1,REPETITION,1,0,1,rep immediate repetition count
+rep_repetition_rate,rep,1,REPETITION,1,0,1,rep repetition rate
+rep_bigram_repetition_rate,rep,1,REPETITION,1,0,1,rep bigram repetition rate
+rep_sequence_match_to_reference,rep,1,REPETITION,1,0,1,rep sequence match to reference
+rep_reference_token_coverage,rep,1,REPETITION,1,0,1,rep reference token coverage
+rep_duration_per_token,rep,1,REPETITION,1,0,1,rep duration per token
+ms_token_count,ms,1,MOTOR_SPEECH,1,0,1,ms token count
+ms_target_syllable_count,ms,1,MOTOR_SPEECH,1,0,1,ms target syllable count
+ms_target_syllable_ratio,ms,1,MOTOR_SPEECH,1,0,1,ms target syllable ratio
+ms_alternation_switch_count,ms,1,MOTOR_SPEECH,1,0,1,ms alternation switch count
+ms_unique_syllable_ratio,ms,1,MOTOR_SPEECH,1,0,1,ms unique syllable ratio
+ms_repetition_rate,ms,1,MOTOR_SPEECH,1,0,1,ms repetition rate
+ms_tokens_per_second,ms,1,MOTOR_SPEECH,1,0,1,ms tokens per second
+ms_target_syllables_per_second,ms,1,MOTOR_SPEECH,1,0,1,ms target syllables per second
+na_utterance_count,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na utterance count
+na_mean_utterance_length,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na mean utterance length
+na_temporal_marker_density,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na temporal marker density
+na_causal_marker_density,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na causal marker density
+na_first_person_ratio,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na first person ratio
+na_procedural_marker_density,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na procedural marker density
+na_topic_coherence,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na topic coherence
+na_topic_switch_rate,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na topic switch rate
+na_repetition_rate,na,1,MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE,1,0,1,na repetition rate
 pr_np_count,pr,0,ALL,1,0,1,pr np count
 pr_vp_count,pr,0,ALL,1,0,1,pr vp count
 pr_pp_count,pr,0,ALL,1,0,1,pr pp count
@@ -439,5 +473,3 @@ par_f0_q75,par,0,ALL,0,1,0,par f0 q75
 par_f0_iqr,par,0,ALL,0,1,0,par f0 iqr
 par_voiced_frame_ratio,par,0,ALL,0,1,0,par voiced frame ratio
 par_nonzero_rms_ratio,par,0,ALL,0,1,0,par nonzero rms ratio
-pr_adjp_rate,pr,0,ALL,1,0,1,pr adjp rate
-pr_advp_rate,pr,0,ALL,1,0,1,pr advp rate

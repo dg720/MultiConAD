@@ -1,0 +1,11 @@
+Pooled Welch Median + IQR Overlay
+================================
+This plot uses the same fixed pooled universal Welch feature set as `21_saliency_overlay_pooled_welch_by_language.png`.
+The only difference is visualization:
+- solid line: per-language median burden for AD or HC
+- shaded band: interquartile range (25th to 75th percentile)
+- no individual transparent sample traces are drawn
+
+Fixed pooled Welch feature set
+-----------------------------
+syn_num_ratio, len_utterance_count, syn_utterance_count, syn_interjection_ratio, graph_node_count, len_type_count, syn_aux_ratio, syn_pronoun_ratio, graph_edge_count, len_token_count, len_syllable_count, lex_brunet, lex_function_word_ratio, syn_cconj_ratio, graph_average_degree, len_tokens_per_utterance

@@ -37,8 +37,16 @@ SEED = 42
 PERMUTATION_REPEATS = 10
 FEATURES_PATH = PHASE1_ROOT / "phase1_features.csv"
 MANIFEST_PATH = PHASE1_ROOT / "phase1_manifest.jsonl"
-RICH_SWEEP_ROOT = TABLES_PHASE1_ROOT / "rich_sweep"
+RICH_SWEEP_ROOT = PROJECT_ROOT / "tables" / "03-ablation-translingual-language-specific" / "phase1-rich-sweep"
+RICH_SWEEP_TABLES_ROOT = RICH_SWEEP_ROOT / "result-tables"
+RICH_SWEEP_RESULT_TABLES = RICH_SWEEP_TABLES_ROOT / "csv"
+RICH_SWEEP_SUMMARIES = RICH_SWEEP_ROOT / "summaries"
+RICH_SWEEP_KEY_RESULTS = RICH_SWEEP_ROOT / "key-results"
 RICH_SWEEP_ROOT.mkdir(parents=True, exist_ok=True)
+RICH_SWEEP_TABLES_ROOT.mkdir(parents=True, exist_ok=True)
+RICH_SWEEP_RESULT_TABLES.mkdir(parents=True, exist_ok=True)
+RICH_SWEEP_SUMMARIES.mkdir(parents=True, exist_ok=True)
+RICH_SWEEP_KEY_RESULTS.mkdir(parents=True, exist_ok=True)
 
 
 @dataclass(frozen=True)
@@ -513,7 +521,7 @@ def run_feature_sweep(
             "primary_selection_metric": "raw accuracy",
         },
     }
-    write_json(output_dir / f"{run_name}_summary.json", summary)
+    write_json(RICH_SWEEP_SUMMARIES / f"{run_name}_summary.json", summary)
     return summary
 
 
@@ -702,17 +710,17 @@ def main() -> None:
             run_name=spec.name,
             grouping_levels=spec.grouping_levels,
             log=log,
-            output_dir=RICH_SWEEP_ROOT,
+            output_dir=RICH_SWEEP_RESULT_TABLES,
         )
         completed.append(spec.name)
 
     summarize_cross_lingual(
-        RICH_SWEEP_ROOT,
+        RICH_SWEEP_RESULT_TABLES,
         [name for name in completed if name.endswith("_all_rich") and name.startswith("language_")],
         "cross_lingual_all_tasks",
     )
     summarize_cross_lingual(
-        RICH_SWEEP_ROOT,
+        RICH_SWEEP_RESULT_TABLES,
         [name for name in completed if name.endswith("_pd_ctp_rich") and name.startswith("language_")],
         "cross_lingual_pd_ctp",
     )
@@ -722,8 +730,8 @@ def main() -> None:
         "skipped_runs": skipped,
         "summaries": summaries,
     }
-    write_json(RICH_SWEEP_ROOT / "rich_sweep_run_index.json", run_index)
-    pd.DataFrame(skipped).to_csv(RICH_SWEEP_ROOT / "rich_sweep_skipped_runs.csv", index=False)
+    write_json(RICH_SWEEP_SUMMARIES / "rich_sweep_run_index.json", run_index)
+    pd.DataFrame(skipped).to_csv(RICH_SWEEP_RESULT_TABLES / "rich_sweep_skipped_runs.csv", index=False)
     log("Completed phase1 rich sweep")
 
 

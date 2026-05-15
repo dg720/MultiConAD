@@ -1,0 +1,92 @@
+Language-Task Visualisations V2 Review
+======================================
+
+What changed
+------------
+The dense scatter is no longer the main interpretive figure. It is retained as a diagnostic appendix-style view, while V2 uses ranked grouped feature plots and small-multiple heatmaps.
+The V2 figures make interpretation group and feature family explicit in the row labels, colours, and composition summary.
+Task-specific feature families are excluded from these V2 mixed language/task figures. They are regenerated separately in the task-specific within-task outputs.
+
+Recommended main figures
+------------------------
+1. ranked_feature_groups_v2.png: the clearest overview of which features belong to each interpretation group.
+2. language_task_heatmap_by_interpretation_v2.png: the direct evidence view, split into translingual, language-sensitive, task-sensitive, and confounded panels.
+3. feature_family_composition_v2.png: compact summary of which feature families dominate each interpretation group.
+
+Interpretation
+--------------
+Translingual candidates are mostly syntactic, lexical, pause, graph, and acoustic features. They show moderate diagnostic strength and comparatively low variation across language/task summaries.
+Language-sensitive candidates are mainly lexical/discourse features, including MATTR/content-word ratio and utterance similarity. These are candidates only, because task coverage is still partially confounded.
+Task-sensitive candidates include acoustic/prosody and function-word/object-ratio features whose AD/HC separation changes more by task than by language.
+Language-task confounded features are dominated by acoustic/loudness/prosody features. Many have large effect sizes, but the heatmap shows strong cell dependence, so they should not be presented as language-specific biomarkers.
+
+Caveat
+------
+These figures use the simplified signed Cohen's d specificity method over valid language-task cells. They are general-feature descriptive visualisations over the Phase 2 matrix, not regression-interaction robustness checks.
+
+Curated feature rows
+--------------------
+category_prefix                           display_name                                     feature_name feature_group diagnostic_strength language_specificity task_specificity_score direction_consistency  valid_cells
+             TL                             noun ratio                                   syn_noun_ratio           syn               0.657                0.262                  0.308                 0.875            8
+             TL                               MATTR 10                                     lex_mattr_10           lex               0.580                0.310                  0.209                 1.000            8
+             TL                           short pauses                                pause_short_count         pause               0.477                0.204                  0.367                 0.800            5
+             TL            egemaps mfcc2v sma3nz amean                   ac_egemaps_mfcc2v_sma3nz_amean            ac               0.435                0.278                  0.377                 1.000            4
+             TL                        noun/verb ratio                              syn_noun_verb_ratio           syn               0.435                0.048                  0.348                 0.875            8
+             TL egemaps slopev500 1500 sma3nz stdde...      ac_egemaps_slopev500_1500_sma3nz_stddevnorm            ac               0.433                0.026                  0.353                 0.750            4
+             TL                 content function ratio                       syn_content_function_ratio           syn               0.433                0.173                  0.247                 0.750            8
+             TL                         aux verb ratio                               syn_aux_verb_ratio           syn               0.416                0.149                  0.253                 0.875            8
+             TL                  repeated bigram ratio                       disc_repeated_bigram_ratio          disc               0.404                0.301                  0.244                 1.000            8
+             TL                         average degree                             graph_average_degree         graph               0.399                0.313                  0.370                 0.750            8
+             LS                     content-word ratio                           lex_content_word_ratio           lex               0.592                0.582                  0.310                 0.750            8
+             LS                   utterance similarity                disc_mean_pairwise_utt_similarity          disc               0.483                0.495                  0.372                 0.875            8
+             LS                    subordination ratio                          syn_subordination_ratio           syn               0.434                0.423                  0.253                 0.750            8
+             LS                               MATTR 20                                     lex_mattr_20           lex               0.602                0.398                  0.338                 0.875            8
+             LS                         logRelF0 H1-A3           ac_egemaps_logrelf0_h1_a3_sma3nz_amean            ac               0.303                0.368                  0.329                 0.750            4
+             LS                       type token ratio                             lex_type_token_ratio           lex               0.433                0.332                  0.291                 0.750            8
+             LS                        repetition rate                              lex_repetition_rate           lex               0.433                0.332                  0.291                 0.750            8
+             LS                 repeated unigram ratio                      disc_repeated_unigram_ratio          disc               0.433                0.332                  0.291                 0.750            8
+             TS          egemaps mfcc4 sma3 stddevnorm                 ac_egemaps_mfcc4_sma3_stddevnorm            ac               0.966                0.308                  0.933                 0.750            4
+             TS      egemaps slopeuv0 500 sma3nz amean             ac_egemaps_slopeuv0_500_sma3nz_amean            ac               1.128                0.080                  0.851                 0.750            4
+             TS egemaps shimmerlocaldb sma3nz stdde...      ac_egemaps_shimmerlocaldb_sma3nz_stddevnorm            ac               0.818                0.085                  0.656                 0.750            4
+             TS                           object ratio                                    syn_obj_ratio           syn               0.525                0.297                  0.577                 0.750            8
+             TS                 low similarity frac 05                        sx_low_similarity_frac_05            sx               0.369                0.242                  0.528                 0.750            8
+             TS       egemaps slopev0 500 sma3nz amean              ac_egemaps_slopev0_500_sma3nz_amean            ac               0.607                0.136                  0.439                 0.750            4
+             TS       egemaps f1bandwidth sma3nz amean              ac_egemaps_f1bandwidth_sma3nz_amean            ac               0.389                0.186                  0.423                 0.750            4
+             TS      egemaps alpharatiouv sma3nz amean             ac_egemaps_alpharatiouv_sma3nz_amean            ac               0.438                0.173                  0.421                 0.750            4
+            LTC                            mfcc 1 mean                                   ac_mfcc_1_mean            ac               2.209                1.110                  2.069                 0.750            4
+            LTC                           loudness p20          ac_egemaps_loudness_sma3_percentile20_0            ac               1.891                0.999                  2.010                 0.750            4
+            LTC       egemaps equivalentsoundlevel dbp              ac_egemaps_equivalentsoundlevel_dbp            ac               1.786                1.246                  1.646                 0.750            4
+            LTC  egemaps f2amplitudelogrelf0 sma3nz...      ac_egemaps_f2amplitudelogrelf0_sma3nz_amean            ac               1.452                0.868                  2.000                 1.000            4
+            LTC  egemaps f3amplitudelogrelf0 sma3nz...      ac_egemaps_f3amplitudelogrelf0_sma3nz_amean            ac               1.403                0.838                  1.938                 1.000            4
+            LTC  egemaps f1amplitudelogrelf0 sma3nz...      ac_egemaps_f1amplitudelogrelf0_sma3nz_amean            ac               1.324                0.845                  1.842                 1.000            4
+            LTC  egemaps f2amplitudelogrelf0 sma3nz... ac_egemaps_f2amplitudelogrelf0_sma3nz_stddevnorm            ac               1.287                0.730                  1.744                 0.750            4
+            LTC                  loudness rising slope       ac_egemaps_loudness_sma3_stddevrisingslope            ac               1.266                0.871                  0.995                 0.750            4
+            LTC egemaps loudness sma3 stddevfalling...      ac_egemaps_loudness_sma3_stddevfallingslope            ac               1.244                0.877                  0.971                 0.750            4
+            LTC                                rms std                                       ac_rms_std            ac               1.205                0.899                  0.964                 0.750            4
+
+Feature-family counts
+---------------------
+     interpretation_category feature_group  count
+language-sensitive candidate           lex      4
+language-sensitive candidate          disc      2
+language-sensitive candidate            ac      1
+language-sensitive candidate           syn      1
+    language-task confounded            ac     10
+              task-sensitive            ac      6
+              task-sensitive            sx      1
+              task-sensitive           syn      1
+      translingual candidate           syn      4
+      translingual candidate            ac      2
+      translingual candidate          disc      1
+      translingual candidate         graph      1
+      translingual candidate           lex      1
+      translingual candidate         pause      1
+
+Generated V2 files
+------------------
+- report_assets/ranked_feature_groups_v2.png/.pdf
+- report_assets/language_task_heatmap_by_interpretation_v2.png/.pdf
+- report_assets/feature_family_composition_v2.png/.pdf
+- result-tables/language_task_visualisation_v2_review.txt
+- result-tables/csv/language_task_visualisation_v2_selected_features.csv
+- result-tables/csv/language_task_visualisation_v2_family_counts.csv

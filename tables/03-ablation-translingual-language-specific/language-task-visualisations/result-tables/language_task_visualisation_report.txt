@@ -1,0 +1,139 @@
+Language-Task Feature Visualisation Report
+==========================================
+
+Method
+------
+Feature values are group-aggregated before AD/HC comparisons so repeated rows do not overweight a participant/group.
+Cell-level Cohen's d is computed only where at least 5 AD groups and 5 HC groups have non-missing values for the feature.
+Predictive top-k comparability is preserved separately: the visualisation records ANOVA ranks and Welch t-test + Bonferroni ranks using the same top-k checkpoints, but the figures are descriptive effect-size summaries.
+Paper-style task labels are retained for readability: PD=Picture Description, FT=Fluency Task, SR=Story Retelling, FC=Free Conversation, NA=Narrative. Live manifest labels are retained in parentheses/metadata.
+Pause features such as pause_short_count come from the Phase 1/2 audio pause extractor: RMS silence runs are counted as short pauses when duration is >=0.2 and <0.5 seconds.
+Tonal/prosody proxies in the current matrix are acoustic F0/semitone, logRelF0, jitter, shimmer, and loudness features. They are not encoded as Chinese-only task features.
+Task-specific feature families are excluded from these mixed language/task specificity figures. Their task specificity is an applicability property, not a cross-task effect-variance estimate.
+
+Valid live cells used in these figures (minimum 5 AD and 5 HC groups)
+------------------------------------------------------------------
+language  task_type       paper_task_labels_display  ad_groups  hc_groups  datasets                                           
+--------  --------------  -------------------------  ---------  ---------  ---------------------------------------------------
+el        PD_CTP          PD|FT                      76         57         ADReSS-M|DS3|DS5|DS7                               
+el        PICTURE_RECALL  PD|FT                      22         7          DS3                                                
+el        REPETITION      PD|FT                      24         8          DS3                                                
+en        COMMAND         FC                         29         36         VAS                                                
+en        PD_CTP          PD|FT                      450        1261       Kempler|Lu|Pitt|TAUKADIAL|WLS                      
+es        READING         Narrative (NA)             43         59         Ivanova                                            
+zh        OTHER           PD|FT|FC                   33         62         NCMMSC2021_AD                                      
+zh        PD_CTP          PD                         38         89         Predictive_Chinese_challenge_Chinese_2019|TAUKADIAL
+
+More robust cells (minimum 10 AD and 10 HC groups)
+------------------------------------------------
+language  task_type  paper_task_labels_display  ad_groups  hc_groups  datasets                                           
+--------  ---------  -------------------------  ---------  ---------  ---------------------------------------------------
+el        PD_CTP     PD|FT                      76         57         ADReSS-M|DS3|DS5|DS7                               
+en        COMMAND    FC                         29         36         VAS                                                
+en        PD_CTP     PD|FT                      450        1261       Kempler|Lu|Pitt|TAUKADIAL|WLS                      
+es        READING    Narrative (NA)             43         59         Ivanova                                            
+zh        OTHER      PD|FT|FC                   33         62         NCMMSC2021_AD                                      
+zh        PD_CTP     PD                         38         89         Predictive_Chinese_challenge_Chinese_2019|TAUKADIAL
+
+Feature interpretation category counts
+--------------------------------------
+category                          features
+--------------------------------  --------
+unstable / insufficient evidence  277     
+translingual candidate            44      
+language-task confounded          43      
+language-sensitive candidate      9       
+task-sensitive                    9       
+
+Strongest translingual candidates
+--------------------------------
+feature_name                                 feature_group  diagnostic_strength  language_specificity  task_specificity_score  direction_consistency  valid_cells  interpretation_category
+-------------------------------------------  -------------  -------------------  --------------------  ----------------------  ---------------------  -----------  -----------------------
+syn_noun_ratio                               syn            0.657                0.262                 0.308                   0.875                  8            translingual candidate 
+lex_mattr_10                                 lex            0.580                0.310                 0.209                   1.000                  8            translingual candidate 
+pause_short_count                            pause          0.477                0.204                 0.367                   0.800                  5            translingual candidate 
+ac_egemaps_mfcc2v_sma3nz_amean               ac             0.435                0.278                 0.377                   1.000                  4            translingual candidate 
+syn_noun_verb_ratio                          syn            0.435                0.048                 0.348                   0.875                  8            translingual candidate 
+ac_egemaps_slopev500_1500_sma3nz_stddevnorm  ac             0.433                0.026                 0.353                   0.750                  4            translingual candidate 
+syn_content_function_ratio                   syn            0.433                0.173                 0.247                   0.750                  8            translingual candidate 
+syn_aux_verb_ratio                           syn            0.416                0.149                 0.253                   0.875                  8            translingual candidate 
+disc_repeated_bigram_ratio                   disc           0.404                0.301                 0.244                   1.000                  8            translingual candidate 
+graph_average_degree                         graph          0.399                0.313                 0.370                   0.750                  8            translingual candidate 
+lex_hapax_ratio                              lex            0.374                0.250                 0.257                   0.875                  8            translingual candidate 
+ac_egemaps_voicedsegmentspersec              ac             0.363                0.295                 0.302                   0.750                  4            translingual candidate 
+len_tokens_per_second                        len            0.361                0.302                 0.334                   0.800                  5            translingual candidate 
+pause_speech_rate_words_per_second           pause          0.361                0.302                 0.334                   0.800                  5            translingual candidate 
+len_syllables_per_second                     len            0.360                0.300                 0.339                   0.800                  5            translingual candidate 
+
+Strongest language-sensitive candidates
+---------------------------------------
+feature_name                            feature_group  diagnostic_strength  language_specificity  task_specificity_score  direction_consistency  valid_cells  interpretation_category     
+--------------------------------------  -------------  -------------------  --------------------  ----------------------  ---------------------  -----------  ----------------------------
+lex_content_word_ratio                  lex            0.592                0.582                 0.310                   0.750                  8            language-sensitive candidate
+disc_mean_pairwise_utt_similarity       disc           0.483                0.495                 0.372                   0.875                  8            language-sensitive candidate
+syn_subordination_ratio                 syn            0.434                0.423                 0.253                   0.750                  8            language-sensitive candidate
+lex_mattr_20                            lex            0.602                0.398                 0.338                   0.875                  8            language-sensitive candidate
+ac_egemaps_logrelf0_h1_a3_sma3nz_amean  ac             0.303                0.368                 0.329                   0.750                  4            language-sensitive candidate
+lex_type_token_ratio                    lex            0.433                0.332                 0.291                   0.750                  8            language-sensitive candidate
+lex_repetition_rate                     lex            0.433                0.332                 0.291                   0.750                  8            language-sensitive candidate
+disc_repeated_unigram_ratio             disc           0.433                0.332                 0.291                   0.750                  8            language-sensitive candidate
+lex_lemma_type_token_ratio              lex            0.411                0.328                 0.316                   0.875                  8            language-sensitive candidate
+
+Strongest task-sensitive candidates
+----------------------------------
+feature_name                                 feature_group  diagnostic_strength  language_specificity  task_specificity_score  direction_consistency  valid_cells  interpretation_category
+-------------------------------------------  -------------  -------------------  --------------------  ----------------------  ---------------------  -----------  -----------------------
+ac_egemaps_mfcc4_sma3_stddevnorm             ac             0.966                0.308                 0.933                   0.750                  4            task-sensitive         
+ac_egemaps_slopeuv0_500_sma3nz_amean         ac             1.128                0.080                 0.851                   0.750                  4            task-sensitive         
+ac_egemaps_shimmerlocaldb_sma3nz_stddevnorm  ac             0.818                0.085                 0.656                   0.750                  4            task-sensitive         
+syn_obj_ratio                                syn            0.525                0.297                 0.577                   0.750                  8            task-sensitive         
+sx_low_similarity_frac_05                    sx             0.369                0.242                 0.528                   0.750                  8            task-sensitive         
+ac_egemaps_slopev0_500_sma3nz_amean          ac             0.607                0.136                 0.439                   0.750                  4            task-sensitive         
+ac_egemaps_f1bandwidth_sma3nz_amean          ac             0.389                0.186                 0.423                   0.750                  4            task-sensitive         
+ac_egemaps_alpharatiouv_sma3nz_amean         ac             0.438                0.173                 0.421                   0.750                  4            task-sensitive         
+lex_function_word_ratio                      lex            0.518                0.217                 0.413                   0.750                  8            task-sensitive         
+
+Most language-varying tonal/prosody proxy features
+-----------------------------------------------
+feature_name                                      feature_group  diagnostic_strength  language_specificity  task_specificity_score  direction_consistency  valid_cells  interpretation_category         
+------------------------------------------------  -------------  -------------------  --------------------  ----------------------  ---------------------  -----------  --------------------------------
+ac_egemaps_loudness_sma3_percentile20_0           ac             1.891                0.999                 2.010                   0.750                  4            language-task confounded        
+ac_egemaps_loudness_sma3_stddevfallingslope       ac             1.244                0.877                 0.971                   0.750                  4            language-task confounded        
+ac_egemaps_loudness_sma3_stddevrisingslope        ac             1.266                0.871                 0.995                   0.750                  4            language-task confounded        
+ac_egemaps_f2amplitudelogrelf0_sma3nz_amean       ac             1.452                0.868                 2.000                   1.000                  4            language-task confounded        
+ac_egemaps_f1amplitudelogrelf0_sma3nz_amean       ac             1.324                0.845                 1.842                   1.000                  4            language-task confounded        
+ac_egemaps_f3amplitudelogrelf0_sma3nz_amean       ac             1.403                0.838                 1.938                   1.000                  4            language-task confounded        
+ac_egemaps_f1amplitudelogrelf0_sma3nz_stddevnorm  ac             1.236                0.808                 1.764                   0.500                  4            unstable / insufficient evidence
+ac_egemaps_loudness_sma3_meanrisingslope          ac             1.081                0.769                 0.800                   0.750                  4            language-task confounded        
+ac_egemaps_f2amplitudelogrelf0_sma3nz_stddevnorm  ac             1.287                0.730                 1.744                   0.750                  4            language-task confounded        
+ac_egemaps_loudness_sma3_meanfallingslope         ac             1.028                0.721                 0.764                   0.750                  4            language-task confounded        
+ac_egemaps_loudness_sma3_pctlrange0_2             ac             0.932                0.669                 0.721                   0.750                  4            language-task confounded        
+ac_egemaps_loudness_sma3_amean                    ac             1.044                0.639                 1.056                   0.500                  4            unstable / insufficient evidence
+ac_egemaps_loudness_sma3_percentile80_0           ac             0.893                0.623                 0.852                   0.750                  4            language-task confounded        
+ac_egemaps_f3amplitudelogrelf0_sma3nz_stddevnorm  ac             1.113                0.617                 1.489                   0.750                  4            language-task confounded        
+ac_egemaps_loudness_sma3_percentile50_0           ac             1.185                0.592                 1.316                   0.750                  4            language-task confounded        
+
+Important cautions
+------------------
+- Language and task are still partially confounded; a feature seen in only one language-task cell is not treated as language-sensitive.
+- Source-level coverage is broader than the live sample-level task labels; the plots show both where possible.
+- The heatmap is evidence-first: direction flips and one-cell signals should be interpreted as unstable/confounded rather than as biomarkers.
+- ASR-derived transcripts may contain combined participant/interviewer speech, and pause/acoustic features are not diarisation-aware.
+
+Generated files
+---------------
+- report_assets/language_vs_task_specificity_scatter.png
+- report_assets/language_vs_task_specificity_scatter.pdf
+- report_assets/language_vs_task_specificity_scatter_fixed_category.png
+- report_assets/language_vs_task_specificity_scatter_fixed_category.pdf
+- report_assets/language_vs_task_specificity_scatter_tonal_focus.png
+- report_assets/language_vs_task_specificity_scatter_tonal_focus.pdf
+- report_assets/language_task_feature_heatmap.png
+- report_assets/language_task_feature_heatmap.pdf
+- report_assets/language_task_feature_heatmap_category_ordered.png
+- report_assets/language_task_feature_heatmap_category_ordered.pdf
+- result-tables/csv/language_task_cell_effects.csv
+- result-tables/csv/language_vs_task_specificity_scores.csv
+- result-tables/csv/language_vs_task_specificity_scores_general_only.csv
+- result-tables/csv/language_task_cell_coverage.csv
+- result-tables/csv/language_task_heatmap_selected_features.csv

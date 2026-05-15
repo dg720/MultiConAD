@@ -1,0 +1,200 @@
+ANOVA vs Welch Feature Ranking Report
+======================================
+Scope: Phase 1 `all_universal` feature pool, same grouped train/test split and model grid as `language_*_all_rich`.
+ANOVA ranking uses `f_classif` on the training split, ranked by f_score.
+Welch |d| ranking uses the saliency-map rule: Bonferroni-significant features first, then absolute Cohen's d.
+Welch Bonferroni ranking orders by Bonferroni-adjusted p-value first; within one language this is equivalent to Welch p-value order.
+For `k=all`, all ranking methods use the same canonical usable `all_universal` feature list and order, so the column is directly comparable.
+
+Table A. Best Overall Accuracy By Ranking Method
+------------------------------------------------
+language      anova welch|d|  welch-p    |d|-A      p-A anova model     anova k welch model     welch k p model             p k
+-------------------------------------------------------------------------------------------------------------------------------
+Chinese        81.2     82.5     83.8      1.2      2.5 svm:linear_c1       all lr:c1               100 lr:c1               100
+English        86.2     86.2     86.0      0.0     -0.2 rf:n200             100 rf:n200             100 rf:n200             100
+Greek          83.3     83.3     83.3      0.0      0.0 rf:n200             all rf:n200             all rf:n200             all
+Spanish        85.2     85.2     85.2      0.0      0.0 rf:n200             all rf:n200             all rf:n200             100
+
+Table B. ANOVA-Ranked Best Accuracy By k
+----------------------------------------
+language        k=5     k=10     k=20     k=50    k=100    k=all
+----------------------------------------------------------------
+Chinese        66.2     71.2     78.8     81.2     81.2     81.2
+English        83.9     80.4     84.1     84.3     86.2     85.8
+Greek          83.3     78.6     78.6     78.6     81.0     83.3
+Spanish        77.0     82.0     82.0     83.6     85.2     85.2
+
+Table C. Welch |d|-Ranked Best Accuracy By k
+--------------------------------------------
+language        k=5     k=10     k=20     k=50    k=100    k=all
+----------------------------------------------------------------
+Chinese        60.0     67.5     68.8     78.8     82.5     81.2
+English        81.9     79.0     83.9     84.9     86.2     85.8
+Greek          73.8     78.6     76.2     81.0     78.6     83.3
+Spanish        73.8     77.0     78.7     83.6     80.3     85.2
+
+Table D. Welch Bonferroni-Ranked Best Accuracy By k
+---------------------------------------------------
+language        k=5     k=10     k=20     k=50    k=100    k=all
+----------------------------------------------------------------
+Chinese        63.7     65.0     67.5     77.5     83.8     81.2
+English        79.6     83.1     82.9     85.2     86.0     85.8
+Greek          73.8     78.6     73.8     76.2     71.4     83.3
+Spanish        77.0     75.4     75.4     82.0     85.2     85.2
+
+Table E. Top-k Ranking Overlap
+------------------------------
+Overlap compares the top-k ANOVA feature list with each Welch feature list for each language.
+method            language       k   anova   welch  shared   %welch
+-------------------------------------------------------------------
+welch             Chinese       10      10      10       4     40.0
+welch             Chinese       25      25      25      13     52.0
+welch             Chinese       50      50      50      26     52.0
+welch             Chinese      100     100     100      64     64.0
+welch             English       10      10      10       6     60.0
+welch             English       25      25      25      15     60.0
+welch             English       50      50      50      38     76.0
+welch             English      100     100      70      62     88.6
+welch             Greek         10      10      10       6     60.0
+welch             Greek         25      25      25      13     52.0
+welch             Greek         50      50      50      28     56.0
+welch             Greek        100     100     100      66     66.0
+welch             Spanish       10      10      10       5     50.0
+welch             Spanish       25      25      25      16     64.0
+welch             Spanish       50      50      50      40     80.0
+welch             Spanish      100      69      69      69    100.0
+welch_bonferroni  Chinese       10      10      10       3     30.0
+welch_bonferroni  Chinese       25      25      25      12     48.0
+welch_bonferroni  Chinese       50      50      50      26     52.0
+welch_bonferroni  Chinese      100     100     100      61     61.0
+welch_bonferroni  English       10      10      10       5     50.0
+welch_bonferroni  English       25      25      25      14     56.0
+welch_bonferroni  English       50      50      50      39     78.0
+welch_bonferroni  English      100     100      70      62     88.6
+welch_bonferroni  Greek         10      10      10       6     60.0
+welch_bonferroni  Greek         25      25      25      13     52.0
+welch_bonferroni  Greek         50      50      50      29     58.0
+welch_bonferroni  Greek        100     100     100      65     65.0
+welch_bonferroni  Spanish       10      10      10       5     50.0
+welch_bonferroni  Spanish       25      25      25      17     68.0
+welch_bonferroni  Spanish       50      50      50      40     80.0
+welch_bonferroni  Spanish      100      69      69      69    100.0
+
+Table F. Top 10 Welch-Ranked Features
+--------------------------------------
+
+welch
+
+Chinese
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 ac_egemaps_alpharatiov_sma3nz_amean                              2.33e-33   4.48e-31   1.64 AD>HC 
+   2 ac_egemaps_logrelf0_h1_a3_sma3nz_amean                           2.19e-24   4.20e-22   1.48 AD<HC 
+   3 ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm                1.48e-33   2.84e-31   1.46 AD<HC 
+   4 ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope          1.22e-31   2.34e-29   1.45 AD<HC 
+   5 ac_egemaps_mfcc1v_sma3nz_amean                                   1.14e-29   2.18e-27   1.42 AD<HC 
+   6 ac_egemaps_slopeuv500_1500_sma3nz_amean                          2.39e-29   4.59e-27   1.42 AD>HC 
+   7 ac_mfcc_3_mean                                                   3.43e-25   6.59e-23   1.38 AD<HC 
+   8 ac_egemaps_hammarbergindexv_sma3nz_amean                         2.16e-26   4.16e-24   1.38 AD<HC 
+   9 ac_egemaps_f2bandwidth_sma3nz_stddevnorm                         1.10e-24   2.12e-22   1.30 AD<HC 
+  10 ac_egemaps_f3bandwidth_sma3nz_stddevnorm                         8.83e-27   1.70e-24   1.29 AD<HC 
+
+English
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 syn_mean_dependency_length                                       2.54e-48   1.78e-46   1.61 AD>HC 
+   2 syn_std_dependency_length                                        5.79e-39   4.05e-37   1.38 AD>HC 
+   3 syn_obl_ratio                                                    2.27e-37   1.59e-35   1.13 AD<HC 
+   4 syn_max_dependency_length                                        1.63e-27   1.14e-25   1.05 AD>HC 
+   5 syn_num_ratio                                                    1.29e-35   9.03e-34   0.82 AD>HC 
+   6 syn_mean_tree_depth                                              2.07e-16   1.45e-14   0.78 AD>HC 
+   7 syn_interjection_ratio                                           3.73e-28   2.61e-26   0.74 AD>HC 
+   8 syn_determiner_noun_ratio                                        1.31e-16   9.16e-15   0.71 AD<HC 
+   9 syn_subordination_ratio                                          1.76e-24   1.23e-22   0.70 AD>HC 
+  10 len_tokens_per_utterance                                         4.49e-23   3.14e-21   0.68 AD>HC 
+
+Greek
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 ac_egemaps_loudness_sma3_stddevfallingslope                      6.11e-15   1.17e-12   1.25 AD>HC 
+   2 ac_egemaps_loudness_sma3_stddevrisingslope                       1.45e-14   2.78e-12   1.23 AD>HC 
+   3 ac_rms_std                                                       3.19e-14   6.13e-12   1.21 AD>HC 
+   4 ac_egemaps_loudness_sma3_meanrisingslope                         5.95e-13   1.14e-10   1.13 AD>HC 
+   5 ac_egemaps_loudness_sma3_meanfallingslope                        7.91e-13   1.52e-10   1.13 AD>HC 
+   6 ac_egemaps_equivalentsoundlevel_dbp                              7.69e-08   1.48e-05   0.97 AD>HC 
+   7 ac_egemaps_loudness_sma3_pctlrange0_2                            4.64e-10   8.90e-08   0.96 AD>HC 
+   8 ac_egemaps_loudness_sma3_percentile80_0                          6.48e-06   1.24e-03   0.71 AD>HC 
+   9 ac_egemaps_spectralfluxv_sma3nz_stddevnorm                       3.44e-05   6.61e-03   0.66 AD>HC 
+  10 ac_rms_mean                                                      5.32e-04   1.02e-01   0.56 AD>HC 
+
+Spanish
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 lex_mean_token_length                                            3.80e-08   2.62e-06   0.88 AD<HC 
+   2 syn_determiner_ratio                                             5.64e-07   3.89e-05   0.83 AD<HC 
+   3 syn_noun_ratio                                                   7.82e-07   5.40e-05   0.82 AD<HC 
+   4 lex_type_token_ratio                                             2.04e-06   1.41e-04   0.80 AD<HC 
+   5 disc_repeated_unigram_ratio                                      2.04e-06   1.41e-04   0.80 AD>HC 
+   6 lex_repetition_rate                                              2.04e-06   1.41e-04   0.80 AD>HC 
+   7 lex_lemma_type_token_ratio                                       2.65e-06   1.83e-04   0.80 AD<HC 
+   8 syn_pronoun_noun_ratio                                           4.97e-06   3.43e-04   0.77 AD>HC 
+   9 lex_brunet                                                       6.30e-06   4.35e-04   0.77 AD>HC 
+  10 lex_std_token_length                                             1.51e-06   1.04e-04   0.76 AD<HC 
+
+welch_bonferroni
+
+Chinese
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm                1.48e-33   2.84e-31   1.46 AD<HC 
+   2 ac_egemaps_alpharatiov_sma3nz_amean                              2.33e-33   4.48e-31   1.64 AD>HC 
+   3 ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope          1.22e-31   2.34e-29   1.45 AD<HC 
+   4 ac_egemaps_mfcc1v_sma3nz_amean                                   1.14e-29   2.18e-27   1.42 AD<HC 
+   5 ac_egemaps_slopeuv500_1500_sma3nz_amean                          2.39e-29   4.59e-27   1.42 AD>HC 
+   6 ac_egemaps_f3bandwidth_sma3nz_stddevnorm                         8.83e-27   1.70e-24   1.29 AD<HC 
+   7 ac_egemaps_jitterlocal_sma3nz_amean                              1.56e-26   3.00e-24   1.24 AD<HC 
+   8 ac_egemaps_hammarbergindexv_sma3nz_amean                         2.16e-26   4.16e-24   1.38 AD<HC 
+   9 ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile20_0            1.14e-25   2.19e-23   1.26 AD>HC 
+  10 ac_mfcc_3_mean                                                   3.43e-25   6.59e-23   1.38 AD<HC 
+
+English
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 syn_mean_dependency_length                                       2.54e-48   1.78e-46   1.61 AD>HC 
+   2 syn_std_dependency_length                                        5.79e-39   4.05e-37   1.38 AD>HC 
+   3 len_utterance_count                                              3.16e-38   2.22e-36   0.58 AD<HC 
+   4 syn_utterance_count                                              3.16e-38   2.22e-36   0.58 AD<HC 
+   5 syn_obl_ratio                                                    2.27e-37   1.59e-35   1.13 AD<HC 
+   6 graph_node_count                                                 2.77e-36   1.94e-34   0.56 AD<HC 
+   7 len_type_count                                                   2.77e-36   1.94e-34   0.56 AD<HC 
+   8 syn_num_ratio                                                    1.29e-35   9.03e-34   0.82 AD>HC 
+   9 graph_edge_count                                                 2.79e-30   1.96e-28   0.49 AD<HC 
+  10 len_syllable_count                                               3.39e-29   2.37e-27   0.48 AD<HC 
+
+Greek
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 ac_egemaps_loudness_sma3_stddevfallingslope                      6.11e-15   1.17e-12   1.25 AD>HC 
+   2 ac_egemaps_loudness_sma3_stddevrisingslope                       1.45e-14   2.78e-12   1.23 AD>HC 
+   3 ac_rms_std                                                       3.19e-14   6.13e-12   1.21 AD>HC 
+   4 ac_egemaps_loudness_sma3_meanrisingslope                         5.95e-13   1.14e-10   1.13 AD>HC 
+   5 ac_egemaps_loudness_sma3_meanfallingslope                        7.91e-13   1.52e-10   1.13 AD>HC 
+   6 ac_egemaps_loudness_sma3_pctlrange0_2                            4.64e-10   8.90e-08   0.96 AD>HC 
+   7 ac_egemaps_equivalentsoundlevel_dbp                              7.69e-08   1.48e-05   0.97 AD>HC 
+   8 ac_egemaps_loudness_sma3_percentile80_0                          6.48e-06   1.24e-03   0.71 AD>HC 
+   9 ac_egemaps_spectralfluxv_sma3nz_stddevnorm                       3.44e-05   6.61e-03   0.66 AD>HC 
+  10 ac_rms_mean                                                      5.32e-04   1.02e-01   0.56 AD>HC 
+
+Spanish
+   # feature                                                                 p       bonf    |d| dir   
+-------------------------------------------------------------------------------------------------------
+   1 lex_mean_token_length                                            3.80e-08   2.62e-06   0.88 AD<HC 
+   2 syn_determiner_ratio                                             5.64e-07   3.89e-05   0.83 AD<HC 
+   3 syn_noun_ratio                                                   7.82e-07   5.40e-05   0.82 AD<HC 
+   4 lex_std_token_length                                             1.51e-06   1.04e-04   0.76 AD<HC 
+   5 lex_type_token_ratio                                             2.04e-06   1.41e-04   0.80 AD<HC 
+   6 disc_repeated_unigram_ratio                                      2.04e-06   1.41e-04   0.80 AD>HC 
+   7 lex_repetition_rate                                              2.04e-06   1.41e-04   0.80 AD>HC 
+   8 lex_lemma_type_token_ratio                                       2.65e-06   1.83e-04   0.80 AD<HC 
+   9 syn_pronoun_ratio                                                3.66e-06   2.52e-04   0.76 AD>HC 
+  10 lex_hapax_ratio                                                  4.58e-06   3.16e-04   0.76 AD<HC

@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
+from scipy.stats import kruskal
 from sklearn.base import clone
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -14,6 +15,7 @@ from experiments.phase1.generate_all_task_feature_comparison import parse_best_t
 from experiments.phase1.run_rich_sweep import (
     FEATURES_PATH,
     MANIFEST_PATH,
+    RICH_SWEEP_RESULT_TABLES,
     RICH_SWEEP_ROOT,
     SEED,
     feature_subset_columns,
@@ -26,7 +28,7 @@ from experiments.phase1.run_rich_sweep import (
 
 
 REPORT_ROOT = RICH_SWEEP_ROOT / "report_assets"
-TEXT_SUMMARY_PATH = PROJECT_ROOT / "tables" / "experiment-results" / "multiseed-suite" / "paper_vs_ours_3tables.txt"
+TEXT_SUMMARY_PATH = PROJECT_ROOT / "tables" / "01-baselines" / "embedding-baselines" / "multiseed-suite" / "result-tables" / "paper_vs_ours_3tables.txt"
 LANGUAGE_META = {
     "en": {
         "label": "English",
@@ -49,6 +51,7 @@ LANGUAGE_META = {
         "grouping_levels": [["task_type", "dataset_name"], ["task_type"], []],
     },
 }
+LANGUAGE_ORDER = ["Chinese", "English", "Greek", "Spanish"]
 
 
 def load_merged() -> pd.DataFrame:
@@ -76,7 +79,7 @@ def get_model_pipeline(model_family: str, model_variant: str):
 
 
 def best_all_universal_row(run_name: str) -> pd.Series:
-    df = pd.read_csv(RICH_SWEEP_ROOT / f"{run_name}_model_results.csv")
+    df = pd.read_csv(RICH_SWEEP_RESULT_TABLES / f"{run_name}_model_results.csv")
     return (
         df[df["subset"] == "all_universal"]
         .sort_values(["accuracy", "auroc", "balanced_accuracy", "macro_f1"], ascending=False)
@@ -102,11 +105,64 @@ def reconstruct_run(df: pd.DataFrame, filters: dict[str, object], grouping_level
         score = estimator.decision_function(x_test)
     perm = permutation_importance_frame(estimator, x_test, y_test)
     return {
+        "feature_cols": feature_cols,
         "selected_cols": selected_cols,
         "anova_ranking": anova_ranking,
         "permutation_importance": perm,
         "num_features": len(selected_cols),
+        "train_df": train_df,
     }
+
+
+def bh_fdr(p_values: list[float]) -> list[float]:
+    indexed = sorted(enumerate(p_values), key=lambda item: item[1])
+    adjusted = [1.0] * len(p_values)
+    prev = 1.0
+    for rev_pos in range(len(indexed) - 1, -1, -1):
+        original_idx, p_value = indexed[rev_pos]
+        rank = rev_pos + 1
+        candidate = min(prev, (p_value * len(p_values)) / rank, 1.0)
+        adjusted[original_idx] = candidate
+        prev = candidate
+    return adjusted
+
+
+def language_significance_frame(train_df: pd.DataFrame, feature_cols: list[str]) -> pd.DataFrame:
+    rows = []
+    for feature in feature_cols:
+        ad_vals = pd.to_numeric(train_df.loc[train_df["binary_label"] == 1, feature], errors="coerce").dropna()
+        hc_vals = pd.to_numeric(train_df.loc[train_df["binary_label"] == 0, feature], errors="coerce").dropna()
+        if len(ad_vals) < 3 or len(hc_vals) < 3:
+            continue
+        combined = pd.concat([ad_vals, hc_vals], ignore_index=True)
+        if combined.nunique(dropna=True) <= 1:
+            continue
+        try:
+            h_stat, p_value = kruskal(ad_vals, hc_vals, nan_policy="omit")
+        except ValueError:
+            continue
+        rows.append(
+            {
+                "feature_name": feature,
+                "feature_group": feature.split("_", 1)[0],
+                "h_statistic": float(h_stat),
+                "p_value": float(p_value),
+                "median_ad": float(ad_vals.median()),
+                "median_hc": float(hc_vals.median()),
+                "mean_ad": float(ad_vals.mean()),
+                "mean_hc": float(hc_vals.mean()),
+                "direction": "AD>HC" if ad_vals.median() > hc_vals.median() else "AD<HC",
+            }
+        )
+    if not rows:
+        raise RuntimeError("No language-specific significance rows were generated.")
+    df = pd.DataFrame(rows).sort_values(["p_value", "h_statistic"], ascending=[True, False]).reset_index(drop=True)
+    df["bonferroni_p"] = (df["p_value"] * len(df)).clip(upper=1.0)
+    df["fdr_bh_p"] = bh_fdr(df["p_value"].tolist())
+    df["significant_bonferroni"] = df["bonferroni_p"] < 0.05
+    df["significant_fdr"] = df["fdr_bh_p"] < 0.05
+    df["significance_rank"] = range(1, len(df) + 1)
+    return df
 
 
 def write_summary(df: pd.DataFrame) -> None:
@@ -147,7 +203,7 @@ def write_top_features(df: pd.DataFrame) -> None:
     lines.append("=============================================")
     lines.append("These are permutation-ranked features from the best `all_universal` model in each language.")
     lines.append("")
-    for language in ["Chinese", "English", "Greek", "Spanish"]:
+    for language in LANGUAGE_ORDER:
         subset = df[df["language"] == language].sort_values("rank")
         if subset.empty:
             continue
@@ -164,6 +220,63 @@ def write_top_features(df: pd.DataFrame) -> None:
     txt_path.write_text("\n".join(lines), encoding="utf-8")
 
 
+def write_language_significance(significance_df: pd.DataFrame, comparison_df: pd.DataFrame) -> None:
+    sig_csv_path = REPORT_ROOT / "all_universal_language_significance.csv"
+    cmp_csv_path = REPORT_ROOT / "all_universal_language_significance_vs_permutation.csv"
+    txt_path = REPORT_ROOT / "all_universal_language_significance_vs_permutation.txt"
+
+    significance_df.to_csv(sig_csv_path, index=False)
+    comparison_df.to_csv(cmp_csv_path, index=False)
+
+    lines = []
+    lines.append("Phase 1 Language-Specific Significance vs Permutation Importance")
+    lines.append("==============================================================")
+    lines.append("Significance uses per-language Kruskal-Wallis tests on raw Phase 1 feature values from the training split of the stored best `all_universal` run.")
+    lines.append("Bonferroni and FDR are applied within each language over all tested Phase 1 features.")
+    lines.append("Permutation importance is taken from the fitted best `all_universal` model on the held-out test split.")
+    lines.append("")
+
+    for language in LANGUAGE_ORDER:
+        sig_subset = significance_df[significance_df["language"] == language].sort_values("significance_rank")
+        cmp_subset = comparison_df[comparison_df["language"] == language].copy()
+        if sig_subset.empty or cmp_subset.empty:
+            continue
+
+        summary = sig_subset.iloc[0]
+        top_sig = cmp_subset[cmp_subset["list_name"] == "significance_top10"].sort_values("list_rank")
+        top_perm = cmp_subset[cmp_subset["list_name"] == "permutation_top10"].sort_values("list_rank")
+        sig_names = set(top_sig["feature_name"].tolist())
+        perm_names = set(top_perm["feature_name"].tolist())
+        shared = [name for name in top_sig["feature_name"].tolist() if name in perm_names]
+        perm_only = [name for name in top_perm["feature_name"].tolist() if name not in sig_names]
+        sig_only = [name for name in top_sig["feature_name"].tolist() if name not in perm_names]
+
+        lines.append(language)
+        lines.append("-" * len(language))
+        lines.append(
+            f"Tested features: {int(summary['tested_features'])} | Bonferroni-significant: {int(summary['bonferroni_significant_count'])} | "
+            f"FDR-significant: {int(summary['fdr_significant_count'])} | Shared top-10 overlap: {len(shared)}/10"
+        )
+        lines.append("Top significance features")
+        for _, row in top_sig.iterrows():
+            overlap = f"perm#{int(row['other_rank'])}" if pd.notna(row["other_rank"]) else "-"
+            lines.append(
+                f"{int(row['list_rank'])}. {row['feature_name']} [{row['feature_group']}] "
+                f"p={row['p_value']:.2e} bonf={row['bonferroni_p']:.2e} fdr={row['fdr_bh_p']:.2e} overlap={overlap}"
+            )
+        lines.append(
+            "Permutation-only top features: "
+            + (", ".join(perm_only) if perm_only else "none")
+        )
+        lines.append(
+            "Significance-only top features: "
+            + (", ".join(sig_only) if sig_only else "none")
+        )
+        lines.append("")
+
+    txt_path.write_text("\n".join(lines), encoding="utf-8")
+
+
 def main() -> None:
     REPORT_ROOT.mkdir(parents=True, exist_ok=True)
     merged = load_merged()
@@ -176,6 +289,8 @@ def main() -> None:
 
     summary_rows = []
     top_rows = []
+    significance_rows = []
+    comparison_rows = []
 
     for code, meta in LANGUAGE_META.items():
         run_name = f"language_{code}_all_rich"
@@ -227,10 +342,88 @@ def main() -> None:
             ]
         )
 
+        sig_df = language_significance_frame(reconstructed["train_df"], reconstructed["feature_cols"])
+        tested_features = len(sig_df)
+        bonf_count = int(sig_df["significant_bonferroni"].sum())
+        fdr_count = int(sig_df["significant_fdr"].sum())
+        sig_df["language"] = meta["label"]
+        sig_df["tested_features"] = tested_features
+        sig_df["bonferroni_significant_count"] = bonf_count
+        sig_df["fdr_significant_count"] = fdr_count
+        significance_rows.append(
+            sig_df[
+                [
+                    "language",
+                    "significance_rank",
+                    "feature_name",
+                    "feature_group",
+                    "h_statistic",
+                    "p_value",
+                    "bonferroni_p",
+                    "fdr_bh_p",
+                    "significant_bonferroni",
+                    "significant_fdr",
+                    "median_ad",
+                    "median_hc",
+                    "mean_ad",
+                    "mean_hc",
+                    "direction",
+                    "tested_features",
+                    "bonferroni_significant_count",
+                    "fdr_significant_count",
+                ]
+            ]
+        )
+
+        top_sig = sig_df.sort_values(
+            ["significant_bonferroni", "significant_fdr", "p_value", "h_statistic"],
+            ascending=[False, False, True, False],
+        ).head(10)
+        top_perm = perm.sort_values("rank").head(10)
+        perm_rank_map = {row["feature_name"]: int(row["rank"]) for _, row in top_perm.iterrows()}
+        sig_rank_map = {row["feature_name"]: int(row["significance_rank"]) for _, row in top_sig.iterrows()}
+
+        for _, row in top_sig.iterrows():
+            comparison_rows.append(
+                {
+                    "language": meta["label"],
+                    "list_name": "significance_top10",
+                    "list_rank": int(row["significance_rank"]),
+                    "feature_name": row["feature_name"],
+                    "feature_group": row["feature_group"],
+                    "p_value": float(row["p_value"]),
+                    "bonferroni_p": float(row["bonferroni_p"]),
+                    "fdr_bh_p": float(row["fdr_bh_p"]),
+                    "h_statistic": float(row["h_statistic"]),
+                    "other_rank": perm_rank_map.get(row["feature_name"]),
+                }
+            )
+
+        sig_stats_map = sig_df.set_index("feature_name")
+        for _, row in top_perm.iterrows():
+            sig_row = sig_stats_map.loc[row["feature_name"]] if row["feature_name"] in sig_stats_map.index else None
+            comparison_rows.append(
+                {
+                    "language": meta["label"],
+                    "list_name": "permutation_top10",
+                    "list_rank": int(row["rank"]),
+                    "feature_name": row["feature_name"],
+                    "feature_group": row["feature_group"],
+                    "p_value": float(sig_row["p_value"]) if sig_row is not None else None,
+                    "bonferroni_p": float(sig_row["bonferroni_p"]) if sig_row is not None else None,
+                    "fdr_bh_p": float(sig_row["fdr_bh_p"]) if sig_row is not None else None,
+                    "h_statistic": float(sig_row["h_statistic"]) if sig_row is not None else None,
+                    "other_rank": sig_rank_map.get(row["feature_name"]),
+                }
+            )
+
     summary_df = pd.DataFrame(summary_rows)
     top_df = pd.concat(top_rows, ignore_index=True)
+    significance_df = pd.concat(significance_rows, ignore_index=True)
+    comparison_df = pd.DataFrame(comparison_rows)
     write_summary(summary_df)
     write_top_features(top_df)
+    write_language_significance(significance_df, comparison_df)
 
 
 if __name__ == "__main__":

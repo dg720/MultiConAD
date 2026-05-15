@@ -7,9 +7,9 @@ from generate_accuracy_tables import RESULT_TABLES
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-SUITE_DIR = SCRIPT_DIR.parent / "tables" / "experiment-results" / "multiseed-suite"
+SUITE_DIR = SCRIPT_DIR.parent / "tables" / "01-baselines" / "embedding-baselines" / "multiseed-suite"
 SUMMARY_DIR = SUITE_DIR / "summaries"
-OUTPUT_PATH = SUITE_DIR / "paper_vs_ours_3tables.txt"
+OUTPUT_PATH = SUITE_DIR / "result-tables" / "paper_vs_ours_3tables.txt"
 
 LANG_ORDER = ["Spanish", "Chinese", "Greek", "English"]
 TASK_ORDER = [("binary", "Binary"), ("multiclass", "Multiclass")]
@@ -138,6 +138,7 @@ def main() -> None:
     sections = []
     for setting_name, mode_name, title in SETTING_ORDER:
         sections.append(build_table(setting_name, mode_name, title))
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text("\n\n".join(sections), encoding="utf-8")
     print(OUTPUT_PATH)
 

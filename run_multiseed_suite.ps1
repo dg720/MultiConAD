@@ -10,7 +10,7 @@ $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Python = Join-Path $RepoRoot ".venv\Scripts\python.exe"
 $SuiteScript = Join-Path $RepoRoot "experiments\multiseed_suite.py"
-$SuiteDir = Join-Path $RepoRoot "tables\experiment-results\multiseed-suite"
+$SuiteDir = Join-Path $RepoRoot "tables\01-baselines\embedding-baselines\multiseed-suite"
 $LauncherLogDir = Join-Path $SuiteDir "launcher_logs"
 
 if (-not (Test-Path $Python)) {

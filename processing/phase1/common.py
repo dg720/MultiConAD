@@ -14,11 +14,17 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_ROOT = PROJECT_ROOT / "data"
 PROCESSED_ROOT = DATA_ROOT / "processed"
 PHASE1_ROOT = PROCESSED_ROOT / "phase1"
-TABLES_PHASE1_ROOT = PROJECT_ROOT / "tables" / "phase1"
+TABLES_PHASE1_ROOT = PROJECT_ROOT / "tables" / "01-baselines" / "feature-baselines"
+TABLES_PHASE1_TABLES_ROOT = TABLES_PHASE1_ROOT / "result-tables"
+TABLES_PHASE1_RESULT_TABLES = TABLES_PHASE1_TABLES_ROOT / "csv"
+TABLES_PHASE1_SUMMARIES = TABLES_PHASE1_ROOT / "summaries"
 LOGS_ROOT = TABLES_PHASE1_ROOT / "logs"
 
 PHASE1_ROOT.mkdir(parents=True, exist_ok=True)
 TABLES_PHASE1_ROOT.mkdir(parents=True, exist_ok=True)
+TABLES_PHASE1_TABLES_ROOT.mkdir(parents=True, exist_ok=True)
+TABLES_PHASE1_RESULT_TABLES.mkdir(parents=True, exist_ok=True)
+TABLES_PHASE1_SUMMARIES.mkdir(parents=True, exist_ok=True)
 LOGS_ROOT.mkdir(parents=True, exist_ok=True)
 
 

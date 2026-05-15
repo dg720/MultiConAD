@@ -19,8 +19,14 @@ from processing.phase1.common import make_logger
 
 
 PHASE1_RUN_ROOT = p1.RICH_SWEEP_ROOT
+PHASE1_RESULT_TABLES = p1.RICH_SWEEP_RESULT_TABLES
+PHASE1_SUMMARIES = p1.RICH_SWEEP_SUMMARIES
 PHASE2_RUN_ROOT = p2.RUN_ROOT
+PHASE2_RESULT_TABLES = p2.run_result_tables_dir()
+PHASE2_SUMMARIES = p2.RUN_ROOT / "summaries"
 PHASE2_CLEAN_ROOT = p2_clean.CLEAN_ROOT
+PHASE2_CLEAN_RESULT_TABLES = p2_clean.CLEAN_RESULT_TABLES
+PHASE2_CLEAN_SUMMARIES = p2_clean.CLEAN_ROOT / "summaries"
 
 
 @dataclass(frozen=True)
@@ -132,11 +138,11 @@ def phase1_backfill_runs(log) -> list[BackfillRun]:
         runs.append(
             BackfillRun(
                 run_name=spec.name,
-                csv_path=PHASE1_RUN_ROOT / f"{spec.name}_model_results.csv",
-                summary_path=PHASE1_RUN_ROOT / f"{spec.name}_summary.json",
+                csv_path=PHASE1_RESULT_TABLES / f"{spec.name}_model_results.csv",
+                summary_path=PHASE1_SUMMARIES / f"{spec.name}_summary.json",
                 test_pos=int(counts.get(1, 0)),
                 test_neg=int(counts.get(0, 0)),
-                rerun_callback=lambda spec=spec, run_df=run_df: p1.run_feature_sweep(run_df, spec.name, spec.grouping_levels, log, PHASE1_RUN_ROOT),
+                rerun_callback=lambda spec=spec, run_df=run_df: p1.run_feature_sweep(run_df, spec.name, spec.grouping_levels, log, PHASE1_RESULT_TABLES),
             )
         )
     return runs
@@ -153,8 +159,8 @@ def phase2_backfill_runs(log) -> list[BackfillRun]:
         runs.append(
             BackfillRun(
                 run_name=spec.name,
-                csv_path=PHASE2_RUN_ROOT / f"{spec.name}_model_results.csv",
-                summary_path=PHASE2_RUN_ROOT / f"{spec.name}_summary.json",
+                csv_path=PHASE2_RESULT_TABLES / f"{spec.name}_model_results.csv",
+                summary_path=PHASE2_SUMMARIES / f"{spec.name}_summary.json",
                 test_pos=int(counts.get(1, 0)),
                 test_neg=int(counts.get(0, 0)),
                 rerun_callback=lambda spec=spec, df=df: p2.run_spec(df, spec, log),
@@ -174,8 +180,8 @@ def phase2_clean_backfill_runs(log) -> list[BackfillRun]:
         runs.append(
             BackfillRun(
                 run_name=spec.name,
-                csv_path=PHASE2_CLEAN_ROOT / f"{spec.name}_model_results.csv",
-                summary_path=PHASE2_CLEAN_ROOT / f"{spec.name}_summary.json",
+                csv_path=PHASE2_CLEAN_RESULT_TABLES / f"{spec.name}_model_results.csv",
+                summary_path=PHASE2_CLEAN_SUMMARIES / f"{spec.name}_summary.json",
                 test_pos=int(counts.get(1, 0)),
                 test_neg=int(counts.get(0, 0)),
                 rerun_callback=lambda spec=spec, df=df: _rerun_phase2_clean(spec, df, log),

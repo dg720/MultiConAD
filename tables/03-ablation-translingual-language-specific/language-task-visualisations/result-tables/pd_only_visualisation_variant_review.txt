@@ -1,0 +1,125 @@
+PD-Only Visualisation Variant Review
+====================================
+
+Definition
+----------
+PD-only here means strict live manifest `task_type == PD_CTP`. This is more comparable than source-level PD labels because all plotted rows come from the same live task convention.
+Spanish has no PD_CTP rows in the current Phase 2 matrix, so it contributes zero samples/groups to these variants.
+
+Data points left
+----------------
+Rows are sample rows in `phase2_features.csv`. Analysis groups are unique group_id values after filtering to AD/HC binary labels.
+language_name  AD_samples_used  HC_samples_used  AD_analysis_groups  HC_analysis_groups  MCI_samples_all_dx  MCI_groups_all_dx
+      English              537             1467                 450                1261                 197                 72
+      Chinese               38              167                  38                  89                 196                124
+        Greek               76               57                  76                  57                  49                 49
+      Spanish                0                0                   0                   0                   0                  0
+
+Plot review
+-----------
+The clearest separation comes from `language_effect_profiles_pd_core` and `language_effect_heatmap_pd_core`: with task fixed to PD_CTP, feature direction differences across English, Chinese, and Greek are immediately visible.
+The PD task-specific plots are clinically interpretable but narrow: selected rows are all PD-content/prompt features, and most have only 2-3 valid language cells. They are useful as a PD-feature audit, not as broad translingual evidence.
+The PD full-feature plots are useful as an appendix bridge between the core-only and full-feature analyses. They show the same acoustic/loudness confounding tendency but without cross-task variation.
+
+Recommendation
+--------------
+Use PD-only core/general as the main comparability figure if the claim is about language robustness under a fixed task.
+Use PD-only task-specific as a supporting audit of picture-description content features.
+Keep PD-only full feature set as appendix/context, because it mixes general and PD-specific signals.
+
+Scope summary
+-------------
+           scope  features  selected  translingual  language_sensitive  task_sensitive  language_task_confounded  unstable
+         pd_core       382        24            21                  21               0                         0       340
+pd_task_specific        20        12             7                   5               0                         0         8
+         pd_full       474        24            28                  26               0                         0       420
+
+Selected rows: pd_core
+----------------------
+category_prefix                       display_name                            feature_name feature_group diagnostic_strength language_specificity direction_consistency  valid_cells
+             TL                      pronoun ratio                       syn_pronoun_ratio           syn               0.612                0.082                 1.000            3
+             TL                    median duration                   pause_median_duration         pause               0.609                0.120                 1.000            2
+             TL            pairwise similarity std              sx_pairwise_similarity_std            sx               0.515                0.196                 1.000            3
+             TL                      silence ratio                     pause_silence_ratio         pause               0.492                0.028                 1.000            2
+             TL            speaking to total ratio           pause_speaking_to_total_ratio         pause               0.484                0.020                 1.000            2
+             TL                 pronoun noun ratio                  syn_pronoun_noun_ratio           syn               0.479                0.207                 1.000            3
+             TL                     aux verb ratio                      syn_aux_verb_ratio           syn               0.470                0.171                 1.000            3
+             TL                       iqr duration                      pause_iqr_duration         pause               0.442                0.005                 1.000            2
+             TL                      medium pauses                      pause_medium_count         pause               0.436                0.071                 1.000            2
+             TL                         long ratio                        pause_long_ratio         pause               0.417                0.168                 1.000            2
+             TL                         type count                          len_type_count           len               0.365                0.174                 1.000            3
+             TL                         node count                        graph_node_count         graph               0.365                0.174                 1.000            3
+             LS                           MATTR 20                            lex_mattr_20           lex               0.694                0.577                 1.000            3
+             LS                           MATTR 10                            lex_mattr_10           lex               0.625                0.551                 1.000            3
+             LS                          obl ratio                           syn_obl_ratio           syn               0.700                0.526                 1.000            3
+             LS             repeated trigram ratio             disc_repeated_trigram_ratio          disc               0.475                0.499                 1.000            3
+             LS                 interjection ratio                  syn_interjection_ratio           syn               0.333                0.471                 1.000            3
+             LS                    speech duration                     len_speech_duration           len               0.582                0.461                 1.000            2
+             LS               utterance similarity       disc_mean_pairwise_utt_similarity          disc               0.707                0.447                 1.000            3
+             LS adjacent utterance similarity mean disc_adjacent_utterance_similarity_mean          disc               0.660                0.444                 1.000            3
+             LS                    local coherence                    disc_local_coherence          disc               0.660                0.444                 1.000            3
+             LS                     semantic drift                     disc_semantic_drift          disc               0.660                0.444                 1.000            3
+             LS              repeated bigram ratio              disc_repeated_bigram_ratio          disc               0.509                0.401                 1.000            3
+             LS                sentence length q50                  sx_sentence_length_q50            sx               0.382                0.398                 1.000            3
+
+Generated figures
+- report_assets/pd-only-variants/ranked_candidates_pd_core.png
+- report_assets/pd-only-variants/language_effect_heatmap_pd_core.png
+- report_assets/pd-only-variants/language_effect_profiles_pd_core.png
+- report_assets/pd-only-variants/strength_vs_language_specificity_pd_core.png
+
+Selected rows: pd_task_specific
+-------------------------------
+category_prefix                     display_name                        feature_name feature_group diagnostic_strength language_specificity direction_consistency  valid_cells
+             TL            PD unique units ratio               pd_unique_units_ratio            pd               0.575                0.219                 1.000            3
+             TL               PD units mentioned       pd_percentage_units_mentioned            pd               0.575                0.219                 1.000            3
+             TL            PD unique units count               pd_unique_units_count            pd               0.561                0.200                 1.000            3
+             TL               PD unique keywords              pd_num_unique_keywords            pd               0.541                0.206                 1.000            3
+             TL              total unit mentions              pd_total_unit_mentions            pd               0.340                0.169                 1.000            3
+             TL               num total keywords               pd_num_total_keywords            pd               0.340                0.169                 1.000            3
+             TL semantic similarity to unit list pd_semantic_similarity_to_unit_list            pd               0.142                0.114                 1.000            3
+             LS           unique unit efficiency           pd_unique_unit_efficiency            pd               0.583                0.376                 1.000            2
+             LS            detected prompt score            pd_detected_prompt_score            pd               0.340                0.362                 1.000            3
+             LS                  content density                  pd_content_density            pd               0.296                0.292                 1.000            3
+             LS               total unit density               pd_total_unit_density            pd               0.296                0.292                 1.000            3
+             LS            total unit efficiency            pd_total_unit_efficiency            pd               0.407                0.270                 1.000            2
+
+Generated figures
+- report_assets/pd-only-variants/ranked_candidates_pd_task_specific.png
+- report_assets/pd-only-variants/language_effect_heatmap_pd_task_specific.png
+- report_assets/pd-only-variants/language_effect_profiles_pd_task_specific.png
+- report_assets/pd-only-variants/strength_vs_language_specificity_pd_task_specific.png
+
+Selected rows: pd_full
+----------------------
+category_prefix                       display_name                            feature_name feature_group diagnostic_strength language_specificity direction_consistency  valid_cells
+             TL                      pronoun ratio                       syn_pronoun_ratio           syn               0.612                0.082                 1.000            3
+             TL                    median duration                   pause_median_duration         pause               0.609                0.120                 1.000            2
+             TL              PD unique units ratio                   pd_unique_units_ratio            pd               0.575                0.219                 1.000            3
+             TL                 PD units mentioned           pd_percentage_units_mentioned            pd               0.575                0.219                 1.000            3
+             TL              PD unique units count                   pd_unique_units_count            pd               0.561                0.200                 1.000            3
+             TL                 PD unique keywords                  pd_num_unique_keywords            pd               0.541                0.206                 1.000            3
+             TL            pairwise similarity std              sx_pairwise_similarity_std            sx               0.515                0.196                 1.000            3
+             TL                      silence ratio                     pause_silence_ratio         pause               0.492                0.028                 1.000            2
+             TL            speaking to total ratio           pause_speaking_to_total_ratio         pause               0.484                0.020                 1.000            2
+             TL                 pronoun noun ratio                  syn_pronoun_noun_ratio           syn               0.479                0.207                 1.000            3
+             TL                     aux verb ratio                      syn_aux_verb_ratio           syn               0.470                0.171                 1.000            3
+             TL                       iqr duration                      pause_iqr_duration         pause               0.442                0.005                 1.000            2
+             LS                           MATTR 20                            lex_mattr_20           lex               0.694                0.577                 1.000            3
+             LS                           MATTR 10                            lex_mattr_10           lex               0.625                0.551                 1.000            3
+             LS                          obl ratio                           syn_obl_ratio           syn               0.700                0.526                 1.000            3
+             LS             repeated trigram ratio             disc_repeated_trigram_ratio          disc               0.475                0.499                 1.000            3
+             LS                 interjection ratio                  syn_interjection_ratio           syn               0.333                0.471                 1.000            3
+             LS                    speech duration                     len_speech_duration           len               0.582                0.461                 1.000            2
+             LS               utterance similarity       disc_mean_pairwise_utt_similarity          disc               0.707                0.447                 1.000            3
+             LS adjacent utterance similarity mean disc_adjacent_utterance_similarity_mean          disc               0.660                0.444                 1.000            3
+             LS                    local coherence                    disc_local_coherence          disc               0.660                0.444                 1.000            3
+             LS                     semantic drift                     disc_semantic_drift          disc               0.660                0.444                 1.000            3
+             LS              repeated bigram ratio              disc_repeated_bigram_ratio          disc               0.509                0.401                 1.000            3
+             LS                sentence length q50                  sx_sentence_length_q50            sx               0.382                0.398                 1.000            3
+
+Generated figures
+- report_assets/pd-only-variants/ranked_candidates_pd_full.png
+- report_assets/pd-only-variants/language_effect_heatmap_pd_full.png
+- report_assets/pd-only-variants/language_effect_profiles_pd_full.png
+- report_assets/pd-only-variants/strength_vs_language_specificity_pd_full.png

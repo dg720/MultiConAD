@@ -1,0 +1,27 @@
+Selected Figure Pair: Interpretation
+====================================
+These two HC-oriented median/IQR plots make the clearest combined point:
+- the fixed pooled shortlist gives a fair cross-language comparison, but separation is only partial in several languages;
+- the language-specific shortlist sharpens AD/HC separation, showing that local feature adaptation helps.
+
+Main message
+------------
+The shared multilingual signal is real, but it is not sufficient on its own. Greek shows the largest dependence on language-specific features, English and Spanish also improve visibly, and Chinese changes least.
+
+Translingual overlap
+--------------------
+Using the strict top-16 language-specific Welch lists, no exact feature name repeats across more than one language.
+
+Using the full language-specific significance lists instead, the main recurring Bonferroni-significant features are:
+- `syn_pronoun_ratio`
+- `len_tokens_per_utterance`
+- `syn_noun_ratio`
+- `lex_content_word_ratio`
+- `syn_aux_ratio`
+
+Using the broader FDR-significant lists, the clearest repeated features are:
+- `disc_repeated_unigram_ratio`
+- `lex_hapax_ratio`
+- `lex_repetition_rate`
+- `lex_type_token_ratio`
+- `syn_pronoun_ratio`

@@ -1,0 +1,475 @@
+feature_name,feature_label,feature_group,feature_family,task_specific,diagnostic_strength,direction_consistency,language_specificity,task_specificity_score,valid_cells,valid_languages,valid_manifest_tasks,valid_paper_task_labels,stability_score,interpretation_category,language_specificity_threshold,task_specificity_threshold
+ac_egemaps_loudness_sma3_percentile20_0,loudness p20,ac,acoustic,False,1.8905519614664152,0.75,0.998605928486619,2.0095060667179276,4,2,4,FC|FT|PD,11,language-task confounded,0.30153161635750253,0.37651289142833966
+syn_num_ratio,num ratio,syn,syntax,False,0.5882218795434963,0.5,0.36157553852711277,0.4187419159288815,8,4,6,FC|FT|NA|PD,11,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_stddevrisingslope,loudness rising slope,ac,acoustic,False,1.2655800227192642,0.75,0.8712502318405672,0.9951538983742833,4,2,4,FC|FT|PD,10,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_stddevfallingslope,egemaps loudness sma3 stddevfal...,ac,acoustic,False,1.2442453812290257,0.75,0.8772936221341192,0.9710421652569372,4,2,4,FC|FT|PD,10,language-task confounded,0.30153161635750253,0.37651289142833966
+sx_mean_log_lemma_freq,mean log lemma freq,sx,syntax,False,0.6131297656217336,0.5,0.674294251617297,0.6410405245477893,8,4,6,FC|FT|NA|PD,10,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+lex_mattr_20,MATTR 20,lex,lexical,False,0.6022707546303676,0.875,0.3984321986787172,0.33816739205553265,8,4,6,FC|FT|NA|PD,10,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+ac_rms_std,rms std,ac,acoustic,False,1.2053074712901013,0.75,0.8992327996593595,0.9642475025870129,4,2,4,FC|FT|PD,9,language-task confounded,0.30153161635750253,0.37651289142833966
+syn_pronoun_ratio,pronoun ratio,syn,syntax,False,0.9553249788742462,0.875,0.4683353669467899,0.9344587329204275,8,4,6,FC|FT|NA|PD,9,language-task confounded,0.30153161635750253,0.37651289142833966
+lex_std_token_length,std token length,lex,lexical,False,0.5533725856497711,0.875,0.5021751801736691,0.5129620871402688,8,4,6,FC|FT|NA|PD,8,language-task confounded,0.30153161635750253,0.37651289142833966
+len_utterance_count,utterance count,len,length/rate,False,0.5136301795352782,0.625,0.582307489453985,0.5122552310264543,8,4,6,FC|FT|NA|PD,8,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_utterance_count,utterance count,syn,syntax,False,0.5136301795352782,0.625,0.582307489453985,0.5122552310264543,8,4,6,FC|FT|NA|PD,8,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_percentile50_0,egemaps loudness sma3 percentil...,ac,acoustic,False,1.1853972389020633,0.75,0.5922569886101959,1.3158410889747403,4,2,4,FC|FT|PD,7,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_meanrisingslope,egemaps loudness sma3 meanrisin...,ac,acoustic,False,1.0805788810991777,0.75,0.7686870689843059,0.7998032962130404,4,2,4,FC|FT|PD,7,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_rms_mean,rms mean,ac,acoustic,False,1.0107436005560175,0.5,0.7609774402272438,1.0190217925032574,4,2,4,FC|FT|PD,7,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_pronoun_noun_ratio,pronoun noun ratio,syn,syntax,False,0.874852851503406,0.875,0.4429296222430313,0.9413488221264928,8,4,6,FC|FT|NA|PD,7,language-task confounded,0.30153161635750253,0.37651289142833966
+syn_aux_ratio,aux ratio,syn,syntax,False,0.6819259802068434,1.0,0.3948433194982658,0.5957766768919782,8,4,6,FC|FT|NA|PD,7,language-task confounded,0.30153161635750253,0.37651289142833966
+syn_noun_ratio,noun ratio,syn,syntax,False,0.6571698859536992,0.875,0.26202076216132486,0.3078196750781035,8,4,6,FC|FT|NA|PD,7,translingual candidate,0.30153161635750253,0.37651289142833966
+lex_content_word_ratio,content-word ratio,lex,lexical,False,0.5921477348372943,0.75,0.5821089556388572,0.309869589796654,8,4,6,FC|FT|NA|PD,7,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+lex_mattr_10,MATTR 10,lex,lexical,False,0.5798110537597114,1.0,0.3100650181493275,0.20895444249986073,8,4,6,FC|FT|NA|PD,7,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+syn_clause_density,clause density,syn,syntax,False,0.5249395455293209,0.75,0.49000396222205667,0.38409648568220006,8,4,6,FC|FT|NA|PD,7,language-task confounded,0.30153161635750253,0.37651289142833966
+sx_rare_lemma_ratio,rare lemma ratio,sx,syntax,False,0.3414834333882779,0.6,0.5518729465179811,0.42509458879421974,8,4,6,FC|FT|NA|PD,7,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_amean,egemaps loudness sma3 amean,ac,acoustic,False,1.044349645270742,0.5,0.6387809049280101,1.0557702656446915,4,2,4,FC|FT|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_meanfallingslope,egemaps loudness sma3 meanfalli...,ac,acoustic,False,1.0275612950059554,0.75,0.7205494687403313,0.7641016498310632,4,2,4,FC|FT|PD,6,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc1_sma3_amean,egemaps mfcc1 sma3 amean,ac,acoustic,False,0.9816584011346914,0.5,0.8388502164586401,1.0507816009055577,4,2,4,FC|FT|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_pctlrange0_2,egemaps loudness sma3 pctlrange0 2,ac,acoustic,False,0.9315143533409088,0.75,0.6694587848182885,0.7210003248890179,4,2,4,FC|FT|PD,6,language-task confounded,0.30153161635750253,0.37651289142833966
+pause_silence_ratio,silence ratio,pause,pause/fluency,False,0.8326736647722182,0.6,0.015472486108773567,0.9404072353008217,5,2,4,FC|FT|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pause_speaking_to_total_ratio,speaking to total ratio,pause,pause/fluency,False,0.8295428247298593,0.6,0.01938603616172245,0.9384563786066457,5,2,4,FC|FT|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pause_median_duration,median duration,pause,pause/fluency,False,0.7990957733328896,0.6,0.16542753992138748,0.8558745846481682,5,2,4,FC|FT|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pause_mean_duration,mean duration,pause,pause/fluency,False,0.7825204200668324,0.6,0.312209435847396,0.94727142866414,5,2,4,FC|FT|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pause_std_duration,std duration,pause,pause/fluency,False,0.6934014912344305,0.6,0.29078804316268053,0.8135319195285455,5,2,4,FC|FT|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+lex_mean_token_length,mean token length,lex,lexical,False,0.5518871830602076,0.75,0.4627026432752905,0.4037538855927469,8,4,6,FC|FT|NA|PD,6,language-task confounded,0.30153161635750253,0.37651289142833966
+syn_determiner_ratio,determiner ratio,syn,syntax,False,0.5097550787206255,0.5,0.3699564439743162,0.6516389282754699,8,4,6,FC|FT|NA|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_std_dependency_length,std dependency length,syn,syntax,False,0.46655162553918805,0.625,0.49663225393596255,0.23450260063891595,8,4,6,FC|FT|NA|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_function_word_ratio_lexicon,function word ratio lexicon,sx,syntax,False,0.4476068712396741,0.625,0.11771693668525035,0.4223944931157039,8,4,6,FC|FT|NA|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_content_word_ratio_lexicon,content word ratio lexicon,sx,syntax,False,0.4476068712396741,0.625,0.11771693668525313,0.4223944931157033,8,4,6,FC|FT|NA|PD,6,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_sentence_length_q50,sentence length q50,sx,syntax,False,0.3021632923576519,0.75,0.25517436136740185,0.3186952703842862,8,4,6,FC|FT|NA|PD,6,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_mfcc_1_mean,mfcc 1 mean,ac,acoustic,False,2.2088078008165644,0.75,1.1096412153096162,2.069298604476541,4,2,4,FC|FT|PD,5,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_f1amplitudelogrelf0_sma3nz_stddevnorm,egemaps f1amplitudelogrelf0 sma...,ac,acoustic,False,1.2361053897790533,0.5,0.8080812586300316,1.7639855530355009,4,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_meanvoicedsegmentlengthsec,egemaps meanvoicedsegmentlengthsec,ac,acoustic,False,1.0774512168844441,1.0,0.7107604892686799,1.312597083748722,4,2,4,FC|FT|PD,5,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_spectralflux_sma3_amean,egemaps spectralflux sma3 amean,ac,acoustic,False,1.0208324057331957,0.5,0.6447828735360541,1.0227166072733411,4,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_spectralfluxv_sma3nz_amean,egemaps spectralfluxv sma3nz amean,ac,acoustic,False,0.9912660949815129,0.5,0.7008952116347651,0.9921768240002996,4,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_spectralfluxuv_sma3nz_amean,egemaps spectralfluxuv sma3nz a...,ac,acoustic,False,0.9427261427356964,0.5,0.6037653700684797,0.9434285747452277,4,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pause_iqr_duration,iqr duration,pause,pause/fluency,False,0.7797800240419366,0.6,0.09433716214305354,0.8740092186743448,5,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_spectralfluxv_sma3nz_stddevnorm,egemaps spectralfluxv sma3nz st...,ac,acoustic,False,0.7765049147125852,0.75,0.6718058628044584,0.6004444469641572,4,2,4,FC|FT|PD,5,language-task confounded,0.30153161635750253,0.37651289142833966
+pause_to_speech_ratio,to speech ratio,pause,pause/fluency,False,0.7258444761480003,0.6,0.07262017521246053,0.8813894902636311,5,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_spectralflux_sma3_stddevnorm,egemaps spectralflux sma3 stdde...,ac,acoustic,False,0.7252090276109641,0.5,0.4267776172586147,0.7335496283195764,4,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_stddevnorm,egemaps loudness sma3 stddevnorm,ac,acoustic,False,0.6311563788181169,0.5,0.4968429547185136,0.637863017802802,4,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_adp_ratio,adp ratio,syn,syntax,False,0.5885636977275609,0.625,0.2051046334815869,0.6532974370453838,8,4,6,FC|FT|NA|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pause_total_duration,total duration,pause,pause/fluency,False,0.534910714494945,0.6,0.16592760701024728,0.5955057935829953,5,2,4,FC|FT|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+disc_adjacent_utterance_similarity_std,adjacent utterance similarity std,disc,discourse,False,0.5151689838135648,0.5,0.44093959199050026,0.42994163680702774,8,4,6,FC|FT|NA|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_mean_dependency_length,mean dependency length,syn,syntax,False,0.4711216905856621,0.5,0.5479033438563968,0.265556534754108,8,4,6,FC|FT|NA|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+graph_edge_count,edge count,graph,graph,False,0.45095678930495,0.625,0.4599997139211763,0.6741226889882285,8,4,6,FC|FT|NA|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_subordination_ratio,subordination ratio,syn,syntax,False,0.4341745092008313,0.75,0.4227065358744601,0.25251871451372265,8,4,6,FC|FT|NA|PD,5,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+syn_max_dependency_length,max dependency length,syn,syntax,False,0.42618918510298015,0.625,0.3855599818620913,0.2574379903844967,8,4,6,FC|FT|NA|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_sentence_length_q25,sentence length q25,sx,syntax,False,0.23856872997336076,0.625,0.22204778550930818,0.21477742695466948,8,4,6,FC|FT|NA|PD,5,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_slopeuv0_500_sma3nz_amean,egemaps slopeuv0 500 sma3nz amean,ac,acoustic,False,1.1284403114168982,0.75,0.0798954525828035,0.8506304790998404,4,2,4,FC|FT|PD,4,task-sensitive,0.30153161635750253,0.37651289142833966
+rd_sequence_match_ratio,sequence match ratio,rd,task:reading,True,0.9735884464348251,1.0,,,1,1,1,NA,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc4_sma3_stddevnorm,egemaps mfcc4 sma3 stddevnorm,ac,acoustic,False,0.9658617747467756,0.75,0.30809885888187194,0.9332355306801449,4,2,4,FC|FT|PD,4,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_stddevvoicedsegmentlengthsec,egemaps stddevvoicedsegmentleng...,ac,acoustic,False,0.9341734545664822,1.0,0.578156609743456,1.0798216148115916,4,2,4,FC|FT|PD,4,language-task confounded,0.30153161635750253,0.37651289142833966
+rd_prompt_similarity,prompt similarity,rd,task:reading,True,0.9068001435787955,1.0,,,1,1,1,NA,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rd_insertion_ratio,insertion ratio,rd,task:reading,True,0.8948142545130845,1.0,,,1,1,1,NA,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudness_sma3_percentile80_0,egemaps loudness sma3 percentil...,ac,acoustic,False,0.8930082249365197,0.75,0.6233032138022414,0.8522898872000111,4,2,4,FC|FT|PD,4,language-task confounded,0.30153161635750253,0.37651289142833966
+pause_long_count,long pauses,pause,pause/fluency,False,0.6984080175189392,0.6,0.07284823703978273,0.7075831645758602,5,2,4,FC|FT|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_mfcc_5_std,mfcc 5 std,ac,acoustic,False,0.6403986332105707,0.75,0.6796505143684302,0.6018058039986609,4,2,4,FC|FT|PD,4,language-task confounded,0.30153161635750253,0.37651289142833966
+pd_unique_units_ratio,PD unique units ratio,pd,task:PD,True,0.5748504821140353,1.0,0.21927164143416636,,3,3,1,FT|PD,4,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_percentage_units_mentioned,PD units mentioned,pd,task:PD,True,0.5748504821140353,1.0,0.21927164143416636,,3,3,1,FT|PD,4,translingual candidate,0.30153161635750253,0.37651289142833966
+lex_function_word_ratio,function-word ratio,lex,lexical,False,0.5180197377859252,0.75,0.21728949474616235,0.413040532460545,8,4,6,FC|FT|NA|PD,4,task-sensitive,0.30153161635750253,0.37651289142833966
+disc_mean_pairwise_utt_similarity,utterance similarity,disc,discourse,False,0.4830107606752531,0.875,0.4951737753924681,0.37193814678814185,8,4,6,FC|FT|NA|PD,4,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+len_type_count,type count,len,length/rate,False,0.4548181273321524,0.75,0.38281811534067356,0.583145291280887,8,4,6,FC|FT|NA|PD,4,language-task confounded,0.30153161635750253,0.37651289142833966
+syn_obl_ratio,obl ratio,syn,syntax,False,0.44536193651187517,0.625,0.48847441128794733,0.4498416675668055,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_noun_verb_ratio,noun/verb ratio,syn,syntax,False,0.43485000770607984,0.875,0.04825845749913696,0.3482085427595349,8,4,6,FC|FT|NA|PD,4,translingual candidate,0.30153161635750253,0.37651289142833966
+lex_type_token_ratio,type token ratio,lex,lexical,False,0.4330301120192348,0.75,0.3324094971186024,0.29094824455354046,8,4,6,FC|FT|NA|PD,4,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+lex_repetition_rate,repetition rate,lex,lexical,False,0.4330301120192342,0.75,0.3324094971186021,0.290948244553541,8,4,6,FC|FT|NA|PD,4,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+syn_propn_ratio,propn ratio,syn,syntax,False,0.4314041530581784,0.7142857142857143,0.49466782120643793,0.4872571295455616,8,4,6,FC|FT|NA|PD,4,language-task confounded,0.30153161635750253,0.37651289142833966
+len_token_count,token count,len,length/rate,False,0.424483083502258,0.5,0.45511718092600556,0.6452663524272723,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+len_syllable_count,syllable count,len,length/rate,False,0.4053227669134388,0.5,0.3953636011912448,0.6065962821985755,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_std_log_lemma_freq,std log lemma freq,sx,syntax,False,0.38960173564083966,0.5,0.46169319181648993,0.4471393315873359,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+len_tokens_per_utterance,tokens per utterance,len,length/rate,False,0.3786909842091494,0.625,0.32617188958759574,0.23142155431093933,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+lex_hapax_ratio,hapax ratio,lex,lexical,False,0.37441355139548704,0.875,0.24960076625664207,0.25655954786214774,8,4,6,FC|FT|NA|PD,4,translingual candidate,0.30153161635750253,0.37651289142833966
+len_mean_utterance_length,mean utterance length,len,length/rate,False,0.37219187828057976,0.625,0.3395734869821318,0.22245779480103456,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_mean_utterance_length_words,mean utterance length words,syn,syntax,False,0.37219187828057976,0.625,0.3395734869821318,0.22245779480103456,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_mean_tree_depth,mean tree depth,syn,syntax,False,0.3329446166858013,0.625,0.34924039143184465,0.17670280668009178,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_sentence_length_q75,sentence length q75,sx,syntax,False,0.2616863273888695,0.625,0.2121773556819345,0.24127998240387272,8,4,6,FC|FT|NA|PD,4,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_equivalentsoundlevel_dbp,egemaps equivalentsoundlevel dbp,ac,acoustic,False,1.7860423800201242,0.75,1.245679556528821,1.6461893810650567,4,2,4,FC|FT|PD,3,language-task confounded,0.30153161635750253,0.37651289142833966
+cmd_token_count,token count,cmd,task:command,True,1.3468081189738763,1.0,,,1,1,1,FC,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f2amplitudelogrelf0_sma3nz_stddevnorm,egemaps f2amplitudelogrelf0 sma...,ac,acoustic,False,1.2866314976520372,0.75,0.7297725820491382,1.7444975150633275,4,2,4,FC|FT|PD,3,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc4_sma3_amean,egemaps mfcc4 sma3 amean,ac,acoustic,False,1.0479237945094693,0.75,0.988818099426471,1.0864894799223759,4,2,4,FC|FT|PD,3,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc1_sma3_stddevnorm,egemaps mfcc1 sma3 stddevnorm,ac,acoustic,False,0.953494186020119,0.5,0.61146446405472,0.9576490200173458,4,2,4,FC|FT|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_shimmerlocaldb_sma3nz_stddevnorm,egemaps shimmerlocaldb sma3nz s...,ac,acoustic,False,0.8179164277440075,0.75,0.0845143650635228,0.6559690662741468,4,2,4,FC|FT|PD,3,task-sensitive,0.30153161635750253,0.37651289142833966
+rd_reference_bigram_coverage,reference bigram coverage,rd,task:reading,True,0.8141636217116074,1.0,,,1,1,1,NA,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_slopeuv500_1500_sma3nz_amean,egemaps slopeuv500 1500 sma3nz...,ac,acoustic,False,0.7643383758280171,0.5,0.6696425105022246,0.7910532359045968,4,2,4,FC|FT|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+len_speech_duration,speech duration,len,length/rate,False,0.7446461344489131,0.8,0.36679264293654235,0.7071964296408136,5,2,4,FC|FT|PD,3,language-task confounded,0.30153161635750253,0.37651289142833966
+pause_medium_count,medium pauses,pause,pause/fluency,False,0.6782733718763219,0.6,0.08116249697476569,0.5743254624598021,5,2,4,FC|FT|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_slopev500_1500_sma3nz_amean,egemaps slopev500 1500 sma3nz a...,ac,acoustic,False,0.6379301992779154,0.75,0.8882725596425963,0.8177121513092321,4,2,4,FC|FT|PD,3,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_mfcc_3_std,mfcc 3 std,ac,acoustic,False,0.568970259364715,0.5,0.5746490411988506,0.6118666470480123,4,2,4,FC|FT|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_unique_units_count,PD unique units count,pd,task:PD,True,0.5606525014887563,1.0,0.1995096062930604,,3,3,1,FT|PD,3,translingual candidate,0.30153161635750253,0.37651289142833966
+syn_determiner_noun_ratio,determiner noun ratio,syn,syntax,False,0.5473665580274176,0.625,0.6647027315052829,0.6005942899413939,8,4,6,FC|FT|NA|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_num_unique_keywords,PD unique keywords,pd,task:PD,True,0.5413805234327131,1.0,0.20554141030612003,,3,3,1,FT|PD,3,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_hammarbergindexuv_sma3nz_amean,egemaps hammarbergindexuv sma3n...,ac,acoustic,False,0.5257658701577792,0.5,0.33191755338434575,0.5953679928913979,4,2,4,FC|FT|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_obj_ratio,object ratio,syn,syntax,False,0.5246326478073435,0.75,0.2967721494884395,0.5772768603771339,8,4,6,FC|FT|NA|PD,3,task-sensitive,0.30153161635750253,0.37651289142833966
+syn_part_ratio,part ratio,syn,syntax,False,0.5060264936165471,0.5,0.5223143515375435,0.4857773781653762,8,4,6,FC|FT|NA|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_mfcc_1_std,mfcc 1 std,ac,acoustic,False,0.4674418873891215,0.75,0.5064366611931445,0.4665202475563588,4,2,4,FC|FT|PD,3,language-task confounded,0.30153161635750253,0.37651289142833966
+graph_node_count,node count,graph,graph,False,0.4548181273321524,0.75,0.38281811534067356,0.583145291280887,8,4,6,FC|FT|NA|PD,3,language-task confounded,0.30153161635750253,0.37651289142833966
+disc_repeated_unigram_ratio,repeated unigram ratio,disc,discourse,False,0.4330301120192342,0.75,0.3324094971186021,0.290948244553541,8,4,6,FC|FT|NA|PD,3,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+syn_adv_ratio,adv ratio,syn,syntax,False,0.42039941275030923,0.625,0.43735241705732,0.44747155303891434,8,4,6,FC|FT|NA|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_aux_verb_ratio,aux verb ratio,syn,syntax,False,0.4163741982764292,0.875,0.14945057838334494,0.25278131785237845,8,4,6,FC|FT|NA|PD,3,translingual candidate,0.30153161635750253,0.37651289142833966
+lex_lemma_type_token_ratio,lemma type token ratio,lex,lexical,False,0.41080199601000555,0.875,0.32818342948385437,0.31554537534385657,8,4,6,FC|FT|NA|PD,3,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+disc_repeated_bigram_ratio,repeated bigram ratio,disc,discourse,False,0.40410334699626727,1.0,0.30117740513201174,0.24377345222386124,8,4,6,FC|FT|NA|PD,3,translingual candidate,0.30153161635750253,0.37651289142833966
+graph_average_degree,average degree,graph,graph,False,0.39878259672529615,0.75,0.31259638486353397,0.3699636126930209,8,4,6,FC|FT|NA|PD,3,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+sx_pairwise_similarity_std,pairwise similarity std,sx,syntax,False,0.38963847113281025,0.5,0.2665001824933763,0.39925722294192556,8,4,6,FC|FT|NA|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_verb_ratio,verb ratio,syn,syntax,False,0.382880579236722,0.625,0.2237519515652559,0.30038204681406994,8,4,6,FC|FT|NA|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+graph_self_loop_ratio,self loop ratio,graph,graph,False,0.3522618922776839,0.875,0.20684608130055496,0.1388154856758336,8,4,6,FC|FT|NA|PD,3,translingual candidate,0.30153161635750253,0.37651289142833966
+syn_adj_ratio,adj ratio,syn,syntax,False,0.3159809026314221,0.875,0.14368510911042295,0.26475126831422374,8,4,6,FC|FT|NA|PD,3,translingual candidate,0.30153161635750253,0.37651289142833966
+syn_cconj_ratio,cconj ratio,syn,syntax,False,0.3136472787118224,0.5,0.2696259696889659,0.3203480139381205,8,4,6,FC|FT|NA|PD,3,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+disc_immediate_repetition_count,immediate repetition count,disc,discourse,False,0.3047667165460769,0.75,0.28054312892280997,0.24026087601108947,8,4,6,FC|FT|NA|PD,3,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_f1amplitudelogrelf0_sma3nz_amean,egemaps f1amplitudelogrelf0 sma...,ac,acoustic,False,1.3243573804460493,1.0,0.8452291765626093,1.841564087932539,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+cmd_utterance_count,utterance count,cmd,task:command,True,1.142911472470404,1.0,,,1,1,1,FC,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f3amplitudelogrelf0_sma3nz_stddevnorm,egemaps f3amplitudelogrelf0 sma...,ac,acoustic,False,1.1128396470569357,0.75,0.6174671351948631,1.4886708572741965,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc4v_sma3nz_amean,egemaps mfcc4v sma3nz amean,ac,acoustic,False,0.7559553655172317,0.75,0.8043301425263094,0.837469379349013,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+rd_reference_order_score,reference order score,rd,task:reading,True,0.7485565441050187,1.0,,,1,1,1,NA,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rd_content_word_recall_ratio,content word recall ratio,rd,task:reading,True,0.7362889444539968,1.0,,,1,1,1,NA,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rd_reference_token_coverage,reference token coverage,rd,task:reading,True,0.7230619742470304,1.0,,,1,1,1,NA,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rd_omission_ratio,omission ratio,rd,task:reading,True,0.7230619742470298,1.0,,,1,1,1,NA,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_hnrdbacf_sma3nz_amean,egemaps hnrdbacf sma3nz amean,ac,acoustic,False,0.705076865139625,0.5,0.4048765693195796,0.7630501113981798,4,2,4,FC|FT|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f3bandwidth_sma3nz_amean,egemaps f3bandwidth sma3nz amean,ac,acoustic,False,0.6138271638035964,0.75,0.47168318632317746,0.4654923565807001,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_slopev0_500_sma3nz_amean,egemaps slopev0 500 sma3nz amean,ac,acoustic,False,0.6073921163922993,0.75,0.13640152501288752,0.43861883969133253,4,2,4,FC|FT|PD,2,task-sensitive,0.30153161635750253,0.37651289142833966
+pause_long_ratio,long ratio,pause,pause/fluency,False,0.580568805891764,0.6,0.12240565806465352,0.6399421353366817,5,2,4,FC|FT|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_mfcc_4_std,mfcc 4 std,ac,acoustic,False,0.555937403857014,0.75,0.5426696991821176,0.6268995357744707,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_mfcc_5_mean,mfcc 5 mean,ac,acoustic,False,0.5268623246178129,0.5,0.574221979196158,0.6275939371929525,4,2,4,FC|FT|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_nsubj_ratio,nsubj ratio,syn,syntax,False,0.500804050017779,0.75,0.325730356125593,0.4257717228375315,8,4,6,FC|FT|NA|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope,egemaps f0semitonefrom27 5hz sm...,ac,acoustic,False,0.4874478367533983,0.5,0.5018158104565174,0.5532621190697008,4,2,4,FC|FT|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc2_sma3_amean,egemaps mfcc2 sma3 amean,ac,acoustic,False,0.4857304679189895,0.75,0.36110371303042077,0.3981702994630298,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+pause_short_count,short pauses,pause,pause/fluency,False,0.47712107439231016,0.8,0.20400125316173454,0.36688247759556797,5,2,4,FC|FT|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc1v_sma3nz_amean,egemaps mfcc1v sma3nz amean,ac,acoustic,False,0.4534999955855622,0.75,0.6572456550260175,0.5727052814350764,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_alpharatiov_sma3nz_amean,egemaps alpharatiov sma3nz amean,ac,acoustic,False,0.448118119737826,0.75,0.3345905417742427,0.40670503568220284,4,2,4,FC|FT|PD,2,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_alpharatiouv_sma3nz_amean,egemaps alpharatiouv sma3nz amean,ac,acoustic,False,0.43764608443320485,0.75,0.17251627614205498,0.42119884578513184,4,2,4,FC|FT|PD,2,task-sensitive,0.30153161635750253,0.37651289142833966
+disc_adjacent_utterance_similarity_mean,adjacent utterance similarity mean,disc,discourse,False,0.4295171358457096,0.625,0.47752413657507914,0.4230020888164177,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+disc_local_coherence,local coherence,disc,discourse,False,0.4295171358457096,0.625,0.47752413657507914,0.4230020888164177,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+disc_semantic_drift,semantic drift,disc,discourse,False,0.4295171358457083,0.625,0.47752413657507686,0.423002088816416,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_amod_ratio,amod ratio,syn,syntax,False,0.4078410037047794,0.5,0.37317126937768735,0.5474887943386408,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_max_tree_depth,max tree depth,syn,syntax,False,0.3723776556607798,0.625,0.20586444528167303,0.25585264244209,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+len_tokens_per_second,tokens per second,len,length/rate,False,0.3613969656021427,0.8,0.30153161635750253,0.3342651965765811,5,2,4,FC|FT|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+pause_speech_rate_words_per_second,speech rate words per second,pause,pause/fluency,False,0.3613969656021427,0.8,0.30153161635750253,0.3342651965765811,5,2,4,FC|FT|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+len_syllables_per_second,syllables per second,len,length/rate,False,0.3595941880286591,0.8,0.30002930171293285,0.3391900797816199,5,2,4,FC|FT|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_total_unit_mentions,total unit mentions,pd,task:PD,True,0.33974913885702307,1.0,0.16880937859983497,,3,3,1,FT|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_num_total_keywords,num total keywords,pd,task:PD,True,0.33974913885702307,1.0,0.16880937859983497,,3,3,1,FT|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+graph_density,density,graph,graph,False,0.33909912489475186,1.0,0.18870782215566917,0.1789425471575706,8,4,6,FC|FT|NA|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+pause_pause_to_word_ratio,pause to word ratio,pause,pause/fluency,False,0.3343482785957699,0.5,0.03285903993224202,0.3914129395076365,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+lex_brunet,brunet,lex,lexical,False,0.30631325147087324,0.625,0.33327341831461177,0.3632095268450693,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_sentence_length_cv,sentence length cv,sx,syntax,False,0.30246211524555133,0.625,0.24918236016901385,0.222920442729223,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+lex_honore,honore,lex,lexical,False,0.24195661084369557,0.875,0.13517401993011516,0.1686363347515898,8,4,6,FC|FT|NA|PD,2,translingual candidate,0.30153161635750253,0.37651289142833966
+sx_adjacent_similarity_max,adjacent similarity max,sx,syntax,False,0.20780683444470133,0.625,0.09880606221481787,0.16573948474700817,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_interjection_ratio,interjection ratio,syn,syntax,False,0.13943901859590804,0.6666666666666666,0.2037287266416365,0.12364112062606417,8,4,6,FC|FT|NA|PD,2,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sr_key_event_coverage,key event coverage,sr,task:SR,True,1.891752434312501,1.0,,,1,1,1,FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sr_propositions_recalled_ratio,propositions recalled ratio,sr,task:SR,True,1.8462098416998216,1.0,,,1,1,1,FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sr_propositions_recalled_count,propositions recalled count,sr,task:SR,True,1.8462098416998214,1.0,,,1,1,1,FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f2amplitudelogrelf0_sma3nz_amean,egemaps f2amplitudelogrelf0 sma...,ac,acoustic,False,1.4515120214350794,1.0,0.8680814541645843,2.000401680525837,4,2,4,FC|FT|PD,1,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_f3amplitudelogrelf0_sma3nz_amean,egemaps f3amplitudelogrelf0 sma...,ac,acoustic,False,1.4030005336819644,1.0,0.8380089714906778,1.9380646508732782,4,2,4,FC|FT|PD,1,language-task confounded,0.30153161635750253,0.37651289142833966
+sr_semantic_similarity_to_reference_story,semantic similarity to referenc...,sr,task:SR,True,1.3848139889702256,1.0,,,1,1,1,FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_meanunvoicedsegmentlength,egemaps meanunvoicedsegmentlength,ac,acoustic,False,0.7142492847564911,0.5,0.13206093659038767,0.9624865882017657,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_stddevunvoicedsegmentlength,egemaps stddevunvoicedsegmentle...,ac,acoustic,False,0.7119876813917763,0.5,0.1905820850389276,1.0024289700956417,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+cmd_device_keyword_ratio,device keyword ratio,cmd,task:command,True,0.6447935195098007,1.0,,,1,1,1,FC,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_loudnesspeakspersec,egemaps loudnesspeakspersec,ac,acoustic,False,0.6426169489110718,0.5,0.13319708011855017,0.7204454161403342,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_mfcc_2_mean,mfcc 2 mean,ac,acoustic,False,0.5868988594043587,0.5,0.438317861793048,0.6338385995176345,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rd_repetition_ratio,repetition ratio,rd,task:reading,True,0.5864184749695455,1.0,,,1,1,1,NA,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_unique_unit_efficiency,unique unit efficiency,pd,task:PD,True,0.5834561241013151,1.0,0.37615401529868486,,2,2,1,FT|PD,1,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_jitterlocal_sma3nz_amean,jitter,ac,acoustic,False,0.5607826908841931,0.5,0.26598859671788644,0.5762740394188081,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_unique_unit_density,unique unit density,pd,task:PD,True,0.5090533778092784,0.6666666666666666,0.4977784506047171,,3,3,1,FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+cmd_mean_utterance_length,mean utterance length,cmd,task:command,True,0.46002543356364195,1.0,,,1,1,1,FC,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc3v_sma3nz_stddevnorm,egemaps mfcc3v sma3nz stddevnorm,ac,acoustic,False,0.43618185235447615,0.75,0.3751399991492672,0.42521829608525735,4,2,4,FC|FT|PD,1,language-task confounded,0.30153161635750253,0.37651289142833966
+syn_content_function_ratio,content function ratio,syn,syntax,False,0.4327132397804767,0.75,0.17337048952763917,0.24670312018023183,8,4,6,FC|FT|NA|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+pause_articulation_rate_words_per_speaking_second,articulation rate words per spe...,pause,pause/fluency,False,0.4049576498532511,0.6,0.3461180543919893,0.2925631428120351,5,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_hammarbergindexv_sma3nz_amean,egemaps hammarbergindexv sma3nz...,ac,acoustic,False,0.3980352035364678,0.5,0.32598841360683883,0.40320067774526824,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f1bandwidth_sma3nz_amean,egemaps f1bandwidth sma3nz amean,ac,acoustic,False,0.38860155995435214,0.75,0.1859600179319321,0.42291917588388206,4,2,4,FC|FT|PD,1,task-sensitive,0.30153161635750253,0.37651289142833966
+ac_mfcc_4_mean,mfcc 4 mean,ac,acoustic,False,0.38746589796415926,0.5,0.2661994572790779,0.5530533398565854,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc1v_sma3nz_stddevnorm,egemaps mfcc1v sma3nz stddevnorm,ac,acoustic,False,0.3738781377607837,0.5,0.26696235680367575,0.37765136953468875,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_detected_prompt_score,detected prompt score,pd,task:PD,True,0.34034601317254337,1.0,0.3619519827533015,,3,3,1,FT|PD,1,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+cmd_request_marker_ratio,request marker ratio,cmd,task:command,True,0.335593323094999,1.0,,,1,1,1,FC,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_zcr_std,zcr std,ac,acoustic,False,0.3056817153698284,0.5,0.13827660679753961,0.3626500425259109,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_logrelf0_h1_a3_sma3nz_amean,logRelF0 H1-A3,ac,acoustic,False,0.3026101148361905,0.75,0.3679455331387246,0.3286004311626258,4,2,4,FC|FT|PD,1,language-sensitive candidate,0.30153161635750253,0.37651289142833966
+ac_mfcc_2_std,mfcc 2 std,ac,acoustic,False,0.29872259127228307,0.5,0.3634479655192127,0.353961541227818,4,2,4,FC|FT|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+len_std_utterance_length,std utterance length,len,length/rate,False,0.2939674308971588,0.5,0.18402220537642447,0.21153066210438812,8,4,6,FC|FT|NA|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+syn_sconj_ratio,sconj ratio,syn,syntax,False,0.2905839817366712,0.625,0.15576812216784341,0.24003885233190306,8,4,6,FC|FT|NA|PD,1,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc3_sma3_amean,egemaps mfcc3 sma3 amean,ac,acoustic,False,0.2750227428216184,0.75,0.19003516383802044,0.22598791079648967,4,2,4,FC|FT|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+disc_repeated_trigram_ratio,repeated trigram ratio,disc,discourse,False,0.25881497406294524,0.75,0.2502688215394235,0.17188451270285085,8,4,6,FC|FT|NA|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_f1frequency_sma3nz_stddevnorm,egemaps f1frequency sma3nz stdd...,ac,acoustic,False,0.24341634823092834,1.0,0.28061439280045253,0.2458123205338067,4,2,4,FC|FT|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+pause_filled_per_100_words,filled per 100 words,pause,pause/fluency,False,0.22301143160887452,0.8333333333333334,0.16141992605120822,0.21648677629840848,8,4,6,FC|FT|NA|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+syn_advmod_ratio,advmod ratio,syn,syntax,False,0.21535996619945136,0.75,0.2080423637408686,0.20060410516855728,8,4,6,FC|FT|NA|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+pause_filled_count,filled count,pause,pause/fluency,False,0.2132323830452034,1.0,0.15599187189867492,0.1928949963424489,8,4,6,FC|FT|NA|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+sx_very_rare_lemma_ratio,very rare lemma ratio,sx,syntax,False,0.07769563240311425,1.0,0.13457278284838867,0.14537876294327357,8,4,6,FC|FT|NA|PD,1,translingual candidate,0.30153161635750253,0.37651289142833966
+sr_content_density,content density,sr,task:SR,True,0.9731416880341477,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_hnrdbacf_sma3nz_stddevnorm,egemaps hnrdbacf sma3nz stddevnorm,ac,acoustic,False,0.5558147730370814,0.5,0.4569274586223851,0.6070111455457622,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_f0_mean,F0 mean,ac,acoustic,False,0.5469285095897316,0.5,0.49038321719954314,0.5655942205506593,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc4v_sma3nz_stddevnorm,egemaps mfcc4v sma3nz stddevnorm,ac,acoustic,False,0.5434237826798372,0.5,0.29464585398138854,0.5652419800423452,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rep_token_count,token count,rep,task:repetition,True,0.46119070226060793,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_logrelf0_h1_h2_sma3nz_amean,logRelF0 H1-H2,ac,acoustic,False,0.45506152703918207,0.75,0.3892127519651888,0.427436261974677,4,2,4,FC|FT|PD,0,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc2v_sma3nz_amean,egemaps mfcc2v sma3nz amean,ac,acoustic,False,0.43516132766542653,1.0,0.2775230194654729,0.37651289142833966,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_slopev500_1500_sma3nz_stddevnorm,egemaps slopev500 1500 sma3nz s...,ac,acoustic,False,0.4334368654821037,0.75,0.026379205726021593,0.35330737124336004,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_pctlrange0_2,F0 semitone range,ac,acoustic,False,0.42028910063097735,0.5,0.3720976954911347,0.43502750726951533,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm,F0 semitone variability,ac,acoustic,False,0.4105568348063221,0.5,0.3863165704562235,0.42825767694495787,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_total_unit_efficiency,total unit efficiency,pd,task:PD,True,0.40695825161643795,1.0,0.27047216324083595,,2,2,1,FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_object_units_ratio,object units ratio,pd,task:PD,True,0.4003132467080201,0.6666666666666666,0.486005840176116,,3,3,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_action_units_ratio,action units ratio,pd,task:PD,True,0.4003132467080199,0.6666666666666666,0.48600584017611587,,3,3,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+len_audio_duration,audio duration,len,length/rate,False,0.37539364351423565,0.6,0.027464819435828403,0.4123101820466467,5,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_low_similarity_frac_05,low similarity frac 05,sx,syntax,False,0.36866185658561335,0.75,0.2415892541113205,0.5283170110760603,8,4,6,FC|FT|NA|PD,0,task-sensitive,0.30153161635750253,0.37651289142833966
+ac_duration,duration,ac,acoustic,False,0.3676838543569234,0.5,0.16671859582503573,0.38614571238407547,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rep_reference_token_coverage,reference token coverage,rep,task:repetition,True,0.36538386912092446,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_voicedsegmentspersec,egemaps voicedsegmentspersec,ac,acoustic,False,0.36336289993599,0.75,0.29483973084830284,0.30211897611153254,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_f3frequency_sma3nz_stddevnorm,egemaps f3frequency sma3nz stdd...,ac,acoustic,False,0.3608965073674427,0.5,0.26358460967276676,0.36244870024808457,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f2bandwidth_sma3nz_stddevnorm,egemaps f2bandwidth sma3nz stdd...,ac,acoustic,False,0.3442762941428979,0.5,0.04884470002549125,0.4021887281175042,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f3frequency_sma3nz_amean,egemaps f3frequency sma3nz amean,ac,acoustic,False,0.34002682890478897,0.75,0.46637797003824455,0.4271024599472361,4,2,4,FC|FT|PD,0,language-task confounded,0.30153161635750253,0.37651289142833966
+ac_egemaps_jitterlocal_sma3nz_stddevnorm,egemaps jitterlocal sma3nz stdd...,ac,acoustic,False,0.3399054679693426,1.0,0.05041053730185588,0.2998194090729633,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_f1bandwidth_sma3nz_stddevnorm,egemaps f1bandwidth sma3nz stdd...,ac,acoustic,False,0.3366633436601274,0.5,0.29957448658054275,0.3906217985468069,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f2bandwidth_sma3nz_amean,egemaps f2bandwidth sma3nz amean,ac,acoustic,False,0.33532360848080417,0.75,0.004449763345098064,0.35118114625194036,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_keyword_ttr,keyword ttr,pd,task:PD,True,0.3339573331525098,0.6666666666666666,0.3542854100468776,,3,3,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc3v_sma3nz_amean,egemaps mfcc3v sma3nz amean,ac,acoustic,False,0.3296663571916726,0.75,0.048584862898968934,0.3624232560622214,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_shimmerlocaldb_sma3nz_amean,shimmer,ac,acoustic,False,0.3215005173195704,1.0,0.14872406313752412,0.2099463601929458,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+syn_open_closed_ratio,open closed ratio,syn,syntax,False,0.31865251585738763,0.875,0.1948518066311682,0.29392039444198653,8,4,6,FC|FT|NA|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_f2frequency_sma3nz_amean,egemaps f2frequency sma3nz amean,ac,acoustic,False,0.3099887520363075,0.5,0.3141802876895278,0.3343038621403038,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc2_sma3_stddevnorm,egemaps mfcc2 sma3 stddevnorm,ac,acoustic,False,0.3035173324877481,0.5,0.28710939744340136,0.4251959260201546,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc3_sma3_stddevnorm,egemaps mfcc3 sma3 stddevnorm,ac,acoustic,False,0.29935801761431535,0.5,0.29802834494163,0.3409011286627636,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rep_immediate_repetition_count,immediate repetition count,rep,task:repetition,True,0.2988071523335984,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pd_content_density,content density,pd,task:PD,True,0.29627252053789105,1.0,0.2916285144381964,,3,3,1,FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_total_unit_density,total unit density,pd,task:PD,True,0.29627252053789105,1.0,0.2916285144381964,,3,3,1,FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_keyword_to_nonkeyword_ratio,keyword to nonkeyword ratio,pd,task:PD,True,0.2961694380139512,0.6666666666666666,0.30148942594661177,,3,3,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_logrelf0_h1_h2_sma3nz_stddevnorm,egemaps logrelf0 h1 h2 sma3nz s...,ac,acoustic,False,0.2911746226495335,0.5,0.19156829552342275,0.34767015786350763,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile20_0,egemaps f0semitonefrom27 5hz sm...,ac,acoustic,False,0.28435684672208666,0.5,0.1499107993982527,0.287669202156139,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rep_unique_token_ratio,unique token ratio,rep,task:repetition,True,0.2820654426368573,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rep_repetition_rate,repetition rate,rep,task:repetition,True,0.2820654426368573,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevfallingslope,egemaps f0semitonefrom27 5hz sm...,ac,acoustic,False,0.2774442433080216,0.5,0.3138082588303269,0.30927600766417873,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_f0_std,F0 variability,ac,acoustic,False,0.272759775017109,0.75,0.2945611417996164,0.27668500071344276,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+cmd_repetition_rate,repetition rate,cmd,task:command,True,0.27164996982752465,1.0,,,1,1,1,FC,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanrisingslope,egemaps f0semitonefrom27 5hz sm...,ac,acoustic,False,0.26739441964374655,0.5,0.15215507055887234,0.2840842835294505,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+cmd_unique_token_ratio,unique token ratio,cmd,task:command,True,0.2665348460278765,1.0,,,1,1,1,FC,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile80_0,egemaps f0semitonefrom27 5hz sm...,ac,acoustic,False,0.2562677246073356,1.0,0.12624718656069586,0.3029229650661579,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+sr_repetition_rate,repetition rate,sr,task:SR,True,0.2549735014313235,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_low_similarity_frac_03,low similarity frac 03,sx,syntax,False,0.25104891297145515,0.875,0.09927283463463712,0.24807947091574276,8,4,6,FC|FT|NA|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+rep_sequence_match_to_reference,sequence match to reference,rep,task:repetition,True,0.24787298477727704,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevrisingslope,egemaps f0semitonefrom27 5hz sm...,ac,acoustic,False,0.24284043802059696,0.5,0.09057475288580585,0.2558034350431998,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_zcr_mean,zcr mean,ac,acoustic,False,0.23153759890301268,0.5,0.07017923189821548,0.3132473063628188,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_adjacent_similarity_min,adjacent similarity min,sx,syntax,False,0.22409693523291768,0.5714285714285714,0.13951883670033965,0.266709884722662,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sr_intrusion_count,intrusion count,sr,task:SR,True,0.2166407431581352,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f1frequency_sma3nz_amean,egemaps f1frequency sma3nz amean,ac,acoustic,False,0.20868292952523143,0.5,0.1848456537675135,0.27683479050891985,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sr_event_order_score,event order score,sr,task:SR,True,0.20757756108309408,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_alpharatiov_sma3nz_stddevnorm,egemaps alpharatiov sma3nz stdd...,ac,acoustic,False,0.20633910283888726,0.75,0.07941440278931197,0.21837855796402042,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_hammarbergindexv_sma3nz_stddevnorm,egemaps hammarbergindexv sma3nz...,ac,acoustic,False,0.19556898177747825,0.75,0.017533462292810158,0.24315222040809245,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_mfcc2v_sma3nz_stddevnorm,egemaps mfcc2v sma3nz stddevnorm,ac,acoustic,False,0.19106180809302364,0.75,0.1839067323306657,0.20046969697488817,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_mean_utterance_to_unit_similarity,mean utterance to unit similarity,pd,task:PD,True,0.18884195421511707,0.6666666666666666,0.18740729967395464,,3,3,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rep_duration_per_token,duration per token,rep,task:repetition,True,0.18235193964191126,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,0.17824730986647025,0.5,0.11913345118331731,0.18328656264609858,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f2frequency_sma3nz_stddevnorm,egemaps f2frequency sma3nz stdd...,ac,acoustic,False,0.17536087313464832,0.75,0.04155470128298054,0.11862120095446539,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_global_prompt_coherence,global prompt coherence,pd,task:PD,True,0.1685759448787829,0.6666666666666666,0.14794292601713877,,3,3,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f3bandwidth_sma3nz_stddevnorm,egemaps f3bandwidth sma3nz stdd...,ac,acoustic,False,0.16221128585715744,0.75,0.11946189236420979,0.1437421206186329,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_semantic_similarity_to_unit_list,semantic similarity to unit list,pd,task:PD,True,0.14211886475213384,1.0,0.11387297658507714,,3,3,1,FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_egemaps_logrelf0_h1_a3_sma3nz_stddevnorm,egemaps logrelf0 h1 a3 sma3nz s...,ac,acoustic,False,0.13324896023475274,1.0,0.04592239134648349,0.0930674991177296,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+pd_repeated_content_unit_ratio,repeated content unit ratio,pd,task:PD,True,0.12057452463569059,0.6666666666666666,0.14488162909648547,,3,3,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_slopev0_500_sma3nz_stddevnorm,egemaps slopev0 500 sma3nz stdd...,ac,acoustic,False,0.09636746851846978,1.0,0.05498010622199585,0.10405007901377036,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+ac_mfcc_3_mean,mfcc 3 mean,ac,acoustic,False,0.08507185765733709,0.5,0.07946827444608126,0.08860920277551812,4,2,4,FC|FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile50_0,egemaps f0semitonefrom27 5hz sm...,ac,acoustic,False,0.08302254935025108,0.75,0.06434363051447825,0.08607184376119735,4,2,4,FC|FT|PD,0,translingual candidate,0.30153161635750253,0.37651289142833966
+rep_bigram_repetition_rate,bigram repetition rate,rep,task:repetition,True,0.0725911374774099,1.0,,,1,1,1,FT|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+cmd_action_verb_ratio,action verb ratio,cmd,task:command,True,0.014235326478129086,1.0,,,1,1,1,FC,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+graph_largest_component_ratio,largest component ratio,graph,graph,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_clause_per_100_tokens,clause per 100 tokens,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_coordination_density,coordination density,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_modifier_density,modifier density,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_nominal_density,nominal density,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_verbal_density,verbal density,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_np_like_ratio,np like ratio,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_pp_like_ratio,pp like ratio,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_vp_like_ratio,vp like ratio,sx,syntax,False,0.0,,0.0,0.0,8,4,6,FC|FT|NA|PD,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+rd_pause_per_reference_token,pause per reference token,rd,task:reading,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_item_count,item count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_unique_item_count,unique item count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_repetition_count,repetition count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_intrusion_count,intrusion count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_valid_item_count,valid item count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_valid_item_ratio,valid item ratio,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_items_per_second,items per second,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_cluster_count,cluster count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_mean_cluster_size,mean cluster size,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_switch_count,switch count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_letter_valid_count,letter valid count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ft_letter_violation_count,letter violation count,ft,task:FT,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_topic_coherence,topic coherence,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_topic_switch_rate,topic switch rate,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_embedding_dispersion,embedding dispersion,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_named_entity_density,named entity density,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_repetition_rate,repetition rate,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_mean_utterance_similarity,mean utterance similarity,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_first_last_similarity,first last similarity,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+fc_topic_return_ratio,topic return ratio,fc,task:FC,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+cmd_duration_per_token,duration per token,cmd,task:command,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_token_count,token count,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_target_syllable_count,target syllable count,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_target_syllable_ratio,target syllable ratio,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_alternation_switch_count,alternation switch count,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_unique_syllable_ratio,unique syllable ratio,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_repetition_rate,repetition rate,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_tokens_per_second,tokens per second,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+ms_target_syllables_per_second,target syllables per second,ms,task:motor,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_utterance_count,utterance count,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_mean_utterance_length,mean utterance length,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_temporal_marker_density,temporal marker density,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_causal_marker_density,causal marker density,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_first_person_ratio,first person ratio,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_procedural_marker_density,procedural marker density,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_topic_coherence,topic coherence,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_topic_switch_rate,topic switch rate,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+na_repetition_rate,repetition rate,na,task:NA,True,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_np_count,np count,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_vp_count,vp count,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_pp_count,pp count,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adjp_count,adjp count,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_advp_count,advp count,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_np_ratio,np ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_vp_ratio,vp ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_pp_ratio,pp ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adjp_ratio,adjp ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_advp_ratio,advp ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_np_mean_len,np mean len,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_vp_mean_len,vp mean len,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_pp_mean_len,pp mean len,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adjp_mean_len,adjp mean len,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_advp_mean_len,advp mean len,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_np_rate,np rate,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_vp_rate,vp rate,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_pp_rate,pp rate,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_chunk_density,chunk density,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_chunk_diversity,chunk diversity,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_det_noun_ratio,det noun ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adj_noun_ratio,adj noun ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_pron_verb_ratio,pron verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_noun_verb_ratio,noun verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_verb_det_ratio,verb det ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adp_noun_ratio,adp noun ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_aux_verb_ratio,aux verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_verb_adv_ratio,verb adv ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adv_verb_ratio,adv verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_noun_adp_ratio,noun adp ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_verb_pron_ratio,verb pron ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_cconj_pron_ratio,cconj pron ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_sconj_pron_ratio,sconj pron ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adp_det_ratio,adp det ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_det_adj_ratio,det adj ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_det_adj_noun_ratio,det adj noun ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_det_noun_verb_ratio,det noun verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_pron_aux_verb_ratio,pron aux verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_pron_verb_det_ratio,pron verb det ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_adp_det_noun_ratio,adp det noun ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_noun_aux_verb_ratio,noun aux verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_root_verb_ratio,root verb ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_root_noun_ratio,root noun ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_root_pron_ratio,root pron ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+pr_root_adj_ratio,root adj ratio,pr,phrase,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_dep_length_q25,dep length q25,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_dep_length_q50,dep length q50,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_dep_length_q75,dep length q75,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_tree_depth_std,tree depth std,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_tree_depth_q75,tree depth q75,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_upos_entropy,upos entropy,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_dep_entropy,dep entropy,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+sx_subject_object_balance,subject object balance,sx,syntax,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_1_mean,mfcc 1 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_1_std,mfcc 1 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_1_skew,mfcc 1 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_1_kurtosis,mfcc 1 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_1_mean,delta mfcc 1 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_1_std,delta mfcc 1 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_2_mean,mfcc 2 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_2_std,mfcc 2 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_2_skew,mfcc 2 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_2_kurtosis,mfcc 2 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_2_mean,delta mfcc 2 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_2_std,delta mfcc 2 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_3_mean,mfcc 3 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_3_std,mfcc 3 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_3_skew,mfcc 3 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_3_kurtosis,mfcc 3 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_3_mean,delta mfcc 3 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_3_std,delta mfcc 3 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_4_mean,mfcc 4 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_4_std,mfcc 4 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_4_skew,mfcc 4 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_4_kurtosis,mfcc 4 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_4_mean,delta mfcc 4 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_4_std,delta mfcc 4 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_5_mean,mfcc 5 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_5_std,mfcc 5 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_5_skew,mfcc 5 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_5_kurtosis,mfcc 5 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_5_mean,delta mfcc 5 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_5_std,delta mfcc 5 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_6_mean,mfcc 6 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_6_std,mfcc 6 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_6_skew,mfcc 6 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_6_kurtosis,mfcc 6 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_6_mean,delta mfcc 6 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_6_std,delta mfcc 6 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_7_mean,mfcc 7 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_7_std,mfcc 7 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_7_skew,mfcc 7 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_7_kurtosis,mfcc 7 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_7_mean,delta mfcc 7 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_7_std,delta mfcc 7 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_8_mean,mfcc 8 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_8_std,mfcc 8 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_8_skew,mfcc 8 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_8_kurtosis,mfcc 8 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_8_mean,delta mfcc 8 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_8_std,delta mfcc 8 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_9_mean,mfcc 9 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_9_std,mfcc 9 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_9_skew,mfcc 9 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_9_kurtosis,mfcc 9 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_9_mean,delta mfcc 9 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_9_std,delta mfcc 9 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_10_mean,mfcc 10 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_10_std,mfcc 10 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_10_skew,mfcc 10 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_10_kurtosis,mfcc 10 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_10_mean,delta mfcc 10 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_10_std,delta mfcc 10 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_11_mean,mfcc 11 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_11_std,mfcc 11 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_11_skew,mfcc 11 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_11_kurtosis,mfcc 11 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_11_mean,delta mfcc 11 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_11_std,delta mfcc 11 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_12_mean,mfcc 12 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_12_std,mfcc 12 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_12_skew,mfcc 12 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_12_kurtosis,mfcc 12 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_12_mean,delta mfcc 12 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_12_std,delta mfcc 12 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_13_mean,mfcc 13 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_13_std,mfcc 13 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_13_skew,mfcc 13 skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_mfcc_13_kurtosis,mfcc 13 kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_13_mean,delta mfcc 13 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_delta_mfcc_13_std,delta mfcc 13 std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_centroid_mean,spectral centroid mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_centroid_std,spectral centroid std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_centroid_skew,spectral centroid skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_centroid_kurtosis,spectral centroid kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_bandwidth_mean,spectral bandwidth mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_bandwidth_std,spectral bandwidth std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_bandwidth_skew,spectral bandwidth skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_bandwidth_kurtosis,spectral bandwidth kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_rolloff_mean,spectral rolloff mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_rolloff_std,spectral rolloff std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_rolloff_skew,spectral rolloff skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_rolloff_kurtosis,spectral rolloff kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_flatness_mean,spectral flatness mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_flatness_std,spectral flatness std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_flatness_skew,spectral flatness skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_spectral_flatness_kurtosis,spectral flatness kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_rms_mean,rms mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_rms_std,rms std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_rms_skew,rms skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_rms_kurtosis,rms kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_zcr_mean,zcr mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_zcr_std,zcr std,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_zcr_skew,zcr skew,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_zcr_kurtosis,zcr kurtosis,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_mean,paralinguistic F0 mean,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_std,paralinguistic F0 variability,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_min,f0 min,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_max,f0 max,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_median,f0 median,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_q25,f0 q25,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_q75,f0 q75,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_f0_iqr,paralinguistic F0 IQR,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_voiced_frame_ratio,voiced frame ratio,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966
+par_nonzero_rms_ratio,nonzero rms ratio,par,paralinguistic,False,,,,,0,0,0,,0,unstable / insufficient evidence,0.30153161635750253,0.37651289142833966

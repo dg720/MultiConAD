@@ -1,0 +1,36 @@
+Phase 1 Combined-Pool Language Summary
+=====================================
+All Phase 1 rows below use the full combined universal feature pool (`all_universal`) within each language or the pooled benchmark.
+k is the number of ANOVA-ranked features kept from that combined pool before the classifier is fit.
+
+Table 1. Best combined-pool setup per language
+
+Scope   Text Mono Text Multi Text Trans Best Acc Best Model    Best k #Feat
+---------------------------------------------------------------------------
+Pooled                                  78.5     svm:rbf_c1    50     50   
+English 88.9      87.8       88.5       86.2     rf:n200       100    100  
+Spanish 74.9      75.6       74.6       85.2     rf:n200       all    69   
+Chinese 84.1      83.9       86.6       81.2     svm:linear_c1 all    192  
+Greek   79.1      76.7       67.9       83.3     rf:n200       all    192  
+
+Note: Spanish shows only 69 usable `all_universal` features because the live Spanish benchmark is text-only (no audio), so unavailable or degenerate acoustic/pause columns are dropped before fitting.
+
+Table 2. Accuracy sensitivity by pruning level
+
+Scope   k=all k=100 k=50 k=25 k=10
+----------------------------------
+Pooled  76.8  77.6  78.5 77.0 76.3
+English 85.8  86.2  84.3 85.2 80.4
+Spanish 85.2  85.2  83.6 78.7 82.0
+Chinese 81.2  81.2  81.2 78.8 71.2
+Greek   83.3  81.0  78.6 76.2 78.6
+
+Table 3. Best model at each pruning level
+
+Scope   k=all               k=100               k=50            k=25            k=10           
+-----------------------------------------------------------------------------------------------
+Pooled  rf:n200 (193)       svm:rbf_c1 (100)    svm:rbf_c1 (50) svm:rbf_c1 (25) rf:n200 (10)   
+English rf:n200 (193)       rf:n200 (100)       rf:n200 (50)    rf:n200 (25)    rf:n200 (10)   
+Spanish rf:n200 (69)        rf:n200 (69)        rf:n200 (50)    rf:n200 (25)    rf:n200 (10)   
+Chinese svm:linear_c1 (192) svm:linear_c1 (100) lr:c1 (50)      lr:c1 (25)      lr:c1 (10)     
+Greek   rf:n200 (192)       rf:n200 (100)       rf:n200 (50)    rf:n200 (25)    svm:rbf_c1 (10)

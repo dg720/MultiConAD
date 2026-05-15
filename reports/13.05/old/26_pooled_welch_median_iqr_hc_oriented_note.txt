@@ -1,0 +1,11 @@
+Pooled Welch Median + IQR Overlay (HC-Oriented Scale)
+====================================================
+This plot uses the same fixed pooled universal Welch feature set as the standard median/IQR version.
+The only change is score direction:
+- original burden scale: higher = more AD-like
+- reversed burden scale: higher = more HC-like
+- mathematically: `reversed_score = 100 - burden_0_100`
+
+Fixed pooled Welch feature set
+-----------------------------
+syn_num_ratio, len_utterance_count, syn_utterance_count, syn_interjection_ratio, graph_node_count, len_type_count, syn_aux_ratio, syn_pronoun_ratio, graph_edge_count, len_token_count, len_syllable_count, lex_brunet, lex_function_word_ratio, syn_cconj_ratio, graph_average_degree, len_tokens_per_utterance

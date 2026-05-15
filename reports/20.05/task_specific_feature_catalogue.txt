@@ -1,0 +1,145 @@
+Task-Specific Feature Catalogue
+=================================
+
+Scope: Phase 2 task-specific features are only populated for the matching task domain or a high-confidence detected list-generation task; otherwise values remain missing.
+Dataset convention checked: the live manifest uses PD_CTP, READING, CONVERSATION, COMMAND, REPETITION, PICTURE_RECALL, MOTOR_SPEECH, PROCEDURAL, MIXED_PROTOCOL, and OTHER. Some source protocols are collapsed into OTHER or PD_CTP, so conservative detectors are used only for list-style fluency.
+
+Coverage by feature group
+-------------------------
+cmd (Voice commands): 9 features; 100 rows with at least one value
+fc (Free conversation): 8 features; 27 rows with at least one value
+ft (Verbal fluency and list generation): 12 features; 4 rows with at least one value
+ms (Motor speech): 8 features; 13 rows with at least one value
+na (Narrative, procedural, and mixed discourse): 9 features; 409 rows with at least one value
+pd (Picture description): 20 features; 2568 rows with at least one value
+rd (Reading aloud): 10 features; 356 rows with at least one value
+rep (Sentence repetition): 8 features; 32 rows with at least one value
+sr (Story and picture recall): 8 features; 29 rows with at least one value
+
+Literature basis
+----------------
+Picture, story, procedural, and personal narrative features follow the DementiaBank connected-speech convention: content units, lexical/syntactic measures, fluency, and discourse organization.
+Reading features emphasize reading fluency, passage coverage, order, insertions/omissions, repetition, and pause burden.
+Verbal fluency features follow the standard output/repetition/intrusion plus clustering/switching framing.
+Voice-command features follow the VAS literature emphasis on command-relevant lexical/action/device features, ASR text features, and timing.
+
+Feature definitions
+-------------------
+
+Voice commands (cmd_*)
+- cmd_token_count: Token count in the voice-command transcript.
+- cmd_unique_token_ratio: Unique command tokens divided by total command tokens.
+- cmd_utterance_count: Number of command discourse units.
+- cmd_mean_utterance_length: Mean tokens per command discourse unit.
+- cmd_device_keyword_ratio: Device-name mentions divided by command tokens.
+- cmd_request_marker_ratio: Politeness/request markers divided by command tokens.
+- cmd_action_verb_ratio: Command action terms divided by command tokens.
+- cmd_repetition_rate: Immediate token repetitions divided by command tokens.
+- cmd_duration_per_token: Audio duration divided by command tokens.
+
+Free conversation (fc_*)
+- fc_topic_coherence: Mean TF-IDF similarity between adjacent discourse units.
+- fc_topic_switch_rate: Proportion of adjacent discourse-unit pairs with low similarity.
+- fc_embedding_dispersion: Standard deviation of pairwise discourse-unit similarities.
+- fc_named_entity_density: Proper-noun count divided by transcript tokens.
+- fc_repetition_rate: Immediate token repetitions divided by transcript tokens.
+- fc_mean_utterance_similarity: Mean pairwise discourse-unit similarity.
+- fc_first_last_similarity: Similarity between first and last discourse units.
+- fc_topic_return_ratio: Long-range discourse-unit pairs with moderate/high similarity.
+
+Verbal fluency and list generation (ft_*)
+- ft_item_count: Total produced list tokens.
+- ft_unique_item_count: Unique produced list tokens.
+- ft_repetition_count: Repeated valid responses after first mention.
+- ft_intrusion_count: Items outside the semantic category or target initial.
+- ft_valid_item_count: Responses matching category lexicon or detected target initial.
+- ft_valid_item_ratio: Valid responses divided by produced tokens.
+- ft_items_per_second: Valid responses divided by audio duration.
+- ft_cluster_count: Runs of consecutive valid items sharing an initial.
+- ft_mean_cluster_size: Mean size of those initial-based clusters.
+- ft_switch_count: Number of changes between adjacent valid item initials.
+- ft_letter_valid_count: Tokens that satisfy the target letter/initial rule.
+- ft_letter_violation_count: Tokens violating the target letter/initial rule.
+
+Motor speech (ms_*)
+- ms_token_count: Token count in motor-speech transcript.
+- ms_target_syllable_count: Occurrences of target diadochokinetic syllables.
+- ms_target_syllable_ratio: Target syllable occurrences divided by token count.
+- ms_alternation_switch_count: Changes between adjacent target syllables.
+- ms_unique_syllable_ratio: Unique target syllables divided by target syllable count.
+- ms_repetition_rate: Repeated unigram ratio.
+- ms_tokens_per_second: Transcript tokens divided by audio duration.
+- ms_target_syllables_per_second: Target syllable occurrences divided by audio duration.
+
+Narrative, procedural, and mixed discourse (na_*)
+- na_utterance_count: Number of narrative/procedural discourse units.
+- na_mean_utterance_length: Mean tokens per discourse unit.
+- na_temporal_marker_density: Temporal markers divided by transcript tokens.
+- na_causal_marker_density: Causal markers divided by transcript tokens.
+- na_first_person_ratio: First-person pronouns divided by transcript tokens.
+- na_procedural_marker_density: Step/action procedural markers divided by transcript tokens.
+- na_topic_coherence: Mean similarity between adjacent discourse units.
+- na_topic_switch_rate: Proportion of adjacent units with low lexical similarity.
+- na_repetition_rate: Repeated unigram ratio.
+
+Picture description (pd_*)
+- pd_unique_units_count: Number of distinct prompt content units mentioned.
+- pd_unique_units_ratio: Distinct mentioned object/action units divided by possible units.
+- pd_total_unit_mentions: Total prompt keyword/content-unit mentions.
+- pd_content_density: Total unit mentions divided by transcript tokens.
+- pd_object_units_ratio: Object-unit mentions divided by all unit mentions.
+- pd_action_units_ratio: Action-unit mentions divided by all unit mentions.
+- pd_keyword_to_nonkeyword_ratio: Prompt keyword mentions divided by other tokens.
+- pd_repeated_content_unit_ratio: Repeated content-unit mentions divided by all unit mentions.
+- pd_semantic_similarity_to_unit_list: TF-IDF cosine similarity between transcript and prompt unit list.
+- pd_num_unique_keywords: Number of unique prompt keywords matched.
+- pd_num_total_keywords: Total matched prompt keywords.
+- pd_unique_unit_density: Unique content units divided by transcript tokens.
+- pd_total_unit_density: Total content-unit mentions divided by transcript tokens.
+- pd_unique_unit_efficiency: Unique content units divided by audio duration.
+- pd_total_unit_efficiency: Total content-unit mentions divided by audio duration.
+- pd_percentage_units_mentioned: Alias of the unique-unit coverage proportion.
+- pd_keyword_ttr: Unique matched prompt keywords divided by total matched keywords.
+- pd_mean_utterance_to_unit_similarity: Mean TF-IDF similarity from utterances to the prompt unit list.
+- pd_global_prompt_coherence: TF-IDF similarity between full transcript and prompt unit list.
+- pd_detected_prompt_score: Keyword-based confidence for detected picture prompt family.
+
+Reading aloud (rd_*)
+- rd_reference_token_coverage: Reference vocabulary covered by transcript tokens.
+- rd_reference_bigram_coverage: Reference token bigrams recovered in the transcript.
+- rd_prompt_similarity: TF-IDF cosine similarity to the reading passage.
+- rd_sequence_match_ratio: SequenceMatcher order-sensitive similarity to the passage.
+- rd_reference_order_score: Matched reference tokens from aligned blocks divided by reference length.
+- rd_omission_ratio: Reference vocabulary absent from the transcript.
+- rd_insertion_ratio: Transcript vocabulary absent from the reference.
+- rd_repetition_ratio: Repeated unigram ratio in the reading transcript.
+- rd_pause_per_reference_token: Total pause duration divided by reference token count.
+- rd_content_word_recall_ratio: Reference content-word vocabulary recovered by transcript.
+
+Sentence repetition (rep_*)
+- rep_token_count: Token count in repetition transcript.
+- rep_unique_token_ratio: Unique repetition tokens divided by total tokens.
+- rep_immediate_repetition_count: Count of adjacent repeated tokens.
+- rep_repetition_rate: Repeated unigram ratio.
+- rep_bigram_repetition_rate: Repeated bigram ratio.
+- rep_sequence_match_to_reference: SequenceMatcher similarity to known repetition target when available.
+- rep_reference_token_coverage: Reference target vocabulary recovered when available.
+- rep_duration_per_token: Audio duration divided by repetition tokens.
+
+Story and picture recall (sr_*)
+- sr_propositions_recalled_count: Reference story vocabulary recovered by transcript.
+- sr_propositions_recalled_ratio: Recovered reference vocabulary divided by reference vocabulary.
+- sr_key_event_coverage: Order-sensitive matched token coverage against the story reference.
+- sr_event_order_score: Temporal/order marker count per discourse unit.
+- sr_intrusion_count: Transcript vocabulary absent from the reference story.
+- sr_semantic_similarity_to_reference_story: TF-IDF cosine similarity to the reference story.
+- sr_repetition_rate: Repeated unigram ratio in recall transcript.
+- sr_content_density: Recovered reference vocabulary divided by transcript tokens.
+
+References used
+---------------
+- MultiConAD annotated paper in research/ for dataset composition and experiment setup.
+- DementiaBank protocol paper for picture description, story narrative, procedural, and personal narrative task conventions: https://pmc.ncbi.nlm.nih.gov/articles/PMC10171844/
+- Troyer-style verbal fluency literature for clustering, switching, repetitions, and intrusions: https://doi.org/10.1037/0894-4105.11.1.138 and https://www.dovepress.com/current-understanding-of-verbal-fluency-in-alzheimers-disease-evidence-peer-reviewed-fulltext-article-PRBM
+- Reading-task AD work for passage coverage, reading fluency, pause, and timing features: https://pmc.ncbi.nlm.nih.gov/articles/PMC8488259/
+- Voice-assistant command dementia work for command-specific lexical/action/device features: https://digitalcommons.dartmouth.edu/facoa/4123/ and https://doi.org/10.1016/j.csl.2021.101297

@@ -1,0 +1,41 @@
+{
+  "feature_sets": [
+    "full_feature_set",
+    "task_specific_only",
+    "extended_excluding_task_specific"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56
+  ],
+  "top_ks": [
+    "5",
+    "10",
+    "20",
+    "50",
+    "100",
+    "all"
+  ],
+  "ranking_methods": [
+    "anova",
+    "welch_bonferroni"
+  ],
+  "reports": {
+    "full_feature_set": "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\02-ablation-task-specific-features\\phase2-multiseed-grid-feature-sets\\result-tables\\full_feature_set_multiseed_grid_report.txt",
+    "task_specific_only": "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\02-ablation-task-specific-features\\phase2-multiseed-grid-feature-sets\\result-tables\\task_specific_only_multiseed_grid_report.txt",
+    "extended_excluding_task_specific": "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\02-ablation-task-specific-features\\phase2-multiseed-grid-feature-sets\\result-tables\\extended_excluding_task_specific_multiseed_grid_report.txt"
+  }
+}

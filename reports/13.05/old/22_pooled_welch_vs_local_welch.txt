@@ -1,0 +1,26 @@
+Pooled Welch Universal Features vs Language-Specific Welch Features
+===============================================================
+Method
+------
+The fixed universal set is built from a pooled multilingual Welch t-test on the benchmark-wide training split.
+Candidate pooled features are first restricted to the universally available Phase 1 subset with per-language availability >= 1.00.
+Features survive Bonferroni correction in the pooled training data and are ranked by absolute Cohen's d.
+The same fixed feature list is then projected into each language to test whether AD/HC separation weakens without local feature adaptation.
+
+Universally available candidate features: 48
+
+Fixed pooled Welch feature set
+-----------------------------
+syn_num_ratio, len_utterance_count, syn_utterance_count, syn_interjection_ratio, graph_node_count, len_type_count, syn_aux_ratio, syn_pronoun_ratio, graph_edge_count, len_token_count, len_syllable_count, lex_brunet, lex_function_word_ratio, syn_cconj_ratio, graph_average_degree, len_tokens_per_utterance
+
+Per-language separation
+-----------------------
+English: pooled gap=7.5 (d=0.52) | local gap=14.0 (d=0.84) | delta local-pooled=6.5
+Chinese: pooled gap=4.4 (d=0.61) | local gap=5.4 (d=0.48) | delta local-pooled=1.0
+Greek: pooled gap=-0.1 (d=-0.01) | local gap=12.7 (d=0.64) | delta local-pooled=12.7
+Spanish: pooled gap=5.6 (d=0.53) | local gap=12.6 (d=0.63) | delta local-pooled=6.9
+
+Interpretation
+--------------
+Languages that separate worse under the pooled universal Welch feature set and therefore appear to benefit from language-specific features: English, Chinese, Greek, Spanish
+This is expected if some languages need feature axes that are locally diagnostic but not strong enough to survive a pooled multilingual significance screen.

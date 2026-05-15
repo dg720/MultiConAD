@@ -1,0 +1,74 @@
+Task-sensitive region
+=====================
+
+Source scatter
+--------------
+report_assets/full-excl-task/scatter.png
+
+Definition
+----------
+A significant point is a plotted feature in this region with at least one valid language-task cell surviving Welch t-test Bonferroni correction at p < 0.05.
+Significance levels: * p<0.05, ** p<0.01, *** p<0.001 using Welch Bonferroni-corrected p-values.
+The scatter coordinates are descriptive specificity scores based on signed Cohen's d; the p-values are cell-level AD/HC tests.
+
+Overview
+--------
+                           feature group diag_strength lang_spec task_spec  valid_cells  sig_cells            best_cell best_d min_welch_bonf_p sig_level
+               function-word ratio   lex         0.518     0.217     0.413            8          1     EN PD+FT / PD_CTP  0.657         2.58e-22       ***
+                      object ratio   syn         0.525     0.297     0.577            8          2     EN PD+FT / PD_CTP -0.534         7.34e-05       ***
+            low similarity frac 05    sx         0.369     0.242     0.528            8          1     EN PD+FT / PD_CTP -0.268           0.0059        **
+ egemaps slopeuv0 500 sma3nz amean    ac         1.128     0.080     0.851            4          3   ZH PD+FT+FC / OTHER -0.827           0.0132         *
+egemaps shimmerlocaldb sma3nz s...    ac         0.818     0.085     0.656            4          1 EL PD+FT / REPETITION -1.230           0.0450         *
+
+Short analysis
+--------------
+5 of 9 plotted points in this region have at least one Welch Bonferroni-significant language-task cell.
+Significant feature groups: ac=2, lex=1, syn=1, sx=1
+Strongest by mean absolute effect: egemaps slopeuv0 500 sma3nz amean; egemaps shimmerlocaldb sma3nz s...; object ratio; function-word ratio; low similarity frac 05.
+Smallest corrected p-values: function-word ratio; object ratio; low similarity frac 05; egemaps slopeuv0 500 sma3nz amean; egemaps shimmerlocaldb sma3nz s....
+Interpretation: these are significant somewhere and vary more by manifest task than by language, so they are evidence for task dependence/confounding rather than translingual markers.
+
+Cell-level details
+------------------
+Feature: egemaps slopeuv0 500 sma3nz amean
+Raw name: ac_egemaps_slopeuv0_500_sma3nz_amean
+Summary: group=ac; diagnostic_strength=1.128; language_specificity=0.080; task_specificity=0.851; direction_consistency=0.750; valid_cells=4
+Minimum Welch Bonferroni p: 0.0132 (*); minimum ANOVA Bonferroni p among same significant cells: 0.0306
+Significant cells:
+              cell_label language      task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+      ZH PD+FT+FC / OTHER       zh          OTHER    33    62   -0.827             0.0132             0.0490
+EL PD+FT / PICTURE_RECALL       el PICTURE_RECALL    22     7   -1.928             0.0184             0.0306
+    EL PD+FT / REPETITION       el     REPETITION    24     8   -1.396             0.0435             0.4121
+
+Feature: function-word ratio
+Raw name: lex_function_word_ratio
+Summary: group=lex; diagnostic_strength=0.518; language_specificity=0.217; task_specificity=0.413; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 2.58e-22 (***); minimum ANOVA Bonferroni p among same significant cells: 1.15e-29
+Significant cells:
+      cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+EN PD+FT / PD_CTP       en    PD_CTP   450  1261    0.657           2.58e-22           1.15e-29
+
+Feature: egemaps shimmerlocaldb sma3nz s...
+Raw name: ac_egemaps_shimmerlocaldb_sma3nz_stddevnorm
+Summary: group=ac; diagnostic_strength=0.818; language_specificity=0.085; task_specificity=0.656; direction_consistency=0.750; valid_cells=4
+Minimum Welch Bonferroni p: 0.0450 (*); minimum ANOVA Bonferroni p among same significant cells: 1.0000
+Significant cells:
+          cell_label language  task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+EL PD+FT / REPETITION       el REPETITION    24     8   -1.230             0.0450             1.0000
+
+Feature: object ratio
+Raw name: syn_obj_ratio
+Summary: group=syn; diagnostic_strength=0.525; language_specificity=0.297; task_specificity=0.577; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 7.34e-05 (***); minimum ANOVA Bonferroni p among same significant cells: 1.27e-04
+Significant cells:
+      cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+EN PD+FT / PD_CTP       en    PD_CTP   191   157   -0.534           7.34e-05           1.27e-04
+   ZH PD / PD_CTP       zh    PD_CTP    38    89   -0.808             0.0034             0.0075
+
+Feature: low similarity frac 05
+Raw name: sx_low_similarity_frac_05
+Summary: group=sx; diagnostic_strength=0.369; language_specificity=0.242; task_specificity=0.528; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 0.0059 (**); minimum ANOVA Bonferroni p among same significant cells: 1.37e-04
+Significant cells:
+      cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+EN PD+FT / PD_CTP       en    PD_CTP   450  1230   -0.268             0.0059           1.37e-04

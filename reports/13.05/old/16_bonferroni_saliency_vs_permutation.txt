@@ -1,0 +1,53 @@
+Bonferroni Saliency vs Permutation Saliency
+==========================================
+Method
+------
+Both saliency variants use the same Phase 1 language-specific best `all_universal` model per language.
+The only change is the feature list used to build the AD-oriented burden radar plots.
+- Permutation map: top local model features from held-out permutation importance.
+- Bonferroni map: top language-specific Bonferroni-significant features ranked by p-value.
+
+English
+-------
+Permutation: n=16 | mean burden gap=11.9 | Cohen's d=1.09 | strongest group=len (19.1)
+Bonferroni: n=16 | mean burden gap=14.8 | Cohen's d=1.06 | strongest group=len (19.1)
+Overlap with permutation feature set: 8/16 | shared: syn_mean_dependency_length, len_utterance_count, syn_utterance_count, syn_std_dependency_length, syn_num_ratio, syn_subordination_ratio, syn_clause_density, graph_density
+Clearer by mean-burden separation: Bonferroni
+Why it looks clearer:
+Bonferroni features are more consistently AD-vs-HC separated one by one, so the radar shapes tend to open up more cleanly between classes.
+
+Chinese
+-------
+Permutation: n=16 | mean burden gap=13.3 | Cohen's d=1.64 | strongest group=disc (23.9)
+Bonferroni: n=16 | mean burden gap=5.2 | Cohen's d=0.50 | strongest group=ac (5.2)
+Overlap with permutation feature set: 0/16 | shared: none
+Clearer by mean-burden separation: Permutation
+Why permutation remains clearer:
+The model-selected features create a larger class burden gap even when some individual features are only weakly significant on their own.
+
+Greek
+-----
+Permutation: n=16 | mean burden gap=12.0 | Cohen's d=1.40 | strongest group=ac (14.0)
+Bonferroni: n=9 | mean burden gap=12.7 | Cohen's d=0.64 | strongest group=ac (12.7)
+Overlap with permutation feature set: 2/9 | shared: ac_egemaps_loudness_sma3_stddevrisingslope, ac_egemaps_spectralfluxv_sma3nz_stddevnorm
+Clearer by mean-burden separation: Bonferroni
+Why it looks clearer:
+Bonferroni features are more consistently AD-vs-HC separated one by one, so the radar shapes tend to open up more cleanly between classes.
+
+Spanish
+-------
+Permutation: n=16 | mean burden gap=11.2 | Cohen's d=0.90 | strongest group=len (23.0)
+Bonferroni: n=16 | mean burden gap=10.4 | Cohen's d=0.63 | strongest group=lex (13.5)
+Overlap with permutation feature set: 3/16 | shared: lex_mean_token_length, lex_std_token_length, syn_pronoun_ratio
+Clearer by mean-burden separation: Permutation
+Why permutation remains clearer:
+The model-selected features create a larger class burden gap even when some individual features are only weakly significant on their own.
+
+Overall
+-------
+- English: Bonferroni
+- Chinese: Permutation
+- Greek: Bonferroni
+- Spanish: Permutation
+- Bonferroni maps are usually easier to justify as biomarker-style plots because every plotted feature passed a corrected univariate test.
+- Permutation maps remain better if the goal is fidelity to what the fitted classifier actually used.

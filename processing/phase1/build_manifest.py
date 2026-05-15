@@ -9,7 +9,8 @@ import pandas as pd
 from processing.phase1.common import (
     DATA_ROOT,
     PHASE1_ROOT,
-    TABLES_PHASE1_ROOT,
+    TABLES_PHASE1_RESULT_TABLES,
+    TABLES_PHASE1_SUMMARIES,
     clean_text,
     get_analysis_text,
     load_cleaned_full_corpus,
@@ -586,7 +587,7 @@ def write_manifest_outputs(manifest: pd.DataFrame) -> None:
         .reset_index(name="count")
         .sort_values(["language", "task_type", "diagnosis_mapped"])
     )
-    audit_lang.to_csv(TABLES_PHASE1_ROOT / "manifest_counts_language_task_diagnosis.csv", index=False)
+    audit_lang.to_csv(TABLES_PHASE1_RESULT_TABLES / "manifest_counts_language_task_diagnosis.csv", index=False)
 
     audit_dataset = (
         manifest.groupby(["dataset_name", "task_type", "diagnosis_mapped"])
@@ -594,7 +595,7 @@ def write_manifest_outputs(manifest: pd.DataFrame) -> None:
         .reset_index(name="count")
         .sort_values(["dataset_name", "task_type", "diagnosis_mapped"])
     )
-    audit_dataset.to_csv(TABLES_PHASE1_ROOT / "manifest_counts_dataset_task_diagnosis.csv", index=False)
+    audit_dataset.to_csv(TABLES_PHASE1_RESULT_TABLES / "manifest_counts_dataset_task_diagnosis.csv", index=False)
 
     mixed_protocol = (
         manifest.groupby(["dataset_name", "task_is_mixed_protocol"])
@@ -602,14 +603,14 @@ def write_manifest_outputs(manifest: pd.DataFrame) -> None:
         .reset_index(name="count")
         .sort_values(["dataset_name", "task_is_mixed_protocol"])
     )
-    mixed_protocol.to_csv(TABLES_PHASE1_ROOT / "manifest_mixed_protocol_counts.csv", index=False)
+    mixed_protocol.to_csv(TABLES_PHASE1_RESULT_TABLES / "manifest_mixed_protocol_counts.csv", index=False)
 
     availability = (
         manifest.groupby(["language", "dataset_name"])[["has_text", "has_audio", "has_participant_only_text"]]
         .mean()
         .reset_index()
     )
-    availability.to_csv(TABLES_PHASE1_ROOT / "manifest_feature_availability.csv", index=False)
+    availability.to_csv(TABLES_PHASE1_RESULT_TABLES / "manifest_feature_availability.csv", index=False)
 
     summary = {
         "num_rows": int(len(manifest)),
@@ -620,7 +621,7 @@ def write_manifest_outputs(manifest: pd.DataFrame) -> None:
         "diagnosis_mapped": manifest["diagnosis_mapped"].value_counts().to_dict(),
         "mixed_protocol_rows": int(manifest["task_is_mixed_protocol"].sum()),
     }
-    with (TABLES_PHASE1_ROOT / "manifest_summary.json").open("w", encoding="utf-8") as handle:
+    with (TABLES_PHASE1_SUMMARIES / "manifest_summary.json").open("w", encoding="utf-8") as handle:
         json.dump(summary, handle, indent=2, ensure_ascii=False)
 
 

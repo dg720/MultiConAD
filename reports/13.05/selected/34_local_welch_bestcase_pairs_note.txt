@@ -1,0 +1,33 @@
+Language-Specific Welch Best-Case Pairs
+======================================
+These examples use an HC-oriented local Welch saliency scale built from smoothed percentile ranks on the training split.
+Selection rule per language:
+- AD: correctly classified case with the lowest mean HC-oriented burden
+- HC: correctly classified case with the highest mean HC-oriented burden
+
+This is intended to show typical best-case near-empty AD and near-full HC profiles under the language-specific feature set.
+Unlike the canonical overlay plots, this case-level view does not use the 5th-95th clipped burden transform; it uses percentile-style scoring to avoid hard floor effects.
+
+English
+-------
+AD: dataset=Pitt | group=244 | sample_id=49cb3cc80fcf804c271a87fbbfb5584577bf3608 | mean_hc_oriented_burden=6.0
+HC: dataset=Pitt | group=113 | sample_id=538aab5743c3558841d90159f981dfa24e113fc2 | mean_hc_oriented_burden=90.7
+Features: syn_mean_dependency_length, syn_std_dependency_length, syn_obl_ratio, syn_max_dependency_length, syn_num_ratio, syn_mean_tree_depth, syn_interjection_ratio, syn_determiner_noun_ratio, syn_subordination_ratio, len_tokens_per_utterance, len_mean_utterance_length, syn_mean_utterance_length_words, syn_aux_verb_ratio, syn_clause_density, syn_max_tree_depth, len_utterance_count
+
+Chinese
+-------
+AD: dataset=NCMMSC2021_AD | group=AD_F_040366 | sample_id=9d1c0f08d4452949d183b7c7af90d3f5f2ee2c31 | mean_hc_oriented_burden=23.6
+HC: dataset=NCMMSC2021_AD | group=HC_M_019205 | sample_id=185a929a5cece724e0fc640611cca2ebb084739d | mean_hc_oriented_burden=85.3
+Features: ac_egemaps_alpharatiov_sma3nz_amean, ac_egemaps_logrelf0_h1_a3_sma3nz_amean, ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm, ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope, ac_egemaps_mfcc1v_sma3nz_amean, ac_egemaps_slopeuv500_1500_sma3nz_amean, ac_mfcc_3_mean, ac_egemaps_hammarbergindexv_sma3nz_amean, ac_egemaps_f2bandwidth_sma3nz_stddevnorm, ac_egemaps_f3bandwidth_sma3nz_stddevnorm, ac_egemaps_slopev500_1500_sma3nz_amean, ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile20_0, ac_egemaps_jitterlocal_sma3nz_amean, ac_mfcc_2_std, ac_egemaps_hnrdbacf_sma3nz_amean, ac_egemaps_mfcc1_sma3_amean
+
+Greek
+-----
+AD: dataset=DS3 | group=ds3_patient_22 | sample_id=bc4c08ee57181aa624d072ac81e3ab6d5a8f356b | mean_hc_oriented_burden=5.2
+HC: dataset=ADReSS-M | group=madrs075 | sample_id=7c466cfeb00b30a2c03a3216aefb503e0e43452b | mean_hc_oriented_burden=76.6
+Features: ac_egemaps_loudness_sma3_stddevfallingslope, ac_egemaps_loudness_sma3_stddevrisingslope, ac_rms_std, ac_egemaps_loudness_sma3_meanrisingslope, ac_egemaps_loudness_sma3_meanfallingslope, ac_egemaps_equivalentsoundlevel_dbp, ac_egemaps_loudness_sma3_pctlrange0_2, ac_egemaps_loudness_sma3_percentile80_0, ac_egemaps_spectralfluxv_sma3nz_stddevnorm
+
+Spanish
+-------
+AD: dataset=Ivanova | group=AD-M-84 | sample_id=9efae2218d2b12e58fe22b75a0ae0f9beb2dd9ce | mean_hc_oriented_burden=7.6
+HC: dataset=Ivanova | group=HC-M-72 | sample_id=1f5688d9cac5f949080d4271a4f44668f2bacaf4 | mean_hc_oriented_burden=78.8
+Features: lex_mean_token_length, syn_determiner_ratio, syn_noun_ratio, lex_type_token_ratio, disc_repeated_unigram_ratio, lex_repetition_rate, lex_lemma_type_token_ratio, syn_pronoun_noun_ratio, lex_brunet, lex_std_token_length, lex_hapax_ratio, syn_pronoun_ratio, graph_average_degree, disc_repeated_bigram_ratio, graph_node_count, len_type_count

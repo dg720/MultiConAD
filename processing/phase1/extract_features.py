@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from processing.phase1.common import (
     PHASE1_ROOT,
-    TABLES_PHASE1_ROOT,
+    TABLES_PHASE1_RESULT_TABLES,
     FILLERS,
     brunet_index,
     clean_text,
@@ -826,7 +826,7 @@ def main() -> None:
                 "mean_missing_fraction": float(feature_df[group_cols].isna().mean().mean()),
             }
         )
-    pd.DataFrame(availability).to_csv(TABLES_PHASE1_ROOT / "feature_group_availability.csv", index=False)
+    pd.DataFrame(availability).to_csv(TABLES_PHASE1_RESULT_TABLES / "feature_group_availability.csv", index=False)
     log(f"Wrote feature matrix to {FEATURES_PATH}")
 
 

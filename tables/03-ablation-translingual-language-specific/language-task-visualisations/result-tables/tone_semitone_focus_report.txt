@@ -1,0 +1,46 @@
+Tone/Semitone Focus Report
+===========================
+
+NCMMSC/NCMMSE task type
+----------------------
+In the paper, NCMMSE/NCMMSC is described as mixed-task audio: participants perform various tasks including picture descriptions and fluency exercises.
+In the live manifest, `NCMMSC2021_AD` is assigned `task_type = OTHER`, `task_type_source = lossy_long_audio_packaging`, and `task_type_confidence = low`.
+Interpretation: we should not treat the current NCMMSC acoustic/semitone signal as strict PD_CTP evidence. It is a mixed or unresolved Chinese source-level signal.
+
+Why semitone disappeared from some plots
+---------------------------------------
+The strict PD-only visualisations filter to `task_type == PD_CTP`. The strongest Chinese tone/prosody signal sits in `zh|OTHER`, not `zh|PD_CTP`.
+The tone-focused plots therefore force semitone/F0/logRelF0 features into a separate view so they can be interpreted with the source/task caveat visible.
+
+Chinese OTHER tone/prosody ranking
+----------------------------------
+- logRelF0 H1-A3: d=-0.849, Welch rank=34, Bonferroni p=0.01898 significant.
+- F0 falling slope mean: d=-0.657, Welch rank=46, Bonferroni p=0.244.
+- F0 mean: d=0.628, Welch rank=56, Bonferroni p=0.5727.
+- F0 semitone variability: d=-0.561, Welch rank=61, Bonferroni p=0.8985.
+- F0 falling slope variability: d=-0.522, Welch rank=62, Bonferroni p=1.
+- F0 semitone range: d=-0.470, Welch rank=69, Bonferroni p=1.
+- F0 variability: d=-0.338, Welch rank=91, Bonferroni p=1.
+- F0 semitone p20: d=0.244, Welch rank=116, Bonferroni p=1.
+
+Generated files
+---------------
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\tone-semitone-focus\tone_semitone_language_task_heatmap.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\tone-semitone-focus\tone_semitone_zh_other_ranked_effects.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\tone-semitone-focus\tone_semitone_availability_by_cell.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\tone-semitone-focus\tone_semitone_specificity_scatter.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\report_assets\tone-semitone-focus\tone_semitone_specificity_scatter_numbered.png
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\result-tables\csv\tone_semitone_focus_effects.csv
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\result-tables\csv\tone_semitone_focus_zh_other_ranked.csv
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\result-tables\csv\tone_semitone_focus_availability.csv
+- C:\Users\Dhruv\Documents\00. Coding\MultiConAD\tables\03-ablation-translingual-language-specific\language-task-visualisations\result-tables\csv\tone_semitone_specificity_scores.csv
+
+Reading guide
+-------------
+The heatmap uses signed Cohen's d, AD minus HC. Blue means the feature is lower in AD; red means higher in AD.
+A star marks Welch Bonferroni significance and a dot marks Welch top-50 within the same language-task cell.
+The availability plot explains why Chinese PD_CTP is not comparable for these acoustic measures: the representative semitone feature has no usable AD groups there.
+
+Cell order used in heatmap
+--------------------------
+zh|OTHER, zh|PD_CTP, en|PD_CTP, el|PD_CTP, en|COMMAND, es|READING, el|PICTURE_RECALL, el|REPETITION

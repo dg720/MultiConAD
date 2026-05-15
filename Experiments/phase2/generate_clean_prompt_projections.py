@@ -21,8 +21,8 @@ from processing.phase1.common import make_logger
 from processing.phase2.common import PHASE2_ROOT, TABLES_PHASE2_ROOT
 
 
-RICH_ROOT = TABLES_PHASE2_ROOT / "rich_sweep"
-CLEAN_ROOT = TABLES_PHASE2_ROOT / "clean_prompt_sweep"
+RICH_ROOT = TABLES_PHASE2_ROOT / "phase2-rich-sweep"
+CLEAN_ROOT = TABLES_PHASE2_ROOT / "phase2-clean-prompt-sweep"
 REPORT_ROOT = CLEAN_ROOT / "report_assets"
 REPORT_ROOT.mkdir(parents=True, exist_ok=True)
 
@@ -107,14 +107,14 @@ TASK_POOLED_CONFIG = [
 
 
 def load_summary(root: Path, run_name: str) -> dict[str, object]:
-    return json.loads((root / f"{run_name}_summary.json").read_text(encoding="utf-8"))
+    return json.loads((root / "summaries" / f"{run_name}_summary.json").read_text(encoding="utf-8"))
 
 
 def load_feature_names(root: Path, run_name: str) -> tuple[list[str], dict[str, object]]:
     summary = load_summary(root, run_name)
     best = summary["best_model"] if "best_model" in summary else summary["best_result"]
     top_k = int(best["top_k"])
-    ranking = pd.read_csv(root / f"{run_name}_anova_ranking.csv")
+    ranking = pd.read_csv(root / "result-tables" / "csv" / f"{run_name}_anova_ranking.csv")
     names = ranking["feature_name"].head(top_k).tolist()
     meta = {
         "run_name": run_name,

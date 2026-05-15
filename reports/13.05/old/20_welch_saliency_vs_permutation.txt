@@ -1,0 +1,79 @@
+Welch Mean-Difference Saliency vs Permutation
+============================================
+Method
+------
+Welch selection uses per-language feature-wise Welch t-tests on the training split, Bonferroni correction within language, then ranks surviving features by absolute Cohen's d.
+Permutation selection uses the local best-model top features from held-out permutation importance.
+
+English
+-------
+Permutation: n=16 | mean burden gap=11.9 | Cohen's d=1.09 | strongest group=len (19.1)
+Welch+Bonferroni+|d|: n=16 | mean burden gap=14.0 | Cohen's d=0.84 | strongest group=syn (15.1)
+Bonferroni-significant Welch features available: 54
+Overlap with permutation feature set: 6/16 | shared: syn_mean_dependency_length, syn_std_dependency_length, syn_num_ratio, syn_subordination_ratio, syn_clause_density, len_utterance_count
+Top Welch-selected features
+- syn_mean_dependency_length [syn] | mean_AD=4.719 | mean_HC=2.737 | p=2.54e-48 | bonf=1.78e-46 | |d|=1.61
+- syn_std_dependency_length [syn] | mean_AD=7.676 | mean_HC=2.921 | p=5.79e-39 | bonf=4.05e-37 | |d|=1.38
+- syn_obl_ratio [syn] | mean_AD=0.030 | mean_HC=0.048 | p=2.27e-37 | bonf=1.59e-35 | |d|=1.13
+- syn_max_dependency_length [syn] | mean_AD=54.297 | mean_HC=25.004 | p=1.63e-27 | bonf=1.14e-25 | |d|=1.05
+- syn_num_ratio [syn] | mean_AD=0.048 | mean_HC=0.007 | p=1.29e-35 | bonf=9.03e-34 | |d|=0.82
+Clearer by mean-burden separation: Welch
+Why it looks clearer:
+These features are explicitly chosen for corrected mean-difference strength, so the AD polygon tends to fill more of the radar in a consistent direction.
+
+Chinese
+-------
+Permutation: n=16 | mean burden gap=13.3 | Cohen's d=1.64 | strongest group=disc (23.9)
+Welch+Bonferroni+|d|: n=16 | mean burden gap=5.4 | Cohen's d=0.48 | strongest group=ac (5.4)
+Bonferroni-significant Welch features available: 73
+Overlap with permutation feature set: 0/16 | shared: none
+Top Welch-selected features
+- ac_egemaps_alpharatiov_sma3nz_amean [ac] | mean_AD=-11.664 | mean_HC=-18.124 | p=2.33e-33 | bonf=4.48e-31 | |d|=1.64
+- ac_egemaps_logrelf0_h1_a3_sma3nz_amean [ac] | mean_AD=20.095 | mean_HC=27.977 | p=2.19e-24 | bonf=4.20e-22 | |d|=1.48
+- ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm [ac] | mean_AD=0.102 | mean_HC=0.188 | p=1.48e-33 | bonf=2.84e-31 | |d|=1.46
+- ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope [ac] | mean_AD=39.057 | mean_HC=88.970 | p=1.22e-31 | bonf=2.34e-29 | |d|=1.45
+- ac_egemaps_mfcc1v_sma3nz_amean [ac] | mean_AD=25.316 | mean_HC=32.390 | p=1.14e-29 | bonf=2.18e-27 | |d|=1.42
+Clearer by mean-burden separation: Permutation
+Why permutation remains clearer:
+The classifier is still relying on a different multivariate feature mix that produces a larger AD-vs-HC burden gap than the pure mean-difference shortlist.
+
+Greek
+-----
+Permutation: n=16 | mean burden gap=12.0 | Cohen's d=1.40 | strongest group=ac (14.0)
+Welch+Bonferroni+|d|: n=9 | mean burden gap=12.7 | Cohen's d=0.64 | strongest group=ac (12.7)
+Bonferroni-significant Welch features available: 9
+Overlap with permutation feature set: 2/9 | shared: ac_egemaps_loudness_sma3_stddevrisingslope, ac_egemaps_spectralfluxv_sma3nz_stddevnorm
+Top Welch-selected features
+- ac_egemaps_loudness_sma3_stddevfallingslope [ac] | mean_AD=6.372 | mean_HC=3.351 | p=6.11e-15 | bonf=1.17e-12 | |d|=1.25
+- ac_egemaps_loudness_sma3_stddevrisingslope [ac] | mean_AD=8.018 | mean_HC=4.391 | p=1.45e-14 | bonf=2.78e-12 | |d|=1.23
+- ac_rms_std [ac] | mean_AD=0.054 | mean_HC=0.023 | p=3.19e-14 | bonf=6.13e-12 | |d|=1.21
+- ac_egemaps_loudness_sma3_meanrisingslope [ac] | mean_AD=11.855 | mean_HC=6.333 | p=5.95e-13 | bonf=1.14e-10 | |d|=1.13
+- ac_egemaps_loudness_sma3_meanfallingslope [ac] | mean_AD=9.103 | mean_HC=4.533 | p=7.91e-13 | bonf=1.52e-10 | |d|=1.13
+Clearer by mean-burden separation: Welch
+Why it looks clearer:
+These features are explicitly chosen for corrected mean-difference strength, so the AD polygon tends to fill more of the radar in a consistent direction.
+
+Spanish
+-------
+Permutation: n=16 | mean burden gap=11.2 | Cohen's d=0.90 | strongest group=len (23.0)
+Welch+Bonferroni+|d|: n=16 | mean burden gap=12.6 | Cohen's d=0.63 | strongest group=disc (17.4)
+Bonferroni-significant Welch features available: 40
+Overlap with permutation feature set: 6/16 | shared: lex_mean_token_length, disc_repeated_unigram_ratio, lex_std_token_length, syn_pronoun_ratio, graph_average_degree, disc_repeated_bigram_ratio
+Top Welch-selected features
+- lex_mean_token_length [lex] | mean_AD=4.075 | mean_HC=4.310 | p=3.80e-08 | bonf=2.62e-06 | |d|=0.88
+- syn_determiner_ratio [syn] | mean_AD=0.176 | mean_HC=0.205 | p=5.64e-07 | bonf=3.89e-05 | |d|=0.83
+- syn_noun_ratio [syn] | mean_AD=0.249 | mean_HC=0.297 | p=7.82e-07 | bonf=5.40e-05 | |d|=0.82
+- lex_type_token_ratio [lex] | mean_AD=0.604 | mean_HC=0.691 | p=2.04e-06 | bonf=1.41e-04 | |d|=0.80
+- disc_repeated_unigram_ratio [disc] | mean_AD=0.396 | mean_HC=0.309 | p=2.04e-06 | bonf=1.41e-04 | |d|=0.80
+Clearer by mean-burden separation: Welch
+Why it looks clearer:
+These features are explicitly chosen for corrected mean-difference strength, so the AD polygon tends to fill more of the radar in a consistent direction.
+
+Overall
+-------
+- English: Welch
+- Chinese: Permutation
+- Greek: Welch
+- Spanish: Welch
+- Welch maps are the cleanest way to express corrected mean separation, because every plotted feature both survives Bonferroni and has large standardized mean difference.
+- They should still be treated as univariate biomarker-style plots, not as faithful explanations of the classifier.

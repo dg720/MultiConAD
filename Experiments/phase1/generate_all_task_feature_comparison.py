@@ -9,10 +9,12 @@ import pandas as pd
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-PHASE1_DIR = REPO_ROOT / "tables" / "phase1" / "rich_sweep"
+PHASE1_DIR = REPO_ROOT / "tables" / "03-ablation-translingual-language-specific" / "phase1-rich-sweep"
+PHASE1_RESULT_TABLES = PHASE1_DIR / "result-tables" / "csv"
+PHASE1_SUMMARIES = PHASE1_DIR / "summaries"
 REPORT_ASSETS_DIR = PHASE1_DIR / "report_assets"
-MULTISEED_DIR = REPO_ROOT / "tables" / "experiment-results" / "multiseed-suite"
-TEXT_SUMMARY_PATH = MULTISEED_DIR / "paper_vs_ours_3tables.txt"
+MULTISEED_DIR = REPO_ROOT / "tables" / "01-baselines" / "embedding-baselines" / "multiseed-suite"
+TEXT_SUMMARY_PATH = MULTISEED_DIR / "result-tables" / "paper_vs_ours_3tables.txt"
 FEATURE_METADATA_PATH = REPO_ROOT / "data" / "processed" / "phase1" / "phase1_feature_metadata.csv"
 
 LANGUAGES = {
@@ -113,13 +115,13 @@ def format_signed_pct(value: float) -> str:
 def derive_language_feature_summary() -> pd.DataFrame:
     feature_metadata = pd.read_csv(FEATURE_METADATA_PATH)
     feature_groups = feature_metadata[["feature_name", "feature_group"]].drop_duplicates()
-    top_features = pd.read_csv(PHASE1_DIR / "cross_lingual_all_tasks_feature_top30_by_language.csv")
+    top_features = pd.read_csv(PHASE1_RESULT_TABLES / "cross_lingual_all_tasks_feature_top30_by_language.csv")
     top_features = top_features.merge(feature_groups, on="feature_name", how="left")
     text_baselines = parse_best_text_baselines(TEXT_SUMMARY_PATH)
 
-    benchmark_summary = load_summary(PHASE1_DIR / "benchmark_wide_rich_summary.json")
+    benchmark_summary = load_summary(PHASE1_SUMMARIES / "benchmark_wide_rich_summary.json")
     benchmark_result = benchmark_summary["best_result"]
-    benchmark_perm = pd.read_csv(PHASE1_DIR / "benchmark_wide_rich_permutation_importance_no_missing_indicators.csv")
+    benchmark_perm = pd.read_csv(PHASE1_RESULT_TABLES / "benchmark_wide_rich_permutation_importance_no_missing_indicators.csv")
     benchmark_groups = (
         benchmark_perm.merge(feature_groups, on="feature_name", how="left")
         .groupby("feature_group", as_index=False)["permutation_importance_mean"]
@@ -132,8 +134,8 @@ def derive_language_feature_summary() -> pd.DataFrame:
 
     rows: list[dict[str, object]] = []
     for code, language_name in LANGUAGES.items():
-        model_results = pd.read_csv(PHASE1_DIR / f"language_{code}_all_rich_model_results.csv")
-        summary = load_summary(PHASE1_DIR / f"language_{code}_all_rich_summary.json")
+        model_results = pd.read_csv(PHASE1_RESULT_TABLES / f"language_{code}_all_rich_model_results.csv")
+        summary = load_summary(PHASE1_SUMMARIES / f"language_{code}_all_rich_summary.json")
         best_row = model_results.sort_values(["accuracy", "auroc", "balanced_accuracy"], ascending=False).iloc[0]
 
         same_subset_full = model_results[

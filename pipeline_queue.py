@@ -9,8 +9,8 @@ Default order:
 5. E5 benchmark rerun
 6. Accuracy table regeneration
 
-The queue is resumable via tables/experiment-results/pipeline-queue/pipeline-state.json
-and per-job logs in tables/experiment-results/pipeline-queue/.
+The queue is resumable via tables/01-baselines/embedding-baselines/pipeline-queue/pipeline-state.json
+and per-job logs in tables/01-baselines/embedding-baselines/pipeline-queue/.
 It is intentionally single-worker and fail-fast because later stages depend on
 the exact outputs of earlier stages.
 """
@@ -30,7 +30,7 @@ from typing import Iterable
 
 
 ROOT = Path(__file__).resolve().parent
-PIPELINE_DIR = ROOT / "tables" / "experiment-results" / "pipeline-queue"
+PIPELINE_DIR = ROOT / "tables" / "01-baselines" / "embedding-baselines" / "pipeline-queue"
 STATE_PATH = PIPELINE_DIR / "pipeline-state.json"
 LOG_DIR = PIPELINE_DIR
 
@@ -118,7 +118,7 @@ JOBS: list[Job] = [
         description="Rerun the full TF-IDF benchmark matrix",
         command=[sys.executable, "experiments/run_tfidf_experiments.py"],
         cwd=".",
-        outputs=["tables/experiment-results/tfidf_results.txt"],
+        outputs=["tables/01-baselines/embedding-baselines/result-tables/tfidf_results.txt"],
         depends_on=["clean_english", "clean_greek", "clean_spanish", "clean_chinese"],
     ),
     Job(
@@ -126,7 +126,7 @@ JOBS: list[Job] = [
         description="Rerun the full E5-large benchmark matrix",
         command=[sys.executable, "experiments/run_e5_experiments.py"],
         cwd=".",
-        outputs=["tables/experiment-results/e5_results.txt"],
+        outputs=["tables/01-baselines/embedding-baselines/result-tables/e5_results.txt"],
         depends_on=["clean_english", "clean_greek", "clean_spanish", "clean_chinese"],
     ),
     Job(
@@ -134,7 +134,7 @@ JOBS: list[Job] = [
         description="Regenerate accuracy comparison tables from benchmark outputs",
         command=[sys.executable, "experiments/generate_accuracy_tables.py"],
         cwd=".",
-        outputs=["tables/experiment-results/accuracy_tables.txt"],
+        outputs=["tables/01-baselines/embedding-baselines/result-tables/accuracy_tables.txt"],
         depends_on=["benchmark_tfidf", "benchmark_e5"],
     ),
 ]

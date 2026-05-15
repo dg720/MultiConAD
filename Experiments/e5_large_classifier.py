@@ -26,7 +26,7 @@ SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 CLEANED      = os.path.join(PROJECT_ROOT, "data", "processed", "cleaned")
 TRANSLATED   = os.path.join(PROJECT_ROOT, "data", "processed", "translated")
-CACHE_DIR    = args.cache_dir or os.path.join(PROJECT_ROOT, "tables", "experiment-results", "embedding-cache")
+CACHE_DIR    = args.cache_dir or os.path.join(PROJECT_ROOT, "tables", "01-baselines", "embedding-baselines", "embedding-cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'

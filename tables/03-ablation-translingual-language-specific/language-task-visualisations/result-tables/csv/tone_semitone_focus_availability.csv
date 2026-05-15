@@ -1,0 +1,29 @@
+feature_name,feature_label,feature_group,feature_family,task_specific,valid_task_types,language,task_type,cell_id,cell_label,paper_task_labels,paper_task_labels_display,datasets,applicable,valid_effect,min5_cell,robust_min10_cell,n_ad,n_hc,mean_ad,mean_hc,cohens_d,cohens_d_abs,direction,welch_p,anova_p,welch_bonferroni_p,anova_bonferroni_p,welch_significant_bonferroni,anova_significant_bonferroni,welch_rank,anova_rank,welch_top_5,anova_top_5,welch_top_10,anova_top_10,welch_top_20,anova_top_20,welch_top_50,anova_top_50,welch_top_100,anova_top_100
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,zh,OTHER,zh|OTHER,"ZH PD+FT+FC
+OTHER",PD|FT|FC,PD|FT|FC,NCMMSC2021_AD,True,True,True,True,33,62,30.39546933130067,29.79114402647941,0.1565805416539751,0.1565805416539751,higher_in_AD,0.4492773882631158,0.4692618537669428,1.0,1.0,False,False,152.0,148.0,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,zh,PD_CTP,zh|PD_CTP,"ZH PD
+PD_CTP",PD,PD,Predictive_Chinese_challenge_Chinese_2019|TAUKADIAL,True,False,False,True,0,42,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,en,PD_CTP,en|PD_CTP,"EN PD+FT
+PD_CTP",PD|FT,PD|FT,Kempler|Lu|Pitt|TAUKADIAL|WLS,True,False,False,True,0,31,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,el,PD_CTP,el|PD_CTP,"EL PD+FT
+PD_CTP",PD|FT,PD|FT,ADReSS-M|DS3|DS5|DS7,True,True,True,True,76,57,25.415954941197445,24.77530887670684,0.1556748078369636,0.1556748078369636,higher_in_AD,0.3613848326834744,0.3759230652522089,1.0,1.0,False,False,139.0,142.0,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,en,COMMAND,en|COMMAND,"EN FC
+COMMAND",FC,FC,VAS,True,False,False,True,0,0,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,es,READING,es|READING,"ES NA
+READING",,Narrative (NA),Ivanova,True,False,False,True,0,0,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,el,PICTURE_RECALL,el|PICTURE_RECALL,"EL PD+FT
+PICTURE_RECALL",PD|FT,PD|FT,DS3,True,True,True,False,22,7,31.341873515735973,31.78589711870466,-0.140005400478233,0.140005400478233,lower_in_AD,0.7755286745579341,0.749459833121762,1.0,1.0,False,False,176.0,177.0,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,el,REPETITION,el|REPETITION,"EL PD+FT
+REPETITION",PD|FT,PD|FT,DS3,True,True,True,False,24,8,32.36685593922933,32.9950795173645,-0.260728489496709,0.260728489496709,lower_in_AD,0.5730543107389154,0.5278955534562173,1.0,1.0,False,False,160.0,140.0,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,en,MIXED_PROTOCOL,en|MIXED_PROTOCOL,"EN PD+FT+SR+NA
+MIXED_PROTOCOL",PD|FT|SR|NA,PD|FT|SR|Narrative (NA),Baycrest|Delaware|Kempler,True,False,False,False,0,0,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,en,CONVERSATION,en|CONVERSATION,"EN PD+FT
+CONVERSATION",PD|FT,PD|FT,Kempler,True,False,False,False,0,0,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,el,OTHER,el|OTHER,"EL PD+FT
+OTHER",PD|FT,PD|FT,DS3,True,False,False,False,0,4,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,el,MOTOR_SPEECH,el|MOTOR_SPEECH,"EL PD+FT
+MOTOR_SPEECH",PD|FT,PD|FT,DS3,True,False,False,False,10,3,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,es,CONVERSATION,es|CONVERSATION,"ES PD+FT+FC
+CONVERSATION",PD|FT|FC,PD|FT|FC,PerLA,True,False,False,False,0,0,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False
+ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,F0 semitone mean,ac,acoustic,False,ALL,en,OTHER,en|OTHER,"EN PD+FT+NA
+OTHER",PD|FT|NA,PD|FT|Narrative (NA),Delaware|Kempler,True,False,False,False,0,0,,,,,none,,,,,False,False,,,False,False,False,False,False,False,False,False,False,False

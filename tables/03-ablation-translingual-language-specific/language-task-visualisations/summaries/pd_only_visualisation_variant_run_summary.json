@@ -1,0 +1,122 @@
+{
+  "pd_task_type": "PD_CTP",
+  "language_counts": [
+    {
+      "language": "en",
+      "language_name": "English",
+      "AD_samples_all_dx": 537,
+      "AD_groups_all_dx": 450,
+      "HC_samples_all_dx": 1467,
+      "HC_groups_all_dx": 1261,
+      "MCI_samples_all_dx": 197,
+      "MCI_groups_all_dx": 72,
+      "AD_samples_used": 537,
+      "AD_groups_used": 450,
+      "AD_analysis_groups": 450,
+      "HC_samples_used": 1467,
+      "HC_groups_used": 1261,
+      "HC_analysis_groups": 1261
+    },
+    {
+      "language": "zh",
+      "language_name": "Chinese",
+      "AD_samples_all_dx": 38,
+      "AD_groups_all_dx": 38,
+      "HC_samples_all_dx": 167,
+      "HC_groups_all_dx": 89,
+      "MCI_samples_all_dx": 196,
+      "MCI_groups_all_dx": 124,
+      "AD_samples_used": 38,
+      "AD_groups_used": 38,
+      "AD_analysis_groups": 38,
+      "HC_samples_used": 167,
+      "HC_groups_used": 89,
+      "HC_analysis_groups": 89
+    },
+    {
+      "language": "el",
+      "language_name": "Greek",
+      "AD_samples_all_dx": 76,
+      "AD_groups_all_dx": 76,
+      "HC_samples_all_dx": 57,
+      "HC_groups_all_dx": 57,
+      "MCI_samples_all_dx": 49,
+      "MCI_groups_all_dx": 49,
+      "AD_samples_used": 76,
+      "AD_groups_used": 76,
+      "AD_analysis_groups": 76,
+      "HC_samples_used": 57,
+      "HC_groups_used": 57,
+      "HC_analysis_groups": 57
+    },
+    {
+      "language": "es",
+      "language_name": "Spanish",
+      "AD_samples_all_dx": 0,
+      "AD_groups_all_dx": 0,
+      "HC_samples_all_dx": 0,
+      "HC_groups_all_dx": 0,
+      "MCI_samples_all_dx": 0,
+      "MCI_groups_all_dx": 0,
+      "AD_samples_used": 0,
+      "AD_groups_used": 0,
+      "AD_analysis_groups": 0,
+      "HC_samples_used": 0,
+      "HC_groups_used": 0,
+      "HC_analysis_groups": 0
+    }
+  ],
+  "scopes": [
+    {
+      "scope": "pd_core",
+      "features": 382,
+      "selected": 24,
+      "translingual": 21,
+      "language_sensitive": 21,
+      "task_sensitive": 0,
+      "language_task_confounded": 0,
+      "unstable": 340
+    },
+    {
+      "scope": "pd_task_specific",
+      "features": 20,
+      "selected": 12,
+      "translingual": 7,
+      "language_sensitive": 5,
+      "task_sensitive": 0,
+      "language_task_confounded": 0,
+      "unstable": 8
+    },
+    {
+      "scope": "pd_full",
+      "features": 474,
+      "selected": 24,
+      "translingual": 28,
+      "language_sensitive": 26,
+      "task_sensitive": 0,
+      "language_task_confounded": 0,
+      "unstable": 420
+    }
+  ],
+  "generated": {
+    "pd_core": [
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\ranked_candidates_pd_core.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\language_effect_heatmap_pd_core.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\language_effect_profiles_pd_core.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\strength_vs_language_specificity_pd_core.png"
+    ],
+    "pd_task_specific": [
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\ranked_candidates_pd_task_specific.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\language_effect_heatmap_pd_task_specific.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\language_effect_profiles_pd_task_specific.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\strength_vs_language_specificity_pd_task_specific.png"
+    ],
+    "pd_full": [
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\ranked_candidates_pd_full.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\language_effect_heatmap_pd_full.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\language_effect_profiles_pd_full.png",
+      "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\report_assets\\pd-only-variants\\strength_vs_language_specificity_pd_full.png"
+    ]
+  },
+  "report": "C:\\Users\\Dhruv\\Documents\\00. Coding\\MultiConAD\\tables\\03-ablation-translingual-language-specific\\language-task-visualisations\\result-tables\\pd_only_visualisation_variant_review.txt"
+}

@@ -1,0 +1,70 @@
+Phase 1 Language-Specific Significance vs Permutation Importance
+===============================================================
+Setup
+-----
+- Significance: per-language Kruskal-Wallis AD vs HC on raw Phase 1 feature values from the training split of the stored best `all_universal` run.
+- Correction: Bonferroni and FDR within each language over all tested Phase 1 features.
+- Comparison target: held-out permutation-importance top features from the fitted best `all_universal` model.
+
+Chinese
+-------
+Tested features: 192 | Bonferroni-significant: 71 | FDR-significant: 130 | Shared top-10 overlap with permutation: 0/10
+Top significance features:
+1. ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm [ac] | p=5.72e-25 | bonf=1.10e-22 | fdr=1.10e-22
+2. ac_egemaps_alpharatiov_sma3nz_amean [ac] | p=8.24e-24 | bonf=1.58e-21 | fdr=7.91e-22
+3. ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope [ac] | p=1.59e-23 | bonf=3.05e-21 | fdr=1.02e-21
+4. ac_egemaps_jitterlocal_sma3nz_amean [ac] | p=8.89e-22 | bonf=1.71e-19 | fdr=4.19e-20
+5. ac_egemaps_logrelf0_h1_a3_sma3nz_amean [ac] | p=1.09e-21 | bonf=2.09e-19 | fdr=4.19e-20
+Difference vs permutation:
+- Significance is dominated by low-level acoustic separation.
+- Permutation instead surfaces a mixed set: `lex_mattr_20`, `len_speech_duration`, `pause_filled_count`, `syn_determiner_ratio`, `syn_pronoun_ratio`, plus several acoustic descriptors.
+- There is no shared top-10 feature, so the best model is not relying on the most individually extreme univariate acoustic markers.
+
+English
+-------
+Tested features: 70 | Bonferroni-significant: 47 | FDR-significant: 58 | Shared top-10 overlap with permutation: 4/10
+Top significance features:
+1. syn_mean_dependency_length [syn] | p=2.59e-57 | bonf=1.81e-55 | fdr=1.81e-55
+2. len_utterance_count [len] | p=7.63e-55 | bonf=5.34e-53 | fdr=1.78e-53
+3. syn_utterance_count [syn] | p=7.63e-55 | bonf=5.34e-53 | fdr=1.78e-53
+4. syn_std_dependency_length [syn] | p=2.76e-51 | bonf=1.93e-49 | fdr=4.83e-50
+5. syn_obl_ratio [syn] | p=6.59e-40 | bonf=4.61e-38 | fdr=9.22e-39
+Difference vs permutation:
+- Shared core features are `syn_mean_dependency_length`, `syn_utterance_count`, `syn_std_dependency_length`, and `syn_num_ratio`.
+- Significance is more uniformly syntax-heavy and favors utterance-count / dependency-complexity variables.
+- Permutation adds `lex_std_token_length`, `disc_immediate_repetition_count`, `disc_repeated_unigram_ratio`, `syn_pronoun_noun_ratio`, and `syn_pronoun_ratio`, showing that the fitted model uses some weaker univariate features in combination.
+
+Greek
+-----
+Tested features: 192 | Bonferroni-significant: 9 | FDR-significant: 34 | Shared top-10 overlap with permutation: 2/10
+Top significance features:
+1. ac_egemaps_loudness_sma3_stddevfallingslope [ac] | p=3.12e-12 | bonf=5.99e-10 | fdr=3.65e-10
+2. ac_rms_std [ac] | p=3.81e-12 | bonf=7.31e-10 | fdr=3.65e-10
+3. ac_egemaps_loudness_sma3_stddevrisingslope [ac] | p=1.01e-11 | bonf=1.94e-09 | fdr=6.48e-10
+4. ac_egemaps_loudness_sma3_meanrisingslope [ac] | p=2.76e-11 | bonf=5.29e-09 | fdr=1.32e-09
+5. ac_egemaps_loudness_sma3_pctlrange0_2 [ac] | p=4.03e-10 | bonf=7.74e-08 | fdr=1.55e-08
+Difference vs permutation:
+- Both views are acoustic-first.
+- Shared features are `ac_egemaps_loudness_sma3_stddevrisingslope` and `ac_egemaps_spectralfluxv_sma3nz_stddevnorm`.
+- Permutation also promotes weakly significant or non-significant features such as `ac_egemaps_jitterlocal_sma3nz_stddevnorm`, `ac_egemaps_slopev0_500_sma3nz_amean`, `syn_determiner_ratio`, and `ac_rms_mean`.
+
+Spanish
+-------
+Tested features: 69 | Bonferroni-significant: 33 | FDR-significant: 50 | Shared top-10 overlap with permutation: 2/10
+Top significance features:
+1. lex_mean_token_length [lex] | p=6.53e-08 | bonf=4.50e-06 | fdr=4.50e-06
+2. pause_filled_count [pause] | p=2.03e-07 | bonf=1.40e-05 | fdr=5.69e-06
+3. disc_immediate_repetition_count [disc] | p=3.51e-07 | bonf=2.42e-05 | fdr=5.69e-06
+4. syn_interjection_ratio [syn] | p=3.60e-07 | bonf=2.48e-05 | fdr=5.69e-06
+5. lex_std_token_length [lex] | p=4.12e-07 | bonf=2.84e-05 | fdr=5.69e-06
+Difference vs permutation:
+- Shared features are `lex_mean_token_length` and `lex_std_token_length`.
+- Significance emphasizes pause/filler counts, immediate repetition, and pronoun-determiner balance.
+- Permutation instead prefers `lex_mattr_10`, `lex_mattr_20`, `graph_average_degree`, `disc_mean_pairwise_utt_similarity`, `disc_repeated_unigram_ratio`, `disc_repeated_bigram_ratio`, and `disc_semantic_drift`.
+
+Takeaway
+--------
+- The significance tables and permutation tables answer different questions.
+- Significance isolates strong one-feature AD/HC separation within each language.
+- Permutation importance reflects what the final fitted model actually depends on after ANOVA pruning, normalization, and multivariate interactions.
+- The mismatch is largest in Chinese and still substantial in Greek and Spanish, so the Phase 1 permutation tables should not be read as Bonferroni-style biomarker tables.

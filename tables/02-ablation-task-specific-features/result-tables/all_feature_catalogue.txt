@@ -1,0 +1,597 @@
+All Feature Catalogue
+=====================
+
+Total features: 474
+Source of truth: data/processed/phase2/phase2_feature_metadata.csv
+Format: feature name includes the readable name followed by the exact feature id in parentheses.
+
+Group counts
+------------
+- Length, duration, and rate (len_*): 11 features
+- Lexical diversity and word choice (lex_*): 12 features
+- Pauses and speech timing (pause_*): 17 features
+- Discourse coherence and repetition (disc_*): 9 features
+- Core syntax and dependency features (syn_*): 34 features
+- Richer syntax and lexical frequency (sx_*): 31 features
+- Phrase and POS-pattern production (pr_*): 45 features
+- Lexical graph structure (graph_*): 6 features
+- Core acoustic and eGeMAPS features (ac_*): 105 features
+- Paralinguistic acoustic descriptors (par_*): 112 features
+- Picture description (pd_*): 20 features
+- Reading aloud (rd_*): 10 features
+- Free conversation (fc_*): 8 features
+- Verbal fluency and list generation (ft_*): 12 features
+- Story and picture recall (sr_*): 8 features
+- Voice commands (cmd_*): 9 features
+- Sentence repetition (rep_*): 8 features
+- Motor speech (ms_*): 8 features
+- Narrative, procedural, and mixed discourse (na_*): 9 features
+
+Length, duration, and rate (len_*)
+----------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Token Count (len_token_count) | N(tokens) | Shows verbosity, duration, or production-rate differences across speakers.
+Type Count (len_type_count) | N(unique tokens) | Shows verbosity, duration, or production-rate differences across speakers.
+Utterance Count (len_utterance_count) | N(utterances) | Shows verbosity, duration, or production-rate differences across speakers.
+Mean Utterance Length (len_mean_utterance_length) | mean(tokens per utterance) | Shows verbosity, duration, or production-rate differences across speakers.
+Standard Deviation Utterance Length (len_std_utterance_length) | std(tokens per utterance) | Shows verbosity, duration, or production-rate differences across speakers.
+Tokens Per Utterance (len_tokens_per_utterance) | N(tokens) / N(utterances) | Shows verbosity, duration, or production-rate differences across speakers.
+Syllable Count (len_syllable_count) | sum(estimated syllables) | Shows verbosity, duration, or production-rate differences across speakers.
+Audio Duration (len_audio_duration) | audio end time - start time | Shows verbosity, duration, or production-rate differences across speakers.
+Speech Duration (len_speech_duration) | sum(non-silent speech intervals) | Shows verbosity, duration, or production-rate differences across speakers.
+Tokens Per Second (len_tokens_per_second) | N(tokens) / audio_duration | Shows verbosity, duration, or production-rate differences across speakers.
+Syllables Per Second (len_syllables_per_second) | N(syllables) / audio_duration | Shows verbosity, duration, or production-rate differences across speakers.
+
+Lexical diversity and word choice (lex_*)
+-----------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Type Token Ratio (lex_type_token_ratio) | N(unique tokens) / N(tokens) | Captures lexical richness, repetition, and word-choice complexity.
+Lemma Type Token Ratio (lex_lemma_type_token_ratio) | N(unique lemmas) / N(lemmas) | Captures lexical richness, repetition, and word-choice complexity.
+Moving Average Ttr 10 (lex_mattr_10) | mean TTR over 10-token moving windows | Captures lexical richness, repetition, and word-choice complexity.
+Moving Average Ttr 20 (lex_mattr_20) | mean TTR over 20-token moving windows | Captures lexical richness, repetition, and word-choice complexity.
+Hapax Ratio (lex_hapax_ratio) | N(tokens appearing once) / N(unique tokens) | Captures lexical richness, repetition, and word-choice complexity.
+Repetition Rate (lex_repetition_rate) | immediate repeated tokens / N(tokens) | Captures lexical richness, repetition, and word-choice complexity.
+Mean Token Length (lex_mean_token_length) | mean(characters per token) | Captures lexical richness, repetition, and word-choice complexity.
+Standard Deviation Token Length (lex_std_token_length) | std(characters per token) | Captures lexical richness, repetition, and word-choice complexity.
+Function Word Ratio (lex_function_word_ratio) | N(function words) / N(tokens) | Captures lexical richness, repetition, and word-choice complexity.
+Content Word Ratio (lex_content_word_ratio) | N(content words) / N(tokens) | Captures lexical richness, repetition, and word-choice complexity.
+Brunet (lex_brunet) | N(tokens) ** (N(types) ** -0.165) | Captures lexical richness, repetition, and word-choice complexity.
+Honore (lex_honore) | 100 * log(N tokens) / (1 - hapax/types) | Captures lexical richness, repetition, and word-choice complexity.
+
+Pauses and speech timing (pause_*)
+----------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Filled Count (pause_filled_count) | N(filled pause tokens) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Filled Per 100 Words (pause_filled_per_100_words) | 100 * filled pauses / N(tokens) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Short Count (pause_short_count) | N(short silent pauses) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Medium Count (pause_medium_count) | N(medium silent pauses) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Long Count (pause_long_count) | N(long silent pauses) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Total Duration (pause_total_duration) | sum(pause durations) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Mean Duration (pause_mean_duration) | mean(pause durations) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Median Duration (pause_median_duration) | median(pause durations) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Standard Deviation Duration (pause_std_duration) | std(pause durations) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Iqr Duration (pause_iqr_duration) | Q75(pause) - Q25(pause) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Silence Ratio (pause_silence_ratio) | pause duration / audio duration | Quantifies silence, filled pauses, and speech fluency disruptions.
+Speaking To Total Ratio (pause_speaking_to_total_ratio) | speech duration / audio duration | Quantifies silence, filled pauses, and speech fluency disruptions.
+To Word Ratio (pause_pause_to_word_ratio) | N(pauses) / N(tokens) | Quantifies silence, filled pauses, and speech fluency disruptions.
+Long Ratio (pause_long_ratio) | N(long pauses) / N(pauses) | Quantifies silence, filled pauses, and speech fluency disruptions.
+To Speech Ratio (pause_to_speech_ratio) | pause duration / speech duration | Quantifies silence, filled pauses, and speech fluency disruptions.
+Speech Rate Words Per Second (pause_speech_rate_words_per_second) | N(tokens) / audio duration | Quantifies silence, filled pauses, and speech fluency disruptions.
+Articulation Rate Words Per Speaking Second (pause_articulation_rate_words_per_speaking_second) | N(tokens) / speech duration | Quantifies silence, filled pauses, and speech fluency disruptions.
+
+Discourse coherence and repetition (disc_*)
+-------------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Repeated Unigram Ratio (disc_repeated_unigram_ratio) | N(repeated unigrams) / N(unigrams) | Measures local discourse repetition, drift, and semantic coherence.
+Repeated Bigram Ratio (disc_repeated_bigram_ratio) | N(repeated bigrams) / N(bigrams) | Measures local discourse repetition, drift, and semantic coherence.
+Repeated Trigram Ratio (disc_repeated_trigram_ratio) | N(repeated trigrams) / N(trigrams) | Measures local discourse repetition, drift, and semantic coherence.
+Immediate Repetition Count (disc_immediate_repetition_count) | count(tokens equal to previous token) | Measures local discourse repetition, drift, and semantic coherence.
+Adjacent Utterance Similarity Mean (disc_adjacent_utterance_similarity_mean) | mean TF-IDF cosine between adjacent utterances | Measures local discourse repetition, drift, and semantic coherence.
+Adjacent Utterance Similarity Standard Deviation (disc_adjacent_utterance_similarity_std) | std TF-IDF cosine between adjacent utterances | Measures local discourse repetition, drift, and semantic coherence.
+Mean Pairwise Utterance Similarity (disc_mean_pairwise_utt_similarity) | mean TF-IDF cosine across all utterance pairs | Measures local discourse repetition, drift, and semantic coherence.
+Semantic Drift (disc_semantic_drift) | 1 - cosine(first utterance, last utterance) | Measures local discourse repetition, drift, and semantic coherence.
+Local Coherence (disc_local_coherence) | mean adjacent utterance cosine similarity | Measures local discourse repetition, drift, and semantic coherence.
+
+Core syntax and dependency features (syn_*)
+-------------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Noun Ratio (syn_noun_ratio) | N(noun) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Verb Ratio (syn_verb_ratio) | N(verb) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Adj Ratio (syn_adj_ratio) | N(adj) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Adv Ratio (syn_adv_ratio) | N(adv) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Adposition Ratio (syn_adp_ratio) | N(adp) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Auxiliary Ratio (syn_aux_ratio) | N(aux) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Pronoun Ratio (syn_pronoun_ratio) | N(pronoun) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Determiner Ratio (syn_determiner_ratio) | N(determiner) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Coordinating Conjunction Ratio (syn_cconj_ratio) | N(cconj) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Subordinating Conjunction Ratio (syn_sconj_ratio) | N(sconj) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Interjection Ratio (syn_interjection_ratio) | N(interjection) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Propn Ratio (syn_propn_ratio) | N(propn) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Part Ratio (syn_part_ratio) | N(part) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Num Ratio (syn_num_ratio) | N(num) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Noun Verb Ratio (syn_noun_verb_ratio) | N(noun+verb) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Pronoun Noun Ratio (syn_pronoun_noun_ratio) | N(pronoun+noun) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Determiner Noun Ratio (syn_determiner_noun_ratio) | N(determiner+noun) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Auxiliary Verb Ratio (syn_aux_verb_ratio) | N(aux+verb) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Content Function Ratio (syn_content_function_ratio) | N(content+function) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Open Closed Ratio (syn_open_closed_ratio) | N(open+closed) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Clause Density (syn_clause_density) | 100 * N(VERB + AUX) / N(tokens) | Captures grammatical composition and dependency-parse complexity.
+Subordination Ratio (syn_subordination_ratio) | N(subordination) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Nominal Subject Ratio (syn_nsubj_ratio) | N(nsubj) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Object Ratio (syn_obj_ratio) | N(obj) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Oblique Ratio (syn_obl_ratio) | N(obl) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Adverbial Modifier Ratio (syn_advmod_ratio) | N(advmod) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Adjectival Modifier Ratio (syn_amod_ratio) | N(amod) / denominator POS/dependency count | Captures grammatical composition and dependency-parse complexity.
+Mean Dependency Length (syn_mean_dependency_length) | mean(absolute head-dependent token distance) | Captures grammatical composition and dependency-parse complexity.
+Standard Deviation Dependency Length (syn_std_dependency_length) | std(absolute head-dependent token distance) | Captures grammatical composition and dependency-parse complexity.
+Max Dependency Length (syn_max_dependency_length) | max(absolute head-dependent token distance) | Captures grammatical composition and dependency-parse complexity.
+Mean Tree Depth (syn_mean_tree_depth) | mean(dependency tree depth per token) | Captures grammatical composition and dependency-parse complexity.
+Max Tree Depth (syn_max_tree_depth) | max(dependency tree depth per token) | Captures grammatical composition and dependency-parse complexity.
+Mean Utterance Length Words (syn_mean_utterance_length_words) | mean(tokens per utterance) | Captures grammatical composition and dependency-parse complexity.
+Utterance Count (syn_utterance_count) | N(utterances) | Captures grammatical composition and dependency-parse complexity.
+
+Richer syntax and lexical frequency (sx_*)
+------------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Sentence Length 25Th Percentile (sx_sentence_length_q25) | percentile(25%, tokens per utterance) | Adds syntax, frequency, and discourse-coherence detail.
+Sentence Length Median (sx_sentence_length_q50) | percentile(50%, tokens per utterance) | Adds syntax, frequency, and discourse-coherence detail.
+Sentence Length 75Th Percentile (sx_sentence_length_q75) | percentile(75%, tokens per utterance) | Adds syntax, frequency, and discourse-coherence detail.
+Sentence Length Coefficient Of Variation (sx_sentence_length_cv) | std(tokens per utterance) / mean(tokens per utterance) | Adds syntax, frequency, and discourse-coherence detail.
+Dependency Length 25Th Percentile (sx_dep_length_q25) | percentile(25%, dependency lengths) | Adds syntax, frequency, and discourse-coherence detail.
+Dependency Length Median (sx_dep_length_q50) | percentile(50%, dependency lengths) | Adds syntax, frequency, and discourse-coherence detail.
+Dependency Length 75Th Percentile (sx_dep_length_q75) | percentile(75%, dependency lengths) | Adds syntax, frequency, and discourse-coherence detail.
+Tree Depth Standard Deviation (sx_tree_depth_std) | std(dependency tree depths) | Adds syntax, frequency, and discourse-coherence detail.
+Tree Depth 75Th Percentile (sx_tree_depth_q75) | 75th percentile dependency tree depth | Adds syntax, frequency, and discourse-coherence detail.
+Pos Entropy (sx_upos_entropy) | entropy(distribution of upos labels) | Adds syntax, frequency, and discourse-coherence detail.
+Dependency Entropy (sx_dep_entropy) | entropy(distribution of dep labels) | Adds syntax, frequency, and discourse-coherence detail.
+Clause Per 100 Tokens (sx_clause_per_100_tokens) | 100 * N(VERB + AUX) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Coordination Density (sx_coordination_density) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Modifier Density (sx_modifier_density) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Nominal Density (sx_nominal_density) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Verbal Density (sx_verbal_density) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Noun Phrase Like Ratio (sx_np_like_ratio) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Prepositional Phrase Like Ratio (sx_pp_like_ratio) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Verb Phrase Like Ratio (sx_vp_like_ratio) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Subject Object Balance (sx_subject_object_balance) | subject object balance | Adds syntax, frequency, and discourse-coherence detail.
+Function Word Ratio Lexicon (sx_function_word_ratio_lexicon) | function word ratio lexicon | Adds syntax, frequency, and discourse-coherence detail.
+Content Word Ratio Lexicon (sx_content_word_ratio_lexicon) | content word ratio lexicon | Adds syntax, frequency, and discourse-coherence detail.
+Mean Log Lemma Freq (sx_mean_log_lemma_freq) | mean(log10((lemma count + 1) / language total)) | Adds syntax, frequency, and discourse-coherence detail.
+Standard Deviation Log Lemma Freq (sx_std_log_lemma_freq) | std(log10((lemma count + 1) / language total)) | Adds syntax, frequency, and discourse-coherence detail.
+Rare Lemma Ratio (sx_rare_lemma_ratio) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Very Rare Lemma Ratio (sx_very_rare_lemma_ratio) | N(matching POS/dependency/lexicon items) / N(tokens) | Adds syntax, frequency, and discourse-coherence detail.
+Adjacent Similarity Min (sx_adjacent_similarity_min) | min(adjacent utterance TF-IDF cosine) | Adds syntax, frequency, and discourse-coherence detail.
+Adjacent Similarity Max (sx_adjacent_similarity_max) | max(adjacent utterance TF-IDF cosine) | Adds syntax, frequency, and discourse-coherence detail.
+Pairwise Similarity Standard Deviation (sx_pairwise_similarity_std) | std(pairwise utterance TF-IDF cosine) | Adds syntax, frequency, and discourse-coherence detail.
+Low Similarity Frac 05 (sx_low_similarity_frac_05) | N(pairwise cosine < 0.5) / N(pairs) | Adds syntax, frequency, and discourse-coherence detail.
+Low Similarity Frac 03 (sx_low_similarity_frac_03) | N(pairwise cosine < 0.3) / N(pairs) | Adds syntax, frequency, and discourse-coherence detail.
+
+Phrase and POS-pattern production (pr_*)
+----------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Noun Phrase Count (pr_np_count) | N(noun phrases) from shallow POS chunks | Measures phrase production and POS-pattern organization.
+Verb Phrase Count (pr_vp_count) | N(verb phrases) from shallow POS chunks | Measures phrase production and POS-pattern organization.
+Prepositional Phrase Count (pr_pp_count) | N(prepositional phrases) from shallow POS chunks | Measures phrase production and POS-pattern organization.
+Adjective Phrase Count (pr_adjp_count) | N(adjective phrases) from shallow POS chunks | Measures phrase production and POS-pattern organization.
+Adverb Phrase Count (pr_advp_count) | N(adverb phrases) from shallow POS chunks | Measures phrase production and POS-pattern organization.
+Noun Phrase Ratio (pr_np_ratio) | N(noun phrases) / N(all chunks) | Measures phrase production and POS-pattern organization.
+Verb Phrase Ratio (pr_vp_ratio) | N(verb phrases) / N(all chunks) | Measures phrase production and POS-pattern organization.
+Prepositional Phrase Ratio (pr_pp_ratio) | N(prepositional phrases) / N(all chunks) | Measures phrase production and POS-pattern organization.
+Adjective Phrase Ratio (pr_adjp_ratio) | N(adjective phrases) / N(all chunks) | Measures phrase production and POS-pattern organization.
+Adverb Phrase Ratio (pr_advp_ratio) | N(adverb phrases) / N(all chunks) | Measures phrase production and POS-pattern organization.
+Noun Phrase Mean (pr_np_mean_len) | mean token length of noun phrases | Measures phrase production and POS-pattern organization.
+Verb Phrase Mean (pr_vp_mean_len) | mean token length of verb phrases | Measures phrase production and POS-pattern organization.
+Prepositional Phrase Mean (pr_pp_mean_len) | mean token length of prepositional phrases | Measures phrase production and POS-pattern organization.
+Adjective Phrase Mean (pr_adjp_mean_len) | mean token length of adjective phrases | Measures phrase production and POS-pattern organization.
+Adverb Phrase Mean (pr_advp_mean_len) | mean token length of adverb phrases | Measures phrase production and POS-pattern organization.
+Noun Phrase Rate (pr_np_rate) | N(noun phrases) / N(utterances) | Measures phrase production and POS-pattern organization.
+Verb Phrase Rate (pr_vp_rate) | N(verb phrases) / N(utterances) | Measures phrase production and POS-pattern organization.
+Prepositional Phrase Rate (pr_pp_rate) | N(prepositional phrases) / N(utterances) | Measures phrase production and POS-pattern organization.
+Chunk Density (pr_chunk_density) | N(chunks) / N(POS tokens) | Measures phrase production and POS-pattern organization.
+Chunk Diversity (pr_chunk_diversity) | N(chunk types used) / N(chunks) | Measures phrase production and POS-pattern organization.
+Det Noun Ratio (pr_det_noun_ratio) | N(POS pattern det-noun-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Adj Noun Ratio (pr_adj_noun_ratio) | N(POS pattern adj-noun-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Pron Verb Ratio (pr_pron_verb_ratio) | N(POS pattern pron-verb-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Noun Verb Ratio (pr_noun_verb_ratio) | N(POS pattern noun-verb-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Verb Det Ratio (pr_verb_det_ratio) | N(POS pattern verb-det-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Adposition Noun Ratio (pr_adp_noun_ratio) | N(POS pattern adp-noun-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Auxiliary Verb Ratio (pr_aux_verb_ratio) | N(POS pattern aux-verb-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Verb Adv Ratio (pr_verb_adv_ratio) | N(POS pattern verb-adv-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Adv Verb Ratio (pr_adv_verb_ratio) | N(POS pattern adv-verb-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Noun Adposition Ratio (pr_noun_adp_ratio) | N(POS pattern noun-adp-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Verb Pron Ratio (pr_verb_pron_ratio) | N(POS pattern verb-pron-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Coordinating Conjunction Pron Ratio (pr_cconj_pron_ratio) | N(POS pattern cconj-pron-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Subordinating Conjunction Pron Ratio (pr_sconj_pron_ratio) | N(POS pattern sconj-pron-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Adposition Det Ratio (pr_adp_det_ratio) | N(POS pattern adp-det-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Det Adj Ratio (pr_det_adj_ratio) | N(POS pattern det-adj-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Det Adj Noun Ratio (pr_det_adj_noun_ratio) | N(POS pattern det-adj-noun-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Det Noun Verb Ratio (pr_det_noun_verb_ratio) | N(POS pattern det-noun-verb-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Pron Auxiliary Verb Ratio (pr_pron_aux_verb_ratio) | N(POS pattern pron-aux-verb-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Pron Verb Det Ratio (pr_pron_verb_det_ratio) | N(POS pattern pron-verb-det-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Adposition Det Noun Ratio (pr_adp_det_noun_ratio) | N(POS pattern adp-det-noun-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Noun Auxiliary Verb Ratio (pr_noun_aux_verb_ratio) | N(POS pattern noun-aux-verb-ratio) / N(POS n-grams) | Measures phrase production and POS-pattern organization.
+Root Verb Ratio (pr_root_verb_ratio) | N(utterance-root VERB_RATIO) / N(utterances) | Measures phrase production and POS-pattern organization.
+Root Noun Ratio (pr_root_noun_ratio) | N(utterance-root NOUN_RATIO) / N(utterances) | Measures phrase production and POS-pattern organization.
+Root Pron Ratio (pr_root_pron_ratio) | N(utterance-root PRON_RATIO) / N(utterances) | Measures phrase production and POS-pattern organization.
+Root Adj Ratio (pr_root_adj_ratio) | N(utterance-root ADJ_RATIO) / N(utterances) | Measures phrase production and POS-pattern organization.
+
+Lexical graph structure (graph_*)
+---------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Node Count (graph_node_count) | N(unique token nodes) | Represents word transitions as lexical graph complexity.
+Edge Count (graph_edge_count) | N(unique adjacent-token edges) | Represents word transitions as lexical graph complexity.
+Density (graph_density) | edges / possible directed edges | Represents word transitions as lexical graph complexity.
+Self Loop Ratio (graph_self_loop_ratio) | self-loop edges / total edges | Represents word transitions as lexical graph complexity.
+Largest Component Ratio (graph_largest_component_ratio) | largest weak component nodes / nodes | Represents word transitions as lexical graph complexity.
+Average Degree (graph_average_degree) | sum(node degrees) / N(nodes) | Represents word transitions as lexical graph complexity.
+
+Core acoustic and eGeMAPS features (ac_*)
+-----------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Mean F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+20Th Percentile F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile20_0) | openSMILE eGeMAPSv02 20th percentile(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Median F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile50_0) | openSMILE eGeMAPSv02 median(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+80Th Percentile F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_percentile80_0) | openSMILE eGeMAPSv02 80th percentile(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+80Th Minus 20Th Percentile F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_pctlrange0_2) | openSMILE eGeMAPSv02 80th minus 20th percentile(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Rising Slope F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanrisingslope) | openSMILE eGeMAPSv02 mean rising slope(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Standard Deviation Of Rising Slope F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevrisingslope) | openSMILE eGeMAPSv02 standard deviation of rising slope(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Falling Slope F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_meanfallingslope) | openSMILE eGeMAPSv02 mean falling slope(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Standard Deviation Of Falling Slope F0Semitonefrom27 5Hz Sma3Nz (ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevfallingslope) | openSMILE eGeMAPSv02 standard deviation of falling slope(f0semitonefrom27_5hz_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Loudness Sma3 (ac_egemaps_loudness_sma3_amean) | openSMILE eGeMAPSv02 mean(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Loudness Sma3 (ac_egemaps_loudness_sma3_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+20Th Percentile Loudness Sma3 (ac_egemaps_loudness_sma3_percentile20_0) | openSMILE eGeMAPSv02 20th percentile(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+Median Loudness Sma3 (ac_egemaps_loudness_sma3_percentile50_0) | openSMILE eGeMAPSv02 median(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+80Th Percentile Loudness Sma3 (ac_egemaps_loudness_sma3_percentile80_0) | openSMILE eGeMAPSv02 80th percentile(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+80Th Minus 20Th Percentile Loudness Sma3 (ac_egemaps_loudness_sma3_pctlrange0_2) | openSMILE eGeMAPSv02 80th minus 20th percentile(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Rising Slope Loudness Sma3 (ac_egemaps_loudness_sma3_meanrisingslope) | openSMILE eGeMAPSv02 mean rising slope(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+Standard Deviation Of Rising Slope Loudness Sma3 (ac_egemaps_loudness_sma3_stddevrisingslope) | openSMILE eGeMAPSv02 standard deviation of rising slope(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Falling Slope Loudness Sma3 (ac_egemaps_loudness_sma3_meanfallingslope) | openSMILE eGeMAPSv02 mean falling slope(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+Standard Deviation Of Falling Slope Loudness Sma3 (ac_egemaps_loudness_sma3_stddevfallingslope) | openSMILE eGeMAPSv02 standard deviation of falling slope(loudness_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Spectralflux Sma3 (ac_egemaps_spectralflux_sma3_amean) | openSMILE eGeMAPSv02 mean(spectralflux_sma3) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Spectralflux Sma3 (ac_egemaps_spectralflux_sma3_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(spectralflux_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc1 Sma3 (ac_egemaps_mfcc1_sma3_amean) | openSMILE eGeMAPSv02 mean(mfcc1_sma3) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc1 Sma3 (ac_egemaps_mfcc1_sma3_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc1_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc2 Sma3 (ac_egemaps_mfcc2_sma3_amean) | openSMILE eGeMAPSv02 mean(mfcc2_sma3) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc2 Sma3 (ac_egemaps_mfcc2_sma3_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc2_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc3 Sma3 (ac_egemaps_mfcc3_sma3_amean) | openSMILE eGeMAPSv02 mean(mfcc3_sma3) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc3 Sma3 (ac_egemaps_mfcc3_sma3_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc3_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc4 Sma3 (ac_egemaps_mfcc4_sma3_amean) | openSMILE eGeMAPSv02 mean(mfcc4_sma3) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc4 Sma3 (ac_egemaps_mfcc4_sma3_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc4_sma3) | Captures voice quality, prosody, articulation, and energy.
+Mean Jitterlocal Sma3Nz (ac_egemaps_jitterlocal_sma3nz_amean) | openSMILE eGeMAPSv02 mean(jitterlocal_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Jitterlocal Sma3Nz (ac_egemaps_jitterlocal_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(jitterlocal_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Shimmerlocaldb Sma3Nz (ac_egemaps_shimmerlocaldb_sma3nz_amean) | openSMILE eGeMAPSv02 mean(shimmerlocaldb_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Shimmerlocaldb Sma3Nz (ac_egemaps_shimmerlocaldb_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(shimmerlocaldb_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Hnrdbacf Sma3Nz (ac_egemaps_hnrdbacf_sma3nz_amean) | openSMILE eGeMAPSv02 mean(hnrdbacf_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Hnrdbacf Sma3Nz (ac_egemaps_hnrdbacf_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(hnrdbacf_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Logrelf0 H1 H2 Sma3Nz (ac_egemaps_logrelf0_h1_h2_sma3nz_amean) | openSMILE eGeMAPSv02 mean(logrelf0_h1_h2_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Logrelf0 H1 H2 Sma3Nz (ac_egemaps_logrelf0_h1_h2_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(logrelf0_h1_h2_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Logrelf0 H1 A3 Sma3Nz (ac_egemaps_logrelf0_h1_a3_sma3nz_amean) | openSMILE eGeMAPSv02 mean(logrelf0_h1_a3_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Logrelf0 H1 A3 Sma3Nz (ac_egemaps_logrelf0_h1_a3_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(logrelf0_h1_a3_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F1Frequency Sma3Nz (ac_egemaps_f1frequency_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f1frequency_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F1Frequency Sma3Nz (ac_egemaps_f1frequency_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f1frequency_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F1Bandwidth Sma3Nz (ac_egemaps_f1bandwidth_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f1bandwidth_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F1Bandwidth Sma3Nz (ac_egemaps_f1bandwidth_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f1bandwidth_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F1Amplitudelogrelf0 Sma3Nz (ac_egemaps_f1amplitudelogrelf0_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f1amplitudelogrelf0_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F1Amplitudelogrelf0 Sma3Nz (ac_egemaps_f1amplitudelogrelf0_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f1amplitudelogrelf0_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F2Frequency Sma3Nz (ac_egemaps_f2frequency_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f2frequency_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F2Frequency Sma3Nz (ac_egemaps_f2frequency_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f2frequency_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F2Bandwidth Sma3Nz (ac_egemaps_f2bandwidth_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f2bandwidth_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F2Bandwidth Sma3Nz (ac_egemaps_f2bandwidth_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f2bandwidth_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F2Amplitudelogrelf0 Sma3Nz (ac_egemaps_f2amplitudelogrelf0_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f2amplitudelogrelf0_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F2Amplitudelogrelf0 Sma3Nz (ac_egemaps_f2amplitudelogrelf0_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f2amplitudelogrelf0_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F3Frequency Sma3Nz (ac_egemaps_f3frequency_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f3frequency_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F3Frequency Sma3Nz (ac_egemaps_f3frequency_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f3frequency_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F3Bandwidth Sma3Nz (ac_egemaps_f3bandwidth_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f3bandwidth_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F3Bandwidth Sma3Nz (ac_egemaps_f3bandwidth_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f3bandwidth_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean F3Amplitudelogrelf0 Sma3Nz (ac_egemaps_f3amplitudelogrelf0_sma3nz_amean) | openSMILE eGeMAPSv02 mean(f3amplitudelogrelf0_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation F3Amplitudelogrelf0 Sma3Nz (ac_egemaps_f3amplitudelogrelf0_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(f3amplitudelogrelf0_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Alpharatiov Sma3Nz (ac_egemaps_alpharatiov_sma3nz_amean) | openSMILE eGeMAPSv02 mean(alpharatiov_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Alpharatiov Sma3Nz (ac_egemaps_alpharatiov_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(alpharatiov_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Hammarbergindexv Sma3Nz (ac_egemaps_hammarbergindexv_sma3nz_amean) | openSMILE eGeMAPSv02 mean(hammarbergindexv_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Hammarbergindexv Sma3Nz (ac_egemaps_hammarbergindexv_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(hammarbergindexv_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Slopev0 500 Sma3Nz (ac_egemaps_slopev0_500_sma3nz_amean) | openSMILE eGeMAPSv02 mean(slopev0_500_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Slopev0 500 Sma3Nz (ac_egemaps_slopev0_500_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(slopev0_500_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Slopev500 1500 Sma3Nz (ac_egemaps_slopev500_1500_sma3nz_amean) | openSMILE eGeMAPSv02 mean(slopev500_1500_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Slopev500 1500 Sma3Nz (ac_egemaps_slopev500_1500_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(slopev500_1500_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Spectralfluxv Sma3Nz (ac_egemaps_spectralfluxv_sma3nz_amean) | openSMILE eGeMAPSv02 mean(spectralfluxv_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Spectralfluxv Sma3Nz (ac_egemaps_spectralfluxv_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(spectralfluxv_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc1V Sma3Nz (ac_egemaps_mfcc1v_sma3nz_amean) | openSMILE eGeMAPSv02 mean(mfcc1v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc1V Sma3Nz (ac_egemaps_mfcc1v_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc1v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc2V Sma3Nz (ac_egemaps_mfcc2v_sma3nz_amean) | openSMILE eGeMAPSv02 mean(mfcc2v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc2V Sma3Nz (ac_egemaps_mfcc2v_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc2v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc3V Sma3Nz (ac_egemaps_mfcc3v_sma3nz_amean) | openSMILE eGeMAPSv02 mean(mfcc3v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc3V Sma3Nz (ac_egemaps_mfcc3v_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc3v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Mfcc4V Sma3Nz (ac_egemaps_mfcc4v_sma3nz_amean) | openSMILE eGeMAPSv02 mean(mfcc4v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Normalized Standard Deviation Mfcc4V Sma3Nz (ac_egemaps_mfcc4v_sma3nz_stddevnorm) | openSMILE eGeMAPSv02 normalized standard deviation(mfcc4v_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Alpharatiouv Sma3Nz (ac_egemaps_alpharatiouv_sma3nz_amean) | openSMILE eGeMAPSv02 mean(alpharatiouv_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Hammarbergindexuv Sma3Nz (ac_egemaps_hammarbergindexuv_sma3nz_amean) | openSMILE eGeMAPSv02 mean(hammarbergindexuv_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Slopeuv0 500 Sma3Nz (ac_egemaps_slopeuv0_500_sma3nz_amean) | openSMILE eGeMAPSv02 mean(slopeuv0_500_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Slopeuv500 1500 Sma3Nz (ac_egemaps_slopeuv500_1500_sma3nz_amean) | openSMILE eGeMAPSv02 mean(slopeuv500_1500_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Mean Spectralfluxuv Sma3Nz (ac_egemaps_spectralfluxuv_sma3nz_amean) | openSMILE eGeMAPSv02 mean(spectralfluxuv_sma3nz) | Captures voice quality, prosody, articulation, and energy.
+Loudnesspeakspersec (ac_egemaps_loudnesspeakspersec) | openSMILE eGeMAPSv02 loudnesspeakspersec() | Captures voice quality, prosody, articulation, and energy.
+Voicedsegmentspersec (ac_egemaps_voicedsegmentspersec) | openSMILE eGeMAPSv02 voicedsegmentspersec() | Captures voice quality, prosody, articulation, and energy.
+Meanvoicedsegmentlengthsec (ac_egemaps_meanvoicedsegmentlengthsec) | openSMILE eGeMAPSv02 meanvoicedsegmentlengthsec() | Captures voice quality, prosody, articulation, and energy.
+Stddevvoicedsegmentlengthsec (ac_egemaps_stddevvoicedsegmentlengthsec) | openSMILE eGeMAPSv02 stddevvoicedsegmentlengthsec() | Captures voice quality, prosody, articulation, and energy.
+Meanunvoicedsegmentlength (ac_egemaps_meanunvoicedsegmentlength) | openSMILE eGeMAPSv02 meanunvoicedsegmentlength() | Captures voice quality, prosody, articulation, and energy.
+Stddevunvoicedsegmentlength (ac_egemaps_stddevunvoicedsegmentlength) | openSMILE eGeMAPSv02 stddevunvoicedsegmentlength() | Captures voice quality, prosody, articulation, and energy.
+Dbp Equivalentsoundlevel (ac_egemaps_equivalentsoundlevel_dbp) | openSMILE eGeMAPSv02 dbp(equivalentsoundlevel) | Captures voice quality, prosody, articulation, and energy.
+Duration (ac_duration) | audio duration in seconds | Captures voice quality, prosody, articulation, and energy.
+Rms Energy Mean (ac_rms_mean) | mean(RMS energy frames) | Captures voice quality, prosody, articulation, and energy.
+Rms Energy Standard Deviation (ac_rms_std) | std(RMS energy frames) | Captures voice quality, prosody, articulation, and energy.
+Zero Crossing Rate Mean (ac_zcr_mean) | mean(zero-crossing-rate frames) | Captures voice quality, prosody, articulation, and energy.
+Zero Crossing Rate Standard Deviation (ac_zcr_std) | std(zero-crossing-rate frames) | Captures voice quality, prosody, articulation, and energy.
+Pitch Mean (ac_f0_mean) | mean(estimated pitch frames) | Captures voice quality, prosody, articulation, and energy.
+Pitch Standard Deviation (ac_f0_std) | std(estimated pitch frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 1 Mean (ac_mfcc_1_mean) | mean(MFCC 1 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 1 Standard Deviation (ac_mfcc_1_std) | std(MFCC 1 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 2 Mean (ac_mfcc_2_mean) | mean(MFCC 2 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 2 Standard Deviation (ac_mfcc_2_std) | std(MFCC 2 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 3 Mean (ac_mfcc_3_mean) | mean(MFCC 3 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 3 Standard Deviation (ac_mfcc_3_std) | std(MFCC 3 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 4 Mean (ac_mfcc_4_mean) | mean(MFCC 4 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 4 Standard Deviation (ac_mfcc_4_std) | std(MFCC 4 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 5 Mean (ac_mfcc_5_mean) | mean(MFCC 5 frames) | Captures voice quality, prosody, articulation, and energy.
+Mfcc 5 Standard Deviation (ac_mfcc_5_std) | std(MFCC 5 frames) | Captures voice quality, prosody, articulation, and energy.
+
+Paralinguistic acoustic descriptors (par_*)
+-------------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Mfcc 1 Mean (par_mfcc_1_mean) | mean(MFCC 1 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 1 Standard Deviation (par_mfcc_1_std) | std(MFCC 1 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 1 Skew (par_mfcc_1_skew) | skew(MFCC 1 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 1 Kurtosis (par_mfcc_1_kurtosis) | kurtosis(MFCC 1 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+1 Mean Delta Mfcc (par_delta_mfcc_1_mean) | mean(delta MFCC 1 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+1 Std Delta Mfcc (par_delta_mfcc_1_std) | std(delta MFCC 1 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 2 Mean (par_mfcc_2_mean) | mean(MFCC 2 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 2 Standard Deviation (par_mfcc_2_std) | std(MFCC 2 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 2 Skew (par_mfcc_2_skew) | skew(MFCC 2 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 2 Kurtosis (par_mfcc_2_kurtosis) | kurtosis(MFCC 2 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+2 Mean Delta Mfcc (par_delta_mfcc_2_mean) | mean(delta MFCC 2 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+2 Std Delta Mfcc (par_delta_mfcc_2_std) | std(delta MFCC 2 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 3 Mean (par_mfcc_3_mean) | mean(MFCC 3 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 3 Standard Deviation (par_mfcc_3_std) | std(MFCC 3 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 3 Skew (par_mfcc_3_skew) | skew(MFCC 3 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 3 Kurtosis (par_mfcc_3_kurtosis) | kurtosis(MFCC 3 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+3 Mean Delta Mfcc (par_delta_mfcc_3_mean) | mean(delta MFCC 3 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+3 Std Delta Mfcc (par_delta_mfcc_3_std) | std(delta MFCC 3 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 4 Mean (par_mfcc_4_mean) | mean(MFCC 4 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 4 Standard Deviation (par_mfcc_4_std) | std(MFCC 4 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 4 Skew (par_mfcc_4_skew) | skew(MFCC 4 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 4 Kurtosis (par_mfcc_4_kurtosis) | kurtosis(MFCC 4 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+4 Mean Delta Mfcc (par_delta_mfcc_4_mean) | mean(delta MFCC 4 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+4 Std Delta Mfcc (par_delta_mfcc_4_std) | std(delta MFCC 4 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 5 Mean (par_mfcc_5_mean) | mean(MFCC 5 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 5 Standard Deviation (par_mfcc_5_std) | std(MFCC 5 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 5 Skew (par_mfcc_5_skew) | skew(MFCC 5 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 5 Kurtosis (par_mfcc_5_kurtosis) | kurtosis(MFCC 5 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+5 Mean Delta Mfcc (par_delta_mfcc_5_mean) | mean(delta MFCC 5 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+5 Std Delta Mfcc (par_delta_mfcc_5_std) | std(delta MFCC 5 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 6 Mean (par_mfcc_6_mean) | mean(MFCC 6 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 6 Standard Deviation (par_mfcc_6_std) | std(MFCC 6 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 6 Skew (par_mfcc_6_skew) | skew(MFCC 6 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 6 Kurtosis (par_mfcc_6_kurtosis) | kurtosis(MFCC 6 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+6 Mean Delta Mfcc (par_delta_mfcc_6_mean) | mean(delta MFCC 6 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+6 Std Delta Mfcc (par_delta_mfcc_6_std) | std(delta MFCC 6 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 7 Mean (par_mfcc_7_mean) | mean(MFCC 7 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 7 Standard Deviation (par_mfcc_7_std) | std(MFCC 7 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 7 Skew (par_mfcc_7_skew) | skew(MFCC 7 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 7 Kurtosis (par_mfcc_7_kurtosis) | kurtosis(MFCC 7 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+7 Mean Delta Mfcc (par_delta_mfcc_7_mean) | mean(delta MFCC 7 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+7 Std Delta Mfcc (par_delta_mfcc_7_std) | std(delta MFCC 7 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 8 Mean (par_mfcc_8_mean) | mean(MFCC 8 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 8 Standard Deviation (par_mfcc_8_std) | std(MFCC 8 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 8 Skew (par_mfcc_8_skew) | skew(MFCC 8 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 8 Kurtosis (par_mfcc_8_kurtosis) | kurtosis(MFCC 8 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+8 Mean Delta Mfcc (par_delta_mfcc_8_mean) | mean(delta MFCC 8 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+8 Std Delta Mfcc (par_delta_mfcc_8_std) | std(delta MFCC 8 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 9 Mean (par_mfcc_9_mean) | mean(MFCC 9 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 9 Standard Deviation (par_mfcc_9_std) | std(MFCC 9 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 9 Skew (par_mfcc_9_skew) | skew(MFCC 9 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 9 Kurtosis (par_mfcc_9_kurtosis) | kurtosis(MFCC 9 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+9 Mean Delta Mfcc (par_delta_mfcc_9_mean) | mean(delta MFCC 9 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+9 Std Delta Mfcc (par_delta_mfcc_9_std) | std(delta MFCC 9 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 10 Mean (par_mfcc_10_mean) | mean(MFCC 10 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 10 Standard Deviation (par_mfcc_10_std) | std(MFCC 10 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 10 Skew (par_mfcc_10_skew) | skew(MFCC 10 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 10 Kurtosis (par_mfcc_10_kurtosis) | kurtosis(MFCC 10 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+10 Mean Delta Mfcc (par_delta_mfcc_10_mean) | mean(delta MFCC 10 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+10 Std Delta Mfcc (par_delta_mfcc_10_std) | std(delta MFCC 10 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 11 Mean (par_mfcc_11_mean) | mean(MFCC 11 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 11 Standard Deviation (par_mfcc_11_std) | std(MFCC 11 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 11 Skew (par_mfcc_11_skew) | skew(MFCC 11 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 11 Kurtosis (par_mfcc_11_kurtosis) | kurtosis(MFCC 11 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+11 Mean Delta Mfcc (par_delta_mfcc_11_mean) | mean(delta MFCC 11 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+11 Std Delta Mfcc (par_delta_mfcc_11_std) | std(delta MFCC 11 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 12 Mean (par_mfcc_12_mean) | mean(MFCC 12 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 12 Standard Deviation (par_mfcc_12_std) | std(MFCC 12 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 12 Skew (par_mfcc_12_skew) | skew(MFCC 12 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 12 Kurtosis (par_mfcc_12_kurtosis) | kurtosis(MFCC 12 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+12 Mean Delta Mfcc (par_delta_mfcc_12_mean) | mean(delta MFCC 12 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+12 Std Delta Mfcc (par_delta_mfcc_12_std) | std(delta MFCC 12 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 13 Mean (par_mfcc_13_mean) | mean(MFCC 13 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 13 Standard Deviation (par_mfcc_13_std) | std(MFCC 13 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 13 Skew (par_mfcc_13_skew) | skew(MFCC 13 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mfcc 13 Kurtosis (par_mfcc_13_kurtosis) | kurtosis(MFCC 13 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+13 Mean Delta Mfcc (par_delta_mfcc_13_mean) | mean(delta MFCC 13 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+13 Std Delta Mfcc (par_delta_mfcc_13_std) | std(delta MFCC 13 frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mean Spectral Centroid (par_spectral_centroid_mean) | mean(spectral centroid frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Std Spectral Centroid (par_spectral_centroid_std) | std(spectral centroid frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Skew Spectral Centroid (par_spectral_centroid_skew) | skew(spectral centroid frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Kurtosis Spectral Centroid (par_spectral_centroid_kurtosis) | kurtosis(spectral centroid frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mean Spectral Bandwidth (par_spectral_bandwidth_mean) | mean(spectral bandwidth frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Std Spectral Bandwidth (par_spectral_bandwidth_std) | std(spectral bandwidth frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Skew Spectral Bandwidth (par_spectral_bandwidth_skew) | skew(spectral bandwidth frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Kurtosis Spectral Bandwidth (par_spectral_bandwidth_kurtosis) | kurtosis(spectral bandwidth frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mean Spectral Rolloff (par_spectral_rolloff_mean) | mean(spectral rolloff frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Std Spectral Rolloff (par_spectral_rolloff_std) | std(spectral rolloff frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Skew Spectral Rolloff (par_spectral_rolloff_skew) | skew(spectral rolloff frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Kurtosis Spectral Rolloff (par_spectral_rolloff_kurtosis) | kurtosis(spectral rolloff frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Mean Spectral Flatness (par_spectral_flatness_mean) | mean(spectral flatness frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Std Spectral Flatness (par_spectral_flatness_std) | std(spectral flatness frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Skew Spectral Flatness (par_spectral_flatness_skew) | skew(spectral flatness frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Kurtosis Spectral Flatness (par_spectral_flatness_kurtosis) | kurtosis(spectral flatness frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Rms Energy Mean (par_rms_mean) | mean(rms frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Rms Energy Standard Deviation (par_rms_std) | std(rms frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Rms Energy Skew (par_rms_skew) | skew(rms frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Rms Energy Kurtosis (par_rms_kurtosis) | kurtosis(rms frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Zero Crossing Rate Mean (par_zcr_mean) | mean(zcr frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Zero Crossing Rate Standard Deviation (par_zcr_std) | std(zcr frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Zero Crossing Rate Skew (par_zcr_skew) | skew(zcr frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Zero Crossing Rate Kurtosis (par_zcr_kurtosis) | kurtosis(zcr frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch Mean (par_f0_mean) | mean(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch Standard Deviation (par_f0_std) | std(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch Min (par_f0_min) | min(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch Max (par_f0_max) | max(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch Median (par_f0_median) | median(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch 25Th Percentile (par_f0_q25) | q25(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch 75Th Percentile (par_f0_q75) | q75(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Pitch Iqr (par_f0_iqr) | iqr(librosa YIN pitch frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Ratio Voiced Frame (par_voiced_frame_ratio) | N(voiced pitch frames) / N(RMS frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+Ratio Nonzero Rms (par_nonzero_rms_ratio) | N(RMS frames > 0) / N(RMS frames) | Summarizes frame-level acoustic distributions from librosa descriptors.
+
+Picture description (pd_*)
+--------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Unique Units Count (pd_unique_units_count) | Number of distinct prompt content units mentioned | Reflects picture content retrieval and scene description quality.
+Unique Units Ratio (pd_unique_units_ratio) | Distinct mentioned object/action units divided by possible units | Reflects picture content retrieval and scene description quality.
+Total Unit Mentions (pd_total_unit_mentions) | Total prompt keyword/content-unit mentions | Reflects picture content retrieval and scene description quality.
+Content Density (pd_content_density) | Total unit mentions divided by transcript tokens | Reflects picture content retrieval and scene description quality.
+Object Units Ratio (pd_object_units_ratio) | Object-unit mentions divided by all unit mentions | Reflects picture content retrieval and scene description quality.
+Action Units Ratio (pd_action_units_ratio) | Action-unit mentions divided by all unit mentions | Reflects picture content retrieval and scene description quality.
+Keyword To Nonkeyword Ratio (pd_keyword_to_nonkeyword_ratio) | Prompt keyword mentions divided by other tokens | Reflects picture content retrieval and scene description quality.
+Repeated Content Unit Ratio (pd_repeated_content_unit_ratio) | Repeated content-unit mentions divided by all unit mentions | Reflects picture content retrieval and scene description quality.
+Semantic Similarity To Unit List (pd_semantic_similarity_to_unit_list) | TF-IDF cosine similarity between transcript and prompt unit list | Reflects picture content retrieval and scene description quality.
+Num Unique Keywords (pd_num_unique_keywords) | Number of unique prompt keywords matched | Reflects picture content retrieval and scene description quality.
+Num Total Keywords (pd_num_total_keywords) | Total matched prompt keywords | Reflects picture content retrieval and scene description quality.
+Unique Unit Density (pd_unique_unit_density) | Unique content units divided by transcript tokens | Reflects picture content retrieval and scene description quality.
+Total Unit Density (pd_total_unit_density) | Total content-unit mentions divided by transcript tokens | Reflects picture content retrieval and scene description quality.
+Unique Unit Efficiency (pd_unique_unit_efficiency) | Unique content units divided by audio duration | Reflects picture content retrieval and scene description quality.
+Total Unit Efficiency (pd_total_unit_efficiency) | Total content-unit mentions divided by audio duration | Reflects picture content retrieval and scene description quality.
+Percentage Units Mentioned (pd_percentage_units_mentioned) | Alias of the unique-unit coverage proportion | Reflects picture content retrieval and scene description quality.
+Keyword Type-Token Ratio (pd_keyword_ttr) | Unique matched prompt keywords divided by total matched keywords | Reflects picture content retrieval and scene description quality.
+Mean Utterance To Unit Similarity (pd_mean_utterance_to_unit_similarity) | Mean TF-IDF similarity from utterances to the prompt unit list | Reflects picture content retrieval and scene description quality.
+Global Prompt Coherence (pd_global_prompt_coherence) | TF-IDF similarity between full transcript and prompt unit list | Reflects picture content retrieval and scene description quality.
+Detected Prompt Score (pd_detected_prompt_score) | Keyword-based confidence for detected picture prompt family | Reflects picture content retrieval and scene description quality.
+
+Reading aloud (rd_*)
+--------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Reference Token Coverage (rd_reference_token_coverage) | Reference vocabulary covered by transcript tokens | Indicates reading accuracy, fluency, and passage-following ability.
+Reference Bigram Coverage (rd_reference_bigram_coverage) | Reference token bigrams recovered in the transcript | Indicates reading accuracy, fluency, and passage-following ability.
+Prompt Similarity (rd_prompt_similarity) | TF-IDF cosine similarity to the reading passage | Indicates reading accuracy, fluency, and passage-following ability.
+Sequence Match Ratio (rd_sequence_match_ratio) | SequenceMatcher order-sensitive similarity to the passage | Indicates reading accuracy, fluency, and passage-following ability.
+Reference Order Score (rd_reference_order_score) | Matched reference tokens from aligned blocks divided by reference length | Indicates reading accuracy, fluency, and passage-following ability.
+Omission Ratio (rd_omission_ratio) | Reference vocabulary absent from the transcript | Indicates reading accuracy, fluency, and passage-following ability.
+Insertion Ratio (rd_insertion_ratio) | Transcript vocabulary absent from the reference | Indicates reading accuracy, fluency, and passage-following ability.
+Repetition Ratio (rd_repetition_ratio) | Repeated unigram ratio in the reading transcript | Indicates reading accuracy, fluency, and passage-following ability.
+Per Reference Token (rd_pause_per_reference_token) | Total pause duration divided by reference token count | Indicates reading accuracy, fluency, and passage-following ability.
+Content Word Recall Ratio (rd_content_word_recall_ratio) | Reference content-word vocabulary recovered by transcript | Indicates reading accuracy, fluency, and passage-following ability.
+
+Free conversation (fc_*)
+------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Topic Coherence (fc_topic_coherence) | Mean TF-IDF similarity between adjacent discourse units | Captures conversational coherence, topic maintenance, and repetition.
+Topic Switch Rate (fc_topic_switch_rate) | Proportion of adjacent discourse-unit pairs with low similarity | Captures conversational coherence, topic maintenance, and repetition.
+Embedding Dispersion (fc_embedding_dispersion) | Standard deviation of pairwise discourse-unit similarities | Captures conversational coherence, topic maintenance, and repetition.
+Named Entity Density (fc_named_entity_density) | Proper-noun count divided by transcript tokens | Captures conversational coherence, topic maintenance, and repetition.
+Repetition Rate (fc_repetition_rate) | Immediate token repetitions divided by transcript tokens | Captures conversational coherence, topic maintenance, and repetition.
+Mean Utterance Similarity (fc_mean_utterance_similarity) | Mean pairwise discourse-unit similarity | Captures conversational coherence, topic maintenance, and repetition.
+First Last Similarity (fc_first_last_similarity) | Similarity between first and last discourse units | Captures conversational coherence, topic maintenance, and repetition.
+Topic Return Ratio (fc_topic_return_ratio) | Long-range discourse-unit pairs with moderate/high similarity | Captures conversational coherence, topic maintenance, and repetition.
+
+Verbal fluency and list generation (ft_*)
+-----------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Item Count (ft_item_count) | Total produced list tokens | Reflects lexical retrieval, executive switching, and rule adherence.
+Unique Item Count (ft_unique_item_count) | Unique produced list tokens | Reflects lexical retrieval, executive switching, and rule adherence.
+Repetition Count (ft_repetition_count) | Repeated valid responses after first mention | Reflects lexical retrieval, executive switching, and rule adherence.
+Intrusion Count (ft_intrusion_count) | Items outside the semantic category or target initial | Reflects lexical retrieval, executive switching, and rule adherence.
+Valid Item Count (ft_valid_item_count) | Responses matching category lexicon or detected target initial | Reflects lexical retrieval, executive switching, and rule adherence.
+Valid Item Ratio (ft_valid_item_ratio) | Valid responses divided by produced tokens | Reflects lexical retrieval, executive switching, and rule adherence.
+Items Per Second (ft_items_per_second) | Valid responses divided by audio duration | Reflects lexical retrieval, executive switching, and rule adherence.
+Cluster Count (ft_cluster_count) | Runs of consecutive valid items sharing an initial | Reflects lexical retrieval, executive switching, and rule adherence.
+Mean Cluster Size (ft_mean_cluster_size) | Mean size of those initial-based clusters | Reflects lexical retrieval, executive switching, and rule adherence.
+Switch Count (ft_switch_count) | Number of changes between adjacent valid item initials | Reflects lexical retrieval, executive switching, and rule adherence.
+Letter Valid Count (ft_letter_valid_count) | Tokens that satisfy the target letter/initial rule | Reflects lexical retrieval, executive switching, and rule adherence.
+Letter Violation Count (ft_letter_violation_count) | Tokens violating the target letter/initial rule | Reflects lexical retrieval, executive switching, and rule adherence.
+
+Story and picture recall (sr_*)
+-------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Propositions Recalled Count (sr_propositions_recalled_count) | Reference story vocabulary recovered by transcript | Measures story recall, event coverage, and intrusion burden.
+Propositions Recalled Ratio (sr_propositions_recalled_ratio) | Recovered reference vocabulary divided by reference vocabulary | Measures story recall, event coverage, and intrusion burden.
+Key Event Coverage (sr_key_event_coverage) | Order-sensitive matched token coverage against the story reference | Measures story recall, event coverage, and intrusion burden.
+Event Order Score (sr_event_order_score) | Temporal/order marker count per discourse unit | Measures story recall, event coverage, and intrusion burden.
+Intrusion Count (sr_intrusion_count) | Transcript vocabulary absent from the reference story | Measures story recall, event coverage, and intrusion burden.
+Semantic Similarity To Reference Story (sr_semantic_similarity_to_reference_story) | TF-IDF cosine similarity to the reference story | Measures story recall, event coverage, and intrusion burden.
+Repetition Rate (sr_repetition_rate) | Repeated unigram ratio in recall transcript | Measures story recall, event coverage, and intrusion burden.
+Content Density (sr_content_density) | Recovered reference vocabulary divided by transcript tokens | Measures story recall, event coverage, and intrusion burden.
+
+Voice commands (cmd_*)
+----------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Token Count (cmd_token_count) | Token count in the voice-command transcript | Captures command brevity, action intent, and interaction style.
+Unique Token Ratio (cmd_unique_token_ratio) | Unique command tokens divided by total command tokens | Captures command brevity, action intent, and interaction style.
+Utterance Count (cmd_utterance_count) | Number of command discourse units | Captures command brevity, action intent, and interaction style.
+Mean Utterance Length (cmd_mean_utterance_length) | Mean tokens per command discourse unit | Captures command brevity, action intent, and interaction style.
+Device Keyword Ratio (cmd_device_keyword_ratio) | Device-name mentions divided by command tokens | Captures command brevity, action intent, and interaction style.
+Request Marker Ratio (cmd_request_marker_ratio) | Politeness/request markers divided by command tokens | Captures command brevity, action intent, and interaction style.
+Action Verb Ratio (cmd_action_verb_ratio) | Command action terms divided by command tokens | Captures command brevity, action intent, and interaction style.
+Repetition Rate (cmd_repetition_rate) | Immediate token repetitions divided by command tokens | Captures command brevity, action intent, and interaction style.
+Duration Per Token (cmd_duration_per_token) | Audio duration divided by command tokens | Captures command brevity, action intent, and interaction style.
+
+Sentence repetition (rep_*)
+---------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Token Count (rep_token_count) | Token count in repetition transcript | Indicates repetition accuracy, perseveration, and short-term retention.
+Unique Token Ratio (rep_unique_token_ratio) | Unique repetition tokens divided by total tokens | Indicates repetition accuracy, perseveration, and short-term retention.
+Immediate Repetition Count (rep_immediate_repetition_count) | Count of adjacent repeated tokens | Indicates repetition accuracy, perseveration, and short-term retention.
+Repetition Rate (rep_repetition_rate) | Repeated unigram ratio | Indicates repetition accuracy, perseveration, and short-term retention.
+Bigram Repetition Rate (rep_bigram_repetition_rate) | Repeated bigram ratio | Indicates repetition accuracy, perseveration, and short-term retention.
+Sequence Match To Reference (rep_sequence_match_to_reference) | SequenceMatcher similarity to known repetition target when available | Indicates repetition accuracy, perseveration, and short-term retention.
+Reference Token Coverage (rep_reference_token_coverage) | Reference target vocabulary recovered when available | Indicates repetition accuracy, perseveration, and short-term retention.
+Duration Per Token (rep_duration_per_token) | Audio duration divided by repetition tokens | Indicates repetition accuracy, perseveration, and short-term retention.
+
+Motor speech (ms_*)
+-------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Token Count (ms_token_count) | Token count in motor-speech transcript | Measures articulatory sequencing and motor speech fluency.
+Target Syllable Count (ms_target_syllable_count) | Occurrences of target diadochokinetic syllables | Measures articulatory sequencing and motor speech fluency.
+Target Syllable Ratio (ms_target_syllable_ratio) | Target syllable occurrences divided by token count | Measures articulatory sequencing and motor speech fluency.
+Alternation Switch Count (ms_alternation_switch_count) | Changes between adjacent target syllables | Measures articulatory sequencing and motor speech fluency.
+Unique Syllable Ratio (ms_unique_syllable_ratio) | Unique target syllables divided by target syllable count | Measures articulatory sequencing and motor speech fluency.
+Repetition Rate (ms_repetition_rate) | Repeated unigram ratio | Measures articulatory sequencing and motor speech fluency.
+Tokens Per Second (ms_tokens_per_second) | Transcript tokens divided by audio duration | Measures articulatory sequencing and motor speech fluency.
+Target Syllables Per Second (ms_target_syllables_per_second) | Target syllable occurrences divided by audio duration | Measures articulatory sequencing and motor speech fluency.
+
+Narrative, procedural, and mixed discourse (na_*)
+-------------------------------------------------
+Feature name | Calculation | Description
+--- | --- | ---
+Utterance Count (na_utterance_count) | Number of narrative/procedural discourse units | Captures discourse organization, sequencing, and narrative coherence.
+Mean Utterance Length (na_mean_utterance_length) | Mean tokens per discourse unit | Captures discourse organization, sequencing, and narrative coherence.
+Temporal Marker Density (na_temporal_marker_density) | Temporal markers divided by transcript tokens | Captures discourse organization, sequencing, and narrative coherence.
+Causal Marker Density (na_causal_marker_density) | Causal markers divided by transcript tokens | Captures discourse organization, sequencing, and narrative coherence.
+First Person Ratio (na_first_person_ratio) | First-person pronouns divided by transcript tokens | Captures discourse organization, sequencing, and narrative coherence.
+Procedural Marker Density (na_procedural_marker_density) | Step/action procedural markers divided by transcript tokens | Captures discourse organization, sequencing, and narrative coherence.
+Topic Coherence (na_topic_coherence) | Mean similarity between adjacent discourse units | Captures discourse organization, sequencing, and narrative coherence.
+Topic Switch Rate (na_topic_switch_rate) | Proportion of adjacent units with low lexical similarity | Captures discourse organization, sequencing, and narrative coherence.
+Repetition Rate (na_repetition_rate) | Repeated unigram ratio | Captures discourse organization, sequencing, and narrative coherence.

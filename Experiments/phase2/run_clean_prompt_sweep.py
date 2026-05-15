@@ -12,8 +12,13 @@ from processing.phase2.common import PHASE2_ROOT, TABLES_PHASE2_ROOT
 import experiments.phase2.run_phase2_sweep as sweep
 
 
-CLEAN_ROOT = TABLES_PHASE2_ROOT / "clean_prompt_sweep"
+CLEAN_ROOT = TABLES_PHASE2_ROOT / "phase2-clean-prompt-sweep"
 CLEAN_ROOT.mkdir(parents=True, exist_ok=True)
+CLEAN_TABLES_ROOT = CLEAN_ROOT / "result-tables"
+CLEAN_RESULT_TABLES = CLEAN_TABLES_ROOT / "csv"
+CLEAN_SUMMARIES = CLEAN_ROOT / "summaries"
+CLEAN_RESULT_TABLES.mkdir(parents=True, exist_ok=True)
+CLEAN_SUMMARIES.mkdir(parents=True, exist_ok=True)
 
 
 def clean_run_specs():
@@ -73,8 +78,8 @@ def main():
         except Exception as exc:
             skipped.append({"run_name": spec.name, "reason": str(exc)})
             log(f"Failed {spec.name}: {exc}")
-    write_json(CLEAN_ROOT / "clean_prompt_run_index.json", {"completed_runs": summaries, "skipped_runs": skipped})
-    pd.DataFrame(skipped).to_csv(CLEAN_ROOT / "clean_prompt_skipped_runs.csv", index=False)
+    write_json(CLEAN_SUMMARIES / "clean_prompt_run_index.json", {"completed_runs": summaries, "skipped_runs": skipped})
+    pd.DataFrame(skipped).to_csv(CLEAN_RESULT_TABLES / "clean_prompt_skipped_runs.csv", index=False)
 
 
 if __name__ == "__main__":

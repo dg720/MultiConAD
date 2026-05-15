@@ -1,0 +1,68 @@
+Phase 1 Multiseed GridSearchCV Balanced-Classifier ANOVA/Welch Top-k Report
+==========================================================================
+Scope: Phase 1 `all_universal` core feature pool, four language-specific runs, 15 seeds [42-56].
+Each cell reports mean +/- sd held-out accuracy (%) across seeds.
+Balanced setup: DT, RF, SVM, and LR all use class_weight="balanced".
+GridSearchCV protocol: cv=5, scoring=accuracy; DT max_depth=[10,20,30], RF n_estimators=[50,100,200], SVM C=[0.1,1,10] kernel=[linear,rbf], LR C=[0.1,1,10].
+For `k=all`, all ranking methods use the same canonical usable `all_universal` feature list and order.
+
+Table B. Balanced ANOVA-Ranked Accuracy By k
+--------------------------------------------
+language            k=5         k=10         k=20         k=50        k=100        k=all
+----------------------------------------------------------------------------------------
+Chinese    71.5 +/- 7.3 75.9 +/- 5.2 78.1 +/- 5.0 80.0 +/- 6.0 84.2 +/- 3.9 84.1 +/- 3.1
+English    82.0 +/- 1.4 78.7 +/- 1.7 82.0 +/- 1.4 84.1 +/- 1.1 84.6 +/- 0.9 84.7 +/- 1.0
+Greek      72.5 +/- 8.3 74.1 +/- 6.8 78.1 +/- 4.8 80.0 +/- 5.6 79.9 +/- 5.7 81.0 +/- 4.8
+Spanish    71.4 +/- 5.9 72.6 +/- 5.8 73.0 +/- 5.3 73.9 +/- 4.8 74.8 +/- 4.0 74.7 +/- 4.3
+
+Table C. Balanced Welch |d|-Ranked Accuracy By k
+------------------------------------------------
+language            k=5         k=10         k=20         k=50        k=100        k=all
+----------------------------------------------------------------------------------------
+Chinese    69.3 +/- 8.8 73.6 +/- 6.6 77.1 +/- 5.4 83.9 +/- 3.5 84.2 +/- 3.8 84.1 +/- 3.1
+English    81.3 +/- 1.0 81.3 +/- 2.0 82.1 +/- 1.1 84.0 +/- 1.1 84.6 +/- 1.1 84.7 +/- 1.0
+Greek      73.7 +/- 4.8 74.4 +/- 4.9 75.4 +/- 5.0 77.6 +/- 4.8 80.3 +/- 4.8 81.0 +/- 4.8
+Spanish    67.9 +/- 4.6 68.3 +/- 4.9 67.2 +/- 6.6 72.0 +/- 5.3 75.0 +/- 3.8 74.7 +/- 4.3
+
+Table D. Balanced Welch Bonferroni/p-Ranked Accuracy By k
+---------------------------------------------------------
+language            k=5         k=10         k=20         k=50        k=100        k=all
+----------------------------------------------------------------------------------------
+Chinese    69.0 +/- 6.7 72.8 +/- 5.4 77.1 +/- 5.3 83.9 +/- 3.1 83.9 +/- 4.3 84.1 +/- 3.1
+English    78.3 +/- 1.8 82.6 +/- 1.4 82.9 +/- 1.3 84.1 +/- 1.1 84.5 +/- 0.9 84.7 +/- 1.0
+Greek      73.8 +/- 5.0 73.3 +/- 4.8 74.9 +/- 5.9 77.4 +/- 4.9 79.4 +/- 5.1 81.0 +/- 4.8
+Spanish    68.5 +/- 6.4 68.9 +/- 5.9 69.1 +/- 4.6 72.6 +/- 5.5 75.5 +/- 4.8 74.7 +/- 4.3
+
+Best Mean Accuracy Per Language/Method
+--------------------------------------
+language   method              best k      accuracy common model  
+------------------------------------------------------------------
+Chinese    anova                  100  84.2 +/- 3.9 RF (6/15)     
+Chinese    welch                  100  84.2 +/- 3.8 RF (6/15)     
+Chinese    welch_bonferroni       all  84.1 +/- 3.1 RF (7/15)     
+English    anova                  all  84.7 +/- 1.0 RF (15/15)    
+English    welch                  all  84.7 +/- 1.0 RF (15/15)    
+English    welch_bonferroni       all  84.7 +/- 1.0 RF (15/15)    
+Greek      anova                  all  81.0 +/- 4.8 RF (13/15)    
+Greek      welch                  all  81.0 +/- 4.8 RF (13/15)    
+Greek      welch_bonferroni       all  81.0 +/- 4.8 RF (13/15)    
+Spanish    anova                  100  74.8 +/- 4.0 RF (10/15)    
+Spanish    welch                  100  75.0 +/- 3.8 RF (11/15)    
+Spanish    welch_bonferroni       100  75.5 +/- 4.8 RF (10/15)    
+
+Best Balanced vs Standard Classifier Suite
+------------------------------------------
+language   method                 balanced      standard   delta   bal k   std k
+--------------------------------------------------------------------------------
+Chinese    anova              84.2 +/- 3.9  84.4 +/- 2.7    -0.2     100     all
+Chinese    welch              84.2 +/- 3.8  84.8 +/- 3.2    -0.6     100     100
+Chinese    welch_bonferroni   84.1 +/- 3.1  85.5 +/- 3.3    -1.4     all     100
+English    anova              84.7 +/- 1.0  85.0 +/- 1.2    -0.3     all     all
+English    welch              84.7 +/- 1.0  85.0 +/- 1.2    -0.3     all     all
+English    welch_bonferroni   84.7 +/- 1.0  85.0 +/- 1.2    -0.3     all     all
+Greek      anova              81.0 +/- 4.8  81.9 +/- 5.5    -0.9     all     100
+Greek      welch              81.0 +/- 4.8  81.6 +/- 6.4    -0.6     all     all
+Greek      welch_bonferroni   81.0 +/- 4.8  81.6 +/- 6.4    -0.6     all     all
+Spanish    anova              74.8 +/- 4.0  75.8 +/- 4.5    -1.0     100     100
+Spanish    welch              75.0 +/- 3.8  75.8 +/- 4.3    -0.8     100     100
+Spanish    welch_bonferroni   75.5 +/- 4.8  76.0 +/- 4.8    -0.6     100     100

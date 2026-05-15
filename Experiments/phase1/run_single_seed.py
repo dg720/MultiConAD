@@ -19,7 +19,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
-from processing.phase1.common import PHASE1_ROOT, TABLES_PHASE1_ROOT, make_logger
+from processing.phase1.common import PHASE1_ROOT, TABLES_PHASE1_RESULT_TABLES, TABLES_PHASE1_SUMMARIES, make_logger
 
 
 SEED = 42
@@ -241,15 +241,15 @@ def aggregate_feature_groups(ranking: pd.DataFrame) -> pd.DataFrame:
 def write_importance_tables(prefix: str, importance_df: pd.DataFrame | None) -> None:
     if importance_df is None:
         return
-    importance_path = TABLES_PHASE1_ROOT / f"{prefix}_feature_importance.csv"
+    importance_path = TABLES_PHASE1_RESULT_TABLES / f"{prefix}_feature_importance.csv"
     importance_df.to_csv(importance_path, index=False)
     aggregate_feature_groups(importance_df).to_csv(
-        TABLES_PHASE1_ROOT / f"{prefix}_feature_group_importance.csv",
+        TABLES_PHASE1_RESULT_TABLES / f"{prefix}_feature_group_importance.csv",
         index=False,
     )
 
     filtered = importance_df[~importance_df["feature_name"].str.startswith("missingindicator_")].copy()
-    filtered.to_csv(TABLES_PHASE1_ROOT / f"{prefix}_feature_importance_no_missing_indicators.csv", index=False)
+    filtered.to_csv(TABLES_PHASE1_RESULT_TABLES / f"{prefix}_feature_importance_no_missing_indicators.csv", index=False)
 
 
 def grid_search_single_seed(
@@ -302,14 +302,14 @@ def grid_search_single_seed(
                     }
 
     results_df = pd.DataFrame(results).sort_values(["balanced_accuracy", "macro_f1"], ascending=False)
-    results_df.to_csv(TABLES_PHASE1_ROOT / f"{prefix}_model_results.csv", index=False)
+    results_df.to_csv(TABLES_PHASE1_RESULT_TABLES / f"{prefix}_model_results.csv", index=False)
 
     if best_config is None:
         raise RuntimeError(f"No model configuration completed for {prefix}.")
 
     best_anova = stored_rankings[(best_config["subset"], best_config["top_k"], "anova")]
-    best_anova.to_csv(TABLES_PHASE1_ROOT / f"{prefix}_anova_ranking.csv", index=False)
-    aggregate_feature_groups(best_anova).to_csv(TABLES_PHASE1_ROOT / f"{prefix}_anova_feature_groups.csv", index=False)
+    best_anova.to_csv(TABLES_PHASE1_RESULT_TABLES / f"{prefix}_anova_ranking.csv", index=False)
+    aggregate_feature_groups(best_anova).to_csv(TABLES_PHASE1_RESULT_TABLES / f"{prefix}_anova_feature_groups.csv", index=False)
     write_importance_tables(prefix, best_config["importance"])
 
     summary = {
@@ -333,7 +333,7 @@ def grid_search_single_seed(
             "imputation": "median imputation with missingness indicators",
         },
     }
-    with (TABLES_PHASE1_ROOT / f"{prefix}_summary.json").open("w", encoding="utf-8") as handle:
+    with (TABLES_PHASE1_SUMMARIES / f"{prefix}_summary.json").open("w", encoding="utf-8") as handle:
         json.dump(summary, handle, indent=2, ensure_ascii=False)
     return summary
 

@@ -1,0 +1,116 @@
+Language-sensitive candidate region
+===================================
+
+Source scatter
+--------------
+report_assets/full-excl-task/scatter.png
+
+Definition
+----------
+A significant point is a plotted feature in this region with at least one valid language-task cell surviving Welch t-test Bonferroni correction at p < 0.05.
+Significance levels: * p<0.05, ** p<0.01, *** p<0.001 using Welch Bonferroni-corrected p-values.
+The scatter coordinates are descriptive specificity scores based on signed Cohen's d; the p-values are cell-level AD/HC tests.
+
+Overview
+--------
+               feature group diag_strength lang_spec task_spec  valid_cells  sig_cells          best_cell best_d min_welch_bonf_p sig_level
+    content-word ratio   lex         0.592     0.582     0.310            8          3   EN PD+FT / PD_CTP  0.729         3.73e-25       ***
+   subordination ratio   syn         0.434     0.423     0.253            8          2   EN PD+FT / PD_CTP  0.945         3.59e-21       ***
+  utterance similarity  disc         0.483     0.495     0.372            8          2   EN PD+FT / PD_CTP  0.610         2.25e-09       ***
+              MATTR 20   lex         0.602     0.398     0.338            8          2      ZH PD / PD_CTP -1.483         6.62e-08       ***
+lemma type token ratio   lex         0.411     0.328     0.316            8          2      ZH PD / PD_CTP -0.900           0.0043        **
+      type token ratio   lex         0.433     0.332     0.291            8          2      ZH PD / PD_CTP -0.839           0.0151         *
+       repetition rate   lex         0.433     0.332     0.291            8          2      ZH PD / PD_CTP  0.839           0.0151         *
+repeated unigram ratio  disc         0.433     0.332     0.291            8          2      ZH PD / PD_CTP  0.839           0.0151         *
+        logRelF0 H1-A3    ac         0.303     0.368     0.329            4          1 ZH PD+FT+FC / OTHER -0.849           0.0190         *
+
+Short analysis
+--------------
+9 of 9 plotted points in this region have at least one Welch Bonferroni-significant language-task cell.
+Significant feature groups: lex=5, disc=2, syn=1, ac=1
+Strongest by mean absolute effect: MATTR 20; content-word ratio; utterance similarity; subordination ratio; type token ratio.
+Smallest corrected p-values: content-word ratio; subordination ratio; utterance similarity; MATTR 20; lemma type token ratio.
+Interpretation: these are significant somewhere and show high cross-language variation, so they are useful candidates for language-specific discussion rather than pooled biomarkers.
+
+Cell-level details
+------------------
+Feature: MATTR 20
+Raw name: lex_mattr_20
+Summary: group=lex; diagnostic_strength=0.602; language_specificity=0.398; task_specificity=0.338; direction_consistency=0.875; valid_cells=8
+Minimum Welch Bonferroni p: 6.62e-08 (***); minimum ANOVA Bonferroni p among same significant cells: 6.01e-10
+Significant cells:
+    cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+ ZH PD / PD_CTP       zh    PD_CTP    38    89   -1.483           6.62e-08           6.01e-10
+ES NA / READING       es   READING    43    59   -0.883             0.0195             0.0027
+
+Feature: content-word ratio
+Raw name: lex_content_word_ratio
+Summary: group=lex; diagnostic_strength=0.592; language_specificity=0.582; task_specificity=0.310; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 3.73e-25 (***); minimum ANOVA Bonferroni p among same significant cells: 2.56e-36
+Significant cells:
+        cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+  EN PD+FT / PD_CTP       en    PD_CTP   450  1261    0.729           3.73e-25           2.56e-36
+     ZH PD / PD_CTP       zh    PD_CTP    38    89   -1.533           1.40e-08           1.54e-10
+ZH PD+FT+FC / OTHER       zh     OTHER    33    62   -0.830             0.0144             0.0467
+
+Feature: subordination ratio
+Raw name: syn_subordination_ratio
+Summary: group=syn; diagnostic_strength=0.434; language_specificity=0.423; task_specificity=0.253; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 3.59e-21 (***); minimum ANOVA Bonferroni p among same significant cells: 2.49e-59
+Significant cells:
+      cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+EN PD+FT / PD_CTP       en    PD_CTP   450  1261    0.945           3.59e-21           2.49e-59
+   ZH PD / PD_CTP       zh    PD_CTP    38    89   -0.927           1.53e-08           6.31e-04
+
+Feature: utterance similarity
+Raw name: disc_mean_pairwise_utt_similarity
+Summary: group=disc; diagnostic_strength=0.483; language_specificity=0.495; task_specificity=0.372; direction_consistency=0.875; valid_cells=8
+Minimum Welch Bonferroni p: 2.25e-09 (***); minimum ANOVA Bonferroni p among same significant cells: 5.99e-24
+Significant cells:
+      cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+EN PD+FT / PD_CTP       en    PD_CTP   409  1260    0.610           2.25e-09           5.99e-24
+   ZH PD / PD_CTP       zh    PD_CTP    38    85    1.296           6.41e-05           1.24e-07
+
+Feature: type token ratio
+Raw name: lex_type_token_ratio
+Summary: group=lex; diagnostic_strength=0.433; language_specificity=0.332; task_specificity=0.291; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 0.0151 (*); minimum ANOVA Bonferroni p among same significant cells: 0.0040
+Significant cells:
+        cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+     ZH PD / PD_CTP       zh    PD_CTP    38    89   -0.839             0.0151             0.0040
+ZH PD+FT+FC / OTHER       zh     OTHER    33    62   -0.835             0.0188             0.0428
+
+Feature: repetition rate
+Raw name: lex_repetition_rate
+Summary: group=lex; diagnostic_strength=0.433; language_specificity=0.332; task_specificity=0.291; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 0.0151 (*); minimum ANOVA Bonferroni p among same significant cells: 0.0040
+Significant cells:
+        cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+     ZH PD / PD_CTP       zh    PD_CTP    38    89    0.839             0.0151             0.0040
+ZH PD+FT+FC / OTHER       zh     OTHER    33    62    0.835             0.0188             0.0428
+
+Feature: repeated unigram ratio
+Raw name: disc_repeated_unigram_ratio
+Summary: group=disc; diagnostic_strength=0.433; language_specificity=0.332; task_specificity=0.291; direction_consistency=0.750; valid_cells=8
+Minimum Welch Bonferroni p: 0.0151 (*); minimum ANOVA Bonferroni p among same significant cells: 0.0040
+Significant cells:
+        cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+     ZH PD / PD_CTP       zh    PD_CTP    38    89    0.839             0.0151             0.0040
+ZH PD+FT+FC / OTHER       zh     OTHER    33    62    0.835             0.0188             0.0428
+
+Feature: lemma type token ratio
+Raw name: lex_lemma_type_token_ratio
+Summary: group=lex; diagnostic_strength=0.411; language_specificity=0.328; task_specificity=0.316; direction_consistency=0.875; valid_cells=8
+Minimum Welch Bonferroni p: 0.0043 (**); minimum ANOVA Bonferroni p among same significant cells: 0.0011
+Significant cells:
+        cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+     ZH PD / PD_CTP       zh    PD_CTP    38    89   -0.900             0.0043             0.0011
+ZH PD+FT+FC / OTHER       zh     OTHER    33    62   -0.885             0.0065             0.0185
+
+Feature: logRelF0 H1-A3
+Raw name: ac_egemaps_logrelf0_h1_a3_sma3nz_amean
+Summary: group=ac; diagnostic_strength=0.303; language_specificity=0.368; task_specificity=0.329; direction_consistency=0.750; valid_cells=4
+Minimum Welch Bonferroni p: 0.0190 (*); minimum ANOVA Bonferroni p among same significant cells: 0.0340
+Significant cells:
+        cell_label language task_type  n_ad  n_hc cohens_d welch_bonferroni_p anova_bonferroni_p
+ZH PD+FT+FC / OTHER       zh     OTHER    33    62   -0.849             0.0190             0.0340

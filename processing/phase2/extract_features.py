@@ -1,5 +1,6 @@
 import json
 import math
+import re
 import sys
 from collections import Counter
 from difflib import SequenceMatcher
@@ -34,14 +35,21 @@ from processing.phase1.extract_features import (
     immediate_repetition_count,
     repeated_ngram_ratio,
 )
-from processing.phase2.common import LOGS_PHASE2_ROOT, PHASE2_ROOT, RESOURCES_PHASE2_ROOT, TABLES_PHASE2_ROOT
+from processing.phase2.common import (
+    LOGS_PHASE2_ROOT,
+    PHASE2_ROOT,
+    RESOURCES_PHASE2_ROOT,
+    TABLES_PHASE2_TABLES_ROOT,
+    TABLES_PHASE2_RESULT_TABLES,
+    TABLES_PHASE2_SUMMARIES,
+)
 
 
 MANIFEST_PATH = PROJECT_ROOT / "data" / "processed" / "phase1" / "phase1_manifest.jsonl"
 PHASE1_FEATURES_PATH = PROJECT_ROOT / "data" / "processed" / "phase1" / "phase1_features.csv"
 FEATURES_PATH = PHASE2_ROOT / "phase2_features.csv"
 METADATA_PATH = PHASE2_ROOT / "phase2_feature_metadata.csv"
-SUMMARY_PATH = TABLES_PHASE2_ROOT / "phase2_manifest_summary.json"
+SUMMARY_PATH = TABLES_PHASE2_SUMMARIES / "phase2_manifest_summary.json"
 
 PICTURE_LEXICONS_PATH = RESOURCES_PHASE2_ROOT / "picture_prompt_lexicons.json"
 READING_REFERENCES_PATH = RESOURCES_PHASE2_ROOT / "reading_references.json"
@@ -94,6 +102,130 @@ def utterance_similarity_matrix(utterances: list[str]) -> np.ndarray | None:
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+TASK_SPECIFIC_GROUPS = {"pd", "rd", "fc", "ft", "sr", "cmd", "rep", "ms", "na"}
+
+TASK_SPECIFIC_GROUP_LABELS = {
+    "pd": "Picture description",
+    "rd": "Reading aloud",
+    "fc": "Free conversation",
+    "ft": "Verbal fluency and list generation",
+    "sr": "Story and picture recall",
+    "cmd": "Voice commands",
+    "rep": "Sentence repetition",
+    "ms": "Motor speech",
+    "na": "Narrative, procedural, and mixed discourse",
+}
+
+COMMAND_DEVICE_TERMS = {
+    "en": {"alexa", "echo", "amazon", "computer", "assistant"},
+    "es": {"alexa", "echo", "amazon", "computadora", "asistente"},
+    "el": {"alexa", "echo", "amazon"},
+    "zh": {"alexa", "echo", "amazon"},
+}
+
+COMMAND_REQUEST_MARKERS = {
+    "en": {"please", "can", "could", "would"},
+    "es": {"por", "favor", "puedes", "podrias"},
+    "el": {"please"},
+    "zh": {"qing"},
+}
+
+COMMAND_ACTION_TERMS = {
+    "en": {"play", "call", "set", "turn", "open", "close", "stop", "start", "remind", "weather", "timer", "alarm", "music"},
+    "es": {"pon", "poner", "llama", "llamar", "abre", "cierra", "enciende", "apaga", "alarma", "musica"},
+    "el": {"play", "call", "set", "open", "close"},
+    "zh": {"play", "call", "set"},
+}
+
+DISCOURSE_MARKERS = {
+    "temporal": {
+        "en": {"then", "after", "before", "when", "while", "next", "finally", "first", "later"},
+        "es": {"entonces", "despues", "antes", "cuando", "mientras", "luego", "finalmente", "primero"},
+        "el": {"meta", "prin", "otan", "eno", "ystera", "telika", "prota"},
+        "zh": {"ranhou", "zhihou", "zhiqian", "zuihou", "xian"},
+    },
+    "causal": {
+        "en": {"because", "so", "therefore", "since"},
+        "es": {"porque", "entonces", "asi", "pues"},
+        "el": {"giati", "ara"},
+        "zh": {"yinwei", "suoyi"},
+    },
+    "first_person": {
+        "en": {"i", "me", "my", "mine", "we", "us", "our"},
+        "es": {"yo", "me", "mi", "mis", "nosotros", "nuestro"},
+        "el": {"ego", "mou", "emeis", "mas"},
+        "zh": {"wo", "women"},
+    },
+    "procedural": {
+        "en": {"first", "next", "then", "finally", "step", "put", "take", "make", "add", "mix"},
+        "es": {"primero", "luego", "despues", "finalmente", "paso", "poner", "tomar", "hacer", "agregar"},
+        "el": {"prota", "meta", "telika", "vazo", "pairno", "ftiachno"},
+        "zh": {"xian", "ranhou", "zuihou", "fang", "na", "zuo"},
+    },
+}
+
+REPETITION_REFERENCES = {
+    "ds3_test3_repetition": {
+        "el": "Ένα καλοκαίρι και τα τέσσερα αδέλφια του Αντώνη φιλοξενούνται για τις διακοπές στον Πειραιά στο σπίτι των θείων τους. Οι γονείς του Αντώνη ζουν στην Αίγυπτο και εκείνο το καλοκαίρι δεν μπόρεσαν να ταξιδέψουν. Έτσι ο Αντώνης σκαρφίζεται του κόσμου τις σκανδαλιές και μπλέκει σε αυτές και τα αδέλφια του.",
+    }
+}
+
+
+def normalized_tokens(stats: dict[str, object]) -> list[str]:
+    return [clean_text(token).lower() for token in stats.get("tokens", []) if clean_text(token)]
+
+
+def normalized_text_from_stats(stats: dict[str, object]) -> str:
+    return " ".join(normalized_tokens(stats))
+
+
+def discourse_units(row: pd.Series, stats: dict[str, object], window: int = 12) -> list[str]:
+    utterances = [clean_text(utt).lower() for utt in stats.get("utterances", []) if clean_text(utt)]
+    if len(utterances) >= 2:
+        return utterances
+    tokens = normalized_tokens(stats)
+    if len(tokens) < max(6, window):
+        return utterances
+    units = []
+    for idx in range(0, len(tokens), window):
+        chunk = tokens[idx : idx + window]
+        if len(chunk) >= 3:
+            units.append(" ".join(chunk))
+    return units if len(units) >= 2 else utterances
+
+
+def marker_density(tokens: list[str], language: str, marker_group: str) -> float:
+    markers = DISCOURSE_MARKERS.get(marker_group, {}).get(language, set())
+    if not markers:
+        return np.nan
+    return safe_div(sum(1 for token in tokens if token in markers), len(tokens))
+
+
+def lexical_similarity_stats(units: list[str]) -> tuple[float, float, float, float]:
+    sims = utterance_similarity_matrix(units)
+    if sims is None:
+        return np.nan, np.nan, np.nan, np.nan
+    adjacent = [float(sims[i, i + 1]) for i in range(len(units) - 1)]
+    pairwise = [float(sims[i, j]) for i in range(len(units)) for j in range(i + 1, len(units))]
+    long_range = [float(sims[i, j]) for i in range(len(units)) for j in range(i + 2, len(units))]
+    return (
+        float(np.mean(adjacent)) if adjacent else np.nan,
+        safe_div(sum(value < 0.2 for value in adjacent), len(adjacent)),
+        float(np.std(pairwise)) if pairwise else np.nan,
+        safe_div(sum(value > 0.3 for value in long_range), len(long_range)),
+    )
+
+
+def detect_reference_key(row: pd.Series, refs: dict) -> str:
+    prompt_id = str(row.get("prompt_id", "")).strip().lower()
+    if prompt_id in refs:
+        return prompt_id
+    prompt_family = str(row.get("phase2_prompt_family", "")).strip().lower()
+    if prompt_family in refs:
+        return prompt_family
+    return ""
 
 
 def build_text_stats_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str, object]]:
@@ -186,6 +318,20 @@ def empty_fc_features() -> dict[str, float]:
     }
 
 
+def empty_cmd_features() -> dict[str, float]:
+    return {
+        "cmd_token_count": np.nan,
+        "cmd_unique_token_ratio": np.nan,
+        "cmd_utterance_count": np.nan,
+        "cmd_mean_utterance_length": np.nan,
+        "cmd_device_keyword_ratio": np.nan,
+        "cmd_request_marker_ratio": np.nan,
+        "cmd_action_verb_ratio": np.nan,
+        "cmd_repetition_rate": np.nan,
+        "cmd_duration_per_token": np.nan,
+    }
+
+
 def empty_ft_features() -> dict[str, float]:
     return {
         "ft_item_count": np.nan,
@@ -213,6 +359,46 @@ def empty_sr_features() -> dict[str, float]:
         "sr_semantic_similarity_to_reference_story": np.nan,
         "sr_repetition_rate": np.nan,
         "sr_content_density": np.nan,
+    }
+
+
+def empty_rep_features() -> dict[str, float]:
+    return {
+        "rep_token_count": np.nan,
+        "rep_unique_token_ratio": np.nan,
+        "rep_immediate_repetition_count": np.nan,
+        "rep_repetition_rate": np.nan,
+        "rep_bigram_repetition_rate": np.nan,
+        "rep_sequence_match_to_reference": np.nan,
+        "rep_reference_token_coverage": np.nan,
+        "rep_duration_per_token": np.nan,
+    }
+
+
+def empty_ms_features() -> dict[str, float]:
+    return {
+        "ms_token_count": np.nan,
+        "ms_target_syllable_count": np.nan,
+        "ms_target_syllable_ratio": np.nan,
+        "ms_alternation_switch_count": np.nan,
+        "ms_unique_syllable_ratio": np.nan,
+        "ms_repetition_rate": np.nan,
+        "ms_tokens_per_second": np.nan,
+        "ms_target_syllables_per_second": np.nan,
+    }
+
+
+def empty_na_features() -> dict[str, float]:
+    return {
+        "na_utterance_count": np.nan,
+        "na_mean_utterance_length": np.nan,
+        "na_temporal_marker_density": np.nan,
+        "na_causal_marker_density": np.nan,
+        "na_first_person_ratio": np.nan,
+        "na_procedural_marker_density": np.nan,
+        "na_topic_coherence": np.nan,
+        "na_topic_switch_rate": np.nan,
+        "na_repetition_rate": np.nan,
     }
 
 
@@ -631,13 +817,19 @@ def reading_features(row: pd.Series, stats: dict[str, object], base_row: dict[st
 
 def story_features(row: pd.Series, stats: dict[str, object], prompt_family: str, story_refs: dict) -> dict[str, float]:
     features = empty_sr_features()
-    reference_block = story_refs.get(prompt_family, {}).get(row["language"], {})
+    story_task_types = {"PICTURE_RECALL", "STORY_NARRATIVE", "PICTURE_STORY"}
+    if row["task_type"] not in story_task_types:
+        return features
+
+    prompt_id = str(row.get("prompt_id", "")).strip().lower()
+    reference_key = prompt_id if prompt_id in story_refs else prompt_family
+    reference_block = story_refs.get(reference_key, {}).get(row["language"], {})
     reference_text = clean_text(reference_block.get("reference_text", ""))
     if not reference_text:
         return features
 
-    tokens = [clean_text(token).lower() for token in stats.get("tokens", []) if clean_text(token)]
-    utterances = [clean_text(utt).lower() for utt in stats.get("utterances", []) if clean_text(utt)]
+    tokens = normalized_tokens(stats)
+    utterances = discourse_units(row, stats)
     reference_tokens = tokenize(reference_text, row["language"])
     if not tokens or not reference_tokens:
         return features
@@ -673,33 +865,51 @@ def story_features(row: pd.Series, stats: dict[str, object], prompt_family: str,
 
 def fluency_features(row: pd.Series, stats: dict[str, object], base_row: dict[str, float], fluency_resources: dict) -> dict[str, float]:
     features = empty_ft_features()
-    if row["task_type"] != "FLUENCY":
-        return features
 
     prompt_id = str(row.get("prompt_id", "")).strip().lower()
+    tokens = normalized_tokens(stats)
+    if not tokens:
+        return features
+
     if "animal" in prompt_id:
         resource_key = "animals"
     elif "letter_f" in prompt_id or "phon_f" in prompt_id or prompt_id.endswith("_f"):
         resource_key = "letter_f"
     else:
-        return features
+        resource_key = ""
 
-    resource = fluency_resources.get(resource_key, {})
-    valid_items = {clean_text(item).lower() for item in resource.get("language_items", {}).get(row["language"], []) if clean_text(item)}
+    resource = fluency_resources.get(resource_key, {}) if resource_key else {}
+    valid_items = {
+        clean_text(item).lower()
+        for item in resource.get("language_items", {}).get(row["language"], [])
+        if clean_text(item)
+    }
+
+    detected_initial = ""
     if not valid_items:
-        return features
+        counts_by_initial = Counter(token[:1] for token in tokens if token and token not in FILLERS.get(row["language"], set()))
+        common_initial, common_count = counts_by_initial.most_common(1)[0] if counts_by_initial else ("", 0)
+        list_like = len(tokens) <= 120 and common_count >= 5 and safe_div(common_count, len(tokens)) >= 0.55
+        if row["task_type"] != "FLUENCY" and not list_like:
+            return features
+        detected_initial = common_initial
+        valid_mentions = [token for token in tokens if token.startswith(detected_initial)]
+    else:
+        valid_mentions = [token for token in tokens if token in valid_items]
+        high_confidence_list = len(tokens) <= 120 and len(set(valid_mentions)) >= 4 and safe_div(len(valid_mentions), len(tokens)) >= 0.25
+        if row["task_type"] != "FLUENCY" and not high_confidence_list:
+            return features
 
-    tokens = [clean_text(token).lower() for token in stats.get("tokens", []) if clean_text(token)]
     duration = base_row.get("len_audio_duration", np.nan)
-    if not tokens:
-        return features
 
     counts = Counter(tokens)
-    valid_mentions = [token for token in tokens if token in valid_items]
     valid_counter = Counter(valid_mentions)
     unique_valid = list(valid_counter.keys())
     repetitions = sum(max(0, count - 1) for count in valid_counter.values())
-    intrusions = [token for token in tokens if token not in valid_items and token not in FILLERS.get(row["language"], set())]
+    if valid_items:
+        intrusions = [token for token in tokens if token not in valid_items and token not in FILLERS.get(row["language"], set())]
+    else:
+        intrusions = [token for token in tokens if not token.startswith(detected_initial) and token not in FILLERS.get(row["language"], set())]
 
     switch_count = 0
     prev_initial = None
@@ -711,9 +921,10 @@ def fluency_features(row: pd.Series, stats: dict[str, object], base_row: dict[st
 
     letter_valid_count = np.nan
     letter_violation_count = np.nan
-    if resource_key == "letter_f":
-        letter_valid_count = float(sum(1 for token in valid_mentions if token.startswith("f")))
-        letter_violation_count = float(sum(1 for token in valid_mentions if not token.startswith("f")))
+    if resource_key == "letter_f" or detected_initial:
+        target_initial = "f" if resource_key == "letter_f" else detected_initial
+        letter_valid_count = float(sum(1 for token in tokens if token.startswith(target_initial)))
+        letter_violation_count = float(sum(1 for token in tokens if not token.startswith(target_initial) and token not in FILLERS.get(row["language"], set())))
 
     cluster_sizes = []
     if unique_valid:
@@ -753,9 +964,9 @@ def conversation_features(row: pd.Series, stats: dict[str, object]) -> dict[str,
     if row["task_type"] != "CONVERSATION":
         return features
 
-    utterances = [clean_text(utt).lower() for utt in stats.get("utterances", []) if clean_text(utt)]
+    utterances = discourse_units(row, stats)
     sims = utterance_similarity_matrix(utterances)
-    tokens = [clean_text(token).lower() for token in stats.get("tokens", []) if clean_text(token)]
+    tokens = normalized_tokens(stats)
     token_count = len(tokens)
     if sims is None or token_count == 0:
         return features
@@ -778,6 +989,132 @@ def conversation_features(row: pd.Series, stats: dict[str, object]) -> dict[str,
             "fc_mean_utterance_similarity": float(np.mean(pairwise)) if pairwise else np.nan,
             "fc_first_last_similarity": float(sims[0, -1]) if len(utterances) > 1 else np.nan,
             "fc_topic_return_ratio": safe_div(sum(value > 0.3 for value in long_range), len(long_range)),
+        }
+    )
+    return features
+
+
+def command_features(row: pd.Series, stats: dict[str, object], base_row: dict[str, float]) -> dict[str, float]:
+    features = empty_cmd_features()
+    if row["task_type"] != "COMMAND":
+        return features
+
+    tokens = normalized_tokens(stats)
+    token_count = len(tokens)
+    if token_count == 0:
+        return features
+
+    language = row["language"]
+    utterances = discourse_units(row, stats)
+    duration = base_row.get("len_audio_duration", np.nan)
+    device_terms = COMMAND_DEVICE_TERMS.get(language, set())
+    request_markers = COMMAND_REQUEST_MARKERS.get(language, set())
+    action_terms = COMMAND_ACTION_TERMS.get(language, set())
+
+    features.update(
+        {
+            "cmd_token_count": float(token_count),
+            "cmd_unique_token_ratio": safe_div(len(set(tokens)), token_count),
+            "cmd_utterance_count": float(len(utterances)),
+            "cmd_mean_utterance_length": _safe_stat(np.mean([len(tokenize(unit, language)) for unit in utterances])) if utterances else np.nan,
+            "cmd_device_keyword_ratio": safe_div(sum(1 for token in tokens if token in device_terms), token_count),
+            "cmd_request_marker_ratio": safe_div(sum(1 for token in tokens if token in request_markers), token_count),
+            "cmd_action_verb_ratio": safe_div(sum(1 for token in tokens if token in action_terms), token_count),
+            "cmd_repetition_rate": safe_div(immediate_repetition_count(tokens), token_count),
+            "cmd_duration_per_token": safe_div(duration, token_count),
+        }
+    )
+    return features
+
+
+def repetition_features(row: pd.Series, stats: dict[str, object], base_row: dict[str, float]) -> dict[str, float]:
+    features = empty_rep_features()
+    if row["task_type"] != "REPETITION":
+        return features
+
+    tokens = normalized_tokens(stats)
+    token_count = len(tokens)
+    if token_count == 0:
+        return features
+
+    reference_key = str(row.get("prompt_id", "")).strip().lower()
+    reference_text = clean_text(REPETITION_REFERENCES.get(reference_key, {}).get(row["language"], ""))
+    reference_tokens = tokenize(reference_text, row["language"]) if reference_text else []
+    duration = base_row.get("len_audio_duration", np.nan)
+
+    features.update(
+        {
+            "rep_token_count": float(token_count),
+            "rep_unique_token_ratio": safe_div(len(set(tokens)), token_count),
+            "rep_immediate_repetition_count": float(immediate_repetition_count(tokens)),
+            "rep_repetition_rate": repeated_ngram_ratio(tokens, 1),
+            "rep_bigram_repetition_rate": repeated_ngram_ratio(tokens, 2),
+            "rep_sequence_match_to_reference": float(SequenceMatcher(a=reference_tokens, b=tokens).ratio()) if reference_tokens else np.nan,
+            "rep_reference_token_coverage": safe_div(len(set(reference_tokens) & set(tokens)), len(set(reference_tokens))) if reference_tokens else np.nan,
+            "rep_duration_per_token": safe_div(duration, token_count),
+        }
+    )
+    return features
+
+
+def motor_speech_features(row: pd.Series, stats: dict[str, object], base_row: dict[str, float]) -> dict[str, float]:
+    features = empty_ms_features()
+    if row["task_type"] != "MOTOR_SPEECH":
+        return features
+
+    tokens = normalized_tokens(stats)
+    token_count = len(tokens)
+    if token_count == 0:
+        return features
+
+    text = " ".join(tokens)
+    target_patterns = ["pa", "ta", "ka", "ba", "da", "ga", "πα", "τα", "κα", "μπα", "ντα", "γκα"]
+    syllable_sequence = []
+    for match in re.finditer("|".join(re.escape(pattern) for pattern in target_patterns), text):
+        syllable_sequence.append(match.group(0))
+    switch_count = sum(1 for left, right in zip(syllable_sequence[:-1], syllable_sequence[1:]) if left != right)
+    duration = base_row.get("len_audio_duration", np.nan)
+
+    features.update(
+        {
+            "ms_token_count": float(token_count),
+            "ms_target_syllable_count": float(len(syllable_sequence)),
+            "ms_target_syllable_ratio": safe_div(len(syllable_sequence), token_count),
+            "ms_alternation_switch_count": float(switch_count),
+            "ms_unique_syllable_ratio": safe_div(len(set(syllable_sequence)), len(syllable_sequence)),
+            "ms_repetition_rate": repeated_ngram_ratio(tokens, 1),
+            "ms_tokens_per_second": safe_div(token_count, duration),
+            "ms_target_syllables_per_second": safe_div(len(syllable_sequence), duration),
+        }
+    )
+    return features
+
+
+def narrative_features(row: pd.Series, stats: dict[str, object]) -> dict[str, float]:
+    features = empty_na_features()
+    if row["task_type"] not in {"MIXED_PROTOCOL", "PROCEDURAL", "PERSONAL_NARRATIVE", "STORY_NARRATIVE"}:
+        return features
+
+    tokens = normalized_tokens(stats)
+    token_count = len(tokens)
+    utterances = discourse_units(row, stats)
+    if token_count == 0 or len(utterances) < 2:
+        return features
+
+    topic_coherence, topic_switch_rate, _, _ = lexical_similarity_stats(utterances)
+    utterance_lengths = [len(tokenize(unit, row["language"])) for unit in utterances]
+
+    features.update(
+        {
+            "na_utterance_count": float(len(utterances)),
+            "na_mean_utterance_length": _safe_stat(np.mean(utterance_lengths)) if utterance_lengths else np.nan,
+            "na_temporal_marker_density": marker_density(tokens, row["language"], "temporal"),
+            "na_causal_marker_density": marker_density(tokens, row["language"], "causal"),
+            "na_first_person_ratio": marker_density(tokens, row["language"], "first_person"),
+            "na_procedural_marker_density": marker_density(tokens, row["language"], "procedural"),
+            "na_topic_coherence": topic_coherence,
+            "na_topic_switch_rate": topic_switch_rate,
+            "na_repetition_rate": repeated_ngram_ratio(tokens, 1),
         }
     )
     return features
@@ -929,33 +1266,204 @@ def build_phase2_metadata(phase1_metadata: pd.DataFrame, new_feature_columns: li
             {
                 "feature_name": name,
                 "feature_group": group,
-                "task_specific": int(group in {"pd", "rd", "fc"}),
+                "task_specific": int(group in TASK_SPECIFIC_GROUPS),
                 "valid_task_types": {
                     "pd": "PD_CTP",
                     "rd": "READING",
                     "fc": "CONVERSATION",
-                    "ft": "FLUENCY",
-                    "sr": "STORY_NARRATIVE|PICTURE_RECALL|PROMPT_FAMILY_STORY",
+                    "ft": "FLUENCY|DETECTED_LIST_FLUENCY",
+                    "sr": "STORY_NARRATIVE|PICTURE_RECALL|PICTURE_STORY",
+                    "cmd": "COMMAND",
+                    "rep": "REPETITION",
+                    "ms": "MOTOR_SPEECH",
+                    "na": "MIXED_PROTOCOL|PROCEDURAL|PERSONAL_NARRATIVE|STORY_NARRATIVE",
                     "pr": "ALL",
                     "sx": "ALL",
                     "par": "ALL",
                 }.get(group, "ALL"),
                 "requires_text": int(group != "par"),
                 "requires_audio": int(group == "par"),
-                "language_dependent_tooling": int(group in {"pd", "rd", "fc", "ft", "sr", "pr", "sx"}),
+                "language_dependent_tooling": int(group in TASK_SPECIFIC_GROUPS | {"pr", "sx"}),
                 "description": name.replace("_", " "),
             }
         )
     return pd.DataFrame(rows)
 
 
+def task_specific_feature_descriptions() -> dict[str, str]:
+    return {
+        "pd_unique_units_count": "Number of distinct prompt content units mentioned.",
+        "pd_unique_units_ratio": "Distinct mentioned object/action units divided by possible units.",
+        "pd_total_unit_mentions": "Total prompt keyword/content-unit mentions.",
+        "pd_content_density": "Total unit mentions divided by transcript tokens.",
+        "pd_object_units_ratio": "Object-unit mentions divided by all unit mentions.",
+        "pd_action_units_ratio": "Action-unit mentions divided by all unit mentions.",
+        "pd_keyword_to_nonkeyword_ratio": "Prompt keyword mentions divided by other tokens.",
+        "pd_repeated_content_unit_ratio": "Repeated content-unit mentions divided by all unit mentions.",
+        "pd_semantic_similarity_to_unit_list": "TF-IDF cosine similarity between transcript and prompt unit list.",
+        "pd_num_unique_keywords": "Number of unique prompt keywords matched.",
+        "pd_num_total_keywords": "Total matched prompt keywords.",
+        "pd_unique_unit_density": "Unique content units divided by transcript tokens.",
+        "pd_total_unit_density": "Total content-unit mentions divided by transcript tokens.",
+        "pd_unique_unit_efficiency": "Unique content units divided by audio duration.",
+        "pd_total_unit_efficiency": "Total content-unit mentions divided by audio duration.",
+        "pd_percentage_units_mentioned": "Alias of the unique-unit coverage proportion.",
+        "pd_keyword_ttr": "Unique matched prompt keywords divided by total matched keywords.",
+        "pd_mean_utterance_to_unit_similarity": "Mean TF-IDF similarity from utterances to the prompt unit list.",
+        "pd_global_prompt_coherence": "TF-IDF similarity between full transcript and prompt unit list.",
+        "pd_detected_prompt_score": "Keyword-based confidence for detected picture prompt family.",
+        "rd_reference_token_coverage": "Reference vocabulary covered by transcript tokens.",
+        "rd_reference_bigram_coverage": "Reference token bigrams recovered in the transcript.",
+        "rd_prompt_similarity": "TF-IDF cosine similarity to the reading passage.",
+        "rd_sequence_match_ratio": "SequenceMatcher order-sensitive similarity to the passage.",
+        "rd_reference_order_score": "Matched reference tokens from aligned blocks divided by reference length.",
+        "rd_omission_ratio": "Reference vocabulary absent from the transcript.",
+        "rd_insertion_ratio": "Transcript vocabulary absent from the reference.",
+        "rd_repetition_ratio": "Repeated unigram ratio in the reading transcript.",
+        "rd_pause_per_reference_token": "Total pause duration divided by reference token count.",
+        "rd_content_word_recall_ratio": "Reference content-word vocabulary recovered by transcript.",
+        "fc_topic_coherence": "Mean TF-IDF similarity between adjacent discourse units.",
+        "fc_topic_switch_rate": "Proportion of adjacent discourse-unit pairs with low similarity.",
+        "fc_embedding_dispersion": "Standard deviation of pairwise discourse-unit similarities.",
+        "fc_named_entity_density": "Proper-noun count divided by transcript tokens.",
+        "fc_repetition_rate": "Immediate token repetitions divided by transcript tokens.",
+        "fc_mean_utterance_similarity": "Mean pairwise discourse-unit similarity.",
+        "fc_first_last_similarity": "Similarity between first and last discourse units.",
+        "fc_topic_return_ratio": "Long-range discourse-unit pairs with moderate/high similarity.",
+        "ft_item_count": "Total produced list tokens.",
+        "ft_unique_item_count": "Unique produced list tokens.",
+        "ft_repetition_count": "Repeated valid responses after first mention.",
+        "ft_intrusion_count": "Items outside the semantic category or target initial.",
+        "ft_valid_item_count": "Responses matching category lexicon or detected target initial.",
+        "ft_valid_item_ratio": "Valid responses divided by produced tokens.",
+        "ft_items_per_second": "Valid responses divided by audio duration.",
+        "ft_cluster_count": "Runs of consecutive valid items sharing an initial.",
+        "ft_mean_cluster_size": "Mean size of those initial-based clusters.",
+        "ft_switch_count": "Number of changes between adjacent valid item initials.",
+        "ft_letter_valid_count": "Tokens that satisfy the target letter/initial rule.",
+        "ft_letter_violation_count": "Tokens violating the target letter/initial rule.",
+        "sr_propositions_recalled_count": "Reference story vocabulary recovered by transcript.",
+        "sr_propositions_recalled_ratio": "Recovered reference vocabulary divided by reference vocabulary.",
+        "sr_key_event_coverage": "Order-sensitive matched token coverage against the story reference.",
+        "sr_event_order_score": "Temporal/order marker count per discourse unit.",
+        "sr_intrusion_count": "Transcript vocabulary absent from the reference story.",
+        "sr_semantic_similarity_to_reference_story": "TF-IDF cosine similarity to the reference story.",
+        "sr_repetition_rate": "Repeated unigram ratio in recall transcript.",
+        "sr_content_density": "Recovered reference vocabulary divided by transcript tokens.",
+        "cmd_token_count": "Token count in the voice-command transcript.",
+        "cmd_unique_token_ratio": "Unique command tokens divided by total command tokens.",
+        "cmd_utterance_count": "Number of command discourse units.",
+        "cmd_mean_utterance_length": "Mean tokens per command discourse unit.",
+        "cmd_device_keyword_ratio": "Device-name mentions divided by command tokens.",
+        "cmd_request_marker_ratio": "Politeness/request markers divided by command tokens.",
+        "cmd_action_verb_ratio": "Command action terms divided by command tokens.",
+        "cmd_repetition_rate": "Immediate token repetitions divided by command tokens.",
+        "cmd_duration_per_token": "Audio duration divided by command tokens.",
+        "rep_token_count": "Token count in repetition transcript.",
+        "rep_unique_token_ratio": "Unique repetition tokens divided by total tokens.",
+        "rep_immediate_repetition_count": "Count of adjacent repeated tokens.",
+        "rep_repetition_rate": "Repeated unigram ratio.",
+        "rep_bigram_repetition_rate": "Repeated bigram ratio.",
+        "rep_sequence_match_to_reference": "SequenceMatcher similarity to known repetition target when available.",
+        "rep_reference_token_coverage": "Reference target vocabulary recovered when available.",
+        "rep_duration_per_token": "Audio duration divided by repetition tokens.",
+        "ms_token_count": "Token count in motor-speech transcript.",
+        "ms_target_syllable_count": "Occurrences of target diadochokinetic syllables.",
+        "ms_target_syllable_ratio": "Target syllable occurrences divided by token count.",
+        "ms_alternation_switch_count": "Changes between adjacent target syllables.",
+        "ms_unique_syllable_ratio": "Unique target syllables divided by target syllable count.",
+        "ms_repetition_rate": "Repeated unigram ratio.",
+        "ms_tokens_per_second": "Transcript tokens divided by audio duration.",
+        "ms_target_syllables_per_second": "Target syllable occurrences divided by audio duration.",
+        "na_utterance_count": "Number of narrative/procedural discourse units.",
+        "na_mean_utterance_length": "Mean tokens per discourse unit.",
+        "na_temporal_marker_density": "Temporal markers divided by transcript tokens.",
+        "na_causal_marker_density": "Causal markers divided by transcript tokens.",
+        "na_first_person_ratio": "First-person pronouns divided by transcript tokens.",
+        "na_procedural_marker_density": "Step/action procedural markers divided by transcript tokens.",
+        "na_topic_coherence": "Mean similarity between adjacent discourse units.",
+        "na_topic_switch_rate": "Proportion of adjacent units with low lexical similarity.",
+        "na_repetition_rate": "Repeated unigram ratio.",
+    }
+
+
+def write_task_specific_documentation(phase2_df: pd.DataFrame, metadata_df: pd.DataFrame) -> None:
+    descriptions = task_specific_feature_descriptions()
+    task_features = metadata_df[metadata_df["feature_group"].isin(TASK_SPECIFIC_GROUPS)].copy()
+    coverage_rows = []
+    for group in sorted(TASK_SPECIFIC_GROUPS):
+        group_cols = [col for col in phase2_df.columns if col.startswith(f"{group}_")]
+        if not group_cols:
+            continue
+        coverage_rows.append(
+            {
+                "group": group,
+                "n_features": len(group_cols),
+                "rows_with_any_value": int((~phase2_df[group_cols].isna().all(axis=1)).sum()),
+            }
+        )
+
+    lines = [
+        "Task-Specific Feature Catalogue",
+        "=================================",
+        "",
+        "Scope: Phase 2 task-specific features are only populated for the matching task domain or a high-confidence detected list-generation task; otherwise values remain missing.",
+        "Dataset convention checked: the live manifest uses PD_CTP, READING, CONVERSATION, COMMAND, REPETITION, PICTURE_RECALL, MOTOR_SPEECH, PROCEDURAL, MIXED_PROTOCOL, and OTHER. Some source protocols are collapsed into OTHER or PD_CTP, so conservative detectors are used only for list-style fluency.",
+        "",
+        "Coverage by feature group",
+        "-------------------------",
+    ]
+    for row in coverage_rows:
+        lines.append(f"{row['group']} ({TASK_SPECIFIC_GROUP_LABELS[row['group']]}): {row['n_features']} features; {row['rows_with_any_value']} rows with at least one value")
+
+    lines.extend(
+        [
+            "",
+            "Literature basis",
+            "----------------",
+            "Picture, story, procedural, and personal narrative features follow the DementiaBank connected-speech convention: content units, lexical/syntactic measures, fluency, and discourse organization.",
+            "Reading features emphasize reading fluency, passage coverage, order, insertions/omissions, repetition, and pause burden.",
+            "Verbal fluency features follow the standard output/repetition/intrusion plus clustering/switching framing.",
+            "Voice-command features follow the VAS literature emphasis on command-relevant lexical/action/device features, ASR text features, and timing.",
+            "",
+            "Feature definitions",
+            "-------------------",
+        ]
+    )
+    for group in sorted(TASK_SPECIFIC_GROUPS):
+        group_features = task_features[task_features["feature_group"] == group]["feature_name"].tolist()
+        if not group_features:
+            continue
+        lines.extend(["", f"{TASK_SPECIFIC_GROUP_LABELS[group]} ({group}_*)"])
+        for feature_name in group_features:
+            lines.append(f"- {feature_name}: {descriptions.get(feature_name, feature_name.replace('_', ' '))}")
+
+    lines.extend(
+        [
+            "",
+            "References used",
+            "---------------",
+            "- MultiConAD annotated paper in research/ for dataset composition and experiment setup.",
+            "- DementiaBank protocol paper for picture description, story narrative, procedural, and personal narrative task conventions: https://pmc.ncbi.nlm.nih.gov/articles/PMC10171844/",
+            "- Troyer-style verbal fluency literature for clustering, switching, repetitions, and intrusions: https://doi.org/10.1037/0894-4105.11.1.138 and https://www.dovepress.com/current-understanding-of-verbal-fluency-in-alzheimers-disease-evidence-peer-reviewed-fulltext-article-PRBM",
+            "- Reading-task AD work for passage coverage, reading fluency, pause, and timing features: https://pmc.ncbi.nlm.nih.gov/articles/PMC8488259/",
+            "- Voice-assistant command dementia work for command-specific lexical/action/device features: https://digitalcommons.dartmouth.edu/facoa/4123/ and https://doi.org/10.1016/j.csl.2021.101297",
+        ]
+    )
+    TABLES_PHASE2_TABLES_ROOT.mkdir(parents=True, exist_ok=True)
+    (TABLES_PHASE2_TABLES_ROOT / "task_specific_feature_catalogue.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def finalize_group_availability(df: pd.DataFrame, feature_columns: list[str]) -> pd.DataFrame:
     groups = sorted({name.split("_", 1)[0] for name in feature_columns if "_" in name})
+    availability = {}
     for group in groups:
         group_cols = [name for name in feature_columns if name.startswith(f"{group}_")]
-        df[f"fg_{group}_available"] = (~df[group_cols].isna().all(axis=1)).astype(int)
-        df[f"fg_{group}_num_missing"] = df[group_cols].isna().sum(axis=1)
-    return df
+        availability[f"fg_{group}_available"] = (~df[group_cols].isna().all(axis=1)).astype(int)
+        availability[f"fg_{group}_num_missing"] = df[group_cols].isna().sum(axis=1)
+    if not availability:
+        return df
+    return pd.concat([df, pd.DataFrame(availability, index=df.index)], axis=1)
 
 
 def main() -> None:
@@ -993,6 +1501,10 @@ def main() -> None:
         rich_row.update(story_features(row, stats, detected_prompt_family, story_refs))
         rich_row.update(fluency_features(row, stats, base_row, fluency_resources))
         rich_row.update(conversation_features(row, stats))
+        rich_row.update(command_features(row, stats, base_row))
+        rich_row.update(repetition_features(row, stats, base_row))
+        rich_row.update(motor_speech_features(row, stats, base_row))
+        rich_row.update(narrative_features(row, stats))
         rich_row.update(production_phrase_features(row, stats))
         rich_row.update(richer_syntax_features(row, stats, language_frequency_tables.get(row["language"], Counter())))
         rich_row.update(richer_acoustic_features(str(row.get("audio_path", ""))))
@@ -1029,6 +1541,7 @@ def main() -> None:
 
     phase2_df.to_csv(FEATURES_PATH, index=False)
     metadata_df.to_csv(METADATA_PATH, index=False)
+    write_task_specific_documentation(phase2_df, metadata_df)
 
     availability_rows = []
     for group in sorted({name.split("_", 1)[0] for name in feature_columns if "_" in name}):
@@ -1041,7 +1554,7 @@ def main() -> None:
                 "mean_missing_fraction": float(phase2_df[group_cols].isna().mean().mean()),
             }
         )
-    pd.DataFrame(availability_rows).to_csv(TABLES_PHASE2_ROOT / "feature_group_availability.csv", index=False)
+    pd.DataFrame(availability_rows).to_csv(TABLES_PHASE2_RESULT_TABLES / "feature_group_availability.csv", index=False)
 
     prompt_summary = (
         phase2_df.groupby(["task_type", "prompt_id", "phase2_prompt_family"])
@@ -1049,7 +1562,7 @@ def main() -> None:
         .reset_index(name="n")
         .sort_values(["task_type", "n"], ascending=[True, False])
     )
-    prompt_summary.to_csv(TABLES_PHASE2_ROOT / "phase2_prompt_family_counts.csv", index=False)
+    prompt_summary.to_csv(TABLES_PHASE2_RESULT_TABLES / "phase2_prompt_family_counts.csv", index=False)
 
     write_json(
         SUMMARY_PATH,

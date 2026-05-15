@@ -526,7 +526,7 @@ def aggregate_results(suite_dir: Path, smoke: bool, logger) -> None:
     rows = [load_json(path) for path in files]
 
     if smoke:
-        summary_path = suite_dir / "smoke_summary.json"
+        summary_path = suite_dir / "summaries" / "smoke_summary.json"
         json_dump(summary_path, rows)
         logger(f"Wrote smoke summary: {summary_path}")
         return
@@ -597,10 +597,10 @@ def default_logger_factory(log_path: Path):
 def run_queue(args) -> None:
     project_root = Path(__file__).resolve().parents[1]
     load_project_env(project_root)
-    suite_dir = project_root / "tables" / "experiment-results" / "multiseed-suite"
+    suite_dir = project_root / "tables" / "01-baselines" / "embedding-baselines" / "multiseed-suite"
     suite_dir.mkdir(parents=True, exist_ok=True)
-    state_path = suite_dir / ("smoke_state.json" if args.command == "smoke" else "state.json")
-    log_path = suite_dir / ("smoke.log" if args.command == "smoke" else "run.log")
+    state_path = suite_dir / "summaries" / ("smoke_state.json" if args.command == "smoke" else "state.json")
+    log_path = suite_dir / "logs" / ("smoke.log" if args.command == "smoke" else "run.log")
     logger = default_logger_factory(log_path)
 
     jobs = build_jobs(SEEDS if not args.seeds else args.seeds, smoke=(args.command == "smoke"))
@@ -654,8 +654,8 @@ def run_queue(args) -> None:
 
 def show_status(args) -> None:
     project_root = Path(__file__).resolve().parents[1]
-    suite_dir = project_root / "tables" / "experiment-results" / "multiseed-suite"
-    state_path = suite_dir / ("smoke_state.json" if args.smoke else "state.json")
+    suite_dir = project_root / "tables" / "01-baselines" / "embedding-baselines" / "multiseed-suite"
+    state_path = suite_dir / "summaries" / ("smoke_state.json" if args.smoke else "state.json")
     if not state_path.exists():
         safe_print(f"No state file at {state_path}")
         return
