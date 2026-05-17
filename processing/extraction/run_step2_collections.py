@@ -330,16 +330,18 @@ def _attach_ds3_labels(record: dict) -> bool:
     Dem@Care pilot for 'patient N' dirs; directory-name inference for controlday* dirs.
     """
     parts = record.get("File_ID", "").replace("\\", "/").split("/")
-    top = parts[0].lower()
-    # controlday* directories → HC
-    if top.startswith("control"):
-        record["Diagnosis"] = "HC"
-        return True
-    # 'patient N' directories → look up pilot label by N
-    if len(parts) > 1:
-        patient_dir = parts[1].lower()
-        if patient_dir.startswith("patient "):
-            pid = patient_dir.replace("patient ", "").strip()
+    # DS3 has several public folder layouts. The participant segment may be
+    # near the root or nested below a day folder, so scan every path segment.
+    for part in parts:
+        segment = part.lower().strip()
+        if segment.startswith("control "):
+            record["Diagnosis"] = "HC"
+            return True
+
+    for part in parts:
+        segment = part.lower().strip()
+        if segment.startswith("patient "):
+            pid = segment.replace("patient ", "").strip()
             dx = _DS3_PILOT.get(pid)
             if dx:
                 record["Diagnosis"] = dx

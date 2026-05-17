@@ -67,7 +67,6 @@ graph_node_count,graph,False,ALL,1,0,1,graph node count
 graph_edge_count,graph,False,ALL,1,0,1,graph edge count
 graph_density,graph,False,ALL,1,0,1,graph density
 graph_self_loop_ratio,graph,False,ALL,1,0,1,graph self loop ratio
-graph_largest_component_ratio,graph,False,ALL,1,0,1,graph largest component ratio
 graph_average_degree,graph,False,ALL,1,0,1,graph average degree
 ac_egemaps_f0semitonefrom27_5hz_sma3nz_amean,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz amean
 ac_egemaps_f0semitonefrom27_5hz_sma3nz_stddevnorm,ac,False,ALL,0,1,0,ac egemaps f0semitonefrom27 5hz sma3nz stddevnorm
@@ -238,9 +237,7 @@ ft_intrusion_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft intrusion count
 ft_valid_item_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft valid item count
 ft_valid_item_ratio,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft valid item ratio
 ft_items_per_second,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft items per second
-ft_cluster_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft cluster count
 ft_mean_cluster_size,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft mean cluster size
-ft_switch_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft switch count
 ft_letter_valid_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft letter valid count
 ft_letter_violation_count,ft,1,FLUENCY|DETECTED_LIST_FLUENCY,1,0,1,ft letter violation count
 fc_topic_coherence,fc,1,CONVERSATION,1,0,1,fc topic coherence
@@ -303,6 +300,8 @@ pr_advp_mean_len,pr,0,ALL,1,0,1,pr advp mean len
 pr_np_rate,pr,0,ALL,1,0,1,pr np rate
 pr_vp_rate,pr,0,ALL,1,0,1,pr vp rate
 pr_pp_rate,pr,0,ALL,1,0,1,pr pp rate
+pr_adjp_rate,pr,0,ALL,1,0,1,pr adjp rate
+pr_advp_rate,pr,0,ALL,1,0,1,pr advp rate
 pr_chunk_density,pr,0,ALL,1,0,1,pr chunk density
 pr_chunk_diversity,pr,0,ALL,1,0,1,pr chunk diversity
 pr_det_noun_ratio,pr,0,ALL,1,0,1,pr det noun ratio
@@ -471,5 +470,4 @@ par_f0_median,par,0,ALL,0,1,0,par f0 median
 par_f0_q25,par,0,ALL,0,1,0,par f0 q25
 par_f0_q75,par,0,ALL,0,1,0,par f0 q75
 par_f0_iqr,par,0,ALL,0,1,0,par f0 iqr
-par_voiced_frame_ratio,par,0,ALL,0,1,0,par voiced frame ratio
 par_nonzero_rms_ratio,par,0,ALL,0,1,0,par nonzero rms ratio

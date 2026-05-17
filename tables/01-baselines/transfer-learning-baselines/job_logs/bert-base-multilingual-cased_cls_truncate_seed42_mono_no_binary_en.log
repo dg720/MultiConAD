@@ -1,0 +1,13 @@
+
+====================================================================================================
+2026-05-17T02:07:05+01:00 START bert-base-multilingual-cased_cls_truncate_seed42_mono_no_binary_en attempt=1/3
+command: C:\Users\dhruv\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe C:\Users\dhruv\Documents\06 Coding\MultiConAD\experiments\transfer_learning_embeddings.py --model bert-base-multilingual-cased --pooling cls --length_mode truncate --task binary --training mono --test_language en --translated no --seed 42 --batch_size 16
+
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+DT: accuracy=0.6804 macro_f1=0.6356 params={'max_depth': 10}
+RF: accuracy=0.7474 macro_f1=0.6483 params={'n_estimators': 200}
+SVM: accuracy=0.8351 macro_f1=0.8261 params={'C': 10, 'kernel': 'rbf'}
+LR: accuracy=0.7784 macro_f1=0.7226 params={'C': 0.1}
+Best Ensemble: accuracy=0.8196 combo=DT + SVM + LR
+Results: C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\result-tables\transfer_learning_results.txt
+CSV: C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\result-tables\csv\frozen_embedding_runs.csv

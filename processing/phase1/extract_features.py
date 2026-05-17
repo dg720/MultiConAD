@@ -1,3 +1,5 @@
+import hashlib
+import json
 import re
 from collections import Counter
 from pathlib import Path
@@ -27,6 +29,7 @@ from processing.phase1.common import (
 MANIFEST_PATH = PHASE1_ROOT / "phase1_manifest.jsonl"
 FEATURES_PATH = PHASE1_ROOT / "phase1_features.csv"
 METADATA_PATH = PHASE1_ROOT / "phase1_feature_metadata.csv"
+PHASE2_TEXT_STATS_CACHE_PATH = PHASE1_ROOT.parent / "phase2" / "phase2_text_stats_cache.jsonl"
 
 _STANZA_PIPELINES = {}
 _OPENSMILE = None
@@ -744,8 +747,60 @@ def build_feature_metadata(feature_columns: list[str]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def build_text_feature_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str, float]]:
+def text_hash(text: str) -> str:
+    return hashlib.sha1(text.encode("utf-8", errors="ignore")).hexdigest()
+
+
+def load_phase2_text_feature_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str, float]]:
+    if not PHASE2_TEXT_STATS_CACHE_PATH.exists():
+        return {}
+
+    expected = {}
+    for idx, row in manifest[manifest["analysis_text"].astype(str).str.strip() != ""].iterrows():
+        expected[row["sample_id"]] = {
+            "language": row["language"],
+            "dataset_name": row["dataset_name"],
+            "text_sha1": text_hash(clean_text(row["analysis_text"])),
+        }
+
     cache = {}
+    stale = 0
+    with PHASE2_TEXT_STATS_CACHE_PATH.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                stale += 1
+                continue
+            sample_id = str(record.get("sample_id", ""))
+            expected_row = expected.get(sample_id)
+            if not expected_row:
+                stale += 1
+                continue
+            if record.get("language") != expected_row["language"] or record.get("text_sha1") != expected_row["text_sha1"]:
+                stale += 1
+                continue
+            if (
+                expected_row["language"] == "en"
+                and expected_row["dataset_name"] in {"WLS", "TAUKADIAL"}
+                and record.get("_stats_source") != "chat_tiers"
+            ):
+                continue
+            stats = dict(record)
+            for key in ("sample_id", "language", "text_sha1", "_stats_source", "_parser_error"):
+                stats.pop(key, None)
+            stats["upos_counts"] = Counter(stats.get("upos_counts", {}))
+            stats["dep_counts"] = Counter(stats.get("dep_counts", {}))
+            cache[sample_id] = features_from_stats(stats, expected_row["language"])
+
+    log(f"Loaded phase2 parsed-text cache for phase1 rows={len(cache)} stale_or_invalid={stale}")
+    return cache
+
+
+def build_text_feature_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str, float]]:
+    cache = load_phase2_text_feature_cache(manifest, log)
     for language, group in manifest.groupby("language"):
         text_rows = group[group["analysis_text"].astype(str).str.strip() != ""]
         if text_rows.empty:
@@ -757,6 +812,10 @@ def build_text_feature_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str,
         for processed, idx in enumerate(indices, start=1):
             text = clean_text(manifest.at[idx, "analysis_text"])
             sample_id = manifest.at[idx, "sample_id"]
+            if sample_id in cache:
+                if processed % 100 == 0 or processed == len(indices):
+                    log(f"Parsed syntax language={language} progress={processed}/{len(indices)}")
+                continue
             transcript_path = str(manifest.at[idx, "transcript_path"])
             tier_stats = collect_chat_tier_stats(transcript_path, text, language)
             if tier_stats is not None:

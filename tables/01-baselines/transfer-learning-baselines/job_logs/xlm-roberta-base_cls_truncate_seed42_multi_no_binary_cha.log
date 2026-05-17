@@ -1,0 +1,12 @@
+
+====================================================================================================
+2026-05-15T22:17:42+01:00 START xlm-roberta-base_cls_truncate_seed42_multi_no_binary_cha
+command: C:\Users\dhruv\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe C:\Users\dhruv\Documents\06 Coding\MultiConAD\experiments\transfer_learning_embeddings.py --model xlm-roberta-base --pooling cls --length_mode truncate --task binary --training multi --test_language cha --translated no --seed 42 --batch_size 16
+
+DT: accuracy=0.6818 macro_f1=0.6333 params={'max_depth': 10}
+RF: accuracy=0.8182 macro_f1=0.7863 params={'n_estimators': 100}
+SVM: accuracy=0.6023 macro_f1=0.6018 params={'C': 0.1, 'kernel': 'linear'}
+LR: accuracy=0.7614 macro_f1=0.6865 params={'C': 0.1}
+Best Ensemble: accuracy=0.8182 combo=RF + LR
+Results: C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\result-tables\transfer_learning_results.txt
+CSV: C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\result-tables\csv\frozen_embedding_runs.csv

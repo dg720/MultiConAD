@@ -1,8 +1,9 @@
 import json
+import hashlib
 import math
 import re
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -49,7 +50,17 @@ MANIFEST_PATH = PROJECT_ROOT / "data" / "processed" / "phase1" / "phase1_manifes
 PHASE1_FEATURES_PATH = PROJECT_ROOT / "data" / "processed" / "phase1" / "phase1_features.csv"
 FEATURES_PATH = PHASE2_ROOT / "phase2_features.csv"
 METADATA_PATH = PHASE2_ROOT / "phase2_feature_metadata.csv"
+FEATURE_AUDIT_PATH = PHASE2_ROOT / "phase2_feature_audit.csv"
+TEXT_STATS_CACHE_PATH = PHASE2_ROOT / "phase2_text_stats_cache.jsonl"
 SUMMARY_PATH = TABLES_PHASE2_SUMMARIES / "phase2_manifest_summary.json"
+FEATURE_AUDIT_SUMMARY_PATH = TABLES_PHASE2_RESULT_TABLES / "feature_extraction_audit_summary.csv"
+
+EXCLUDED_FEATURES = {
+    "graph_largest_component_ratio",
+    "par_voiced_frame_ratio",
+    "ft_cluster_count",
+    "ft_switch_count",
+}
 
 PICTURE_LEXICONS_PATH = RESOURCES_PHASE2_ROOT / "picture_prompt_lexicons.json"
 READING_REFERENCES_PATH = RESOURCES_PHASE2_ROOT / "reading_references.json"
@@ -59,6 +70,79 @@ FLUENCY_RESOURCES_PATH = RESOURCES_PHASE2_ROOT / "fluency_resources.json"
 
 def _safe_stat(value: float) -> float:
     return float(value) if np.isfinite(value) else np.nan
+
+
+def count_nonmissing(features: dict[str, float]) -> int:
+    return int(sum(pd.notna(value) for value in features.values()))
+
+
+def audit_runtime_environment(log) -> None:
+    log("Phase2 dependency audit")
+    for module_name in ("numpy", "pandas", "scipy", "sklearn", "librosa", "soundfile", "stanza", "jieba", "opensmile"):
+        try:
+            module = __import__(module_name)
+            version = getattr(module, "__version__", "unknown")
+            log(f"Dependency {module_name}: OK version={version}")
+        except Exception as exc:
+            log(f"Dependency {module_name}: MISSING {type(exc).__name__}: {exc}")
+
+    log("Stanza pipeline resources: checked during language parsing")
+
+
+def text_hash(text: str) -> str:
+    return hashlib.sha1(text.encode("utf-8", errors="ignore")).hexdigest()
+
+
+def stats_to_cache_record(sample_id: str, language: str, text: str, stats: dict[str, object]) -> dict[str, object]:
+    record = {
+        "sample_id": sample_id,
+        "language": language,
+        "text_sha1": text_hash(text),
+    }
+    for key, value in stats.items():
+        if isinstance(value, Counter):
+            record[key] = dict(value)
+        else:
+            record[key] = value
+    return record
+
+
+def stats_from_cache_record(record: dict[str, object]) -> dict[str, object]:
+    stats = dict(record)
+    for key in ("sample_id", "language", "text_sha1"):
+        stats.pop(key, None)
+    stats["upos_counts"] = Counter(stats.get("upos_counts", {}))
+    stats["dep_counts"] = Counter(stats.get("dep_counts", {}))
+    return stats
+
+
+def load_text_stats_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str, object]]:
+    if not TEXT_STATS_CACHE_PATH.exists():
+        return {}
+
+    expected_hashes = {
+        row["sample_id"]: (row["language"], text_hash(clean_text(row["analysis_text"])))
+        for _, row in manifest[manifest["analysis_text"].astype(str).str.strip() != ""].iterrows()
+    }
+    loaded: dict[str, dict[str, object]] = {}
+    stale = 0
+    with TEXT_STATS_CACHE_PATH.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if not line.strip():
+                continue
+            try:
+                record = json.loads(line)
+            except json.JSONDecodeError:
+                stale += 1
+                continue
+            sample_id = str(record.get("sample_id", ""))
+            language, expected_hash = expected_hashes.get(sample_id, ("", ""))
+            if record.get("language") == language and record.get("text_sha1") == expected_hash:
+                loaded[sample_id] = stats_from_cache_record(record)
+            else:
+                stale += 1
+    log(f"Phase2 text stats cache loaded={len(loaded)} stale_or_invalid={stale}")
+    return loaded
 
 
 def stats_from_array(prefix: str, values: np.ndarray) -> dict[str, float]:
@@ -229,7 +313,11 @@ def detect_reference_key(row: pd.Series, refs: dict) -> str:
 
 
 def build_text_stats_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str, object]]:
-    cache: dict[str, dict[str, object]] = {}
+    cache: dict[str, dict[str, object]] = load_text_stats_cache(manifest, log)
+    source_counts: Counter = Counter()
+    parser_failure_counts: Counter = Counter()
+    for stats in cache.values():
+        source_counts[str(stats.get("_stats_source", "cached_unknown"))] += 1
     for language, group in manifest.groupby("language"):
         subset = group[group["analysis_text"].astype(str).str.strip() != ""]
         if subset.empty:
@@ -237,21 +325,43 @@ def build_text_stats_cache(manifest: pd.DataFrame, log) -> dict[str, dict[str, o
 
         log(f"Phase2 parsing language={language} rows={len(subset)}")
         pipeline = None
-        for processed, (_, row) in enumerate(subset.iterrows(), start=1):
-            sample_id = row["sample_id"]
-            text = clean_text(row["analysis_text"])
-            transcript_path = str(row.get("transcript_path", ""))
-            stats = collect_chat_tier_stats(transcript_path, text, language)
-            if stats is None:
-                try:
-                    if pipeline is None:
-                        pipeline = get_stanza_pipeline(language)
-                    stats = collect_doc_stats(text, language, pipeline(text))
-                except Exception:
-                    stats = collect_doc_stats(text, language, None)
-            cache[sample_id] = stats
-            if processed % 100 == 0 or processed == len(subset):
-                log(f"Phase2 parsing language={language} progress={processed}/{len(subset)}")
+        with TEXT_STATS_CACHE_PATH.open("a", encoding="utf-8") as cache_handle:
+            for processed, (_, row) in enumerate(subset.iterrows(), start=1):
+                sample_id = row["sample_id"]
+                if sample_id in cache:
+                    if processed % 100 == 0 or processed == len(subset):
+                        log(f"Phase2 parsing language={language} progress={processed}/{len(subset)}")
+                    continue
+
+                text = clean_text(row["analysis_text"])
+                transcript_path = str(row.get("transcript_path", ""))
+                stats = collect_chat_tier_stats(transcript_path, text, language)
+                if stats is not None:
+                    stats["_stats_source"] = "chat_tiers"
+                    source_counts["chat_tiers"] += 1
+                else:
+                    try:
+                        if pipeline is None:
+                            pipeline = get_stanza_pipeline(language)
+                        stats = collect_doc_stats(text, language, pipeline(text))
+                        stats["_stats_source"] = "stanza"
+                        source_counts["stanza"] += 1
+                    except Exception as exc:
+                        parser_failure_counts[language] += 1
+                        if parser_failure_counts[language] <= 5:
+                            log(f"Phase2 parser fallback language={language} sample_id={sample_id}: {type(exc).__name__}: {exc}")
+                        stats = collect_doc_stats(text, language, None)
+                        stats["_stats_source"] = "fallback_tokens"
+                        stats["_parser_error"] = str(exc)
+                        source_counts["fallback_tokens"] += 1
+                cache[sample_id] = stats
+                cache_handle.write(json.dumps(stats_to_cache_record(sample_id, language, text, stats), ensure_ascii=False) + "\n")
+                cache_handle.flush()
+                if processed % 100 == 0 or processed == len(subset):
+                    log(f"Phase2 parsing language={language} progress={processed}/{len(subset)}")
+    log(f"Phase2 text stats source counts: {dict(source_counts)}")
+    if parser_failure_counts:
+        log(f"Phase2 parser fallback counts by language: {dict(parser_failure_counts)}")
     return cache
 
 
@@ -422,6 +532,8 @@ def empty_pr_features() -> dict[str, float]:
         "pr_np_rate",
         "pr_vp_rate",
         "pr_pp_rate",
+        "pr_adjp_rate",
+        "pr_advp_rate",
         "pr_chunk_density",
         "pr_chunk_diversity",
         "pr_det_noun_ratio",
@@ -1136,6 +1248,8 @@ def richer_syntax_features(
     tree_depths = np.array(stats.get("tree_depths", []), dtype=float)
     token_count = len(tokens)
     dep_total = sum(dep_counts.values())
+    has_upos = bool(upos_counts)
+    has_dep = bool(dep_counts)
     if token_count == 0:
         return features
 
@@ -1168,15 +1282,15 @@ def richer_syntax_features(
             "sx_tree_depth_q75": _safe_stat(np.percentile(tree_depths, 75)) if tree_depths.size else np.nan,
             "sx_upos_entropy": _safe_stat(entropy(np.array(list(upos_counts.values()), dtype=float))) if upos_counts else np.nan,
             "sx_dep_entropy": _safe_stat(entropy(np.array(list(dep_counts.values()), dtype=float))) if dep_counts else np.nan,
-            "sx_clause_per_100_tokens": safe_div((upos_counts.get("VERB", 0) + upos_counts.get("AUX", 0)) * 100.0, token_count),
-            "sx_coordination_density": safe_div(dep_counts.get("conj", 0) + upos_counts.get("CCONJ", 0), token_count),
-            "sx_modifier_density": safe_div(dep_counts.get("amod", 0) + dep_counts.get("advmod", 0), token_count),
-            "sx_nominal_density": safe_div(upos_counts.get("NOUN", 0) + upos_counts.get("PROPN", 0), token_count),
-            "sx_verbal_density": safe_div(upos_counts.get("VERB", 0) + upos_counts.get("AUX", 0), token_count),
-            "sx_np_like_ratio": safe_div(upos_counts.get("DET", 0) + upos_counts.get("ADJ", 0) + upos_counts.get("NOUN", 0) + upos_counts.get("PROPN", 0), token_count),
-            "sx_pp_like_ratio": safe_div(upos_counts.get("ADP", 0), token_count),
-            "sx_vp_like_ratio": safe_div(upos_counts.get("VERB", 0) + upos_counts.get("AUX", 0) + upos_counts.get("ADV", 0), token_count),
-            "sx_subject_object_balance": safe_div(subject_count - object_count, dep_total),
+            "sx_clause_per_100_tokens": safe_div((upos_counts.get("VERB", 0) + upos_counts.get("AUX", 0)) * 100.0, token_count) if has_upos else np.nan,
+            "sx_coordination_density": safe_div(dep_counts.get("conj", 0) + upos_counts.get("CCONJ", 0), token_count) if (has_dep or has_upos) else np.nan,
+            "sx_modifier_density": safe_div(dep_counts.get("amod", 0) + dep_counts.get("advmod", 0), token_count) if has_dep else np.nan,
+            "sx_nominal_density": safe_div(upos_counts.get("NOUN", 0) + upos_counts.get("PROPN", 0), token_count) if has_upos else np.nan,
+            "sx_verbal_density": safe_div(upos_counts.get("VERB", 0) + upos_counts.get("AUX", 0), token_count) if has_upos else np.nan,
+            "sx_np_like_ratio": safe_div(upos_counts.get("DET", 0) + upos_counts.get("ADJ", 0) + upos_counts.get("NOUN", 0) + upos_counts.get("PROPN", 0), token_count) if has_upos else np.nan,
+            "sx_pp_like_ratio": safe_div(upos_counts.get("ADP", 0), token_count) if has_upos else np.nan,
+            "sx_vp_like_ratio": safe_div(upos_counts.get("VERB", 0) + upos_counts.get("AUX", 0) + upos_counts.get("ADV", 0), token_count) if has_upos else np.nan,
+            "sx_subject_object_balance": safe_div(subject_count - object_count, dep_total) if has_dep else np.nan,
             "sx_function_word_ratio_lexicon": safe_div(function_hits, token_count),
             "sx_content_word_ratio_lexicon": safe_div(content_like, token_count),
             "sx_mean_log_lemma_freq": _safe_stat(np.mean(lemma_log_freqs)) if lemma_log_freqs.size else np.nan,
@@ -1193,10 +1307,29 @@ def richer_syntax_features(
     return features
 
 
-def richer_acoustic_features(audio_path: str) -> dict[str, float]:
+def record_acoustic_status(audit: dict[str, object] | None, status: str, audio_path: str, error: str = "") -> None:
+    if audit is None:
+        return
+    counts: Counter = audit.setdefault("counts", Counter())
+    examples: dict[str, list[str]] = audit.setdefault("examples", defaultdict(list))
+    counts[status] += 1
+    if len(examples[status]) < 5:
+        detail = str(audio_path)
+        if error:
+            detail = f"{detail} :: {error}"
+        examples[status].append(detail)
+
+
+def richer_acoustic_features(audio_path: str, audit: dict[str, object] | None = None) -> dict[str, float]:
     features = empty_par_features()
+    if pd.isna(audio_path):
+        audio_path = ""
     path = Path(audio_path)
-    if not audio_path or not path.exists():
+    if not audio_path or not str(audio_path).strip():
+        record_acoustic_status(audit, "missing_path", audio_path)
+        return features
+    if not path.exists():
+        record_acoustic_status(audit, "path_not_found", audio_path)
         return features
 
     try:
@@ -1204,6 +1337,7 @@ def richer_acoustic_features(audio_path: str) -> dict[str, float]:
 
         y, sr = librosa.load(audio_path, sr=16000, mono=True)
         if y.size == 0:
+            record_acoustic_status(audit, "empty_audio", audio_path)
             return features
 
         hop_length = 512
@@ -1220,7 +1354,8 @@ def richer_acoustic_features(audio_path: str) -> dict[str, float]:
         try:
             f0 = librosa.yin(y, fmin=50, fmax=400, sr=sr, frame_length=frame_length, hop_length=hop_length)
             f0 = f0[np.isfinite(f0)]
-        except Exception:
+        except Exception as exc:
+            record_acoustic_status(audit, "pitch_failed", audio_path, f"{type(exc).__name__}: {exc}")
             f0 = np.array([], dtype=float)
 
         for idx in range(13):
@@ -1252,9 +1387,11 @@ def richer_acoustic_features(audio_path: str) -> dict[str, float]:
 
         features["par_voiced_frame_ratio"] = safe_div(len(f0), len(rms))
         features["par_nonzero_rms_ratio"] = safe_div(int(np.sum(rms > 0)), len(rms))
-    except Exception:
+    except Exception as exc:
+        record_acoustic_status(audit, "load_or_feature_failed", audio_path, f"{type(exc).__name__}: {exc}")
         return features
 
+    record_acoustic_status(audit, "ok", audio_path)
     return features
 
 
@@ -1468,6 +1605,7 @@ def finalize_group_availability(df: pd.DataFrame, feature_columns: list[str]) ->
 
 def main() -> None:
     log = make_logger("phase2_extract_features")
+    audit_runtime_environment(log)
     log("Loading phase1 manifest and feature table")
     manifest = pd.read_json(MANIFEST_PATH, lines=True)
     phase1_df = pd.read_csv(PHASE1_FEATURES_PATH)
@@ -1483,6 +1621,8 @@ def main() -> None:
 
     rows = []
     prompt_rows = []
+    audit_rows = []
+    acoustic_audit: dict[str, object] = {}
     for idx, row in manifest.iterrows():
         if idx % 100 == 0:
             log(f"Phase2 feature progress: {idx}/{len(manifest)}")
@@ -1493,22 +1633,61 @@ def main() -> None:
         if stats is None:
             text = clean_text(row.get("analysis_text", ""))
             stats = collect_doc_stats(text, row["language"], None)
+            stats["_stats_source"] = "fallback_tokens_missing_cache"
 
         rich_row = {"sample_id": sample_id}
         pd_features, detected_prompt_family = picture_description_features(row, stats, base_row, picture_lexicons)
+        rd_features = reading_features(row, stats, base_row, reading_refs)
+        sr_features = story_features(row, stats, detected_prompt_family, story_refs)
+        ft_features = fluency_features(row, stats, base_row, fluency_resources)
+        fc_features = conversation_features(row, stats)
+        cmd_features = command_features(row, stats, base_row)
+        rep_features = repetition_features(row, stats, base_row)
+        ms_features = motor_speech_features(row, stats, base_row)
+        na_features = narrative_features(row, stats)
+        pr_features = production_phrase_features(row, stats)
+        sx_features = richer_syntax_features(row, stats, language_frequency_tables.get(row["language"], Counter()))
+        raw_audio_path = row.get("audio_path", "")
+        audio_path = "" if pd.isna(raw_audio_path) else str(raw_audio_path)
+        par_features = richer_acoustic_features(audio_path, acoustic_audit)
         rich_row.update(pd_features)
-        rich_row.update(reading_features(row, stats, base_row, reading_refs))
-        rich_row.update(story_features(row, stats, detected_prompt_family, story_refs))
-        rich_row.update(fluency_features(row, stats, base_row, fluency_resources))
-        rich_row.update(conversation_features(row, stats))
-        rich_row.update(command_features(row, stats, base_row))
-        rich_row.update(repetition_features(row, stats, base_row))
-        rich_row.update(motor_speech_features(row, stats, base_row))
-        rich_row.update(narrative_features(row, stats))
-        rich_row.update(production_phrase_features(row, stats))
-        rich_row.update(richer_syntax_features(row, stats, language_frequency_tables.get(row["language"], Counter())))
-        rich_row.update(richer_acoustic_features(str(row.get("audio_path", ""))))
+        rich_row.update(rd_features)
+        rich_row.update(sr_features)
+        rich_row.update(ft_features)
+        rich_row.update(fc_features)
+        rich_row.update(cmd_features)
+        rich_row.update(rep_features)
+        rich_row.update(ms_features)
+        rich_row.update(na_features)
+        rich_row.update(pr_features)
+        rich_row.update(sx_features)
+        rich_row.update(par_features)
         rows.append(rich_row)
+        audit_rows.append(
+            {
+                "sample_id": sample_id,
+                "language": row.get("language", ""),
+                "dataset_name": row.get("dataset_name", ""),
+                "task_type": row.get("task_type", ""),
+                "stats_source": stats.get("_stats_source", "unknown"),
+                "upos_count": int(sum(stats.get("upos_counts", Counter()).values())),
+                "dep_count": int(sum(stats.get("dep_counts", Counter()).values())),
+                "audio_path_present": int(bool(audio_path.strip())),
+                "audio_path_exists": int(Path(audio_path).exists()) if audio_path.strip() else 0,
+                "pd_nonmissing": count_nonmissing(pd_features),
+                "rd_nonmissing": count_nonmissing(rd_features),
+                "sr_nonmissing": count_nonmissing(sr_features),
+                "ft_nonmissing": count_nonmissing(ft_features),
+                "fc_nonmissing": count_nonmissing(fc_features),
+                "cmd_nonmissing": count_nonmissing(cmd_features),
+                "rep_nonmissing": count_nonmissing(rep_features),
+                "ms_nonmissing": count_nonmissing(ms_features),
+                "na_nonmissing": count_nonmissing(na_features),
+                "pr_nonmissing": count_nonmissing(pr_features),
+                "sx_nonmissing": count_nonmissing(sx_features),
+                "par_nonmissing": count_nonmissing(par_features),
+            }
+        )
         prompt_rows.append(
             {
                 "sample_id": sample_id,
@@ -1519,6 +1698,7 @@ def main() -> None:
 
     rich_df = pd.DataFrame(rows)
     prompt_df = pd.DataFrame(prompt_rows)
+    audit_df = pd.DataFrame(audit_rows)
     phase2_df = phase1_df.merge(prompt_df, on="sample_id", how="left").merge(rich_df, on="sample_id", how="left")
 
     id_columns = {
@@ -1532,15 +1712,24 @@ def main() -> None:
         "prompt_id",
         "phase2_prompt_family",
     }
-    feature_columns = [column for column in phase2_df.columns if column not in id_columns and not column.startswith("fg_")]
+    phase2_df = phase2_df.drop(columns=[column for column in EXCLUDED_FEATURES if column in phase2_df.columns])
+    rich_df = rich_df.drop(columns=[column for column in EXCLUDED_FEATURES if column in rich_df.columns])
+    feature_columns = [
+        column
+        for column in phase2_df.columns
+        if column not in id_columns and not column.startswith("fg_") and column not in EXCLUDED_FEATURES
+    ]
     phase2_df = finalize_group_availability(phase2_df, feature_columns)
 
     phase1_metadata = pd.read_csv(PROJECT_ROOT / "data" / "processed" / "phase1" / "phase1_feature_metadata.csv")
-    new_feature_columns = [column for column in rich_df.columns if column != "sample_id"]
+    phase1_metadata = phase1_metadata[~phase1_metadata["feature_name"].isin(EXCLUDED_FEATURES)].copy()
+    new_feature_columns = [column for column in rich_df.columns if column != "sample_id" and column not in EXCLUDED_FEATURES]
     metadata_df = build_phase2_metadata(phase1_metadata, new_feature_columns)
+    metadata_df = metadata_df[~metadata_df["feature_name"].isin(EXCLUDED_FEATURES)].copy()
 
     phase2_df.to_csv(FEATURES_PATH, index=False)
     metadata_df.to_csv(METADATA_PATH, index=False)
+    audit_df.to_csv(FEATURE_AUDIT_PATH, index=False)
     write_task_specific_documentation(phase2_df, metadata_df)
 
     availability_rows = []
@@ -1555,6 +1744,35 @@ def main() -> None:
             }
         )
     pd.DataFrame(availability_rows).to_csv(TABLES_PHASE2_RESULT_TABLES / "feature_group_availability.csv", index=False)
+
+    feature_audit_rows = []
+    for feature_name in feature_columns:
+        series = pd.to_numeric(phase2_df[feature_name], errors="coerce")
+        nonmissing = int(series.notna().sum())
+        nunique = int(series.dropna().nunique())
+        if nonmissing == 0:
+            status = "all_missing"
+        elif nunique <= 1:
+            status = "constant"
+        else:
+            status = "varies"
+        feature_audit_rows.append(
+            {
+                "feature_name": feature_name,
+                "feature_group": feature_name.split("_", 1)[0] if "_" in feature_name else "",
+                "nonmissing_rows": nonmissing,
+                "missing_rows": int(series.isna().sum()),
+                "missing_fraction": float(series.isna().mean()),
+                "nunique_nonmissing": nunique,
+                "status": status,
+            }
+        )
+    pd.DataFrame(feature_audit_rows).to_csv(FEATURE_AUDIT_SUMMARY_PATH, index=False)
+
+    acoustic_counts = acoustic_audit.get("counts", Counter())
+    log(f"Phase2 acoustic extraction counts: {dict(acoustic_counts)}")
+    for status, examples in acoustic_audit.get("examples", {}).items():
+        log(f"Phase2 acoustic examples {status}: {examples}")
 
     prompt_summary = (
         phase2_df.groupby(["task_type", "prompt_id", "phase2_prompt_family"])
@@ -1571,6 +1789,8 @@ def main() -> None:
             "num_phase1_features": int(len(phase1_metadata)),
             "num_new_phase2_features": int(len(new_feature_columns)),
             "num_total_features": int(len(feature_columns)),
+            "stats_source_counts": {str(key): int(value) for key, value in audit_df["stats_source"].value_counts().to_dict().items()},
+            "acoustic_status_counts": {str(key): int(value) for key, value in acoustic_counts.items()},
             "task_counts": {str(key): int(value) for key, value in phase2_df["task_type"].value_counts().to_dict().items()},
             "prompt_family_counts": {
                 str(key): int(value)

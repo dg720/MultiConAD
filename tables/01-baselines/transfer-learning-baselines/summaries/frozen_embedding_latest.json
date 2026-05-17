@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-05-17 02:19:55",
+  "script": "experiments/transfer_learning_embeddings.py",
+  "smoke": false,
+  "seed": 42,
+  "model": "bert-base-multilingual-cased",
+  "pooling": "cls",
+  "length_mode": "truncate",
+  "training": "mono",
+  "translated": "no",
+  "setting": "Monolingual",
+  "task": "multiclass",
+  "test_language": "spa",
+  "text_col": "Text_interviewer_participant",
+  "train_size": 303,
+  "test_size": 76,
+  "train_label_dist": {
+    "Dementia": 77,
+    "MCI": 70,
+    "HC": 156
+  },
+  "test_label_dist": {
+    "HC": 39,
+    "Dementia": 20,
+    "MCI": 17
+  },
+  "results_csv": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\tables\\01-baselines\\transfer-learning-baselines\\result-tables\\csv\\frozen_embedding_runs.csv",
+  "confusion_csv": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\tables\\01-baselines\\transfer-learning-baselines\\result-tables\\csv\\frozen_embedding_confusion_matrices.csv",
+  "readable_results": "C:\\Users\\dhruv\\Documents\\06 Coding\\MultiConAD\\tables\\01-baselines\\transfer-learning-baselines\\result-tables\\transfer_learning_results.txt",
+  "classification_reports": {
+    "DT": "              precision    recall  f1-score   support\n\n    Dementia       0.47      0.35      0.40        20\n          HC       0.60      0.67      0.63        39\n         MCI       0.11      0.12      0.11        17\n\n    accuracy                           0.46        76\n   macro avg       0.39      0.38      0.38        76\nweighted avg       0.46      0.46      0.46        76\n",
+    "RF": "              precision    recall  f1-score   support\n\n    Dementia       0.45      0.25      0.32        20\n          HC       0.55      0.87      0.67        39\n         MCI       0.33      0.06      0.10        17\n\n    accuracy                           0.53        76\n   macro avg       0.45      0.39      0.37        76\nweighted avg       0.48      0.53      0.45        76\n",
+    "SVM": "              precision    recall  f1-score   support\n\n    Dementia       0.41      0.35      0.38        20\n          HC       0.57      0.85      0.68        39\n         MCI       0.00      0.00      0.00        17\n\n    accuracy                           0.53        76\n   macro avg       0.33      0.40      0.35        76\nweighted avg       0.40      0.53      0.45        76\n",
+    "LR": "              precision    recall  f1-score   support\n\n    Dementia       0.31      0.20      0.24        20\n          HC       0.60      0.79      0.68        39\n         MCI       0.09      0.06      0.07        17\n\n    accuracy                           0.47        76\n   macro avg       0.33      0.35      0.33        76\nweighted avg       0.41      0.47      0.43        76\n"
+  }
+}

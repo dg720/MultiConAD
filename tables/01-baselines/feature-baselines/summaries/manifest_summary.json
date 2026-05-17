@@ -1,11 +1,11 @@
 {
-  "num_rows": 4127,
-  "num_groups": 2870,
+  "num_rows": 4205,
+  "num_groups": 2895,
   "languages": {
     "en": 2721,
     "zh": 763,
     "es": 379,
-    "el": 264
+    "el": 342
   },
   "datasets": {
     "WLS": 1363,
@@ -14,8 +14,8 @@
     "Delaware": 404,
     "NCMMSC2021_AD": 362,
     "Ivanova": 356,
+    "DS3": 187,
     "Predictive_Chinese_challenge_Chinese_2019": 166,
-    "DS3": 109,
     "VAS": 100,
     "DS5": 76,
     "Lu": 51,
@@ -26,20 +26,20 @@
     "Kempler": 7
   },
   "task_types": {
-    "PD_CTP": 2784,
+    "PD_CTP": 2807,
     "MIXED_PROTOCOL": 408,
     "OTHER": 377,
     "READING": 356,
     "COMMAND": 100,
-    "REPETITION": 32,
-    "PICTURE_RECALL": 29,
+    "REPETITION": 57,
+    "PICTURE_RECALL": 50,
     "CONVERSATION": 27,
-    "MOTOR_SPEECH": 13,
+    "MOTOR_SPEECH": 22,
     "PROCEDURAL": 1
   },
   "diagnosis_mapped": {
-    "HC": 2327,
-    "AD": 953,
+    "HC": 2359,
+    "AD": 999,
     "MCI": 847
   },
   "mixed_protocol_rows": 408

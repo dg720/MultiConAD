@@ -1,24 +1,32 @@
 {
-  "num_rows": 4127,
-  "num_phase1_features": 194,
-  "num_new_phase2_features": 280,
-  "num_total_features": 474,
+  "num_rows": 4205,
+  "num_phase1_features": 193,
+  "num_new_phase2_features": 279,
+  "num_total_features": 472,
+  "stats_source_counts": {
+    "stanza": 2860,
+    "chat_tiers": 1345
+  },
+  "acoustic_status_counts": {
+    "ok": 1185,
+    "missing_path": 3020
+  },
   "task_counts": {
-    "PD_CTP": 2784,
+    "PD_CTP": 2807,
     "MIXED_PROTOCOL": 408,
     "OTHER": 377,
     "READING": 356,
     "COMMAND": 100,
-    "REPETITION": 32,
-    "PICTURE_RECALL": 29,
+    "REPETITION": 57,
+    "PICTURE_RECALL": 50,
     "CONVERSATION": 27,
-    "MOTOR_SPEECH": 13,
+    "MOTOR_SPEECH": 22,
     "PROCEDURAL": 1
   },
   "prompt_family_counts": {
-    "cookie_theft": 2244,
-    "UNRESOLVED": 1559,
-    "lion_scene": 155,
+    "cookie_theft": 2230,
+    "UNRESOLVED": 1650,
+    "lion_scene": 156,
     "cat_tree": 92,
     "car_trip": 74,
     "umbrella_rain": 3

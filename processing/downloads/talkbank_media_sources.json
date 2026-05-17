@@ -1,0 +1,94 @@
+{
+  "description": "TalkBank/DementiaBank media folders to mirror for local ASR and acoustic-feature runs. Keep credentials out of this file.",
+  "sources": [
+    {
+      "name": "english-adress-is2020-test",
+      "url": "https://media.talkbank.org/dementia/English/ADReSS-IS2020/test/",
+      "destination": "data/English/ADReSS_IS2020_test",
+      "depth": 4,
+      "enabled": false,
+      "notes": "Already available in the OneDrive thesis data folder; URL may need adjustment after authenticated listing."
+    },
+    {
+      "name": "english-adress-is2020-train",
+      "url": "https://media.talkbank.org/dementia/English/ADReSS-IS2020/train/",
+      "destination": "data/English/ADReSS_IS2020_train",
+      "depth": 4,
+      "enabled": false,
+      "notes": "Already available in the OneDrive thesis data folder; URL may need adjustment after authenticated listing."
+    },
+    {
+      "name": "english-pitt",
+      "url": "https://media.talkbank.org/dementia/English/Pitt/",
+      "destination": "data/English/Pitt",
+      "depth": 4,
+      "enabled": true,
+      "notes": "Cookie, fluency, recall, and sentence folders are expected below Control/Dementia."
+    },
+    {
+      "name": "english-baycrest",
+      "url": "https://media.talkbank.org/dementia/English/Protocol/Baycrest/",
+      "destination": "data/English/Baycrest",
+      "depth": 3,
+      "enabled": true
+    },
+    {
+      "name": "english-delaware",
+      "url": "https://media.talkbank.org/dementia/English/Protocol/Delaware/",
+      "destination": "data/English/Delaware",
+      "depth": 3,
+      "enabled": true,
+      "notes": "Confirmed pattern from TalkBank media folder examples."
+    },
+    {
+      "name": "english-kempler",
+      "url": "https://media.talkbank.org/dementia/English/Kempler/",
+      "destination": "data/English/Kempler",
+      "depth": 4,
+      "enabled": true
+    },
+    {
+      "name": "english-lu",
+      "url": "https://media.talkbank.org/dementia/English/Lu/",
+      "destination": "data/English/Lu",
+      "depth": 4,
+      "enabled": true
+    },
+    {
+      "name": "english-vas",
+      "url": "https://media.talkbank.org/dementia/English/VAS/",
+      "destination": "data/English/VAS",
+      "depth": 4,
+      "enabled": true
+    },
+    {
+      "name": "english-wls",
+      "url": "https://media.talkbank.org/dementia/English/WLS/",
+      "destination": "data/English/WLS",
+      "depth": 4,
+      "enabled": true
+    },
+    {
+      "name": "spanish-ivanova",
+      "url": "https://media.talkbank.org/dementia/Spanish/Ivanova/",
+      "destination": "data/Spanish/Ivanova",
+      "depth": 4,
+      "enabled": true
+    },
+    {
+      "name": "spanish-perla",
+      "url": "https://media.talkbank.org/dementia/Spanish/PerLA/",
+      "destination": "data/Spanish/PerLA",
+      "depth": 4,
+      "enabled": false,
+      "notes": "TalkBank corpus page says audio is not yet available."
+    },
+    {
+      "name": "greek-demcare",
+      "url": "https://media.talkbank.org/dementia/Greek/Dem@Care/",
+      "destination": "data/Greek/Dem@Care",
+      "depth": 5,
+      "enabled": true
+    }
+  ]
+}

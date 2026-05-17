@@ -1,0 +1,46 @@
+Table: Current MultiConAD modality audit for ASR ablations
+
+Counts are data points with transcript text and ASR-eligible source audio. Audio counts include
+datasets where source audio is available for WhisperX planning, even when the audio still needs
+to be copied into data/ before a local rerun.
+
+Lang.   Source    | Modality
+                  | Text Audio Supervised Annotated
+--------|---------|-------------------------------
+English Pitt      | 552  552   ✓          ✓
+English Lu        | 54   54    ✓          ✓
+English VAS       | 100  100   ✓          ✓
+English Baycrest  | 10   10    ✓          ✓
+English Kempler   | 7    7     ✓          ✓
+English WLS       | 1368 1368  ✓          ✓
+English Delaware  | 407  407   ✓          ✓
+English Taukdial  | 0    246   ×          ×
+--------|---------|-------------------------------
+Spanish Ivanova   | 357  0     ×          ✓
+Spanish PerLA     | 27   0     ×          ✓
+--------|---------|-------------------------------
+Chinese NCMMSE    | 0    399   ×          ×
+Chinese iFlyTek   | 401  0     ×          ×
+Chinese Taukdial  | 260  260   ×          ×
+--------|---------|-------------------------------
+Greek   DS3       | 183  250   ✓          ✓
+Greek   DS5       | 91   95    ✓          ✓
+Greek   DS7       | 58   59    ✓          ✓
+Greek   ADReSS-M  | 0    46    ×          ×
+
+Key:
+- Text = native/source transcript files, source text rows, or current benchmark transcript rows.
+- Audio = source audio data points available for future WhisperX ASR runs.
+- Supervised = at least some data points have paired source audio and reference/native transcripts suitable for supervised ASR checks.
+- Annotated = source transcript format includes CHAT-style annotation/timing/pause structure or equivalent native transcript annotation.
+
+Mismatch notes:
+- English Pitt, Lu, VAS, Baycrest, Kempler, WLS, and Delaware have source audio available for ASR in the underlying corpora, so they are counted as audio-capable here. Some audio assets may still need to be copied into data/ before local WhisperX reruns.
+- English and Chinese Taukdial are audio-only for supervised-ASR purposes. The split is based on the current ASR transcription outputs: 246 detected English recordings and 260 detected Chinese recordings. Existing JSON transcription files are Whisper outputs, not native supervised transcripts.
+- Chinese NCMMSE uses 399 labeled long-audio recordings in the current pipeline. The raw folder also contains 119 unlabeled `test_none_label` recordings, which are skipped for benchmark-style experiments.
+- Chinese iFlyTek is source-text only: 401 TSV rows, including unlabeled rows. There are no local source audio files.
+- Chinese Taukdial is listed with 260 text rows because the current benchmark has transcript rows for the Chinese split, but those are treated as ASR-derived benchmark transcripts rather than reference/native transcripts for supervised ASR scoring.
+- Greek DS3 has 250 source audio recordings and 183 CHAT transcripts in `data/Greek/Dem@Care/pilot`. The transcript set covers the picture/house/sentence tasks but not all DS3 audio tasks, so the counts differ. Estimated aligned audio+CHAT pairs: 182.
+- Greek DS5 has 95 local patient audio sessions and 91 CHAT transcripts in `data/Greek/Dem@Care/short`. The 91 transcript IDs align to audio; remaining audio-only IDs are 681, 733, 746, and 767.
+- Greek DS7 has 59 local patient audio sessions and 58 CHAT transcripts in `data/Greek/Dem@Care/long`. Estimated aligned audio+CHAT pairs: 57; audio-only IDs include 115 and 85.
+- Greek ADReSS-M uses the 46 Greek test recordings for the MultiConAD Greek source row. No local native transcripts are present for these recordings.

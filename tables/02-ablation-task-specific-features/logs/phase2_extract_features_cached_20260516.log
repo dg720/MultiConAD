@@ -1,0 +1,76 @@
+Phase2 dependency audit
+Dependency numpy: OK version=2.2.6
+Dependency pandas: OK version=2.3.3
+Dependency scipy: OK version=1.15.3
+Dependency sklearn: OK version=1.7.2
+Dependency librosa: OK version=0.11.0
+Dependency soundfile: OK version=0.13.1
+Dependency stanza: OK version=1.11.1
+C:\Users\dhruv\Documents\06 Coding\MultiConAD\.venv\lib\site-packages\jieba\_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Dependency jieba: OK version=0.42.1
+Dependency opensmile: OK version=2.6.0
+Stanza pipeline resources: checked during language parsing
+Loading phase1 manifest and feature table
+Phase2 parsing language=el rows=342
+Phase2 parsing language=el progress=100/342
+Phase2 parsing language=el progress=200/342
+Phase2 parsing language=el progress=300/342
+Phase2 parsing language=el progress=342/342
+Phase2 parsing language=en rows=2721
+Phase2 parsing language=en progress=100/2721
+Phase2 parsing language=en progress=200/2721
+Phase2 parsing language=en progress=300/2721
+Phase2 parsing language=en progress=400/2721
+Phase2 parsing language=en progress=500/2721
+Phase2 parsing language=en progress=600/2721
+Phase2 parsing language=en progress=700/2721
+Phase2 parsing language=en progress=800/2721
+Phase2 parsing language=en progress=900/2721
+Phase2 parsing language=en progress=1000/2721
+Phase2 parsing language=en progress=1100/2721
+Phase2 parsing language=en progress=1200/2721
+Phase2 parsing language=en progress=1300/2721
+Phase2 parsing language=en progress=1400/2721
+Phase2 parsing language=en progress=1500/2721
+Phase2 parsing language=en progress=1600/2721
+Phase2 parsing language=en progress=1700/2721
+Phase2 parsing language=en progress=1800/2721
+Phase2 parsing language=en progress=1900/2721
+Phase2 parsing language=en progress=2000/2721
+Phase2 parsing language=en progress=2100/2721
+Phase2 parsing language=en progress=2200/2721
+Phase2 parsing language=en progress=2300/2721
+Phase2 parsing language=en progress=2400/2721
+Phase2 parsing language=en progress=2500/2721
+Phase2 parsing language=en progress=2600/2721
+Phase2 parsing language=en progress=2700/2721
+Phase2 parsing language=en progress=2721/2721
+Phase2 parsing language=es rows=379
+Phase2 parsing language=es progress=100/379
+Phase2 parsing language=es progress=200/379
+Phase2 parsing language=es progress=300/379
+Phase2 parsing language=es progress=379/379
+Phase2 parsing language=zh rows=763
+Phase2 parsing language=zh progress=100/763
+Phase2 parsing language=zh progress=200/763
+Phase2 parsing language=zh progress=300/763
+Phase2 parsing language=zh progress=400/763
+Phase2 parsing language=zh progress=500/763
+Phase2 parsing language=zh progress=600/763
+Phase2 parsing language=zh progress=700/763
+Phase2 parsing language=zh progress=763/763
+Phase2 text stats source counts: {'stanza': 2860, 'chat_tiers': 1345}
+Phase2 feature progress: 0/4205
+Traceback (most recent call last):
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\processing\phase2\extract_features.py", line 1790, in <module>
+    main()
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\processing\phase2\extract_features.py", line 1624, in main
+    base_row = phase1_df.loc[phase1_df["sample_id"] == sample_id].iloc[0].to_dict()
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\.venv\lib\site-packages\pandas\core\indexing.py", line 1192, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\.venv\lib\site-packages\pandas\core\indexing.py", line 1753, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "C:\Users\dhruv\Documents\06 Coding\MultiConAD\.venv\lib\site-packages\pandas\core\indexing.py", line 1686, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds

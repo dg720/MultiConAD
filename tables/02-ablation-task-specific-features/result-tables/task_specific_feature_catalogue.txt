@@ -8,13 +8,13 @@ Coverage by feature group
 -------------------------
 cmd (Voice commands): 9 features; 100 rows with at least one value
 fc (Free conversation): 8 features; 27 rows with at least one value
-ft (Verbal fluency and list generation): 12 features; 4 rows with at least one value
-ms (Motor speech): 8 features; 13 rows with at least one value
+ft (Verbal fluency and list generation): 10 features; 5 rows with at least one value
+ms (Motor speech): 8 features; 22 rows with at least one value
 na (Narrative, procedural, and mixed discourse): 9 features; 409 rows with at least one value
-pd (Picture description): 20 features; 2568 rows with at least one value
+pd (Picture description): 20 features; 2555 rows with at least one value
 rd (Reading aloud): 10 features; 356 rows with at least one value
-rep (Sentence repetition): 8 features; 32 rows with at least one value
-sr (Story and picture recall): 8 features; 29 rows with at least one value
+rep (Sentence repetition): 8 features; 57 rows with at least one value
+sr (Story and picture recall): 8 features; 50 rows with at least one value
 
 Literature basis
 ----------------
@@ -55,9 +55,7 @@ Verbal fluency and list generation (ft_*)
 - ft_valid_item_count: Responses matching category lexicon or detected target initial.
 - ft_valid_item_ratio: Valid responses divided by produced tokens.
 - ft_items_per_second: Valid responses divided by audio duration.
-- ft_cluster_count: Runs of consecutive valid items sharing an initial.
 - ft_mean_cluster_size: Mean size of those initial-based clusters.
-- ft_switch_count: Number of changes between adjacent valid item initials.
 - ft_letter_valid_count: Tokens that satisfy the target letter/initial rule.
 - ft_letter_violation_count: Tokens violating the target letter/initial rule.
 

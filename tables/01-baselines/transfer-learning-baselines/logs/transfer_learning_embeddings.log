@@ -1,0 +1,2405 @@
+2026-05-15 20:38:18 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=en train=96 test=48 smoke=True
+2026-05-15 20:38:19 loading model=xlm-roberta-base device=cuda
+2026-05-15 20:46:24 encoding split=train rows=96 pooling=cls length_mode=truncate
+2026-05-15 20:46:27 loading model=xlm-roberta-base device=cuda
+2026-05-15 20:46:30 encoding split=test rows=48 pooling=cls length_mode=truncate
+2026-05-15 20:46:31 fitting DT cv=5
+2026-05-15 20:46:31 fitting RF cv=5
+2026-05-15 20:46:31 fitting SVM cv=5
+2026-05-15 20:46:31 fitting LR cv=5
+2026-05-15 20:46:31 run complete
+2026-05-15 20:47:14 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=en train=96 test=48 smoke=True
+2026-05-15 20:47:14 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_mono_no_binary_en_train_cls_truncate_563cd1ffa9e3201e.npy
+2026-05-15 20:47:14 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_mono_no_binary_en_test_cls_truncate_c6f05679c8a32e9e.npy
+2026-05-15 20:47:14 fitting DT cv=5
+2026-05-15 20:47:14 fitting RF cv=5
+2026-05-15 20:47:14 fitting SVM cv=5
+2026-05-15 20:47:14 fitting LR cv=5
+2026-05-15 20:47:14 run complete
+2026-05-15 20:48:03 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=en train=96 test=48 smoke=True
+2026-05-15 20:48:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_mono_no_binary_en_train_cls_truncate_563cd1ffa9e3201e.npy
+2026-05-15 20:48:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_mono_no_binary_en_test_cls_truncate_c6f05679c8a32e9e.npy
+2026-05-15 20:48:03 fitting DT cv=5
+2026-05-15 20:48:04 fitting RF cv=5
+2026-05-15 20:48:04 fitting SVM cv=5
+2026-05-15 20:48:04 fitting LR cv=5
+2026-05-15 20:48:04 run complete
+2026-05-15 20:52:49 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-15 20:52:49 loading model=xlm-roberta-base device=cuda
+2026-05-15 20:53:00 encoding split=train rows=2140 pooling=cls length_mode=truncate
+2026-05-15 20:53:44 loading model=xlm-roberta-base device=cuda
+2026-05-15 20:53:47 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-15 20:53:53 fitting DT cv=5
+2026-05-15 20:54:21 fitting RF cv=5
+2026-05-15 20:55:54 fitting SVM cv=5
+2026-05-15 20:57:08 fitting LR cv=5
+2026-05-15 20:57:09 run complete
+2026-05-15 21:51:40 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-15 21:51:40 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_mono_no_binary_en_train_cls_truncate_9b4a450a39b867d8.npy
+2026-05-15 21:51:40 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_mono_no_binary_en_test_cls_truncate_b28067224ff1f6ee.npy
+2026-05-15 21:51:40 fitting DT cv=5
+2026-05-15 21:52:07 fitting RF cv=5
+2026-05-15 21:53:32 fitting SVM cv=5
+2026-05-15 21:54:50 fitting LR cv=5
+2026-05-15 21:54:51 run complete
+2026-05-15 21:55:11 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-15 21:55:11 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:55:17 encoding split=train rows=172 pooling=cls length_mode=truncate
+2026-05-15 21:55:19 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:55:22 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-15 21:55:23 fitting DT cv=5
+2026-05-15 21:55:24 fitting RF cv=5
+2026-05-15 21:55:28 fitting SVM cv=5
+2026-05-15 21:55:29 fitting LR cv=5
+2026-05-15 21:55:29 run complete
+2026-05-15 21:55:38 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-15 21:55:38 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:55:41 encoding split=train rows=351 pooling=cls length_mode=truncate
+2026-05-15 21:55:46 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:55:49 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-15 21:55:51 fitting DT cv=5
+2026-05-15 21:55:53 fitting RF cv=5
+2026-05-15 21:56:01 fitting SVM cv=5
+2026-05-15 21:56:03 fitting LR cv=5
+2026-05-15 21:56:03 run complete
+2026-05-15 21:56:12 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-15 21:56:12 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:56:16 encoding split=train rows=233 pooling=cls length_mode=truncate
+2026-05-15 21:56:21 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:56:24 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-15 21:56:25 fitting DT cv=5
+2026-05-15 21:56:27 fitting RF cv=5
+2026-05-15 21:56:33 fitting SVM cv=5
+2026-05-15 21:56:34 fitting LR cv=5
+2026-05-15 21:56:34 run complete
+2026-05-15 21:56:43 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-15 21:56:43 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:56:47 encoding split=train rows=2449 pooling=cls length_mode=truncate
+2026-05-15 21:57:44 loading model=xlm-roberta-base device=cuda
+2026-05-15 21:57:48 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-15 21:57:56 fitting DT cv=5
+2026-05-15 21:58:31 fitting RF cv=5
+2026-05-15 22:00:33 fitting SVM cv=5
+2026-05-15 22:02:55 fitting LR cv=5
+2026-05-15 22:03:04 run complete
+2026-05-15 22:03:12 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-15 22:03:12 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:03:16 encoding split=train rows=211 pooling=cls length_mode=truncate
+2026-05-15 22:03:18 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:03:21 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-15 22:03:22 fitting DT cv=5
+2026-05-15 22:03:23 fitting RF cv=5
+2026-05-15 22:03:28 fitting SVM cv=5
+2026-05-15 22:03:29 fitting LR cv=5
+2026-05-15 22:03:31 run complete
+2026-05-15 22:03:39 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-15 22:03:40 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:03:43 encoding split=train rows=610 pooling=cls length_mode=truncate
+2026-05-15 22:03:55 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:03:58 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-15 22:04:00 fitting DT cv=5
+2026-05-15 22:04:05 fitting RF cv=5
+2026-05-15 22:04:20 fitting SVM cv=5
+2026-05-15 22:04:27 fitting LR cv=5
+2026-05-15 22:04:33 run complete
+2026-05-15 22:04:42 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-15 22:04:42 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:04:45 encoding split=train rows=303 pooling=cls length_mode=truncate
+2026-05-15 22:04:50 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:04:53 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-15 22:04:54 fitting DT cv=5
+2026-05-15 22:04:57 fitting RF cv=5
+2026-05-15 22:05:05 fitting SVM cv=5
+2026-05-15 22:05:07 fitting LR cv=5
+2026-05-15 22:05:08 run complete
+2026-05-15 22:05:16 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-15 22:05:16 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:05:20 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-15 22:06:38 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:06:41 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-15 22:06:54 fitting DT cv=5
+2026-05-15 22:07:31 fitting RF cv=5
+2026-05-15 22:09:20 fitting SVM cv=5
+2026-05-15 22:12:20 fitting LR cv=5
+2026-05-15 22:12:23 run complete
+2026-05-15 22:12:32 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-15 22:12:32 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_no_binary_all_train_cls_truncate_29f6241466d34369.npy
+2026-05-15 22:12:32 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:12:35 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-15 22:12:36 fitting DT cv=5
+2026-05-15 22:13:12 fitting RF cv=5
+2026-05-15 22:14:55 fitting SVM cv=5
+2026-05-15 22:17:39 fitting LR cv=5
+2026-05-15 22:17:41 run complete
+2026-05-15 22:17:50 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-15 22:17:50 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_no_binary_all_train_cls_truncate_29f6241466d34369.npy
+2026-05-15 22:17:50 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:17:54 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-15 22:17:55 fitting DT cv=5
+2026-05-15 22:18:32 fitting RF cv=5
+2026-05-15 22:20:18 fitting SVM cv=5
+2026-05-15 22:22:59 fitting LR cv=5
+2026-05-15 22:23:02 run complete
+2026-05-15 22:23:10 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-15 22:23:10 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_no_binary_all_train_cls_truncate_29f6241466d34369.npy
+2026-05-15 22:23:10 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:23:14 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-15 22:23:15 fitting DT cv=5
+2026-05-15 22:23:52 fitting RF cv=5
+2026-05-15 22:25:37 fitting SVM cv=5
+2026-05-15 22:28:29 fitting LR cv=5
+2026-05-15 22:28:32 run complete
+2026-05-15 22:28:41 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-15 22:28:41 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:28:44 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-15 22:29:49 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:29:52 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-15 22:30:00 fitting DT cv=5
+2026-05-15 22:30:47 fitting RF cv=5
+2026-05-15 22:33:10 fitting SVM cv=5
+2026-05-15 22:39:04 fitting LR cv=5
+2026-05-15 22:39:32 run complete
+2026-05-15 22:39:42 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-15 22:39:42 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_no_multiclass_all_train_cls_truncate_c3b8cbe1c0e4af43.npy
+2026-05-15 22:39:42 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:39:45 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-15 22:39:46 fitting DT cv=5
+2026-05-15 22:40:33 fitting RF cv=5
+2026-05-15 22:42:55 fitting SVM cv=5
+2026-05-15 22:49:26 fitting LR cv=5
+2026-05-15 22:49:57 run complete
+2026-05-15 22:50:07 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-15 22:50:07 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_no_multiclass_all_train_cls_truncate_c3b8cbe1c0e4af43.npy
+2026-05-15 22:50:07 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:50:11 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-15 22:50:13 fitting DT cv=5
+2026-05-15 22:51:00 fitting RF cv=5
+2026-05-15 22:53:22 fitting SVM cv=5
+2026-05-15 22:59:09 fitting LR cv=5
+2026-05-15 22:59:34 run complete
+2026-05-15 22:59:43 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-15 22:59:43 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_no_multiclass_all_train_cls_truncate_c3b8cbe1c0e4af43.npy
+2026-05-15 22:59:43 loading model=xlm-roberta-base device=cuda
+2026-05-15 22:59:47 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-15 22:59:48 fitting DT cv=5
+2026-05-15 23:00:34 fitting RF cv=5
+2026-05-15 23:02:53 fitting SVM cv=5
+2026-05-15 23:08:49 fitting LR cv=5
+2026-05-15 23:09:14 run complete
+2026-05-15 23:09:23 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-15 23:09:23 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:09:26 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-15 23:10:21 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:10:24 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-15 23:10:29 fitting DT cv=5
+2026-05-15 23:11:05 fitting RF cv=5
+2026-05-15 23:12:55 fitting SVM cv=5
+2026-05-15 23:15:35 fitting LR cv=5
+2026-05-15 23:15:37 run complete
+2026-05-15 23:15:46 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-15 23:15:46 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_yes_binary_all_train_cls_truncate_717fceacae760c36.npy
+2026-05-15 23:15:46 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:15:49 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-15 23:15:50 fitting DT cv=5
+2026-05-15 23:16:26 fitting RF cv=5
+2026-05-15 23:18:17 fitting SVM cv=5
+2026-05-15 23:21:08 fitting LR cv=5
+2026-05-15 23:21:10 run complete
+2026-05-15 23:21:19 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-15 23:21:19 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_yes_binary_all_train_cls_truncate_717fceacae760c36.npy
+2026-05-15 23:21:19 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:21:22 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-15 23:21:23 fitting DT cv=5
+2026-05-15 23:21:59 fitting RF cv=5
+2026-05-15 23:23:49 fitting SVM cv=5
+2026-05-15 23:26:43 fitting LR cv=5
+2026-05-15 23:26:45 run complete
+2026-05-15 23:26:53 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-15 23:26:53 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_yes_binary_all_train_cls_truncate_717fceacae760c36.npy
+2026-05-15 23:26:53 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:26:57 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-15 23:26:58 fitting DT cv=5
+2026-05-15 23:27:34 fitting RF cv=5
+2026-05-15 23:29:24 fitting SVM cv=5
+2026-05-15 23:32:09 fitting LR cv=5
+2026-05-15 23:32:12 run complete
+2026-05-15 23:32:20 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-15 23:32:20 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:32:26 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-15 23:33:26 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:33:29 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-15 23:33:36 fitting DT cv=5
+2026-05-15 23:34:22 fitting RF cv=5
+2026-05-15 23:36:58 fitting SVM cv=5
+2026-05-15 23:42:42 fitting LR cv=5
+2026-05-15 23:43:08 run complete
+2026-05-15 23:43:17 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-15 23:43:17 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_yes_multiclass_all_train_cls_truncate_5511d0ef08fcf7da.npy
+2026-05-15 23:43:17 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:43:20 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-15 23:43:21 fitting DT cv=5
+2026-05-15 23:44:07 fitting RF cv=5
+2026-05-15 23:46:44 fitting SVM cv=5
+2026-05-15 23:52:51 fitting LR cv=5
+2026-05-15 23:53:18 run complete
+2026-05-15 23:53:27 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-15 23:53:27 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_yes_multiclass_all_train_cls_truncate_5511d0ef08fcf7da.npy
+2026-05-15 23:53:27 loading model=xlm-roberta-base device=cuda
+2026-05-15 23:53:30 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-15 23:53:32 fitting DT cv=5
+2026-05-15 23:54:19 fitting RF cv=5
+2026-05-15 23:56:58 fitting SVM cv=5
+2026-05-16 00:03:03 fitting LR cv=5
+2026-05-16 00:03:33 run complete
+2026-05-16 00:03:43 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 00:03:43 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed42_multi_yes_multiclass_all_train_cls_truncate_5511d0ef08fcf7da.npy
+2026-05-16 00:03:43 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:03:47 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 00:03:49 fitting DT cv=5
+2026-05-16 00:04:37 fitting RF cv=5
+2026-05-16 00:07:20 fitting SVM cv=5
+2026-05-16 00:14:02 fitting LR cv=5
+2026-05-16 00:14:33 run complete
+2026-05-16 00:14:42 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 00:14:43 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:14:46 encoding split=train rows=2140 pooling=cls length_mode=truncate
+2026-05-16 00:15:26 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:15:30 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 00:15:35 fitting DT cv=5
+2026-05-16 00:16:04 fitting RF cv=5
+2026-05-16 00:17:39 fitting SVM cv=5
+2026-05-16 00:19:13 fitting LR cv=5
+2026-05-16 00:19:15 run complete
+2026-05-16 00:19:25 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 00:19:25 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:19:29 encoding split=train rows=172 pooling=cls length_mode=truncate
+2026-05-16 00:19:31 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:19:35 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 00:19:35 fitting DT cv=5
+2026-05-16 00:19:36 fitting RF cv=5
+2026-05-16 00:19:41 fitting SVM cv=5
+2026-05-16 00:19:42 fitting LR cv=5
+2026-05-16 00:19:42 run complete
+2026-05-16 00:19:52 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 00:19:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:19:56 encoding split=train rows=351 pooling=cls length_mode=truncate
+2026-05-16 00:20:02 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:20:05 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 00:20:06 fitting DT cv=5
+2026-05-16 00:20:08 fitting RF cv=5
+2026-05-16 00:20:16 fitting SVM cv=5
+2026-05-16 00:20:18 fitting LR cv=5
+2026-05-16 00:20:19 run complete
+2026-05-16 00:20:29 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 00:20:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:20:32 encoding split=train rows=233 pooling=cls length_mode=truncate
+2026-05-16 00:20:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:20:41 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 00:20:43 fitting DT cv=5
+2026-05-16 00:20:44 fitting RF cv=5
+2026-05-16 00:20:51 fitting SVM cv=5
+2026-05-16 00:20:52 fitting LR cv=5
+2026-05-16 00:20:52 run complete
+2026-05-16 00:21:02 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 00:21:02 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:21:05 encoding split=train rows=2449 pooling=cls length_mode=truncate
+2026-05-16 00:22:07 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:22:10 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 00:22:19 fitting DT cv=5
+2026-05-16 00:22:54 fitting RF cv=5
+2026-05-16 00:24:58 fitting SVM cv=5
+2026-05-16 00:27:37 fitting LR cv=5
+2026-05-16 00:27:47 run complete
+2026-05-16 00:27:57 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 00:27:57 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:28:01 encoding split=train rows=211 pooling=cls length_mode=truncate
+2026-05-16 00:28:03 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:28:06 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 00:28:06 fitting DT cv=5
+2026-05-16 00:28:08 fitting RF cv=5
+2026-05-16 00:28:13 fitting SVM cv=5
+2026-05-16 00:28:14 fitting LR cv=5
+2026-05-16 00:28:17 run complete
+2026-05-16 00:28:26 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 00:28:26 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:28:30 encoding split=train rows=610 pooling=cls length_mode=truncate
+2026-05-16 00:28:37 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:28:41 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 00:28:43 fitting DT cv=5
+2026-05-16 00:28:48 fitting RF cv=5
+2026-05-16 00:29:06 fitting SVM cv=5
+2026-05-16 00:29:13 fitting LR cv=5
+2026-05-16 00:29:20 run complete
+2026-05-16 00:29:29 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 00:29:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:29:32 encoding split=train rows=303 pooling=cls length_mode=truncate
+2026-05-16 00:29:37 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:29:40 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 00:29:42 fitting DT cv=5
+2026-05-16 00:29:44 fitting RF cv=5
+2026-05-16 00:29:52 fitting SVM cv=5
+2026-05-16 00:29:54 fitting LR cv=5
+2026-05-16 00:29:55 run complete
+2026-05-16 00:30:04 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 00:30:05 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:30:08 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 00:30:53 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:30:56 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 00:31:01 fitting DT cv=5
+2026-05-16 00:31:39 fitting RF cv=5
+2026-05-16 00:33:28 fitting SVM cv=5
+2026-05-16 00:36:37 fitting LR cv=5
+2026-05-16 00:36:41 run complete
+2026-05-16 00:36:50 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 00:36:50 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_no_binary_all_train_cls_truncate_47079532994eb8e5.npy
+2026-05-16 00:36:50 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:36:53 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 00:36:54 fitting DT cv=5
+2026-05-16 00:37:32 fitting RF cv=5
+2026-05-16 00:39:20 fitting SVM cv=5
+2026-05-16 00:42:41 fitting LR cv=5
+2026-05-16 00:42:45 run complete
+2026-05-16 00:42:54 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 00:42:54 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_no_binary_all_train_cls_truncate_47079532994eb8e5.npy
+2026-05-16 00:42:54 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:42:58 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 00:43:00 fitting DT cv=5
+2026-05-16 00:43:40 fitting RF cv=5
+2026-05-16 00:45:33 fitting SVM cv=5
+2026-05-16 00:49:17 fitting LR cv=5
+2026-05-16 00:49:21 run complete
+2026-05-16 00:49:31 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 00:49:31 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_no_binary_all_train_cls_truncate_47079532994eb8e5.npy
+2026-05-16 00:49:31 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:49:36 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 00:49:38 fitting DT cv=5
+2026-05-16 00:50:17 fitting RF cv=5
+2026-05-16 00:52:04 fitting SVM cv=5
+2026-05-16 00:54:25 fitting LR cv=5
+2026-05-16 00:54:28 run complete
+2026-05-16 00:54:36 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 00:54:36 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:54:39 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 00:55:16 loading model=xlm-roberta-base device=cuda
+2026-05-16 00:55:19 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 00:55:24 fitting DT cv=5
+2026-05-16 00:56:08 fitting RF cv=5
+2026-05-16 00:58:36 fitting SVM cv=5
+2026-05-16 01:03:29 fitting LR cv=5
+2026-05-16 01:03:48 run complete
+2026-05-16 01:03:56 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 01:03:56 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_no_multiclass_all_train_cls_truncate_0656640a64ca9e3f.npy
+2026-05-16 01:03:56 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:03:59 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 01:03:59 fitting DT cv=5
+2026-05-16 01:04:43 fitting RF cv=5
+2026-05-16 01:07:06 fitting SVM cv=5
+2026-05-16 01:11:10 fitting LR cv=5
+2026-05-16 01:11:30 run complete
+2026-05-16 01:11:37 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 01:11:37 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_no_multiclass_all_train_cls_truncate_0656640a64ca9e3f.npy
+2026-05-16 01:11:37 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:11:40 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 01:11:41 fitting DT cv=5
+2026-05-16 01:12:25 fitting RF cv=5
+2026-05-16 01:14:48 fitting SVM cv=5
+2026-05-16 01:19:02 fitting LR cv=5
+2026-05-16 01:19:21 run complete
+2026-05-16 01:19:28 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 01:19:28 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_no_multiclass_all_train_cls_truncate_0656640a64ca9e3f.npy
+2026-05-16 01:19:28 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:19:31 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 01:19:32 fitting DT cv=5
+2026-05-16 01:20:15 fitting RF cv=5
+2026-05-16 01:22:38 fitting SVM cv=5
+2026-05-16 01:26:56 fitting LR cv=5
+2026-05-16 01:27:14 run complete
+2026-05-16 01:28:05 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 01:28:05 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:28:09 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 01:28:37 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:28:40 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 01:28:43 fitting DT cv=5
+2026-05-16 01:29:17 fitting RF cv=5
+2026-05-16 01:30:52 fitting SVM cv=5
+2026-05-16 01:32:34 fitting LR cv=5
+2026-05-16 01:32:36 run complete
+2026-05-16 01:32:43 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 01:32:43 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_yes_binary_all_train_cls_truncate_cc55c7158e946288.npy
+2026-05-16 01:32:43 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:32:46 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 01:32:47 fitting DT cv=5
+2026-05-16 01:33:21 fitting RF cv=5
+2026-05-16 01:34:57 fitting SVM cv=5
+2026-05-16 01:36:44 fitting LR cv=5
+2026-05-16 01:36:46 run complete
+2026-05-16 01:36:54 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 01:36:54 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_yes_binary_all_train_cls_truncate_cc55c7158e946288.npy
+2026-05-16 01:36:54 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:36:57 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 01:36:58 fitting DT cv=5
+2026-05-16 01:37:33 fitting RF cv=5
+2026-05-16 01:39:10 fitting SVM cv=5
+2026-05-16 01:41:00 fitting LR cv=5
+2026-05-16 01:41:02 run complete
+2026-05-16 01:41:10 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 01:41:10 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_yes_binary_all_train_cls_truncate_cc55c7158e946288.npy
+2026-05-16 01:41:10 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:41:13 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 01:41:14 fitting DT cv=5
+2026-05-16 01:41:49 fitting RF cv=5
+2026-05-16 01:43:26 fitting SVM cv=5
+2026-05-16 01:45:28 fitting LR cv=5
+2026-05-16 01:45:30 run complete
+2026-05-16 01:45:37 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 01:45:37 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:45:40 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 01:46:15 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:46:18 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 01:46:22 fitting DT cv=5
+2026-05-16 01:47:05 fitting RF cv=5
+2026-05-16 01:49:29 fitting SVM cv=5
+2026-05-16 01:54:00 fitting LR cv=5
+2026-05-16 01:54:16 run complete
+2026-05-16 01:54:24 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 01:54:24 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_yes_multiclass_all_train_cls_truncate_c711e895e58492d8.npy
+2026-05-16 01:54:24 loading model=xlm-roberta-base device=cuda
+2026-05-16 01:54:27 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 01:54:28 fitting DT cv=5
+2026-05-16 01:55:10 fitting RF cv=5
+2026-05-16 01:57:35 fitting SVM cv=5
+2026-05-16 02:01:29 fitting LR cv=5
+2026-05-16 02:01:45 run complete
+2026-05-16 02:01:53 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 02:01:53 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_yes_multiclass_all_train_cls_truncate_c711e895e58492d8.npy
+2026-05-16 02:01:53 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:01:56 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 02:01:58 fitting DT cv=5
+2026-05-16 02:02:40 fitting RF cv=5
+2026-05-16 02:05:05 fitting SVM cv=5
+2026-05-16 02:08:59 fitting LR cv=5
+2026-05-16 02:09:16 run complete
+2026-05-16 02:09:24 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 02:09:24 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed43_multi_yes_multiclass_all_train_cls_truncate_c711e895e58492d8.npy
+2026-05-16 02:09:24 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:09:27 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 02:09:28 fitting DT cv=5
+2026-05-16 02:10:11 fitting RF cv=5
+2026-05-16 02:12:37 fitting SVM cv=5
+2026-05-16 02:16:34 fitting LR cv=5
+2026-05-16 02:16:50 run complete
+2026-05-16 02:16:58 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 02:16:58 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:17:01 encoding split=train rows=2140 pooling=cls length_mode=truncate
+2026-05-16 02:17:23 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:17:26 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 02:17:29 fitting DT cv=5
+2026-05-16 02:17:55 fitting RF cv=5
+2026-05-16 02:19:15 fitting SVM cv=5
+2026-05-16 02:20:15 fitting LR cv=5
+2026-05-16 02:20:16 run complete
+2026-05-16 02:20:24 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 02:20:24 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:20:27 encoding split=train rows=172 pooling=cls length_mode=truncate
+2026-05-16 02:20:28 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:20:31 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 02:20:31 fitting DT cv=5
+2026-05-16 02:20:32 fitting RF cv=5
+2026-05-16 02:20:36 fitting SVM cv=5
+2026-05-16 02:20:36 fitting LR cv=5
+2026-05-16 02:20:36 run complete
+2026-05-16 02:20:44 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 02:20:44 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:20:47 encoding split=train rows=351 pooling=cls length_mode=truncate
+2026-05-16 02:20:50 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:20:52 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 02:20:53 fitting DT cv=5
+2026-05-16 02:20:55 fitting RF cv=5
+2026-05-16 02:21:02 fitting SVM cv=5
+2026-05-16 02:21:03 fitting LR cv=5
+2026-05-16 02:21:04 run complete
+2026-05-16 02:21:11 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 02:21:11 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:21:14 encoding split=train rows=233 pooling=cls length_mode=truncate
+2026-05-16 02:21:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:21:20 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 02:21:20 fitting DT cv=5
+2026-05-16 02:21:22 fitting RF cv=5
+2026-05-16 02:21:26 fitting SVM cv=5
+2026-05-16 02:21:27 fitting LR cv=5
+2026-05-16 02:21:27 run complete
+2026-05-16 02:21:34 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 02:21:34 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:21:38 encoding split=train rows=2449 pooling=cls length_mode=truncate
+2026-05-16 02:22:04 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:22:07 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 02:22:11 fitting DT cv=5
+2026-05-16 02:22:42 fitting RF cv=5
+2026-05-16 02:24:29 fitting SVM cv=5
+2026-05-16 02:26:25 fitting LR cv=5
+2026-05-16 02:26:31 run complete
+2026-05-16 02:26:38 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 02:26:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:26:41 encoding split=train rows=211 pooling=cls length_mode=truncate
+2026-05-16 02:26:43 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:26:45 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 02:26:46 fitting DT cv=5
+2026-05-16 02:26:47 fitting RF cv=5
+2026-05-16 02:26:51 fitting SVM cv=5
+2026-05-16 02:26:52 fitting LR cv=5
+2026-05-16 02:26:54 run complete
+2026-05-16 02:27:01 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 02:27:01 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:27:04 encoding split=train rows=610 pooling=cls length_mode=truncate
+2026-05-16 02:27:08 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:27:11 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 02:27:12 fitting DT cv=5
+2026-05-16 02:27:16 fitting RF cv=5
+2026-05-16 02:27:31 fitting SVM cv=5
+2026-05-16 02:27:37 fitting LR cv=5
+2026-05-16 02:27:42 run complete
+2026-05-16 02:27:49 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 02:27:49 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:27:52 encoding split=train rows=303 pooling=cls length_mode=truncate
+2026-05-16 02:27:55 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:27:58 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 02:27:59 fitting DT cv=5
+2026-05-16 02:28:01 fitting RF cv=5
+2026-05-16 02:28:07 fitting SVM cv=5
+2026-05-16 02:28:09 fitting LR cv=5
+2026-05-16 02:28:10 run complete
+2026-05-16 02:28:17 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 02:28:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:28:21 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 02:28:49 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:28:52 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 02:28:55 fitting DT cv=5
+2026-05-16 02:29:29 fitting RF cv=5
+2026-05-16 02:31:05 fitting SVM cv=5
+2026-05-16 02:33:42 fitting LR cv=5
+2026-05-16 02:33:44 run complete
+2026-05-16 02:34:39 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 02:34:39 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_no_binary_all_train_cls_truncate_43f9e20cd325d228.npy
+2026-05-16 02:34:39 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:34:44 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 02:34:44 fitting DT cv=5
+2026-05-16 02:35:18 fitting RF cv=5
+2026-05-16 02:36:52 fitting SVM cv=5
+2026-05-16 02:38:53 fitting LR cv=5
+2026-05-16 02:38:55 run complete
+2026-05-16 02:39:03 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 02:39:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_no_binary_all_train_cls_truncate_43f9e20cd325d228.npy
+2026-05-16 02:39:03 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:39:06 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 02:39:07 fitting DT cv=5
+2026-05-16 02:39:41 fitting RF cv=5
+2026-05-16 02:41:17 fitting SVM cv=5
+2026-05-16 02:43:26 fitting LR cv=5
+2026-05-16 02:43:29 run complete
+2026-05-16 02:43:36 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 02:43:36 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_no_binary_all_train_cls_truncate_43f9e20cd325d228.npy
+2026-05-16 02:43:36 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:43:39 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 02:43:40 fitting DT cv=5
+2026-05-16 02:44:14 fitting RF cv=5
+2026-05-16 02:45:49 fitting SVM cv=5
+2026-05-16 02:47:41 fitting LR cv=5
+2026-05-16 02:47:44 run complete
+2026-05-16 02:47:51 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 02:47:51 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:47:54 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 02:48:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:48:32 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 02:48:36 fitting DT cv=5
+2026-05-16 02:49:19 fitting RF cv=5
+2026-05-16 02:51:42 fitting SVM cv=5
+2026-05-16 02:55:36 fitting LR cv=5
+2026-05-16 02:55:55 run complete
+2026-05-16 02:56:03 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 02:56:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_no_multiclass_all_train_cls_truncate_2388154b7bce56a3.npy
+2026-05-16 02:56:03 loading model=xlm-roberta-base device=cuda
+2026-05-16 02:56:06 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 02:56:06 fitting DT cv=5
+2026-05-16 02:56:50 fitting RF cv=5
+2026-05-16 02:59:14 fitting SVM cv=5
+2026-05-16 03:03:08 fitting LR cv=5
+2026-05-16 03:03:27 run complete
+2026-05-16 03:03:34 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 03:03:34 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_no_multiclass_all_train_cls_truncate_2388154b7bce56a3.npy
+2026-05-16 03:03:34 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:03:38 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 03:03:39 fitting DT cv=5
+2026-05-16 03:04:22 fitting RF cv=5
+2026-05-16 03:06:47 fitting SVM cv=5
+2026-05-16 03:10:51 fitting LR cv=5
+2026-05-16 03:11:10 run complete
+2026-05-16 03:11:17 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 03:11:17 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_no_multiclass_all_train_cls_truncate_2388154b7bce56a3.npy
+2026-05-16 03:11:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:11:21 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 03:11:22 fitting DT cv=5
+2026-05-16 03:12:05 fitting RF cv=5
+2026-05-16 03:14:27 fitting SVM cv=5
+2026-05-16 03:18:31 fitting LR cv=5
+2026-05-16 03:18:49 run complete
+2026-05-16 03:18:57 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 03:18:57 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:19:00 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 03:19:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:19:31 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 03:19:35 fitting DT cv=5
+2026-05-16 03:20:09 fitting RF cv=5
+2026-05-16 03:21:56 fitting SVM cv=5
+2026-05-16 03:23:47 fitting LR cv=5
+2026-05-16 03:23:49 run complete
+2026-05-16 03:23:56 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 03:23:56 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_yes_binary_all_train_cls_truncate_73074a4cc3dc679a.npy
+2026-05-16 03:23:56 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:23:59 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 03:24:00 fitting DT cv=5
+2026-05-16 03:24:34 fitting RF cv=5
+2026-05-16 03:26:21 fitting SVM cv=5
+2026-05-16 03:28:20 fitting LR cv=5
+2026-05-16 03:28:21 run complete
+2026-05-16 03:28:29 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 03:28:29 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_yes_binary_all_train_cls_truncate_73074a4cc3dc679a.npy
+2026-05-16 03:28:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:28:32 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 03:28:33 fitting DT cv=5
+2026-05-16 03:29:07 fitting RF cv=5
+2026-05-16 03:30:54 fitting SVM cv=5
+2026-05-16 03:32:36 fitting LR cv=5
+2026-05-16 03:32:38 run complete
+2026-05-16 03:32:45 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 03:32:45 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_yes_binary_all_train_cls_truncate_73074a4cc3dc679a.npy
+2026-05-16 03:32:45 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:32:48 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 03:32:49 fitting DT cv=5
+2026-05-16 03:33:23 fitting RF cv=5
+2026-05-16 03:35:11 fitting SVM cv=5
+2026-05-16 03:37:11 fitting LR cv=5
+2026-05-16 03:37:13 run complete
+2026-05-16 03:37:20 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 03:37:20 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:37:23 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 03:37:59 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:38:02 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 03:38:06 fitting DT cv=5
+2026-05-16 03:38:49 fitting RF cv=5
+2026-05-16 03:41:05 fitting SVM cv=5
+2026-05-16 03:45:31 fitting LR cv=5
+2026-05-16 03:45:48 run complete
+2026-05-16 03:45:56 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 03:45:56 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_yes_multiclass_all_train_cls_truncate_dc28ad16bc5f12f9.npy
+2026-05-16 03:45:56 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:45:59 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 03:46:00 fitting DT cv=5
+2026-05-16 03:46:42 fitting RF cv=5
+2026-05-16 03:48:58 fitting SVM cv=5
+2026-05-16 03:53:07 fitting LR cv=5
+2026-05-16 03:53:24 run complete
+2026-05-16 03:53:32 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 03:53:32 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_yes_multiclass_all_train_cls_truncate_dc28ad16bc5f12f9.npy
+2026-05-16 03:53:32 loading model=xlm-roberta-base device=cuda
+2026-05-16 03:53:35 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 03:53:36 fitting DT cv=5
+2026-05-16 03:54:19 fitting RF cv=5
+2026-05-16 03:56:35 fitting SVM cv=5
+2026-05-16 04:00:46 fitting LR cv=5
+2026-05-16 04:01:03 run complete
+2026-05-16 04:01:10 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 04:01:10 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed44_multi_yes_multiclass_all_train_cls_truncate_dc28ad16bc5f12f9.npy
+2026-05-16 04:01:10 loading model=xlm-roberta-base device=cuda
+2026-05-16 04:01:13 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 04:01:15 fitting DT cv=5
+2026-05-16 04:01:57 fitting RF cv=5
+2026-05-16 04:04:13 fitting SVM cv=5
+2026-05-16 04:07:58 fitting LR cv=5
+2026-05-16 04:08:16 run complete
+2026-05-16 04:08:23 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 04:08:23 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:22:12 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 09:22:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:22:15 encoding split=train rows=2140 pooling=cls length_mode=truncate
+2026-05-16 09:22:39 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:22:40 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 09:22:43 fitting DT cv=5
+2026-05-16 09:23:08 fitting RF cv=5
+2026-05-16 09:24:24 fitting SVM cv=5
+2026-05-16 09:25:28 fitting LR cv=5
+2026-05-16 09:25:29 run complete
+2026-05-16 09:25:36 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 09:25:36 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:25:39 encoding split=train rows=172 pooling=cls length_mode=truncate
+2026-05-16 09:25:40 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:25:42 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 09:25:42 fitting DT cv=5
+2026-05-16 09:25:43 fitting RF cv=5
+2026-05-16 09:25:46 fitting SVM cv=5
+2026-05-16 09:25:47 fitting LR cv=5
+2026-05-16 09:25:47 run complete
+2026-05-16 09:25:54 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 09:25:54 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:25:57 encoding split=train rows=351 pooling=cls length_mode=truncate
+2026-05-16 09:25:59 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:26:01 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 09:26:02 fitting DT cv=5
+2026-05-16 09:26:04 fitting RF cv=5
+2026-05-16 09:26:10 fitting SVM cv=5
+2026-05-16 09:26:11 fitting LR cv=5
+2026-05-16 09:26:12 run complete
+2026-05-16 09:26:19 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 09:26:19 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:26:21 encoding split=train rows=233 pooling=cls length_mode=truncate
+2026-05-16 09:26:24 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:26:26 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 09:26:27 fitting DT cv=5
+2026-05-16 09:26:28 fitting RF cv=5
+2026-05-16 09:26:34 fitting SVM cv=5
+2026-05-16 09:26:34 fitting LR cv=5
+2026-05-16 09:26:35 run complete
+2026-05-16 09:26:42 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 09:26:42 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:26:44 encoding split=train rows=2449 pooling=cls length_mode=truncate
+2026-05-16 09:27:14 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:27:16 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 09:27:20 fitting DT cv=5
+2026-05-16 09:27:50 fitting RF cv=5
+2026-05-16 09:29:37 fitting SVM cv=5
+2026-05-16 09:31:25 fitting LR cv=5
+2026-05-16 09:31:31 run complete
+2026-05-16 09:31:38 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 09:31:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:31:40 encoding split=train rows=211 pooling=cls length_mode=truncate
+2026-05-16 09:31:42 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:31:43 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 09:31:44 fitting DT cv=5
+2026-05-16 09:31:45 fitting RF cv=5
+2026-05-16 09:31:49 fitting SVM cv=5
+2026-05-16 09:31:50 fitting LR cv=5
+2026-05-16 09:31:52 run complete
+2026-05-16 09:31:59 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 09:31:59 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:32:01 encoding split=train rows=610 pooling=cls length_mode=truncate
+2026-05-16 09:32:06 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:32:08 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 09:32:09 fitting DT cv=5
+2026-05-16 09:32:13 fitting RF cv=5
+2026-05-16 09:32:27 fitting SVM cv=5
+2026-05-16 09:32:34 fitting LR cv=5
+2026-05-16 09:32:38 run complete
+2026-05-16 09:32:45 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 09:32:45 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:32:48 encoding split=train rows=303 pooling=cls length_mode=truncate
+2026-05-16 09:32:51 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:32:52 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 09:32:54 fitting DT cv=5
+2026-05-16 09:32:56 fitting RF cv=5
+2026-05-16 09:33:02 fitting SVM cv=5
+2026-05-16 09:33:04 fitting LR cv=5
+2026-05-16 09:33:05 run complete
+2026-05-16 09:33:12 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 09:33:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:33:15 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 09:33:44 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:33:46 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 09:33:49 fitting DT cv=5
+2026-05-16 09:34:24 fitting RF cv=5
+2026-05-16 09:36:07 fitting SVM cv=5
+2026-05-16 09:38:19 fitting LR cv=5
+2026-05-16 09:38:21 run complete
+2026-05-16 09:38:29 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 09:38:29 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_no_binary_all_train_cls_truncate_82350cf9fb6ea28f.npy
+2026-05-16 09:38:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:38:31 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 09:38:32 fitting DT cv=5
+2026-05-16 09:39:07 fitting RF cv=5
+2026-05-16 09:40:50 fitting SVM cv=5
+2026-05-16 09:43:14 fitting LR cv=5
+2026-05-16 09:43:16 run complete
+2026-05-16 09:43:23 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 09:43:23 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_no_binary_all_train_cls_truncate_82350cf9fb6ea28f.npy
+2026-05-16 09:43:23 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:43:26 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 09:43:27 fitting DT cv=5
+2026-05-16 09:44:02 fitting RF cv=5
+2026-05-16 09:45:47 fitting SVM cv=5
+2026-05-16 09:47:50 fitting LR cv=5
+2026-05-16 09:47:52 run complete
+2026-05-16 09:47:59 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 09:47:59 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_no_binary_all_train_cls_truncate_82350cf9fb6ea28f.npy
+2026-05-16 09:47:59 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:48:01 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 09:48:02 fitting DT cv=5
+2026-05-16 09:48:37 fitting RF cv=5
+2026-05-16 09:50:20 fitting SVM cv=5
+2026-05-16 09:52:24 fitting LR cv=5
+2026-05-16 09:52:26 run complete
+2026-05-16 09:52:33 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 09:52:33 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:52:35 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 09:53:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 09:53:14 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 09:53:18 fitting DT cv=5
+2026-05-16 09:54:02 fitting RF cv=5
+2026-05-16 09:56:16 fitting SVM cv=5
+2026-05-16 10:00:26 fitting LR cv=5
+2026-05-16 10:00:46 run complete
+2026-05-16 10:00:53 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 10:00:53 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_no_multiclass_all_train_cls_truncate_7dcc8e9b71b19ca5.npy
+2026-05-16 10:00:53 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:00:55 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 10:00:56 fitting DT cv=5
+2026-05-16 10:01:39 fitting RF cv=5
+2026-05-16 10:03:53 fitting SVM cv=5
+2026-05-16 10:08:06 fitting LR cv=5
+2026-05-16 10:08:24 run complete
+2026-05-16 10:08:31 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 10:08:31 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_no_multiclass_all_train_cls_truncate_7dcc8e9b71b19ca5.npy
+2026-05-16 10:08:31 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:08:33 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 10:08:35 fitting DT cv=5
+2026-05-16 10:09:19 fitting RF cv=5
+2026-05-16 10:11:35 fitting SVM cv=5
+2026-05-16 10:15:37 fitting LR cv=5
+2026-05-16 10:15:54 run complete
+2026-05-16 10:16:02 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 10:16:02 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_no_multiclass_all_train_cls_truncate_7dcc8e9b71b19ca5.npy
+2026-05-16 10:16:02 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:16:04 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 10:16:05 fitting DT cv=5
+2026-05-16 10:16:50 fitting RF cv=5
+2026-05-16 10:19:06 fitting SVM cv=5
+2026-05-16 10:23:17 fitting LR cv=5
+2026-05-16 10:23:35 run complete
+2026-05-16 10:23:42 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 10:23:42 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:23:45 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 10:24:13 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:24:15 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 10:24:18 fitting DT cv=5
+2026-05-16 10:24:52 fitting RF cv=5
+2026-05-16 10:26:41 fitting SVM cv=5
+2026-05-16 10:28:28 fitting LR cv=5
+2026-05-16 10:28:30 run complete
+2026-05-16 10:28:37 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 10:28:37 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_yes_binary_all_train_cls_truncate_941464fae8c8ddfa.npy
+2026-05-16 10:28:37 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:28:40 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 10:28:40 fitting DT cv=5
+2026-05-16 10:29:16 fitting RF cv=5
+2026-05-16 10:31:04 fitting SVM cv=5
+2026-05-16 10:32:52 fitting LR cv=5
+2026-05-16 10:32:53 run complete
+2026-05-16 10:33:01 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 10:33:01 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_yes_binary_all_train_cls_truncate_941464fae8c8ddfa.npy
+2026-05-16 10:33:01 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:33:03 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 10:33:04 fitting DT cv=5
+2026-05-16 10:33:39 fitting RF cv=5
+2026-05-16 10:35:28 fitting SVM cv=5
+2026-05-16 10:37:46 fitting LR cv=5
+2026-05-16 10:37:48 run complete
+2026-05-16 10:37:56 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 10:37:56 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_yes_binary_all_train_cls_truncate_941464fae8c8ddfa.npy
+2026-05-16 10:37:56 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:37:58 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 10:37:59 fitting DT cv=5
+2026-05-16 10:38:33 fitting RF cv=5
+2026-05-16 10:40:22 fitting SVM cv=5
+2026-05-16 10:42:38 fitting LR cv=5
+2026-05-16 10:42:40 run complete
+2026-05-16 10:42:48 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 10:42:48 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:42:50 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 10:43:25 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:43:27 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 10:43:31 fitting DT cv=5
+2026-05-16 10:44:15 fitting RF cv=5
+2026-05-16 10:46:42 fitting SVM cv=5
+2026-05-16 10:50:51 fitting LR cv=5
+2026-05-16 10:51:08 run complete
+2026-05-16 10:51:15 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 10:51:15 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_yes_multiclass_all_train_cls_truncate_6c075b27a8db2f95.npy
+2026-05-16 10:51:15 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:51:17 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 10:51:18 fitting DT cv=5
+2026-05-16 10:52:02 fitting RF cv=5
+2026-05-16 10:54:27 fitting SVM cv=5
+2026-05-16 10:58:57 fitting LR cv=5
+2026-05-16 10:59:13 run complete
+2026-05-16 10:59:21 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 10:59:21 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_yes_multiclass_all_train_cls_truncate_6c075b27a8db2f95.npy
+2026-05-16 10:59:21 loading model=xlm-roberta-base device=cuda
+2026-05-16 10:59:23 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 10:59:25 fitting DT cv=5
+2026-05-16 11:00:09 fitting RF cv=5
+2026-05-16 11:02:36 fitting SVM cv=5
+2026-05-16 11:06:40 fitting LR cv=5
+2026-05-16 11:06:57 run complete
+2026-05-16 11:07:04 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 11:07:04 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed45_multi_yes_multiclass_all_train_cls_truncate_6c075b27a8db2f95.npy
+2026-05-16 11:07:04 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:07:07 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 11:07:08 fitting DT cv=5
+2026-05-16 11:07:52 fitting RF cv=5
+2026-05-16 11:10:19 fitting SVM cv=5
+2026-05-16 11:14:27 fitting LR cv=5
+2026-05-16 11:14:44 run complete
+2026-05-16 11:14:51 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 11:14:51 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:14:54 encoding split=train rows=2140 pooling=cls length_mode=truncate
+2026-05-16 11:15:16 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:15:18 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 11:15:21 fitting DT cv=5
+2026-05-16 11:15:47 fitting RF cv=5
+2026-05-16 11:17:04 fitting SVM cv=5
+2026-05-16 11:18:10 fitting LR cv=5
+2026-05-16 11:18:11 run complete
+2026-05-16 11:18:19 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 11:18:19 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:18:22 encoding split=train rows=172 pooling=cls length_mode=truncate
+2026-05-16 11:18:23 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:18:25 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 11:18:26 fitting DT cv=5
+2026-05-16 11:18:26 fitting RF cv=5
+2026-05-16 11:18:30 fitting SVM cv=5
+2026-05-16 11:18:31 fitting LR cv=5
+2026-05-16 11:18:31 run complete
+2026-05-16 11:18:39 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 11:18:39 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:18:42 encoding split=train rows=351 pooling=cls length_mode=truncate
+2026-05-16 11:18:45 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:18:47 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 11:18:48 fitting DT cv=5
+2026-05-16 11:18:50 fitting RF cv=5
+2026-05-16 11:18:57 fitting SVM cv=5
+2026-05-16 11:18:58 fitting LR cv=5
+2026-05-16 11:18:59 run complete
+2026-05-16 11:19:07 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 11:19:07 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:19:09 encoding split=train rows=233 pooling=cls length_mode=truncate
+2026-05-16 11:19:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:19:14 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 11:19:15 fitting DT cv=5
+2026-05-16 11:19:16 fitting RF cv=5
+2026-05-16 11:19:21 fitting SVM cv=5
+2026-05-16 11:19:22 fitting LR cv=5
+2026-05-16 11:19:22 run complete
+2026-05-16 11:19:29 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 11:19:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:19:32 encoding split=train rows=2449 pooling=cls length_mode=truncate
+2026-05-16 11:20:00 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:20:02 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 11:20:06 fitting DT cv=5
+2026-05-16 11:20:37 fitting RF cv=5
+2026-05-16 11:22:18 fitting SVM cv=5
+2026-05-16 11:24:17 fitting LR cv=5
+2026-05-16 11:24:24 run complete
+2026-05-16 11:24:31 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 11:24:31 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:24:34 encoding split=train rows=211 pooling=cls length_mode=truncate
+2026-05-16 11:24:35 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:24:37 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 11:24:38 fitting DT cv=5
+2026-05-16 11:24:39 fitting RF cv=5
+2026-05-16 11:24:43 fitting SVM cv=5
+2026-05-16 11:24:44 fitting LR cv=5
+2026-05-16 11:24:46 run complete
+2026-05-16 11:24:54 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 11:24:54 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:24:56 encoding split=train rows=610 pooling=cls length_mode=truncate
+2026-05-16 11:25:01 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:25:03 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 11:25:05 fitting DT cv=5
+2026-05-16 11:25:09 fitting RF cv=5
+2026-05-16 11:25:22 fitting SVM cv=5
+2026-05-16 11:25:29 fitting LR cv=5
+2026-05-16 11:25:34 run complete
+2026-05-16 11:25:41 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 11:25:41 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:25:44 encoding split=train rows=303 pooling=cls length_mode=truncate
+2026-05-16 11:25:47 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:25:49 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 11:25:50 fitting DT cv=5
+2026-05-16 11:25:52 fitting RF cv=5
+2026-05-16 11:25:59 fitting SVM cv=5
+2026-05-16 11:26:01 fitting LR cv=5
+2026-05-16 11:26:02 run complete
+2026-05-16 11:26:09 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 11:26:09 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:26:12 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 11:26:42 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:26:44 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 11:26:47 fitting DT cv=5
+2026-05-16 11:27:22 fitting RF cv=5
+2026-05-16 11:29:02 fitting SVM cv=5
+2026-05-16 11:31:47 fitting LR cv=5
+2026-05-16 11:31:49 run complete
+2026-05-16 11:32:00 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 11:32:00 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_no_binary_all_train_cls_truncate_d8fef90b035f19c3.npy
+2026-05-16 11:32:00 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:32:05 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 11:32:06 fitting DT cv=5
+2026-05-16 11:32:40 fitting RF cv=5
+2026-05-16 11:34:26 fitting SVM cv=5
+2026-05-16 11:36:37 fitting LR cv=5
+2026-05-16 11:36:40 run complete
+2026-05-16 11:36:48 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 11:36:48 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_no_binary_all_train_cls_truncate_d8fef90b035f19c3.npy
+2026-05-16 11:36:48 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:36:50 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 11:36:51 fitting DT cv=5
+2026-05-16 11:37:25 fitting RF cv=5
+2026-05-16 11:39:02 fitting SVM cv=5
+2026-05-16 11:41:12 fitting LR cv=5
+2026-05-16 11:41:14 run complete
+2026-05-16 11:41:21 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 11:41:21 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_no_binary_all_train_cls_truncate_d8fef90b035f19c3.npy
+2026-05-16 11:41:21 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:41:24 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 11:41:24 fitting DT cv=5
+2026-05-16 11:41:59 fitting RF cv=5
+2026-05-16 11:43:49 fitting SVM cv=5
+2026-05-16 11:47:02 fitting LR cv=5
+2026-05-16 11:47:05 run complete
+2026-05-16 11:48:14 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 11:48:14 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:48:20 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 11:48:57 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:48:59 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 11:49:04 fitting DT cv=5
+2026-05-16 11:49:48 fitting RF cv=5
+2026-05-16 11:52:04 fitting SVM cv=5
+2026-05-16 11:56:44 fitting LR cv=5
+2026-05-16 11:57:04 run complete
+2026-05-16 11:57:13 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 11:57:13 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_no_multiclass_all_train_cls_truncate_74766d7715d67832.npy
+2026-05-16 11:57:13 loading model=xlm-roberta-base device=cuda
+2026-05-16 11:57:16 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 11:57:16 fitting DT cv=5
+2026-05-16 11:58:01 fitting RF cv=5
+2026-05-16 12:00:17 fitting SVM cv=5
+2026-05-16 12:04:32 fitting LR cv=5
+2026-05-16 12:04:56 run complete
+2026-05-16 12:05:03 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 12:05:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_no_multiclass_all_train_cls_truncate_74766d7715d67832.npy
+2026-05-16 12:05:03 loading model=xlm-roberta-base device=cuda
+2026-05-16 12:05:06 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 12:05:07 fitting DT cv=5
+2026-05-16 12:05:52 fitting RF cv=5
+2026-05-16 12:08:15 fitting SVM cv=5
+2026-05-16 12:13:13 fitting LR cv=5
+2026-05-16 12:13:59 run complete
+2026-05-16 12:14:12 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 12:14:12 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_no_multiclass_all_train_cls_truncate_74766d7715d67832.npy
+2026-05-16 12:14:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 12:14:18 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 12:14:19 fitting DT cv=5
+2026-05-16 12:15:09 fitting RF cv=5
+2026-05-16 12:17:50 fitting SVM cv=5
+2026-05-16 12:26:31 fitting LR cv=5
+2026-05-16 12:27:36 run complete
+2026-05-16 12:28:14 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 12:28:14 loading model=xlm-roberta-base device=cuda
+2026-05-16 12:28:21 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-16 12:28:58 loading model=xlm-roberta-base device=cuda
+2026-05-16 12:29:04 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-16 12:29:08 fitting DT cv=5
+2026-05-16 12:29:50 fitting RF cv=5
+2026-05-16 12:32:06 fitting SVM cv=5
+2026-05-16 12:38:31 fitting LR cv=5
+2026-05-16 12:38:38 run complete
+2026-05-16 12:39:06 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 12:39:06 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_yes_binary_all_train_cls_truncate_69c505407437be6e.npy
+2026-05-16 12:39:06 loading model=xlm-roberta-base device=cuda
+2026-05-16 12:39:13 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-16 12:39:14 fitting DT cv=5
+2026-05-16 12:40:02 fitting RF cv=5
+2026-05-16 12:42:34 fitting SVM cv=5
+2026-05-16 12:45:30 fitting LR cv=5
+2026-05-16 12:45:34 run complete
+2026-05-16 12:45:48 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 12:45:48 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_yes_binary_all_train_cls_truncate_69c505407437be6e.npy
+2026-05-16 12:45:48 loading model=xlm-roberta-base device=cuda
+2026-05-16 12:45:52 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-16 12:45:54 fitting DT cv=5
+2026-05-16 12:46:32 fitting RF cv=5
+2026-05-16 12:48:35 fitting SVM cv=5
+2026-05-16 12:52:17 fitting LR cv=5
+2026-05-16 12:52:20 run complete
+2026-05-16 12:52:35 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 12:52:35 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_yes_binary_all_train_cls_truncate_69c505407437be6e.npy
+2026-05-16 12:52:35 loading model=xlm-roberta-base device=cuda
+2026-05-16 12:52:41 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-16 12:52:42 fitting DT cv=5
+2026-05-16 12:53:20 fitting RF cv=5
+2026-05-16 12:55:24 fitting SVM cv=5
+2026-05-16 13:00:05 fitting LR cv=5
+2026-05-16 13:00:09 run complete
+2026-05-16 13:00:21 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 13:00:22 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:00:25 encoding split=train rows=3573 pooling=cls length_mode=truncate
+2026-05-16 13:01:07 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:01:10 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-16 13:01:15 fitting DT cv=5
+2026-05-16 13:02:05 fitting RF cv=5
+2026-05-16 13:04:39 fitting SVM cv=5
+2026-05-16 13:12:00 fitting LR cv=5
+2026-05-16 13:12:41 run complete
+2026-05-16 13:12:51 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 13:12:51 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_yes_multiclass_all_train_cls_truncate_09476c2d8d8de778.npy
+2026-05-16 13:12:51 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:12:54 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-16 13:12:55 fitting DT cv=5
+2026-05-16 13:13:43 fitting RF cv=5
+2026-05-16 13:16:11 fitting SVM cv=5
+2026-05-16 13:23:12 fitting LR cv=5
+2026-05-16 13:23:46 run complete
+2026-05-16 13:23:56 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 13:23:56 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_yes_multiclass_all_train_cls_truncate_09476c2d8d8de778.npy
+2026-05-16 13:23:56 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:23:59 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-16 13:24:00 fitting DT cv=5
+2026-05-16 13:24:48 fitting RF cv=5
+2026-05-16 13:27:12 fitting SVM cv=5
+2026-05-16 13:34:13 fitting LR cv=5
+2026-05-16 13:34:48 run complete
+2026-05-16 13:34:58 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 13:34:58 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\cls\truncate\seed46_multi_yes_multiclass_all_train_cls_truncate_09476c2d8d8de778.npy
+2026-05-16 13:34:58 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:35:01 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-16 13:35:03 fitting DT cv=5
+2026-05-16 13:35:52 fitting RF cv=5
+2026-05-16 13:38:19 fitting SVM cv=5
+2026-05-16 13:46:57 fitting LR cv=5
+2026-05-16 13:47:22 run complete
+2026-05-16 13:47:32 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 13:47:32 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:47:38 encoding split=train rows=2140 pooling=mean length_mode=truncate
+2026-05-16 13:48:04 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:48:09 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 13:48:13 fitting DT cv=5
+2026-05-16 13:48:43 fitting RF cv=5
+2026-05-16 13:50:21 fitting SVM cv=5
+2026-05-16 13:52:10 fitting LR cv=5
+2026-05-16 13:52:14 run complete
+2026-05-16 13:52:31 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 13:52:31 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:52:37 encoding split=train rows=172 pooling=mean length_mode=truncate
+2026-05-16 13:52:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:52:41 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 13:52:42 fitting DT cv=5
+2026-05-16 13:52:42 fitting RF cv=5
+2026-05-16 13:52:47 fitting SVM cv=5
+2026-05-16 13:52:48 fitting LR cv=5
+2026-05-16 13:52:49 run complete
+2026-05-16 13:52:59 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 13:52:59 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:53:02 encoding split=train rows=351 pooling=mean length_mode=truncate
+2026-05-16 13:53:05 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:53:07 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 13:53:08 fitting DT cv=5
+2026-05-16 13:53:10 fitting RF cv=5
+2026-05-16 13:53:19 fitting SVM cv=5
+2026-05-16 13:53:21 fitting LR cv=5
+2026-05-16 13:53:22 run complete
+2026-05-16 13:53:32 run start model=xlm-roberta-base seed=42 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 13:53:32 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:53:35 encoding split=train rows=233 pooling=mean length_mode=truncate
+2026-05-16 13:53:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:53:40 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 13:53:41 fitting DT cv=5
+2026-05-16 13:53:43 fitting RF cv=5
+2026-05-16 13:53:50 fitting SVM cv=5
+2026-05-16 13:53:51 fitting LR cv=5
+2026-05-16 13:53:52 run complete
+2026-05-16 13:54:02 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 13:54:02 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:54:05 encoding split=train rows=2449 pooling=mean length_mode=truncate
+2026-05-16 13:54:36 loading model=xlm-roberta-base device=cuda
+2026-05-16 13:54:38 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 13:54:42 fitting DT cv=5
+2026-05-16 13:55:20 fitting RF cv=5
+2026-05-16 13:57:32 fitting SVM cv=5
+2026-05-16 14:01:02 fitting LR cv=5
+2026-05-16 14:01:28 run complete
+2026-05-16 14:01:41 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 14:01:41 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:01:47 encoding split=train rows=211 pooling=mean length_mode=truncate
+2026-05-16 14:01:48 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:01:51 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 14:01:51 fitting DT cv=5
+2026-05-16 14:01:52 fitting RF cv=5
+2026-05-16 14:01:58 fitting SVM cv=5
+2026-05-16 14:01:59 fitting LR cv=5
+2026-05-16 14:02:02 run complete
+2026-05-16 14:02:11 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 14:02:11 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:02:14 encoding split=train rows=610 pooling=mean length_mode=truncate
+2026-05-16 14:02:19 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:02:21 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 14:02:22 fitting DT cv=5
+2026-05-16 14:02:27 fitting RF cv=5
+2026-05-16 14:02:44 fitting SVM cv=5
+2026-05-16 14:02:51 fitting LR cv=5
+2026-05-16 14:02:58 run complete
+2026-05-16 14:03:08 run start model=xlm-roberta-base seed=42 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 14:03:08 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:03:10 encoding split=train rows=303 pooling=mean length_mode=truncate
+2026-05-16 14:03:14 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:03:16 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 14:03:17 fitting DT cv=5
+2026-05-16 14:03:19 fitting RF cv=5
+2026-05-16 14:03:28 fitting SVM cv=5
+2026-05-16 14:03:30 fitting LR cv=5
+2026-05-16 14:03:32 run complete
+2026-05-16 14:03:41 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 14:03:41 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:03:44 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 14:04:16 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:04:19 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 14:04:22 fitting DT cv=5
+2026-05-16 14:05:05 fitting RF cv=5
+2026-05-16 14:07:07 fitting SVM cv=5
+2026-05-16 14:10:32 fitting LR cv=5
+2026-05-16 14:10:42 run complete
+2026-05-16 14:10:53 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 14:10:53 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_no_binary_all_train_mean_truncate_29f6241466d34369.npy
+2026-05-16 14:10:53 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:10:56 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 14:10:57 fitting DT cv=5
+2026-05-16 14:11:37 fitting RF cv=5
+2026-05-16 14:13:31 fitting SVM cv=5
+2026-05-16 14:16:49 fitting LR cv=5
+2026-05-16 14:16:56 run complete
+2026-05-16 14:17:06 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 14:17:06 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_no_binary_all_train_mean_truncate_29f6241466d34369.npy
+2026-05-16 14:17:06 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:17:09 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 14:17:10 fitting DT cv=5
+2026-05-16 14:17:49 fitting RF cv=5
+2026-05-16 14:19:49 fitting SVM cv=5
+2026-05-16 14:23:40 fitting LR cv=5
+2026-05-16 14:23:49 run complete
+2026-05-16 14:24:03 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 14:24:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_no_binary_all_train_mean_truncate_29f6241466d34369.npy
+2026-05-16 14:24:03 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:24:11 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 14:24:13 fitting DT cv=5
+2026-05-16 14:24:55 fitting RF cv=5
+2026-05-16 14:26:52 fitting SVM cv=5
+2026-05-16 14:31:53 fitting LR cv=5
+2026-05-16 14:32:02 run complete
+2026-05-16 14:32:16 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 14:32:16 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:32:20 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 14:33:02 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:33:04 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 14:33:09 fitting DT cv=5
+2026-05-16 14:34:04 fitting RF cv=5
+2026-05-16 14:37:07 fitting SVM cv=5
+2026-05-16 14:46:44 fitting LR cv=5
+2026-05-16 14:47:21 run complete
+2026-05-16 14:47:34 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 14:47:34 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_no_multiclass_all_train_mean_truncate_c3b8cbe1c0e4af43.npy
+2026-05-16 14:47:35 loading model=xlm-roberta-base device=cuda
+2026-05-16 14:47:40 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 14:47:41 fitting DT cv=5
+2026-05-16 14:48:33 fitting RF cv=5
+2026-05-16 14:51:24 fitting SVM cv=5
+2026-05-16 15:01:05 fitting LR cv=5
+2026-05-16 15:01:47 run complete
+2026-05-16 15:03:07 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 15:03:08 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_no_multiclass_all_train_mean_truncate_c3b8cbe1c0e4af43.npy
+2026-05-16 15:03:08 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:03:14 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 15:03:16 fitting DT cv=5
+2026-05-16 15:04:11 fitting RF cv=5
+2026-05-16 15:07:17 fitting SVM cv=5
+2026-05-16 15:15:19 fitting LR cv=5
+2026-05-16 15:16:02 run complete
+2026-05-16 15:16:17 run start model=xlm-roberta-base seed=42 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 15:16:17 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_no_multiclass_all_train_mean_truncate_c3b8cbe1c0e4af43.npy
+2026-05-16 15:16:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:16:24 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 15:16:25 fitting DT cv=5
+2026-05-16 15:17:21 fitting RF cv=5
+2026-05-16 15:20:18 fitting SVM cv=5
+2026-05-16 15:29:13 fitting LR cv=5
+2026-05-16 15:29:49 run complete
+2026-05-16 15:30:29 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 15:30:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:30:36 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 15:31:10 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:31:12 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 15:31:15 fitting DT cv=5
+2026-05-16 15:31:57 fitting RF cv=5
+2026-05-16 15:34:13 fitting SVM cv=5
+2026-05-16 15:37:45 fitting LR cv=5
+2026-05-16 15:37:50 run complete
+2026-05-16 15:38:00 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 15:38:00 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_yes_binary_all_train_mean_truncate_717fceacae760c36.npy
+2026-05-16 15:38:00 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:38:03 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 15:38:04 fitting DT cv=5
+2026-05-16 15:38:51 fitting RF cv=5
+2026-05-16 15:41:18 fitting SVM cv=5
+2026-05-16 15:45:37 fitting LR cv=5
+2026-05-16 15:45:41 run complete
+2026-05-16 15:45:50 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 15:45:50 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_yes_binary_all_train_mean_truncate_717fceacae760c36.npy
+2026-05-16 15:45:50 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:45:53 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 15:45:54 fitting DT cv=5
+2026-05-16 15:46:38 fitting RF cv=5
+2026-05-16 15:48:43 fitting SVM cv=5
+2026-05-16 15:52:45 fitting LR cv=5
+2026-05-16 15:52:49 run complete
+2026-05-16 15:53:17 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 15:53:17 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_yes_binary_all_train_mean_truncate_717fceacae760c36.npy
+2026-05-16 15:53:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:53:23 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 15:53:24 fitting DT cv=5
+2026-05-16 15:54:08 fitting RF cv=5
+2026-05-16 15:56:20 fitting SVM cv=5
+2026-05-16 15:59:28 fitting LR cv=5
+2026-05-16 15:59:32 run complete
+2026-05-16 15:59:44 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 15:59:44 loading model=xlm-roberta-base device=cuda
+2026-05-16 15:59:47 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 16:00:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:00:31 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 16:00:36 fitting DT cv=5
+2026-05-16 16:01:30 fitting RF cv=5
+2026-05-16 16:04:28 fitting SVM cv=5
+2026-05-16 16:11:23 fitting LR cv=5
+2026-05-16 16:12:03 run complete
+2026-05-16 16:12:18 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 16:12:18 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_yes_multiclass_all_train_mean_truncate_5511d0ef08fcf7da.npy
+2026-05-16 16:12:18 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:12:24 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 16:12:25 fitting DT cv=5
+2026-05-16 16:13:22 fitting RF cv=5
+2026-05-16 16:16:36 fitting SVM cv=5
+2026-05-16 16:25:49 fitting LR cv=5
+2026-05-16 16:26:29 run complete
+2026-05-16 16:26:43 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 16:26:43 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_yes_multiclass_all_train_mean_truncate_5511d0ef08fcf7da.npy
+2026-05-16 16:26:43 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:26:53 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 16:26:55 fitting DT cv=5
+2026-05-16 16:27:51 fitting RF cv=5
+2026-05-16 16:31:06 fitting SVM cv=5
+2026-05-16 16:39:56 fitting LR cv=5
+2026-05-16 16:40:34 run complete
+2026-05-16 16:40:48 run start model=xlm-roberta-base seed=42 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 16:40:48 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed42_multi_yes_multiclass_all_train_mean_truncate_5511d0ef08fcf7da.npy
+2026-05-16 16:40:48 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:40:54 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 16:40:55 fitting DT cv=5
+2026-05-16 16:41:52 fitting RF cv=5
+2026-05-16 16:45:04 fitting SVM cv=5
+2026-05-16 16:53:44 fitting LR cv=5
+2026-05-16 16:54:20 run complete
+2026-05-16 16:54:35 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 16:54:35 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:54:40 encoding split=train rows=2140 pooling=mean length_mode=truncate
+2026-05-16 16:55:13 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:55:15 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 16:55:20 fitting DT cv=5
+2026-05-16 16:55:53 fitting RF cv=5
+2026-05-16 16:57:38 fitting SVM cv=5
+2026-05-16 16:59:27 fitting LR cv=5
+2026-05-16 16:59:31 run complete
+2026-05-16 16:59:42 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 16:59:42 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:59:45 encoding split=train rows=172 pooling=mean length_mode=truncate
+2026-05-16 16:59:47 loading model=xlm-roberta-base device=cuda
+2026-05-16 16:59:49 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 16:59:50 fitting DT cv=5
+2026-05-16 16:59:51 fitting RF cv=5
+2026-05-16 16:59:56 fitting SVM cv=5
+2026-05-16 16:59:57 fitting LR cv=5
+2026-05-16 16:59:58 run complete
+2026-05-16 17:00:08 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 17:00:08 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:00:12 encoding split=train rows=351 pooling=mean length_mode=truncate
+2026-05-16 17:00:15 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:00:18 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 17:00:19 fitting DT cv=5
+2026-05-16 17:00:22 fitting RF cv=5
+2026-05-16 17:00:32 fitting SVM cv=5
+2026-05-16 17:00:34 fitting LR cv=5
+2026-05-16 17:00:35 run complete
+2026-05-16 17:00:45 run start model=xlm-roberta-base seed=43 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 17:00:45 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:00:48 encoding split=train rows=233 pooling=mean length_mode=truncate
+2026-05-16 17:00:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:00:55 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 17:00:56 fitting DT cv=5
+2026-05-16 17:00:58 fitting RF cv=5
+2026-05-16 17:01:05 fitting SVM cv=5
+2026-05-16 17:01:06 fitting LR cv=5
+2026-05-16 17:01:07 run complete
+2026-05-16 17:01:17 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 17:01:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:01:21 encoding split=train rows=2449 pooling=mean length_mode=truncate
+2026-05-16 17:01:59 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:02:02 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 17:02:08 fitting DT cv=5
+2026-05-16 17:02:49 fitting RF cv=5
+2026-05-16 17:05:02 fitting SVM cv=5
+2026-05-16 17:08:05 fitting LR cv=5
+2026-05-16 17:08:27 run complete
+2026-05-16 17:08:38 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 17:08:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:08:42 encoding split=train rows=211 pooling=mean length_mode=truncate
+2026-05-16 17:08:43 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:08:46 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 17:08:47 fitting DT cv=5
+2026-05-16 17:08:48 fitting RF cv=5
+2026-05-16 17:08:54 fitting SVM cv=5
+2026-05-16 17:08:55 fitting LR cv=5
+2026-05-16 17:08:59 run complete
+2026-05-16 17:09:10 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 17:09:10 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:09:13 encoding split=train rows=610 pooling=mean length_mode=truncate
+2026-05-16 17:09:20 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:09:23 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 17:09:24 fitting DT cv=5
+2026-05-16 17:09:30 fitting RF cv=5
+2026-05-16 17:09:50 fitting SVM cv=5
+2026-05-16 17:09:58 fitting LR cv=5
+2026-05-16 17:10:05 run complete
+2026-05-16 17:10:16 run start model=xlm-roberta-base seed=43 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 17:10:16 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:10:20 encoding split=train rows=303 pooling=mean length_mode=truncate
+2026-05-16 17:10:23 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:10:26 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 17:10:28 fitting DT cv=5
+2026-05-16 17:10:30 fitting RF cv=5
+2026-05-16 17:10:39 fitting SVM cv=5
+2026-05-16 17:10:41 fitting LR cv=5
+2026-05-16 17:10:43 run complete
+2026-05-16 17:10:54 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 17:10:54 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:10:58 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 17:11:36 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:11:38 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 17:11:43 fitting DT cv=5
+2026-05-16 17:12:27 fitting RF cv=5
+2026-05-16 17:14:30 fitting SVM cv=5
+2026-05-16 17:19:20 fitting LR cv=5
+2026-05-16 17:19:28 run complete
+2026-05-16 17:19:42 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 17:19:42 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_no_binary_all_train_mean_truncate_47079532994eb8e5.npy
+2026-05-16 17:19:42 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:19:48 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 17:19:49 fitting DT cv=5
+2026-05-16 17:20:34 fitting RF cv=5
+2026-05-16 17:22:39 fitting SVM cv=5
+2026-05-16 17:26:52 fitting LR cv=5
+2026-05-16 17:26:59 run complete
+2026-05-16 17:27:12 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 17:27:12 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_no_binary_all_train_mean_truncate_47079532994eb8e5.npy
+2026-05-16 17:27:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:27:18 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 17:27:19 fitting DT cv=5
+2026-05-16 17:28:03 fitting RF cv=5
+2026-05-16 17:30:05 fitting SVM cv=5
+2026-05-16 17:34:11 fitting LR cv=5
+2026-05-16 17:34:17 run complete
+2026-05-16 17:34:29 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 17:34:29 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_no_binary_all_train_mean_truncate_47079532994eb8e5.npy
+2026-05-16 17:34:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:34:33 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 17:34:34 fitting DT cv=5
+2026-05-16 17:35:11 fitting RF cv=5
+2026-05-16 17:36:55 fitting SVM cv=5
+2026-05-16 17:39:33 fitting LR cv=5
+2026-05-16 17:39:38 run complete
+2026-05-16 17:39:50 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 17:39:50 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:39:52 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 17:40:31 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:40:33 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 17:40:37 fitting DT cv=5
+2026-05-16 17:41:30 fitting RF cv=5
+2026-05-16 17:44:29 fitting SVM cv=5
+2026-05-16 17:50:34 fitting LR cv=5
+2026-05-16 17:51:03 run complete
+2026-05-16 17:51:14 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 17:51:14 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_no_multiclass_all_train_mean_truncate_0656640a64ca9e3f.npy
+2026-05-16 17:51:14 loading model=xlm-roberta-base device=cuda
+2026-05-16 17:51:20 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 17:51:20 fitting DT cv=5
+2026-05-16 17:52:12 fitting RF cv=5
+2026-05-16 17:55:10 fitting SVM cv=5
+2026-05-16 18:01:14 fitting LR cv=5
+2026-05-16 18:01:43 run complete
+2026-05-16 18:01:54 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 18:01:54 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_no_multiclass_all_train_mean_truncate_0656640a64ca9e3f.npy
+2026-05-16 18:01:54 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:02:00 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 18:02:01 fitting DT cv=5
+2026-05-16 18:02:57 fitting RF cv=5
+2026-05-16 18:06:06 fitting SVM cv=5
+2026-05-16 18:12:05 fitting LR cv=5
+2026-05-16 18:12:36 run complete
+2026-05-16 18:12:47 run start model=xlm-roberta-base seed=43 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 18:12:47 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_no_multiclass_all_train_mean_truncate_0656640a64ca9e3f.npy
+2026-05-16 18:12:47 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:12:53 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 18:12:54 fitting DT cv=5
+2026-05-16 18:13:50 fitting RF cv=5
+2026-05-16 18:17:02 fitting SVM cv=5
+2026-05-16 18:24:36 fitting LR cv=5
+2026-05-16 18:25:16 run complete
+2026-05-16 18:25:29 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 18:25:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:25:34 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 18:26:08 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:26:10 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 18:26:14 fitting DT cv=5
+2026-05-16 18:27:00 fitting RF cv=5
+2026-05-16 18:29:18 fitting SVM cv=5
+2026-05-16 18:32:49 fitting LR cv=5
+2026-05-16 18:32:54 run complete
+2026-05-16 18:33:07 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 18:33:07 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_yes_binary_all_train_mean_truncate_cc55c7158e946288.npy
+2026-05-16 18:33:07 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:33:12 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 18:33:13 fitting DT cv=5
+2026-05-16 18:33:59 fitting RF cv=5
+2026-05-16 18:36:18 fitting SVM cv=5
+2026-05-16 18:40:41 fitting LR cv=5
+2026-05-16 18:40:45 run complete
+2026-05-16 18:40:57 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 18:40:57 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_yes_binary_all_train_mean_truncate_cc55c7158e946288.npy
+2026-05-16 18:40:57 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:41:02 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 18:41:03 fitting DT cv=5
+2026-05-16 18:41:44 fitting RF cv=5
+2026-05-16 18:43:51 fitting SVM cv=5
+2026-05-16 18:46:34 fitting LR cv=5
+2026-05-16 18:46:38 run complete
+2026-05-16 18:46:49 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 18:46:49 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_yes_binary_all_train_mean_truncate_cc55c7158e946288.npy
+2026-05-16 18:46:49 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:46:52 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 18:46:53 fitting DT cv=5
+2026-05-16 18:47:30 fitting RF cv=5
+2026-05-16 18:49:24 fitting SVM cv=5
+2026-05-16 18:51:50 fitting LR cv=5
+2026-05-16 18:51:53 run complete
+2026-05-16 18:52:01 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 18:52:01 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:52:04 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 18:52:40 loading model=xlm-roberta-base device=cuda
+2026-05-16 18:52:42 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 18:52:47 fitting DT cv=5
+2026-05-16 18:53:32 fitting RF cv=5
+2026-05-16 18:55:50 fitting SVM cv=5
+2026-05-16 19:01:05 fitting LR cv=5
+2026-05-16 19:01:30 run complete
+2026-05-16 19:01:38 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 19:01:38 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_yes_multiclass_all_train_mean_truncate_c711e895e58492d8.npy
+2026-05-16 19:01:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:01:40 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 19:01:41 fitting DT cv=5
+2026-05-16 19:02:26 fitting RF cv=5
+2026-05-16 19:04:44 fitting SVM cv=5
+2026-05-16 19:09:31 fitting LR cv=5
+2026-05-16 19:09:59 run complete
+2026-05-16 19:10:08 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 19:10:08 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_yes_multiclass_all_train_mean_truncate_c711e895e58492d8.npy
+2026-05-16 19:10:08 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:10:11 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 19:10:12 fitting DT cv=5
+2026-05-16 19:10:57 fitting RF cv=5
+2026-05-16 19:13:19 fitting SVM cv=5
+2026-05-16 19:18:32 fitting LR cv=5
+2026-05-16 19:18:57 run complete
+2026-05-16 19:19:07 run start model=xlm-roberta-base seed=43 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 19:19:07 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed43_multi_yes_multiclass_all_train_mean_truncate_c711e895e58492d8.npy
+2026-05-16 19:19:07 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:19:12 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 19:19:13 fitting DT cv=5
+2026-05-16 19:19:59 fitting RF cv=5
+2026-05-16 19:22:18 fitting SVM cv=5
+2026-05-16 19:27:19 fitting LR cv=5
+2026-05-16 19:27:44 run complete
+2026-05-16 19:27:52 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 19:27:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:27:54 encoding split=train rows=2140 pooling=mean length_mode=truncate
+2026-05-16 19:28:20 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:28:22 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 19:28:25 fitting DT cv=5
+2026-05-16 19:28:54 fitting RF cv=5
+2026-05-16 19:30:20 fitting SVM cv=5
+2026-05-16 19:31:21 fitting LR cv=5
+2026-05-16 19:31:23 run complete
+2026-05-16 19:31:31 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 19:31:31 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:31:33 encoding split=train rows=172 pooling=mean length_mode=truncate
+2026-05-16 19:31:35 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:31:37 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 19:31:37 fitting DT cv=5
+2026-05-16 19:31:38 fitting RF cv=5
+2026-05-16 19:31:42 fitting SVM cv=5
+2026-05-16 19:31:42 fitting LR cv=5
+2026-05-16 19:31:43 run complete
+2026-05-16 19:31:50 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 19:31:50 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:31:53 encoding split=train rows=351 pooling=mean length_mode=truncate
+2026-05-16 19:31:55 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:31:57 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 19:31:58 fitting DT cv=5
+2026-05-16 19:32:00 fitting RF cv=5
+2026-05-16 19:32:07 fitting SVM cv=5
+2026-05-16 19:32:08 fitting LR cv=5
+2026-05-16 19:32:09 run complete
+2026-05-16 19:32:17 run start model=xlm-roberta-base seed=44 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 19:32:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:32:19 encoding split=train rows=233 pooling=mean length_mode=truncate
+2026-05-16 19:32:22 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:32:24 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 19:32:25 fitting DT cv=5
+2026-05-16 19:32:26 fitting RF cv=5
+2026-05-16 19:32:31 fitting SVM cv=5
+2026-05-16 19:32:32 fitting LR cv=5
+2026-05-16 19:32:32 run complete
+2026-05-16 19:32:39 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 19:32:39 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:32:42 encoding split=train rows=2449 pooling=mean length_mode=truncate
+2026-05-16 19:33:11 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:33:13 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 19:33:18 fitting DT cv=5
+2026-05-16 19:33:51 fitting RF cv=5
+2026-05-16 19:35:42 fitting SVM cv=5
+2026-05-16 19:37:33 fitting LR cv=5
+2026-05-16 19:37:45 run complete
+2026-05-16 19:37:55 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 19:37:55 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:38:00 encoding split=train rows=211 pooling=mean length_mode=truncate
+2026-05-16 19:38:02 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:38:04 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 19:38:04 fitting DT cv=5
+2026-05-16 19:38:05 fitting RF cv=5
+2026-05-16 19:38:10 fitting SVM cv=5
+2026-05-16 19:38:11 fitting LR cv=5
+2026-05-16 19:38:13 run complete
+2026-05-16 19:38:20 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 19:38:21 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:38:23 encoding split=train rows=610 pooling=mean length_mode=truncate
+2026-05-16 19:38:28 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:38:30 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 19:38:31 fitting DT cv=5
+2026-05-16 19:38:36 fitting RF cv=5
+2026-05-16 19:38:51 fitting SVM cv=5
+2026-05-16 19:38:58 fitting LR cv=5
+2026-05-16 19:39:02 run complete
+2026-05-16 19:39:10 run start model=xlm-roberta-base seed=44 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 19:39:10 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:39:12 encoding split=train rows=303 pooling=mean length_mode=truncate
+2026-05-16 19:39:16 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:39:18 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 19:39:18 fitting DT cv=5
+2026-05-16 19:39:20 fitting RF cv=5
+2026-05-16 19:39:27 fitting SVM cv=5
+2026-05-16 19:39:29 fitting LR cv=5
+2026-05-16 19:39:30 run complete
+2026-05-16 19:39:38 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 19:39:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:39:40 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 19:40:11 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:40:13 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 19:40:16 fitting DT cv=5
+2026-05-16 19:40:52 fitting RF cv=5
+2026-05-16 19:42:35 fitting SVM cv=5
+2026-05-16 19:45:08 fitting LR cv=5
+2026-05-16 19:45:13 run complete
+2026-05-16 19:45:22 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 19:45:22 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_no_binary_all_train_mean_truncate_43f9e20cd325d228.npy
+2026-05-16 19:45:22 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:45:24 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 19:45:25 fitting DT cv=5
+2026-05-16 19:46:01 fitting RF cv=5
+2026-05-16 19:47:45 fitting SVM cv=5
+2026-05-16 19:50:12 fitting LR cv=5
+2026-05-16 19:50:18 run complete
+2026-05-16 19:50:27 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 19:50:27 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_no_binary_all_train_mean_truncate_43f9e20cd325d228.npy
+2026-05-16 19:50:27 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:50:30 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 19:50:31 fitting DT cv=5
+2026-05-16 19:51:06 fitting RF cv=5
+2026-05-16 19:52:48 fitting SVM cv=5
+2026-05-16 19:55:08 fitting LR cv=5
+2026-05-16 19:55:12 run complete
+2026-05-16 19:55:20 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 19:55:20 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_no_binary_all_train_mean_truncate_43f9e20cd325d228.npy
+2026-05-16 19:55:20 loading model=xlm-roberta-base device=cuda
+2026-05-16 19:55:23 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 19:55:24 fitting DT cv=5
+2026-05-16 19:56:00 fitting RF cv=5
+2026-05-16 19:57:46 fitting SVM cv=5
+2026-05-16 20:00:08 fitting LR cv=5
+2026-05-16 20:00:13 run complete
+2026-05-16 20:00:21 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 20:00:21 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:00:24 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 20:01:02 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:01:04 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 20:01:09 fitting DT cv=5
+2026-05-16 20:01:54 fitting RF cv=5
+2026-05-16 20:04:14 fitting SVM cv=5
+2026-05-16 20:08:37 fitting LR cv=5
+2026-05-16 20:09:01 run complete
+2026-05-16 20:09:12 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 20:09:12 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_no_multiclass_all_train_mean_truncate_2388154b7bce56a3.npy
+2026-05-16 20:09:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:09:16 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 20:09:17 fitting DT cv=5
+2026-05-16 20:10:02 fitting RF cv=5
+2026-05-16 20:12:18 fitting SVM cv=5
+2026-05-16 20:16:44 fitting LR cv=5
+2026-05-16 20:17:05 run complete
+2026-05-16 20:17:13 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 20:17:13 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_no_multiclass_all_train_mean_truncate_2388154b7bce56a3.npy
+2026-05-16 20:17:13 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:17:16 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 20:17:17 fitting DT cv=5
+2026-05-16 20:18:02 fitting RF cv=5
+2026-05-16 20:20:16 fitting SVM cv=5
+2026-05-16 20:24:44 fitting LR cv=5
+2026-05-16 20:25:06 run complete
+2026-05-16 20:25:13 run start model=xlm-roberta-base seed=44 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 20:25:13 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_no_multiclass_all_train_mean_truncate_2388154b7bce56a3.npy
+2026-05-16 20:25:13 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:25:16 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 20:25:17 fitting DT cv=5
+2026-05-16 20:26:01 fitting RF cv=5
+2026-05-16 20:28:18 fitting SVM cv=5
+2026-05-16 20:33:09 fitting LR cv=5
+2026-05-16 20:33:41 run complete
+2026-05-16 20:33:51 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 20:33:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:33:56 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 20:34:28 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:34:30 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 20:34:34 fitting DT cv=5
+2026-05-16 20:35:13 fitting RF cv=5
+2026-05-16 20:37:04 fitting SVM cv=5
+2026-05-16 20:39:49 fitting LR cv=5
+2026-05-16 20:39:53 run complete
+2026-05-16 20:40:03 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 20:40:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_yes_binary_all_train_mean_truncate_73074a4cc3dc679a.npy
+2026-05-16 20:40:03 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:40:08 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 20:40:09 fitting DT cv=5
+2026-05-16 20:40:48 fitting RF cv=5
+2026-05-16 20:42:38 fitting SVM cv=5
+2026-05-16 20:45:11 fitting LR cv=5
+2026-05-16 20:45:14 run complete
+2026-05-16 20:45:25 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 20:45:25 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_yes_binary_all_train_mean_truncate_73074a4cc3dc679a.npy
+2026-05-16 20:45:25 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:45:30 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 20:45:31 fitting DT cv=5
+2026-05-16 20:46:10 fitting RF cv=5
+2026-05-16 20:47:58 fitting SVM cv=5
+2026-05-16 20:50:40 fitting LR cv=5
+2026-05-16 20:50:44 run complete
+2026-05-16 20:50:56 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 20:50:56 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_yes_binary_all_train_mean_truncate_73074a4cc3dc679a.npy
+2026-05-16 20:50:56 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:51:01 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 20:51:02 fitting DT cv=5
+2026-05-16 20:51:41 fitting RF cv=5
+2026-05-16 20:53:32 fitting SVM cv=5
+2026-05-16 20:56:29 fitting LR cv=5
+2026-05-16 20:56:32 run complete
+2026-05-16 20:56:43 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 20:56:43 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:56:48 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 20:57:29 loading model=xlm-roberta-base device=cuda
+2026-05-16 20:57:31 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 20:57:35 fitting DT cv=5
+2026-05-16 20:58:22 fitting RF cv=5
+2026-05-16 21:01:01 fitting SVM cv=5
+2026-05-16 21:07:02 fitting LR cv=5
+2026-05-16 21:07:37 run complete
+2026-05-16 21:07:51 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 21:07:51 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_yes_multiclass_all_train_mean_truncate_dc28ad16bc5f12f9.npy
+2026-05-16 21:07:51 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:07:57 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 21:07:58 fitting DT cv=5
+2026-05-16 21:08:45 fitting RF cv=5
+2026-05-16 21:11:27 fitting SVM cv=5
+2026-05-16 21:17:07 fitting LR cv=5
+2026-05-16 21:17:34 run complete
+2026-05-16 21:17:48 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 21:17:48 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_yes_multiclass_all_train_mean_truncate_dc28ad16bc5f12f9.npy
+2026-05-16 21:17:48 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:17:54 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 21:17:56 fitting DT cv=5
+2026-05-16 21:18:43 fitting RF cv=5
+2026-05-16 21:21:25 fitting SVM cv=5
+2026-05-16 21:26:45 fitting LR cv=5
+2026-05-16 21:27:21 run complete
+2026-05-16 21:27:35 run start model=xlm-roberta-base seed=44 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 21:27:35 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed44_multi_yes_multiclass_all_train_mean_truncate_dc28ad16bc5f12f9.npy
+2026-05-16 21:27:35 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:27:41 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 21:27:43 fitting DT cv=5
+2026-05-16 21:28:31 fitting RF cv=5
+2026-05-16 21:31:09 fitting SVM cv=5
+2026-05-16 21:36:20 fitting LR cv=5
+2026-05-16 21:36:45 run complete
+2026-05-16 21:36:57 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-16 21:36:57 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:37:02 encoding split=train rows=2140 pooling=mean length_mode=truncate
+2026-05-16 21:37:27 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:37:29 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 21:37:32 fitting DT cv=5
+2026-05-16 21:38:02 fitting RF cv=5
+2026-05-16 21:39:30 fitting SVM cv=5
+2026-05-16 21:40:48 fitting LR cv=5
+2026-05-16 21:40:50 run complete
+2026-05-16 21:41:01 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-16 21:41:01 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:41:06 encoding split=train rows=172 pooling=mean length_mode=truncate
+2026-05-16 21:41:07 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:41:10 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 21:41:10 fitting DT cv=5
+2026-05-16 21:41:11 fitting RF cv=5
+2026-05-16 21:41:15 fitting SVM cv=5
+2026-05-16 21:41:15 fitting LR cv=5
+2026-05-16 21:41:16 run complete
+2026-05-16 21:41:27 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-16 21:41:27 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:41:30 encoding split=train rows=351 pooling=mean length_mode=truncate
+2026-05-16 21:41:33 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:41:35 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 21:41:36 fitting DT cv=5
+2026-05-16 21:41:38 fitting RF cv=5
+2026-05-16 21:41:46 fitting SVM cv=5
+2026-05-16 21:41:47 fitting LR cv=5
+2026-05-16 21:41:48 run complete
+2026-05-16 21:41:58 run start model=xlm-roberta-base seed=45 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-16 21:41:58 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:42:01 encoding split=train rows=233 pooling=mean length_mode=truncate
+2026-05-16 21:42:04 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:42:06 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 21:42:07 fitting DT cv=5
+2026-05-16 21:42:08 fitting RF cv=5
+2026-05-16 21:42:14 fitting SVM cv=5
+2026-05-16 21:42:15 fitting LR cv=5
+2026-05-16 21:42:15 run complete
+2026-05-16 21:42:26 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-16 21:42:26 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:42:29 encoding split=train rows=2449 pooling=mean length_mode=truncate
+2026-05-16 21:42:59 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:43:04 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 21:43:09 fitting DT cv=5
+2026-05-16 21:43:43 fitting RF cv=5
+2026-05-16 21:45:49 fitting SVM cv=5
+2026-05-16 21:48:04 fitting LR cv=5
+2026-05-16 21:48:21 run complete
+2026-05-16 21:48:32 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-16 21:48:32 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:48:37 encoding split=train rows=211 pooling=mean length_mode=truncate
+2026-05-16 21:48:39 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:48:42 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 21:48:42 fitting DT cv=5
+2026-05-16 21:48:43 fitting RF cv=5
+2026-05-16 21:48:48 fitting SVM cv=5
+2026-05-16 21:48:49 fitting LR cv=5
+2026-05-16 21:48:51 run complete
+2026-05-16 21:49:00 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-16 21:49:00 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:49:02 encoding split=train rows=610 pooling=mean length_mode=truncate
+2026-05-16 21:49:07 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:49:09 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 21:49:11 fitting DT cv=5
+2026-05-16 21:49:15 fitting RF cv=5
+2026-05-16 21:49:30 fitting SVM cv=5
+2026-05-16 21:49:37 fitting LR cv=5
+2026-05-16 21:49:43 run complete
+2026-05-16 21:49:52 run start model=xlm-roberta-base seed=45 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-16 21:49:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:49:54 encoding split=train rows=303 pooling=mean length_mode=truncate
+2026-05-16 21:49:57 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:50:00 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 21:50:01 fitting DT cv=5
+2026-05-16 21:50:03 fitting RF cv=5
+2026-05-16 21:50:11 fitting SVM cv=5
+2026-05-16 21:50:13 fitting LR cv=5
+2026-05-16 21:50:14 run complete
+2026-05-16 21:50:22 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 21:50:22 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:50:24 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 21:50:55 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:50:57 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 21:51:00 fitting DT cv=5
+2026-05-16 21:51:41 fitting RF cv=5
+2026-05-16 21:53:39 fitting SVM cv=5
+2026-05-16 21:56:37 fitting LR cv=5
+2026-05-16 21:56:41 run complete
+2026-05-16 21:56:52 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 21:56:52 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_no_binary_all_train_mean_truncate_82350cf9fb6ea28f.npy
+2026-05-16 21:56:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 21:56:58 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 21:56:58 fitting DT cv=5
+2026-05-16 21:57:38 fitting RF cv=5
+2026-05-16 21:59:29 fitting SVM cv=5
+2026-05-16 22:02:27 fitting LR cv=5
+2026-05-16 22:02:31 run complete
+2026-05-16 22:02:42 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 22:02:42 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_no_binary_all_train_mean_truncate_82350cf9fb6ea28f.npy
+2026-05-16 22:02:42 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:02:47 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 22:02:48 fitting DT cv=5
+2026-05-16 22:03:28 fitting RF cv=5
+2026-05-16 22:05:21 fitting SVM cv=5
+2026-05-16 22:08:01 fitting LR cv=5
+2026-05-16 22:08:06 run complete
+2026-05-16 22:08:17 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 22:08:17 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_no_binary_all_train_mean_truncate_82350cf9fb6ea28f.npy
+2026-05-16 22:08:17 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:08:22 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 22:08:24 fitting DT cv=5
+2026-05-16 22:09:04 fitting RF cv=5
+2026-05-16 22:10:56 fitting SVM cv=5
+2026-05-16 22:13:30 fitting LR cv=5
+2026-05-16 22:13:34 run complete
+2026-05-16 22:13:44 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 22:13:44 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:13:49 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 22:14:28 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:14:30 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 22:14:34 fitting DT cv=5
+2026-05-16 22:15:21 fitting RF cv=5
+2026-05-16 22:17:50 fitting SVM cv=5
+2026-05-16 22:23:30 fitting LR cv=5
+2026-05-16 22:23:58 run complete
+2026-05-16 22:24:10 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 22:24:10 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_no_multiclass_all_train_mean_truncate_7dcc8e9b71b19ca5.npy
+2026-05-16 22:24:10 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:24:15 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 22:24:16 fitting DT cv=5
+2026-05-16 22:25:02 fitting RF cv=5
+2026-05-16 22:27:32 fitting SVM cv=5
+2026-05-16 22:32:52 fitting LR cv=5
+2026-05-16 22:33:19 run complete
+2026-05-16 22:33:27 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 22:33:27 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_no_multiclass_all_train_mean_truncate_7dcc8e9b71b19ca5.npy
+2026-05-16 22:33:27 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:33:30 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 22:33:32 fitting DT cv=5
+2026-05-16 22:34:17 fitting RF cv=5
+2026-05-16 22:36:44 fitting SVM cv=5
+2026-05-16 22:42:02 fitting LR cv=5
+2026-05-16 22:42:30 run complete
+2026-05-16 22:42:38 run start model=xlm-roberta-base seed=45 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 22:42:38 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_no_multiclass_all_train_mean_truncate_7dcc8e9b71b19ca5.npy
+2026-05-16 22:42:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:42:41 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 22:42:42 fitting DT cv=5
+2026-05-16 22:43:28 fitting RF cv=5
+2026-05-16 22:45:54 fitting SVM cv=5
+2026-05-16 22:50:50 fitting LR cv=5
+2026-05-16 22:51:18 run complete
+2026-05-16 22:51:26 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-16 22:51:26 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:51:29 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-16 22:52:03 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:52:05 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-16 22:52:09 fitting DT cv=5
+2026-05-16 22:52:47 fitting RF cv=5
+2026-05-16 22:54:48 fitting SVM cv=5
+2026-05-16 22:57:24 fitting LR cv=5
+2026-05-16 22:57:28 run complete
+2026-05-16 22:57:37 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-16 22:57:37 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_yes_binary_all_train_mean_truncate_941464fae8c8ddfa.npy
+2026-05-16 22:57:37 loading model=xlm-roberta-base device=cuda
+2026-05-16 22:57:40 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-16 22:57:41 fitting DT cv=5
+2026-05-16 22:58:20 fitting RF cv=5
+2026-05-16 23:00:38 fitting SVM cv=5
+2026-05-16 23:04:34 fitting LR cv=5
+2026-05-16 23:04:38 run complete
+2026-05-16 23:04:52 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-16 23:04:52 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_yes_binary_all_train_mean_truncate_941464fae8c8ddfa.npy
+2026-05-16 23:04:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 23:04:57 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-16 23:04:59 fitting DT cv=5
+2026-05-16 23:05:44 fitting RF cv=5
+2026-05-16 23:08:03 fitting SVM cv=5
+2026-05-16 23:11:55 fitting LR cv=5
+2026-05-16 23:12:00 run complete
+2026-05-16 23:12:12 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-16 23:12:12 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_yes_binary_all_train_mean_truncate_941464fae8c8ddfa.npy
+2026-05-16 23:12:12 loading model=xlm-roberta-base device=cuda
+2026-05-16 23:12:14 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-16 23:12:16 fitting DT cv=5
+2026-05-16 23:13:00 fitting RF cv=5
+2026-05-16 23:15:18 fitting SVM cv=5
+2026-05-16 23:19:20 fitting LR cv=5
+2026-05-16 23:19:25 run complete
+2026-05-16 23:19:38 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-16 23:19:38 loading model=xlm-roberta-base device=cuda
+2026-05-16 23:19:41 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-16 23:20:35 loading model=xlm-roberta-base device=cuda
+2026-05-16 23:20:37 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-16 23:20:43 fitting DT cv=5
+2026-05-16 23:21:36 fitting RF cv=5
+2026-05-16 23:24:40 fitting SVM cv=5
+2026-05-16 23:32:04 fitting LR cv=5
+2026-05-16 23:32:39 run complete
+2026-05-16 23:32:52 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-16 23:32:52 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_yes_multiclass_all_train_mean_truncate_6c075b27a8db2f95.npy
+2026-05-16 23:32:52 loading model=xlm-roberta-base device=cuda
+2026-05-16 23:32:58 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-16 23:32:59 fitting DT cv=5
+2026-05-16 23:33:51 fitting RF cv=5
+2026-05-16 23:36:51 fitting SVM cv=5
+2026-05-16 23:44:15 fitting LR cv=5
+2026-05-16 23:44:48 run complete
+2026-05-16 23:45:01 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-16 23:45:01 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_yes_multiclass_all_train_mean_truncate_6c075b27a8db2f95.npy
+2026-05-16 23:45:01 loading model=xlm-roberta-base device=cuda
+2026-05-16 23:45:06 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-16 23:45:09 fitting DT cv=5
+2026-05-16 23:46:01 fitting RF cv=5
+2026-05-16 23:48:58 fitting SVM cv=5
+2026-05-16 23:56:22 fitting LR cv=5
+2026-05-16 23:56:55 run complete
+2026-05-16 23:57:08 run start model=xlm-roberta-base seed=45 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-16 23:57:08 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed45_multi_yes_multiclass_all_train_mean_truncate_6c075b27a8db2f95.npy
+2026-05-16 23:57:08 loading model=xlm-roberta-base device=cuda
+2026-05-16 23:57:14 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-16 23:57:15 fitting DT cv=5
+2026-05-16 23:58:08 fitting RF cv=5
+2026-05-17 00:01:07 fitting SVM cv=5
+2026-05-17 00:08:27 fitting LR cv=5
+2026-05-17 00:08:58 run complete
+2026-05-17 00:09:10 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-17 00:09:10 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:09:16 encoding split=train rows=2140 pooling=mean length_mode=truncate
+2026-05-17 00:09:47 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:09:49 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-17 00:09:53 fitting DT cv=5
+2026-05-17 00:10:25 fitting RF cv=5
+2026-05-17 00:12:00 fitting SVM cv=5
+2026-05-17 00:13:28 fitting LR cv=5
+2026-05-17 00:13:31 run complete
+2026-05-17 00:13:43 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-17 00:13:43 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:13:46 encoding split=train rows=172 pooling=mean length_mode=truncate
+2026-05-17 00:13:47 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:13:50 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-17 00:13:50 fitting DT cv=5
+2026-05-17 00:13:51 fitting RF cv=5
+2026-05-17 00:13:56 fitting SVM cv=5
+2026-05-17 00:13:57 fitting LR cv=5
+2026-05-17 00:13:57 run complete
+2026-05-17 00:14:07 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-17 00:14:07 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:14:10 encoding split=train rows=351 pooling=mean length_mode=truncate
+2026-05-17 00:14:14 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:14:17 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-17 00:14:17 fitting DT cv=5
+2026-05-17 00:14:20 fitting RF cv=5
+2026-05-17 00:14:29 fitting SVM cv=5
+2026-05-17 00:14:31 fitting LR cv=5
+2026-05-17 00:14:32 run complete
+2026-05-17 00:14:42 run start model=xlm-roberta-base seed=46 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-17 00:14:42 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:14:44 encoding split=train rows=233 pooling=mean length_mode=truncate
+2026-05-17 00:14:48 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:14:50 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-17 00:14:51 fitting DT cv=5
+2026-05-17 00:14:53 fitting RF cv=5
+2026-05-17 00:14:59 fitting SVM cv=5
+2026-05-17 00:15:00 fitting LR cv=5
+2026-05-17 00:15:00 run complete
+2026-05-17 00:15:10 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-17 00:15:10 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:15:13 encoding split=train rows=2449 pooling=mean length_mode=truncate
+2026-05-17 00:15:55 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:15:58 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-17 00:16:04 fitting DT cv=5
+2026-05-17 00:16:42 fitting RF cv=5
+2026-05-17 00:18:43 fitting SVM cv=5
+2026-05-17 00:21:20 fitting LR cv=5
+2026-05-17 00:21:38 run complete
+2026-05-17 00:21:50 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-17 00:21:50 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:21:56 encoding split=train rows=211 pooling=mean length_mode=truncate
+2026-05-17 00:21:58 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:22:00 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-17 00:22:01 fitting DT cv=5
+2026-05-17 00:22:02 fitting RF cv=5
+2026-05-17 00:22:08 fitting SVM cv=5
+2026-05-17 00:22:09 fitting LR cv=5
+2026-05-17 00:22:11 run complete
+2026-05-17 00:22:21 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-17 00:22:21 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:22:24 encoding split=train rows=610 pooling=mean length_mode=truncate
+2026-05-17 00:22:31 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:22:33 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-17 00:22:35 fitting DT cv=5
+2026-05-17 00:22:40 fitting RF cv=5
+2026-05-17 00:22:58 fitting SVM cv=5
+2026-05-17 00:23:05 fitting LR cv=5
+2026-05-17 00:23:12 run complete
+2026-05-17 00:23:22 run start model=xlm-roberta-base seed=46 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-17 00:23:22 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:23:25 encoding split=train rows=303 pooling=mean length_mode=truncate
+2026-05-17 00:23:29 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:23:31 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-17 00:23:32 fitting DT cv=5
+2026-05-17 00:23:35 fitting RF cv=5
+2026-05-17 00:23:44 fitting SVM cv=5
+2026-05-17 00:23:46 fitting LR cv=5
+2026-05-17 00:23:48 run complete
+2026-05-17 00:23:58 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-17 00:23:58 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:24:01 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-17 00:24:34 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:24:37 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-17 00:24:40 fitting DT cv=5
+2026-05-17 00:25:17 fitting RF cv=5
+2026-05-17 00:27:06 fitting SVM cv=5
+2026-05-17 00:28:58 fitting LR cv=5
+2026-05-17 00:29:02 run complete
+2026-05-17 00:29:10 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-17 00:29:10 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_no_binary_all_train_mean_truncate_d8fef90b035f19c3.npy
+2026-05-17 00:29:10 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:29:12 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-17 00:29:13 fitting DT cv=5
+2026-05-17 00:29:49 fitting RF cv=5
+2026-05-17 00:31:38 fitting SVM cv=5
+2026-05-17 00:33:33 fitting LR cv=5
+2026-05-17 00:33:37 run complete
+2026-05-17 00:33:46 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-17 00:33:46 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_no_binary_all_train_mean_truncate_d8fef90b035f19c3.npy
+2026-05-17 00:33:46 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:33:48 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-17 00:33:49 fitting DT cv=5
+2026-05-17 00:34:25 fitting RF cv=5
+2026-05-17 00:36:15 fitting SVM cv=5
+2026-05-17 00:38:26 fitting LR cv=5
+2026-05-17 00:38:30 run complete
+2026-05-17 00:38:38 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-17 00:38:38 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_no_binary_all_train_mean_truncate_d8fef90b035f19c3.npy
+2026-05-17 00:38:38 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:38:40 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-17 00:38:41 fitting DT cv=5
+2026-05-17 00:39:16 fitting RF cv=5
+2026-05-17 00:41:03 fitting SVM cv=5
+2026-05-17 00:43:13 fitting LR cv=5
+2026-05-17 00:43:17 run complete
+2026-05-17 00:43:25 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-17 00:43:25 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:43:27 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-17 00:44:05 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:44:07 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-17 00:44:11 fitting DT cv=5
+2026-05-17 00:44:54 fitting RF cv=5
+2026-05-17 00:47:06 fitting SVM cv=5
+2026-05-17 00:51:31 fitting LR cv=5
+2026-05-17 00:51:57 run complete
+2026-05-17 00:52:04 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-17 00:52:04 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_no_multiclass_all_train_mean_truncate_74766d7715d67832.npy
+2026-05-17 00:52:04 loading model=xlm-roberta-base device=cuda
+2026-05-17 00:52:07 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-17 00:52:07 fitting DT cv=5
+2026-05-17 00:52:50 fitting RF cv=5
+2026-05-17 00:55:03 fitting SVM cv=5
+2026-05-17 00:59:36 fitting LR cv=5
+2026-05-17 01:00:02 run complete
+2026-05-17 01:00:09 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-17 01:00:09 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_no_multiclass_all_train_mean_truncate_74766d7715d67832.npy
+2026-05-17 01:00:09 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:00:11 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-17 01:00:13 fitting DT cv=5
+2026-05-17 01:00:55 fitting RF cv=5
+2026-05-17 01:03:07 fitting SVM cv=5
+2026-05-17 01:07:28 fitting LR cv=5
+2026-05-17 01:07:50 run complete
+2026-05-17 01:07:57 run start model=xlm-roberta-base seed=46 setting=Multilingual-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-17 01:07:57 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_no_multiclass_all_train_mean_truncate_74766d7715d67832.npy
+2026-05-17 01:07:57 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:08:00 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-17 01:08:01 fitting DT cv=5
+2026-05-17 01:08:43 fitting RF cv=5
+2026-05-17 01:10:55 fitting SVM cv=5
+2026-05-17 01:15:07 fitting LR cv=5
+2026-05-17 01:15:29 run complete
+2026-05-17 01:15:37 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-17 01:15:37 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:15:39 encoding split=train rows=2896 pooling=mean length_mode=truncate
+2026-05-17 01:16:08 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:16:10 encoding split=test rows=194 pooling=mean length_mode=truncate
+2026-05-17 01:16:13 fitting DT cv=5
+2026-05-17 01:16:49 fitting RF cv=5
+2026-05-17 01:18:35 fitting SVM cv=5
+2026-05-17 01:20:44 fitting LR cv=5
+2026-05-17 01:20:47 run complete
+2026-05-17 01:20:55 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=gr train=2896 test=43 smoke=False
+2026-05-17 01:20:55 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_yes_binary_all_train_mean_truncate_69c505407437be6e.npy
+2026-05-17 01:20:55 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:20:57 encoding split=test rows=43 pooling=mean length_mode=truncate
+2026-05-17 01:20:58 fitting DT cv=5
+2026-05-17 01:21:34 fitting RF cv=5
+2026-05-17 01:23:20 fitting SVM cv=5
+2026-05-17 01:25:21 fitting LR cv=5
+2026-05-17 01:25:25 run complete
+2026-05-17 01:26:18 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=cha train=2896 test=88 smoke=False
+2026-05-17 01:26:18 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_yes_binary_all_train_mean_truncate_69c505407437be6e.npy
+2026-05-17 01:26:18 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:26:22 encoding split=test rows=88 pooling=mean length_mode=truncate
+2026-05-17 01:26:23 fitting DT cv=5
+2026-05-17 01:26:59 fitting RF cv=5
+2026-05-17 01:28:44 fitting SVM cv=5
+2026-05-17 01:30:53 fitting LR cv=5
+2026-05-17 01:30:56 run complete
+2026-05-17 01:31:03 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=binary test=spa train=2896 test=59 smoke=False
+2026-05-17 01:31:03 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_yes_binary_all_train_mean_truncate_69c505407437be6e.npy
+2026-05-17 01:31:03 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:31:05 encoding split=test rows=59 pooling=mean length_mode=truncate
+2026-05-17 01:31:07 fitting DT cv=5
+2026-05-17 01:31:43 fitting RF cv=5
+2026-05-17 01:33:28 fitting SVM cv=5
+2026-05-17 01:35:32 fitting LR cv=5
+2026-05-17 01:35:35 run complete
+2026-05-17 01:35:42 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=en train=3573 test=272 smoke=False
+2026-05-17 01:35:42 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:35:45 encoding split=train rows=3573 pooling=mean length_mode=truncate
+2026-05-17 01:36:20 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:36:22 encoding split=test rows=272 pooling=mean length_mode=truncate
+2026-05-17 01:36:27 fitting DT cv=5
+2026-05-17 01:37:10 fitting RF cv=5
+2026-05-17 01:39:37 fitting SVM cv=5
+2026-05-17 01:44:03 fitting LR cv=5
+2026-05-17 01:44:23 run complete
+2026-05-17 01:44:30 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=gr train=3573 test=53 smoke=False
+2026-05-17 01:44:30 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_yes_multiclass_all_train_mean_truncate_09476c2d8d8de778.npy
+2026-05-17 01:44:30 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:44:33 encoding split=test rows=53 pooling=mean length_mode=truncate
+2026-05-17 01:44:33 fitting DT cv=5
+2026-05-17 01:45:16 fitting RF cv=5
+2026-05-17 01:47:43 fitting SVM cv=5
+2026-05-17 01:52:05 fitting LR cv=5
+2026-05-17 01:52:25 run complete
+2026-05-17 01:52:33 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=cha train=3573 test=153 smoke=False
+2026-05-17 01:52:33 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_yes_multiclass_all_train_mean_truncate_09476c2d8d8de778.npy
+2026-05-17 01:52:33 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:52:35 encoding split=test rows=153 pooling=mean length_mode=truncate
+2026-05-17 01:52:37 fitting DT cv=5
+2026-05-17 01:53:20 fitting RF cv=5
+2026-05-17 01:55:48 fitting SVM cv=5
+2026-05-17 01:59:27 fitting LR cv=5
+2026-05-17 01:59:44 run complete
+2026-05-17 01:59:52 run start model=xlm-roberta-base seed=46 setting=Translated-Combined task=multiclass test=spa train=3573 test=76 smoke=False
+2026-05-17 01:59:52 cache hit C:\Users\dhruv\Documents\06 Coding\MultiConAD\tables\01-baselines\transfer-learning-baselines\cache\xlm-roberta-base\mean\truncate\seed46_multi_yes_multiclass_all_train_mean_truncate_09476c2d8d8de778.npy
+2026-05-17 01:59:52 loading model=xlm-roberta-base device=cuda
+2026-05-17 01:59:54 encoding split=test rows=76 pooling=mean length_mode=truncate
+2026-05-17 01:59:55 fitting DT cv=5
+2026-05-17 02:00:39 fitting RF cv=5
+2026-05-17 02:03:11 fitting SVM cv=5
+2026-05-17 02:06:47 fitting LR cv=5
+2026-05-17 02:07:04 run complete
+2026-05-17 02:07:12 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=binary test=en train=2140 test=194 smoke=False
+2026-05-17 02:07:12 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:07:12 local model load missed for bert-base-multilingual-cased; falling back to remote load: 'NoneType' object has no attribute 'endswith'
+2026-05-17 02:09:24 encoding split=train rows=2140 pooling=cls length_mode=truncate
+2026-05-17 02:09:47 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:09:47 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-17 02:09:50 fitting DT cv=5
+2026-05-17 02:10:16 fitting RF cv=5
+2026-05-17 02:11:40 fitting SVM cv=5
+2026-05-17 02:12:45 fitting LR cv=5
+2026-05-17 02:12:47 run complete
+2026-05-17 02:12:54 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=binary test=gr train=172 test=43 smoke=False
+2026-05-17 02:12:54 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:12:56 encoding split=train rows=172 pooling=cls length_mode=truncate
+2026-05-17 02:12:57 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:12:58 encoding split=test rows=43 pooling=cls length_mode=truncate
+2026-05-17 02:12:58 fitting DT cv=5
+2026-05-17 02:12:59 fitting RF cv=5
+2026-05-17 02:13:03 fitting SVM cv=5
+2026-05-17 02:13:03 fitting LR cv=5
+2026-05-17 02:13:04 run complete
+2026-05-17 02:13:11 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=binary test=cha train=351 test=88 smoke=False
+2026-05-17 02:13:11 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:13:12 encoding split=train rows=351 pooling=cls length_mode=truncate
+2026-05-17 02:13:15 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:13:16 encoding split=test rows=88 pooling=cls length_mode=truncate
+2026-05-17 02:13:17 fitting DT cv=5
+2026-05-17 02:13:19 fitting RF cv=5
+2026-05-17 02:13:26 fitting SVM cv=5
+2026-05-17 02:13:27 fitting LR cv=5
+2026-05-17 02:13:28 run complete
+2026-05-17 02:13:35 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=binary test=spa train=233 test=59 smoke=False
+2026-05-17 02:13:35 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:13:37 encoding split=train rows=233 pooling=cls length_mode=truncate
+2026-05-17 02:13:39 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:13:40 encoding split=test rows=59 pooling=cls length_mode=truncate
+2026-05-17 02:13:41 fitting DT cv=5
+2026-05-17 02:13:42 fitting RF cv=5
+2026-05-17 02:13:47 fitting SVM cv=5
+2026-05-17 02:13:47 fitting LR cv=5
+2026-05-17 02:13:48 run complete
+2026-05-17 02:13:55 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=multiclass test=en train=2449 test=272 smoke=False
+2026-05-17 02:13:55 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:13:57 encoding split=train rows=2449 pooling=cls length_mode=truncate
+2026-05-17 02:14:24 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:14:25 encoding split=test rows=272 pooling=cls length_mode=truncate
+2026-05-17 02:14:29 fitting DT cv=5
+2026-05-17 02:15:01 fitting RF cv=5
+2026-05-17 02:16:44 fitting SVM cv=5
+2026-05-17 02:18:29 fitting LR cv=5
+2026-05-17 02:18:37 run complete
+2026-05-17 02:18:44 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=multiclass test=gr train=211 test=53 smoke=False
+2026-05-17 02:18:44 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:18:46 encoding split=train rows=211 pooling=cls length_mode=truncate
+2026-05-17 02:18:47 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:18:48 encoding split=test rows=53 pooling=cls length_mode=truncate
+2026-05-17 02:18:49 fitting DT cv=5
+2026-05-17 02:18:50 fitting RF cv=5
+2026-05-17 02:18:54 fitting SVM cv=5
+2026-05-17 02:18:55 fitting LR cv=5
+2026-05-17 02:18:57 run complete
+2026-05-17 02:19:04 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=multiclass test=cha train=610 test=153 smoke=False
+2026-05-17 02:19:04 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:19:05 encoding split=train rows=610 pooling=cls length_mode=truncate
+2026-05-17 02:19:11 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:19:12 encoding split=test rows=153 pooling=cls length_mode=truncate
+2026-05-17 02:19:13 fitting DT cv=5
+2026-05-17 02:19:18 fitting RF cv=5
+2026-05-17 02:19:33 fitting SVM cv=5
+2026-05-17 02:19:39 fitting LR cv=5
+2026-05-17 02:19:42 run complete
+2026-05-17 02:19:50 run start model=bert-base-multilingual-cased seed=42 setting=Monolingual task=multiclass test=spa train=303 test=76 smoke=False
+2026-05-17 02:19:50 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:19:51 encoding split=train rows=303 pooling=cls length_mode=truncate
+2026-05-17 02:19:54 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:19:55 encoding split=test rows=76 pooling=cls length_mode=truncate
+2026-05-17 02:19:55 fitting DT cv=5
+2026-05-17 02:19:57 fitting RF cv=5
+2026-05-17 02:20:05 fitting SVM cv=5
+2026-05-17 02:20:07 fitting LR cv=5
+2026-05-17 02:20:09 run complete
+2026-05-17 02:20:17 run start model=bert-base-multilingual-cased seed=42 setting=Multilingual-Combined task=binary test=en train=2896 test=194 smoke=False
+2026-05-17 02:20:17 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:20:18 encoding split=train rows=2896 pooling=cls length_mode=truncate
+2026-05-17 02:20:47 loading model=bert-base-multilingual-cased device=cuda
+2026-05-17 02:20:48 encoding split=test rows=194 pooling=cls length_mode=truncate
+2026-05-17 02:20:51 fitting DT cv=5
+2026-05-17 02:21:28 fitting RF cv=5
+2026-05-17 02:23:11 fitting SVM cv=5

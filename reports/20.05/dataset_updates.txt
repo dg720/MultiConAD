@@ -1,0 +1,44 @@
+Table 7: Our split (post-cleaning, DS3 label recovery)
+
+Language | Train Split        | Test Split
+         | AD   MCI  HC       | AD   MCI  HC
+---------|--------------------|----------------
+Spanish  | 77   70   156      | 20   17   39
+Chinese  | 119  259  232      | 30   65   58
+Greek    | 142  39   92       | 36   10   23
+English  | 512  309  1628     | 63   78   131
+---------|--------------------|----------------
+Total    | 850  677  2108     | 149  170  251
+
+
+Table 8: Current MultiConAD coverage by modality, task type, and label
+
+Lang.   Source    | Modality   | Task              | Our labels
+                  | Text Audio | PD  FT  SR  FC  NA | DM  AD   MCI  HC
+--------|---------|------------|-------------------|-----------------
+English Pitt      | ✓    ✓     | ✓   ×   ×   ×   ×  | 0   255  42   243
+English Lu        | ✓    ✓     | ✓   ×   ×   ✓   ×  | 6   16   2    27
+English VAS       | ✓    ✓     | ×   ×   ×   ✓   ×  | 29  0    35   36
+English Baycrest  | ✓    ✓     | ×   ×   ✓   ×   ×  | 0   3    7    0
+English Kempler   | ✓    ✓     | ✓   ✓   ×   ×   ×  | 0   7    0    0
+English WLS       | ✓    ✓     | ✓   ✓   ×   ×   ×  | 262 0    0    1106
+English Delaware  | ✓    ✓     | ✓   ×   ×   ×   ✓  | 0   0    148  256
+English Taukdial  | ×    ✓     | ✓   ×   ×   ×   ×  | 0   0    153  93
+--------|---------|------------|-------------------|-----------------
+Spanish Ivanova   | ✓    ✓     | ×   ×   ×   ✓   ✓  | 0   74   87   196
+Spanish PerLA     | ✓    ×     | ✓   ✓   ×   ✓   ×  | 0   23   0    0
+--------|---------|------------|-------------------|-----------------
+Chinese NCMMSE    | ×    ✓     | ✓   ✓   ×   ✓   ×  | 0   114  132  153
+Chinese iFlyTek   | ✓    ×     | ✓   ×   ×   ×   ×  | 0   68   144  111
+Chinese Taukdial  | ✓    ✓     | ✓   ×   ×   ×   ×  | 0   0    131  129
+--------|---------|------------|-------------------|-----------------
+Greek   DS3       | ×    ✓     | ✓   ✓   ×   ×   ×  | 0   168  0    82
+Greek   DS5       | ×    ✓     | ✓   ✓   ×   ×   ×  | 0   26   36   31
+Greek   DS7       | ×    ✓     | ✓   ✓   ×   ×   ×  | 0   27   29   2
+Greek   ADReSS-M  | ×    ✓     | ✓   ×   ×   ×   ×  | 0   22   0    24
+
+Caption: Current MultiConAD coverage by modality, task type, and label. The benchmark is broad but heterogeneous, so pooled results should be paired with task-aware feature analysis.
+
+Key: PD = Picture Description; FT = Fluency Task; SR = Story Retelling; FC = Free Conversation; NA = Narrative.
+
+Audio availability note: Ivanova audio has now been mirrored locally and matches 357/357 CHAT transcripts. PerLA remains text-only because the TalkBank corpus page does not provide media. iFlyTek remains text-only locally; no matching TalkBank DementiaBank media source was found. Delaware has local audio, but two CHAT transcript stems remain unmatched to media files.
